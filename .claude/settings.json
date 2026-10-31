@@ -1,0 +1,48 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(uv sync *)",
+      "Bash(uv add *)",
+      "Bash(uv run pytest *)",
+      "Bash(uv run ruff *)",
+      "Bash(uv run python -m collector *)",
+      "Bash(npm run dev *)",
+      "Bash(npm run test *)",
+      "Bash(npm run check *)",
+      "Bash(npm run build *)",
+      "Bash(npm install *)",
+      "Bash(npx astro *)",
+      "Bash(npx wrangler *)",
+      "Bash(git status *)",
+      "Bash(git diff *)",
+      "Bash(git add *)",
+      "Bash(git commit *)",
+      "Bash(git log *)",
+      "WebSearch",
+      "WebFetch(domain:github.com)",
+      "WebFetch(domain:docs.github.com)",
+      "WebFetch(domain:developers.cloudflare.com)",
+      "WebFetch(domain:docs.astro.build)",
+      "WebFetch(domain:docs.claude.com)"
+    ],
+    "deny": [
+      "Bash(git push *)",
+      "Bash(rm -rf *)",
+      "Read(**/.env)",
+      "Read(**/.env.*)"
+    ]
+  },
+  "hooks": {
+    "PostToolUse": [
+      {
+        "matcher": "Edit|Write",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "\"$CLAUDE_PROJECT_DIR/.claude/hooks/ruff-check.sh\""
+          }
+        ]
+      }
+    ]
+  }
+}

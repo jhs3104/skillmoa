@@ -1,0 +1,226 @@
+{
+  "$defs": {
+    "Category": {
+      "enum": [
+        "development",
+        "testing",
+        "devops",
+        "data",
+        "documents",
+        "design",
+        "writing",
+        "marketing",
+        "productivity",
+        "research",
+        "security",
+        "ai-agents",
+        "other"
+      ],
+      "title": "Category",
+      "type": "string"
+    },
+    "Difficulty": {
+      "enum": [
+        "beginner",
+        "intermediate",
+        "advanced"
+      ],
+      "title": "Difficulty",
+      "type": "string"
+    },
+    "Role": {
+      "description": "추천 질문의 직군 선택지와 같은 어휘를 쓴다.",
+      "enum": [
+        "developer",
+        "designer",
+        "data",
+        "product",
+        "marketer",
+        "writer",
+        "researcher",
+        "general"
+      ],
+      "title": "Role",
+      "type": "string"
+    },
+    "SiteRepository": {
+      "properties": {
+        "defaultBranch": {
+          "title": "Defaultbranch",
+          "type": "string"
+        },
+        "fullName": {
+          "title": "Fullname",
+          "type": "string"
+        },
+        "license": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "License"
+        },
+        "pushedAt": {
+          "format": "date",
+          "title": "Pushedat",
+          "type": "string"
+        },
+        "stars": {
+          "title": "Stars",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "fullName",
+        "stars",
+        "pushedAt",
+        "license",
+        "defaultBranch"
+      ],
+      "title": "SiteRepository",
+      "type": "object"
+    },
+    "SiteSkill": {
+      "properties": {
+        "accessesNetwork": {
+          "title": "Accessesnetwork",
+          "type": "boolean"
+        },
+        "category": {
+          "$ref": "#/$defs/Category"
+        },
+        "firstSeenAt": {
+          "format": "date",
+          "title": "Firstseenat",
+          "type": "string"
+        },
+        "name": {
+          "title": "Name",
+          "type": "string"
+        },
+        "path": {
+          "title": "Path",
+          "type": "string"
+        },
+        "promptVersion": {
+          "title": "Promptversion",
+          "type": "string"
+        },
+        "rank": {
+          "title": "Rank",
+          "type": "integer"
+        },
+        "repository": {
+          "title": "Repository",
+          "type": "string"
+        },
+        "runsExternalCode": {
+          "title": "Runsexternalcode",
+          "type": "boolean"
+        },
+        "slug": {
+          "title": "Slug",
+          "type": "string"
+        },
+        "summary": {
+          "title": "Summary",
+          "type": "string"
+        },
+        "tags": {
+          "$ref": "#/$defs/SiteTags"
+        },
+        "useWhen": {
+          "title": "Usewhen",
+          "type": "string"
+        }
+      },
+      "required": [
+        "slug",
+        "rank",
+        "name",
+        "repository",
+        "path",
+        "firstSeenAt",
+        "summary",
+        "useWhen",
+        "category",
+        "tags",
+        "runsExternalCode",
+        "accessesNetwork",
+        "promptVersion"
+      ],
+      "title": "SiteSkill",
+      "type": "object"
+    },
+    "SiteTags": {
+      "properties": {
+        "difficulty": {
+          "$ref": "#/$defs/Difficulty"
+        },
+        "roles": {
+          "items": {
+            "$ref": "#/$defs/Role"
+          },
+          "title": "Roles",
+          "type": "array"
+        },
+        "useCases": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Usecases",
+          "type": "array"
+        }
+      },
+      "required": [
+        "roles",
+        "useCases",
+        "difficulty"
+      ],
+      "title": "SiteTags",
+      "type": "object"
+    }
+  },
+  "properties": {
+    "bootstrappedOn": {
+      "anyOf": [
+        {
+          "format": "date",
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Bootstrappedon"
+    },
+    "repositories": {
+      "default": [],
+      "items": {
+        "$ref": "#/$defs/SiteRepository"
+      },
+      "title": "Repositories",
+      "type": "array"
+    },
+    "schemaVersion": {
+      "default": 1,
+      "title": "Schemaversion",
+      "type": "integer"
+    },
+    "skills": {
+      "default": [],
+      "items": {
+        "$ref": "#/$defs/SiteSkill"
+      },
+      "title": "Skills",
+      "type": "array"
+    }
+  },
+  "title": "SiteData",
+  "type": "object"
+}
