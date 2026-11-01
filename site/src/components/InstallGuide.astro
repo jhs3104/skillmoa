@@ -1,0 +1,85 @@
+---
+import { INSTALL_TARGETS, installCommand } from '../lib/install';
+
+interface Props {
+  repository: string;
+  path: string;
+}
+
+const { repository, path } = Astro.props;
+---
+
+<div data-install>
+  <div class="tabs" role="tablist" aria-label="에이전트 선택">
+    {INSTALL_TARGETS.map((target, index) => (
+      <button
+        type="button"
+        role="tab"
+        id={`tab-${target.id}`}
+        aria-controls={`panel-${target.id}`}
+        aria-selected={index === 0 ? 'true' : 'false'}
+        tabindex={index === 0 ? 0 : -1}
+        data-agent={target.id}
+      >{target.label}</button>
+    ))}
+  </div>
+  {INSTALL_TARGETS.map((target, index) => (
+    <div
+      class="tab-panel"
+      role="tabpanel"
+      id={`panel-${target.id}`}
+      aria-labelledby={`tab-${target.id}`}
+      hidden={index !== 0}
+    >
+      <h3>모든 프로젝트에서 쓰기</h3>
+      <div class="code">
+        <pre tabindex="0"><code>{installCommand(repository, path, target.personalDirectory)}</code></pre>
+        <button class="copy" type="button" data-copy>복사</button>
+      </div>
+      <h3>현재 프로젝트에서만 쓰기</h3>
+      <div class="code">
+        <pre tabindex="0"><code>{installCommand(repository, path, target.projectDirectory)}</code></pre>
+        <button class="copy" type="button" data-copy>복사</button>
+      </div>
+    </div>
+  ))}
+</div>
+
+<script>
+  const root = document.querySelector<HTMLElement>('[data-install]');
+  if (root) {
+    const tabs = [...root.querySelectorAll<HTMLButtonElement>('[role="tab"]')];
+    const select = (tab: HTMLButtonElement): void => {
+      for (const other of tabs) {
+        const selected = other === tab;
+        other.setAttribute('aria-selected', String(selected));
+        other.tabIndex = selected ? 0 : -1;
+        document.getElementById(other.getAttribute('aria-controls')!)!.hidden = !selected;
+      }
+    };
+
+    tabs.forEach((tab, index) => {
+      tab.addEventListener('click', () => select(tab));
+      tab.addEventListener('keydown', (event) => {
+        const step = event.key === 'ArrowRight' ? 1 : event.key === 'ArrowLeft' ? -1 : 0;
+        if (!step) return;
+        const next = tabs[(index + step + tabs.length) % tabs.length]!;
+        select(next);
+        next.focus();
+      });
+    });
+
+    const preferred = new URLSearchParams(location.search).get('agent');
+    const initial = tabs.find((tab) => tab.dataset.agent === preferred);
+    if (initial) select(initial);
+
+    root.querySelectorAll<HTMLButtonElement>('[data-copy]').forEach((button) => {
+      button.addEventListener('click', async () => {
+        const code = button.parentElement!.querySelector('code')!.textContent ?? '';
+        await navigator.clipboard.writeText(code);
+        button.textContent = '복사됨';
+        setTimeout(() => (button.textContent = '복사'), 1500);
+      });
+    });
+  }
+</script>

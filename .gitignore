@@ -7,3 +7,7 @@ __pycache__
 .ruff_cache
 collector/build
 .env
+.env.*
+.dev.vars
+.wrangler
+.playwright-mcp

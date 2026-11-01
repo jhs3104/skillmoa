@@ -41,7 +41,7 @@ HASH_B = "b" * 40
 DAY = date(2026, 1, 1)
 
 VALID = {
-    "summary_ko": "월별 데이터를 읽어 차트가 들어간 보고서를 만드는 스킬입니다. 표 정리도 함께 합니다.",
+    "summary_ko": "월별 데이터를 읽어 차트가 들어간 보고서를 만드는 스킬입니다. 표도 정리합니다.",
     "use_when": "받은 엑셀을 임원 보고용 문서로 바꿔야 할 때",
     "category": "documents",
     "tags": {"roles": ["general"], "use_cases": ["보고서 작성"], "difficulty": "beginner"},

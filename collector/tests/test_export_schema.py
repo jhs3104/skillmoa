@@ -15,5 +15,10 @@ def test_committed_site_data_matches_contract() -> None:
     SiteData.model_validate(json.loads(raw))
 
 
+def test_sample_site_data_matches_contract() -> None:
+    raw = (SITE_DATA_DIR / "skills.sample.json").read_text(encoding="utf-8")
+    assert SiteData.model_validate(json.loads(raw)).skills
+
+
 def test_site_data_serializes_as_camel_case() -> None:
     assert "schemaVersion" in SiteData().model_dump(by_alias=True)

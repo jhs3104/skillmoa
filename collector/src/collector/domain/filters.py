@@ -68,21 +68,33 @@ def content_exclusion(body: str, min_chars: int) -> ExclusionReason | None:
 def mark_duplicates(
     skills: Mapping[str, SkillRecord], stars: Mapping[str, int]
 ) -> dict[str, SkillRecord]:
-    """같은 해시에서 스타가 가장 많은 저장소의 스킬만 남긴다.
+    """같은 내용과, 한 저장소 안의 같은 이름을 하나만 남긴다.
 
-    다른 사유로 제외된 스킬은 원본 후보가 될 수 없다. 원본이 사라지면 다시 계산되도록
-    기존 DUPLICATE 표시는 매번 지우고 새로 정한다.
+    내용이 같으면 스타가 가장 많은 저장소를 고른다. 플랫폼별 사본처럼 한 저장소에 같은 이름이
+    여럿이면 경로가 가장 얕은 스킬을 고른다. 다른 사유로 제외된 스킬은 후보가 될 수 없고,
+    원본이 사라지면 다시 계산되도록 기존 DUPLICATE 표시는 매번 새로 정한다.
     """
-    groups: defaultdict[str, list[str]] = defaultdict(list)
+    by_hash: defaultdict[str, list[str]] = defaultdict(list)
     for key, skill in skills.items():
         if skill.exclusion in (None, ExclusionReason.DUPLICATE):
-            groups[skill.skill_md_hash].append(key)
+            by_hash[skill.skill_md_hash].append(key)
+    content_winners = [
+        min(keys, key=lambda key: (-stars.get(skills[key].repository, 0), key))
+        for keys in by_hash.values()
+    ]
+
+    by_name: defaultdict[tuple[str, str], list[str]] = defaultdict(list)
+    for key in content_winners:
+        skill = skills[key]
+        by_name[skill.repository, skill.name.lower()].append(key)
+    winners = {
+        min(keys, key=lambda key: (skills[key].path.count("/"), key)) for keys in by_name.values()
+    }
 
     marked = dict(skills)
-    for keys in groups.values():
-        winner = min(keys, key=lambda key: (-stars.get(skills[key].repository, 0), key))
+    for keys in by_hash.values():
         for key in keys:
-            exclusion = None if key == winner else ExclusionReason.DUPLICATE
+            exclusion = None if key in winners else ExclusionReason.DUPLICATE
             if skills[key].exclusion != exclusion:
                 marked[key] = skills[key].model_copy(update={"exclusion": exclusion})
     return marked

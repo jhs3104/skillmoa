@@ -1,0 +1,44 @@
+---
+import { CATEGORY_LABELS, formatDate, formatStars } from '../lib/labels';
+import type { Skill } from '../lib/types';
+
+interface Props {
+  skill: Skill;
+}
+
+const { skill } = Astro.props;
+const searchText = [
+  skill.name,
+  skill.repository,
+  skill.summary,
+  skill.useWhen,
+  CATEGORY_LABELS[skill.category],
+  ...skill.tags.useCases,
+].join(' ').toLowerCase();
+const runsNothing = !skill.runsExternalCode && !skill.accessesNetwork;
+---
+
+<li
+  class="skill"
+  data-id={skill.slug}
+  data-text={searchText}
+  data-category={skill.category}
+  data-rank={skill.rank}
+  data-pushed={skill.pushedAt}
+  data-first-seen={skill.firstSeenAt}
+  data-local={runsNothing ? '1' : '0'}
+>
+  <h3 class="skill__name"><a href={`/skills/${skill.slug}/`}>{skill.name}</a></h3>
+  <p class="skill__repo">{skill.repository}</p>
+  <p class="skill__summary">{skill.summary}</p>
+  <p class="skill__when">{skill.useWhen}</p>
+  <div class="skill__meta">
+    <span class="stat stat--stars" title="저장소 전체의 GitHub 스타"><span class="visually-hidden">저장소 스타 </span>★ <b>{formatStars(skill.stars)}</b></span>
+    <span class="stat stat--updated"><span class="visually-hidden">최근 업데이트 </span>{formatDate(skill.pushedAt)}</span>
+    <span class="badges">
+      <span class="badge badge--category">{CATEGORY_LABELS[skill.category]}</span>
+      {skill.runsExternalCode && <span class="badge badge--caution">코드 실행</span>}
+      {skill.accessesNetwork && <span class="badge badge--caution">네트워크</span>}
+    </span>
+  </div>
+</li>

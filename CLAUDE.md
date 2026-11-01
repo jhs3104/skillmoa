@@ -9,6 +9,7 @@ Claude Code / Codex / Cursor 등에서 쓰는 SKILL.md 기반 스킬을 한국�
 
 ## 작업 방식
 
+- 단계별로 진행하고, 단계가 끝나면 멈춰서 확인받는다.
 - 단계가 끝날 때 검증한다: collector는 `uv run pytest`, site는 `npm run check`.
 - 커밋까지만 한다. 원격 반영은 사용자가 직접 한다 (`git push` 금지).
 - 요약 프롬프트를 바꾸면 `summary-reviewer` 에이전트로 검증한다.
@@ -31,7 +32,7 @@ Claude Code / Codex / Cursor 등에서 쓰는 SKILL.md 기반 스킬을 한국�
 - `site/`: Astro + `@astrojs/cloudflare` 어댑터
   - 페이지는 기본 정적(prerender)
   - 동적 기능은 Astro 엔드포인트(`src/pages/api/*`, `prerender=false`)로만 만든다.
-  - Astro 6.x를 쓴다. 7.x는 Node 22.23.4 이상이 필요하다 (ADR-0001).
+  - Astro 7.3.x를 쓴다. 7.4 이상은 Node 22.22 이상이 필요하다 (ADR-0001).
 - `.github/workflows/`: collector 일일 실행 → JSON 커밋 → Cloudflare 자동 재배포
 - `docs/data-flow.md`: 파이프라인 흐름과 파일별 소유자
 - `docs/adr/`: 설계 결정 기록

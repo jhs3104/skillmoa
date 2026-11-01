@@ -1,0 +1,26 @@
+---
+import Browse from '../../components/Browse.astro';
+import Layout from '../../layouts/Layout.astro';
+import { bootstrappedOn, skills } from '../../lib/data';
+import { isNewSkill, NEW_SKILL_DAYS } from '../../lib/freshness';
+
+const today = new Date().toISOString().slice(0, 10);
+const fresh = skills
+  .filter((skill) => isNewSkill(skill.firstSeenAt, today, bootstrappedOn))
+  .sort((a, b) => b.firstSeenAt.localeCompare(a.firstSeenAt) || a.rank - b.rank);
+---
+
+<Layout
+  title="새로 나온 스킬"
+  description={`최근 ${NEW_SKILL_DAYS}일 안에 발견된 AI 에이전트 스킬을 모았습니다.`}
+>
+  <section class="lede">
+    <h1>새로 나온 스킬</h1>
+    <p>최근 {NEW_SKILL_DAYS}일 안에 처음 발견한 스킬입니다. 매일 갱신됩니다.</p>
+  </section>
+  <Browse
+    skills={fresh}
+    emptyTitle="최근 7일 안에 발견한 스킬이 없습니다"
+    emptyBody="새 스킬이 수집되면 이곳에 표시됩니다."
+  />
+</Layout>

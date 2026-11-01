@@ -77,6 +77,21 @@ def test_duplicates_keep_most_starred_repository() -> None:
     assert marked["a"].exclusion == ExclusionReason.DUPLICATE
 
 
+def test_same_name_in_one_repository_keeps_the_shallowest_path() -> None:
+    skills = {
+        "deep": skill("a/x", "platform/skills/search/SKILL.md", sha="a"),
+        "top": skill("a/x", "skills/search/SKILL.md", sha="b"),
+    }
+    marked = mark_duplicates(skills, {"a/x": 1})
+    assert marked["top"].exclusion is None
+    assert marked["deep"].exclusion == ExclusionReason.DUPLICATE
+
+
+def test_same_name_across_repositories_is_kept() -> None:
+    skills = {"a": skill("a/x", "SKILL.md", sha="a"), "b": skill("b/y", "SKILL.md", sha="b")}
+    assert all(item.exclusion is None for item in mark_duplicates(skills, {}).values())
+
+
 def test_duplicate_ties_are_deterministic() -> None:
     skills = {"b": skill("b/y", "SKILL.md"), "a": skill("a/x", "SKILL.md")}
     assert mark_duplicates(skills, {})["a"].exclusion is None

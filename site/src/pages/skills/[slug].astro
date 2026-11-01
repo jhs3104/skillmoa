@@ -1,0 +1,110 @@
+---
+import AdSlot from '../../components/AdSlot.astro';
+import InstallGuide from '../../components/InstallGuide.astro';
+import Layout from '../../layouts/Layout.astro';
+import { repositoryUrl, skills, sourceUrl } from '../../lib/data';
+import {
+  CATEGORY_LABELS,
+  DIFFICULTY_LABELS,
+  formatDate,
+  formatStars,
+  ROLE_LABELS,
+} from '../../lib/labels';
+import { isIndexable, truncate } from '../../lib/seo';
+import type { Skill } from '../../lib/types';
+
+export function getStaticPaths() {
+  return skills.map((skill) => ({ params: { slug: skill.slug }, props: { skill } }));
+}
+
+interface Props {
+  skill: Skill;
+}
+
+const { skill } = Astro.props;
+const related = skills
+  .filter((other) => other.category === skill.category && other.slug !== skill.slug)
+  .slice(0, 4);
+const risks = [
+  skill.runsExternalCode ? '스크립트나 프로그램을 실행합니다' : '',
+  skill.accessesNetwork ? '외부 네트워크에 접속합니다' : '',
+].filter(Boolean);
+const riskNotice = `이 스킬은 ${risks.join('. 또한 ')}. 설치 전에 원본을 확인하세요.`;
+const structuredData = {
+  '@context': 'https://schema.org',
+  '@type': 'SoftwareSourceCode',
+  name: skill.name,
+  description: skill.summary,
+  codeRepository: repositoryUrl(skill),
+  inLanguage: 'ko',
+  ...(skill.license ? { license: skill.license } : {}),
+};
+---
+
+<Layout
+  title={`${skill.name} 스킬`}
+  description={truncate(skill.summary, 150)}
+  noindex={!isIndexable(skill)}
+  {structuredData}
+>
+  <div class="detail">
+    <div class="detail__main">
+      <header>
+        <p class="crumb"><a href="/">둘러보기</a> / <a href={`/?category=${skill.category}`}>{CATEGORY_LABELS[skill.category]}</a></p>
+        <h1>{skill.name}</h1>
+        <p class="detail__summary">{skill.summary}</p>
+      </header>
+
+      <section class="when">
+        <h2>이럴 때 쓰세요</h2>
+        <p>{skill.useWhen}</p>
+      </section>
+
+      {(skill.runsExternalCode || skill.accessesNetwork) && (
+        <p class="notice">{riskNotice}</p>
+      )}
+
+      <section class="section">
+        <h2>설치</h2>
+        <InstallGuide repository={skill.repository} path={skill.path} />
+      </section>
+
+      {related.length > 0 && (
+        <section class="section">
+          <h2>같은 분류의 스킬</h2>
+          <ul class="result-list">
+            {related.map((other) => (
+              <li>
+                <h3 class="result-title"><a href={`/skills/${other.slug}/`}>{other.name}</a></h3>
+                <p>{other.useWhen}</p>
+              </li>
+            ))}
+          </ul>
+        </section>
+      )}
+    </div>
+
+    <aside class="detail__aside">
+      <dl class="facts">
+        <dt>저장소</dt>
+        <dd><a href={repositoryUrl(skill)} rel="noopener noreferrer">{skill.repository}</a></dd>
+        <dt>원문</dt>
+        <dd><a href={sourceUrl(skill)} rel="noopener noreferrer">SKILL.md 보기</a></dd>
+        <dt>라이선스</dt>
+        <dd>{skill.license ?? '명시되지 않음'}</dd>
+        <dt>저장소 스타</dt>
+        <dd>{formatStars(skill.stars)}</dd>
+        <dt>업데이트</dt>
+        <dd>{formatDate(skill.pushedAt)}</dd>
+        <dt>난이도</dt>
+        <dd>{DIFFICULTY_LABELS[skill.tags.difficulty]}</dd>
+        <dt>직군</dt>
+        <dd>{skill.tags.roles.map((role) => ROLE_LABELS[role]).join(', ')}</dd>
+      </dl>
+      <div class="tag-row">
+        {skill.tags.useCases.map((useCase) => <span class="badge">{useCase}</span>)}
+      </div>
+      <AdSlot />
+    </aside>
+  </div>
+</Layout>

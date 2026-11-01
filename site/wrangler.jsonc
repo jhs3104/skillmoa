@@ -1,0 +1,20 @@
+{
+  "$schema": "./node_modules/wrangler/config-schema.json",
+  "name": "skill-directory",
+  "main": "@astrojs/cloudflare/entrypoints/server",
+  "compatibility_date": "2026-10-01",
+  "assets": {
+    "directory": "./dist",
+    "binding": "ASSETS"
+  },
+  "vars": {
+    "RECOMMEND_MODEL": "claude-haiku-5-5"
+  },
+  // id는 `npx wrangler kv namespace create RECOMMEND_KV`의 출력으로 교체한다.
+  "kv_namespaces": [
+    {
+      "binding": "RECOMMEND_KV",
+      "id": "00000000000000000000000000000000"
+    }
+  ]
+}

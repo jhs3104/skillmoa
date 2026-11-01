@@ -1,0 +1,6 @@
+---
+/** 광고를 붙일 때 레이아웃이 밀리지 않도록 자리만 잡아 둔다. 기본은 꺼져 있다. */
+const enabled = import.meta.env.PUBLIC_ADS_ENABLED === '1';
+---
+
+{enabled && <aside class="ad-slot" aria-label="광고">광고</aside>}

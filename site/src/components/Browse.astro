@@ -1,0 +1,88 @@
+---
+import { CATEGORY_LABELS } from '../lib/labels';
+import type { Category, Skill } from '../lib/types';
+import AdSlot from './AdSlot.astro';
+import SkillItem from './SkillItem.astro';
+
+interface Props {
+  skills: Skill[];
+  emptyTitle: string;
+  emptyBody: string;
+}
+
+const { skills, emptyTitle, emptyBody } = Astro.props;
+const counts = new Map<Category, number>();
+for (const skill of skills) counts.set(skill.category, (counts.get(skill.category) ?? 0) + 1);
+const categories = (Object.keys(CATEGORY_LABELS) as Category[]).filter((category) => counts.has(category));
+---
+
+<div class="browse" data-browse data-categories={categories.join(',')}>
+  <dialog class="filters" data-filters aria-label="필터">
+    <div class="filters__head">
+      <h2>필터</h2>
+      <button class="button" type="button" data-filters-close>닫기</button>
+    </div>
+    <fieldset>
+      <legend>카테고리</legend>
+      <label class="choice">
+        <span class="choice__label"><input type="radio" name="category" value="" checked /> 전체</span>
+        <span class="choice__count">{skills.length}</span>
+      </label>
+      {categories.map((category) => (
+        <label class="choice">
+          <span class="choice__label"><input type="radio" name="category" value={category} /> {CATEGORY_LABELS[category]}</span>
+          <span class="choice__count">{counts.get(category)}</span>
+        </label>
+      ))}
+    </fieldset>
+    <fieldset>
+      <legend>안전</legend>
+      <label class="choice">
+        <span class="choice__label"><input type="checkbox" name="local" /> 코드 실행·네트워크 없음</span>
+      </label>
+    </fieldset>
+    <AdSlot />
+  </dialog>
+
+  <div class="browse__main">
+    <div class="toolbar">
+      <label>
+        <span class="visually-hidden">스킬 검색</span>
+        <input class="search" type="search" name="q" placeholder="이름, 용도, 저장소로 검색" autocomplete="off" />
+      </label>
+      <button class="button filter-open" type="button" data-filters-open aria-haspopup="dialog">필터</button>
+    </div>
+    <div class="result-bar">
+      <span role="status" data-count>{skills.length}개 스킬</span>
+      <div class="result-bar__controls">
+        <label>
+          <span class="visually-hidden">정렬</span>
+          <select class="select" name="sort">
+            <option value="stars">스타순</option>
+            <option value="updated">최근 업데이트순</option>
+            <option value="new">신규순</option>
+          </select>
+        </label>
+        <div class="segmented" role="group" aria-label="보기 방식">
+          <button type="button" data-view="cards" aria-pressed="true">카드</button>
+          <button type="button" data-view="table" aria-pressed="false">표</button>
+        </div>
+      </div>
+    </div>
+    <h2 class="visually-hidden">스킬 목록</h2>
+    <ol class="skill-list" data-list data-view="cards">
+      <li class="table-head" aria-hidden="true">
+        <span>스킬</span><span>설명</span><span>스타</span><span>업데이트</span><span>분류</span>
+      </li>
+      {skills.map((skill) => <SkillItem skill={skill} />)}
+    </ol>
+    <p class="empty" data-empty hidden={skills.length > 0}>
+      <strong>{skills.length > 0 ? '조건에 맞는 스킬이 없습니다' : emptyTitle}</strong>
+      {skills.length > 0 ? '검색어를 줄이거나 필터를 해제해 보세요.' : emptyBody}
+    </p>
+  </div>
+</div>
+
+<script>
+  import '../scripts/browse';
+</script>
