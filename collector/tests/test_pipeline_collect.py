@@ -5,7 +5,7 @@ from pathlib import Path
 import httpx
 
 from collector.config import Settings
-from collector.domain.identity import git_blob_sha, skill_key
+from collector.domain.identity import git_blob_sha, repository_key, skill_key
 from collector.domain.models import (
     CollectorState,
     ExclusionReason,
@@ -324,6 +324,79 @@ def test_rate_limit_keeps_progress_for_resume(tmp_path: Path, settings: Settings
     resumed, _ = run_collection(settings, make_client(healthy), paths, options)
     assert resumed.metrics.scanned_repositories == 1
     assert resumed.state.skills
+
+
+def test_daily_scans_only_changed_repositories(tmp_path: Path, settings: Settings) -> None:
+    paths = run_twice_paths(tmp_path)
+    requests: list[str] = []
+    client = make_client(fake_github(requests))
+    bootstrap = RunOptions(mode=Mode.BOOTSTRAP, limit=None, today=TODAY)
+    run_collection(settings, client, paths, bootstrap)
+    requests.clear()
+
+    daily = RunOptions(mode=Mode.DAILY, limit=None, today=date(2026, 11, 2))
+    context, _ = run_collection(settings, client, paths, daily)
+
+    assert context.metrics.refreshed_repositories == 1
+    assert context.metrics.scanned_repositories == 0
+    assert not any("/git/trees/" in path for path in requests)
+    skill = context.state.skills[skill_key("anthropics/skills", "skills/a/SKILL.md")]
+    assert skill.first_seen_at == TODAY
+
+
+def test_daily_discovers_new_repositories_from_topic_search(
+    tmp_path: Path, settings: Settings
+) -> None:
+    paths = run_twice_paths(tmp_path)
+    base = fake_github([])
+    newcomer = fixture_json("search_topic_claude_skills.json")["items"][0]
+
+    def handler(request: httpx.Request) -> httpx.Response:
+        if request.url.path.startswith("/search/repositories"):
+            return httpx.Response(200, json={"items": [newcomer]})
+        return base(request)
+
+    options = RunOptions(mode=Mode.DAILY, limit=None, today=TODAY)
+    context, _ = run_collection(settings, make_client(handler), paths, options)
+
+    assert repository_key(newcomer["full_name"]) in context.state.repositories
+    assert context.metrics.scanned_repositories == 2
+
+
+def test_weekly_adds_repositories_from_code_search(tmp_path: Path, settings: Settings) -> None:
+    paths = run_twice_paths(tmp_path)
+    base = fake_github([])
+    repository = fixture_json("repo_anthropics_skills.json")
+
+    def handler(request: httpx.Request) -> httpx.Response:
+        if request.url.path == "/search/code":
+            return httpx.Response(200, json=fixture_json("code_search_small.json"))
+        if request.url.path in ("/repos/acme/one", "/repos/acme/two"):
+            name = request.url.path.rpartition("/")[2]
+            item = repository | {
+                "id": len(name),
+                "name": name,
+                "owner": {"login": "acme"},
+            }
+            return httpx.Response(200, json=item)
+        return base(request)
+
+    options = RunOptions(mode=Mode.WEEKLY, limit=None, today=TODAY)
+    context, _ = run_collection(settings, make_client(handler), paths, options)
+
+    assert context.state.repositories["acme/one"].sources == ("code_search",)
+    assert "acme/two" in context.state.repositories
+
+
+def test_weekly_without_token_skips_code_search(tmp_path: Path, settings: Settings) -> None:
+    paths = run_twice_paths(tmp_path)
+    requests: list[str] = []
+    options = RunOptions(mode=Mode.WEEKLY, limit=None, today=TODAY)
+    client = make_client(fake_github(requests), token=None)
+
+    run_collection(settings, client, paths, options)
+
+    assert "/search/code" not in requests
 
 
 def test_interrupted_state_round_trips(tmp_path: Path) -> None:

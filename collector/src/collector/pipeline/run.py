@@ -95,9 +95,9 @@ def run_collection(
         logger.warning("레이트 리밋으로 수집을 멈춥니다. 다음 실행에서 이어집니다: %s", error)
         metrics.stopped_by_rate_limit = True
         collect.apply_duplicates(context)
-
-    state.bootstrapped_on = state.bootstrapped_on or options.today
-    save_state(state, paths.state)
+    finally:
+        state.bootstrapped_on = state.bootstrapped_on or options.today
+        save_state(state, paths.state)
     return context, mode
 
 

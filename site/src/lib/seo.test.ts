@@ -3,8 +3,8 @@ import { INDEXABLE_MIN_STARS, isIndexable, truncate } from './seo';
 
 describe('isIndexable', () => {
   it('uses the star threshold', () => {
-    expect(isIndexable({ stars: INDEXABLE_MIN_STARS })).toBe(true);
-    expect(isIndexable({ stars: INDEXABLE_MIN_STARS - 1 })).toBe(false);
+    expect(isIndexable({ slug: 'a', stars: INDEXABLE_MIN_STARS })).toBe(true);
+    expect(isIndexable({ slug: 'a', stars: INDEXABLE_MIN_STARS - 1 })).toBe(false);
   });
 });
 

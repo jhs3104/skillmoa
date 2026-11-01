@@ -78,6 +78,7 @@ class GitHubClient:
             timeout=REQUEST_TIMEOUT_SECONDS,
             follow_redirects=True,
         )
+        self.authenticated = bool(token)
         self._max_wait = max_wait_seconds
         self._sleep = sleep
         self._clock = clock

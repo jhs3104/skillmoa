@@ -78,7 +78,9 @@ def discover(context: CollectContext, *, full_scan: bool, small: bool) -> dict[s
         for repository in context.github.search_repositories(f"topic:{topic}", pages):
             add(repository.full_name, f"topic:{topic}", repository)
 
-    if full_scan:
+    if full_scan and not context.github.authenticated:
+        logger.warning("코드 검색은 토큰이 필요해서 건너뜁니다")
+    elif full_scan:
         search = context.github.search_code
         for full_name in discover_by_size(search, settings.code_search_max_size):
             add(full_name, "code_search")

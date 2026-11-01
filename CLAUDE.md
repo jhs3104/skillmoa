@@ -71,12 +71,14 @@ Claude Code / Codex / Cursor 등에서 쓰는 SKILL.md 기반 스킬을 한국�
 
 - 요약은 새로 쓴 설명이어야 한다. 원문 번역·복사 금지.
 - 원본 링크·라이선스를 항상 표시한다.
-- SEO: 기준(스타 N개 이상 또는 수동 검수) 이상만 index, 나머지는 noindex. 사이트맵에는 index 대상만 넣는다.
+- SEO: 저장소 스타 50개 이상 또는 `site/src/data/reviewed-skills.json`에 있는 스킬만 index, 나머지는 noindex. 사이트맵에는 index 대상만 넣는다.
 
 ## 환경
 
 - M1 8GB 맥북. 로컬은 스킬 10~20개 규모로만 테스트하고, 전체 수집은 GitHub Actions에서 실행한다.
 - dev 서버는 하나만 띄운다.
+- 사이트는 샘플 데이터로 개발한다: `npm run dev:sample`. 샘플은 사람이 쓴 개발용 데이터라 운영 빌드에 들어가지 않는다.
+- `wrangler dev` 실행 중에 다시 빌드하면 자산이 사라진다. 빌드 후 재시작한다.
 - 시스템 `python3`는 3.8이다. collector는 항상 `uv run`으로 실행한다.
 
 ## 디자인

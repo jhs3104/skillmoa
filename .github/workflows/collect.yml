@@ -1,0 +1,98 @@
+name: Collect skills
+
+# push 트리거를 두지 않는다. 이 워크플로가 만든 커밋이 다시 실행을 부르면 루프가 된다.
+on:
+  schedule:
+    - cron: "17 18 * * *" # 매일 03:17 KST
+  workflow_dispatch:
+    inputs:
+      mode:
+        description: 실행 모드
+        type: choice
+        default: auto
+        options: [auto, bootstrap, daily, weekly]
+
+permissions:
+  contents: write
+
+concurrency:
+  group: collect
+  cancel-in-progress: false
+
+jobs:
+  collect:
+    runs-on: ubuntu-latest
+    timeout-minutes: 350
+    defaults:
+      run:
+        working-directory: collector
+    steps:
+      - uses: actions/checkout@v7
+
+      - uses: astral-sh/setup-uv@v10.3.3
+        with:
+          working-directory: collector
+          enable-cache: true
+          cache-dependency-glob: collector/uv.lock
+
+      - name: Install dependencies
+        run: uv sync --locked
+
+      - name: Run tests
+        run: uv run pytest
+
+      - name: Choose mode
+        id: mode
+        env:
+          REQUESTED_MODE: ${{ inputs.mode }}
+        run: |
+          mode="${REQUESTED_MODE:-auto}"
+          if [ "$mode" = auto ] && [ -f state/meta.json ] && [ "$(date -u +%u)" = 7 ]; then
+            mode=weekly
+          fi
+          if [ "$mode" = auto ]; then
+            echo 'arguments=' >> "$GITHUB_OUTPUT"
+          else
+            echo "arguments=--mode $mode" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Collect, summarize, export
+        env:
+          GH_SEARCH_TOKEN: ${{ secrets.GH_SEARCH_TOKEN }}
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          MODE_ARGUMENTS: ${{ steps.mode.outputs.arguments }}
+        # shellcheck disable=SC2086
+        run: uv run python -m collector $MODE_ARGUMENTS
+
+      - name: Report metrics
+        if: always()
+        run: |
+          [ -f build/metrics/latest.json ] || exit 0
+          {
+            echo '### 실행 지표'
+            echo '```json'
+            cat build/metrics/latest.json
+            echo '```'
+          } >> "$GITHUB_STEP_SUMMARY"
+
+      - uses: actions/upload-artifact@v7
+        if: always()
+        with:
+          name: run-metrics
+          path: collector/build/metrics/latest.json
+          if-no-files-found: ignore
+          retention-days: 90
+
+      - name: Commit data
+        working-directory: .
+        run: |
+          git add collector/state site/src/data/skills.json
+          if git diff --cached --quiet; then
+            echo '변경 사항이 없습니다.'
+            exit 0
+          fi
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git commit -m "Update skill data for $(date -u +%F)"
+          git pull --rebase
+          git push
