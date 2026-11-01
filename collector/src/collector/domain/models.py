@@ -97,6 +97,7 @@ class SkillRecord(BaseModel):
     name: str
     first_seen_at: date
     last_seen_at: date
+    license: str | None = None
     exclusion: ExclusionReason | None = None
     bundled_files: tuple[str, ...] = ()
 

@@ -1,0 +1,59 @@
+"""config.toml 로딩. 모델 ID와 한도는 코드가 아니라 이 설정값으로 관리한다."""
+
+import tomllib
+from pathlib import Path
+
+from pydantic import BaseModel, ConfigDict
+
+DEFAULT_CONFIG_PATH = Path(__file__).resolve().parents[2] / "config.toml"
+
+
+class _Section(BaseModel):
+    model_config = ConfigDict(frozen=True, extra="forbid")
+
+
+class DiscoverySettings(_Section):
+    seed_repositories: tuple[str, ...]
+    marketplaces: tuple[str, ...]
+    awesome_lists: tuple[str, ...]
+    topics: tuple[str, ...]
+    search_pages_per_topic: int
+    code_search_max_size: int
+
+
+class FilterSettings(_Section):
+    min_body_chars: int
+
+
+class RankingSettings(_Section):
+    star_decay: float
+    per_repository_cap: int
+    catalog_limit: int
+
+
+class GitHubSettings(_Section):
+    max_wait_seconds_with_token: int
+    max_wait_seconds_anonymous: int
+
+
+class SummarySettings(_Section):
+    model: str
+    prompt_version: str
+    max_calls_per_day: int
+    max_output_tokens: int
+    max_source_chars: int
+    timeout_seconds: float
+    validation_attempts: int
+
+
+class Settings(_Section):
+    discovery: DiscoverySettings
+    filter: FilterSettings
+    ranking: RankingSettings
+    github: GitHubSettings
+    summary: SummarySettings
+
+
+def load_settings(path: Path = DEFAULT_CONFIG_PATH) -> Settings:
+    with path.open("rb") as file:
+        return Settings.model_validate(tomllib.load(file))

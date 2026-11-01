@@ -7,6 +7,11 @@ SKILL_FILE = "SKILL.md"
 _UNSAFE = re.compile(r"[^a-z0-9._-]+")
 
 
+def git_blob_sha(content: bytes) -> str:
+    """git이 blob에 매기는 SHA-1. tree의 sha와 비교해 받은 내용을 검증한다."""
+    return hashlib.sha1(b"blob %d\0" % len(content) + content, usedforsecurity=False).hexdigest()
+
+
 def repository_key(full_name: str) -> str:
     """GitHub 저장소 이름은 대소문자를 구분하지 않으므로 소문자로 통일한다."""
     return full_name.lower()

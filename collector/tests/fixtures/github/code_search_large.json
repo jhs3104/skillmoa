@@ -1,0 +1,13 @@
+{
+  "total_count": 1500,
+  "incomplete_results": false,
+  "items": [
+    {
+      "name": "SKILL.md",
+      "path": "SKILL.md",
+      "repository": {
+        "full_name": "acme/big"
+      }
+    }
+  ]
+}
