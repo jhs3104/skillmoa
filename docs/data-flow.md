@@ -15,7 +15,7 @@ flowchart TD
     gate -- 아니오 --> rank
     tree --> filter["품질 필터<br/>포크, 테스트, 빈 내용, 중복"]
     filter --> rank["순위 계산<br/>ADR-0003"]
-    rank --> summarize["Claude 한국어 요약<br/>해시나 프롬프트가 바뀐 스킬만"]
+    rank --> summarize["Claude 한국어 요약<br/>해시가 바뀐 스킬만"]
     summarize --> state
     state --> export["skills.json export"]
     export --> site["Astro 빌드"]

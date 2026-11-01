@@ -98,6 +98,17 @@
           "title": "Firstseenat",
           "type": "string"
         },
+        "license": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "License"
+        },
         "name": {
           "title": "Name",
           "type": "string"
@@ -144,6 +155,7 @@
         "name",
         "repository",
         "path",
+        "license",
         "firstSeenAt",
         "summary",
         "useWhen",

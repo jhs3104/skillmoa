@@ -40,6 +40,7 @@ class SiteSkill(_CamelModel):
     name: str
     repository: str
     path: str
+    license: str | None
     first_seen_at: date
     summary: str
     use_when: str

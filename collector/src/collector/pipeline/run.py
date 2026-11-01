@@ -9,12 +9,17 @@ from enum import StrEnum
 from pathlib import Path
 
 from collector.config import Settings
+from collector.domain.ranking import rank_skills
+from collector.export.samples import write_samples
+from collector.export.site import build_site_data
 from collector.pipeline import collect
 from collector.pipeline.collect import CollectContext
 from collector.pipeline.content import SkillContentStore
 from collector.pipeline.metrics import RunMetrics
+from collector.pipeline.summarize import summarize_skills
 from collector.sources.github import GitHubClient, RateLimitExceededError
 from collector.store import load_state, save_state, write_json
+from collector.summarize.base import Summarizer
 
 logger = logging.getLogger(__name__)
 
@@ -94,6 +99,36 @@ def run_collection(
     state.bootstrapped_on = state.bootstrapped_on or options.today
     save_state(state, paths.state)
     return context, mode
+
+
+def run_summaries(
+    context: CollectContext,
+    summarizer: Summarizer,
+    paths: Paths,
+    limit: int | None,
+    mode: Mode,
+    *,
+    refresh_prompt: bool = False,
+) -> None:
+    """최초 실행과 소규모 실행은 선별된 목록만, 이후에는 순위 전체를 요약 대상으로 삼는다."""
+    state = context.state
+    stars = {record.full_name: record.stars for record in state.repositories.values()}
+    if limit is not None or mode == Mode.BOOTSTRAP:
+        target = limit or context.settings.ranking.catalog_limit
+        keys = collect.catalog_keys(context, target)
+    else:
+        ranked = rank_skills(state.skills, stars, context.settings.ranking.star_decay)
+        keys = [item.key for item in ranked]
+
+    summarize_skills(context, summarizer, keys, refresh_prompt=refresh_prompt)
+    save_state(state, paths.state)
+    if limit is not None:
+        write_samples(state, keys, context.content, paths.samples)
+
+
+def export_site(context: CollectContext, paths: Paths) -> None:
+    data = build_site_data(context.state, context.settings.ranking.star_decay)
+    write_json(paths.site_data, data.model_dump(mode="json", by_alias=True))
 
 
 def reset_small_run(paths: Paths) -> None:

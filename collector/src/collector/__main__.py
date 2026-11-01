@@ -8,25 +8,49 @@ import time
 from datetime import UTC, datetime
 from pathlib import Path
 
-from collector.config import load_settings
+from collector.config import Settings, load_settings
 from collector.pipeline.run import (
     Mode,
     Paths,
     RunOptions,
+    export_site,
     reset_small_run,
     run_collection,
+    run_summaries,
     write_metrics,
 )
 from collector.sources.github import GitHubClient
+from collector.summarize.base import Summarizer
+from collector.summarize.claude import ClaudeSummarizer
+from collector.summarize.mock import MockSummarizer
 
 COLLECTOR_ROOT = Path(__file__).resolve().parents[2]
+EXIT_USAGE = 2
 
 
 def parse_arguments() -> argparse.Namespace:
     parser = argparse.ArgumentParser(prog="collector", description=__doc__)
     parser.add_argument("--mode", choices=[mode.value for mode in Mode], default=None)
     parser.add_argument("--limit", type=int, help="N개만 처리하고 build/에만 결과를 쓴다")
-    return parser.parse_args()
+    parser.add_argument(
+        "--mock-summary", action="store_true", help="API 없이 자리표시 요약을 쓴다 (--limit 전용)"
+    )
+    parser.add_argument("--skip-summary", action="store_true", help="수집과 내보내기만 한다")
+    parser.add_argument(
+        "--refresh-prompt", action="store_true", help="이전 프롬프트 버전의 요약도 다시 만든다"
+    )
+    arguments = parser.parse_args()
+    if arguments.mock_summary and arguments.limit is None:
+        parser.error("--mock-summary는 --limit과 함께만 쓸 수 있습니다")
+    return arguments
+
+
+def build_summarizer(arguments: argparse.Namespace, settings: Settings) -> Summarizer | None:
+    if arguments.skip_summary:
+        return None
+    if arguments.mock_summary:
+        return MockSummarizer()
+    return ClaudeSummarizer(settings.summary)
 
 
 def main() -> int:
@@ -35,6 +59,12 @@ def main() -> int:
     logging.getLogger("httpx").setLevel(logging.WARNING)
 
     settings = load_settings()
+    needs_api_key = not (arguments.skip_summary or arguments.mock_summary)
+    if needs_api_key and not os.environ.get("ANTHROPIC_API_KEY"):
+        logging.error("ANTHROPIC_API_KEY가 없습니다. --mock-summary나 --skip-summary를 쓰세요")
+        return EXIT_USAGE
+    summarizer = build_summarizer(arguments, settings)
+
     small = arguments.limit is not None
     paths = Paths.small(COLLECTOR_ROOT) if small else Paths.production(COLLECTOR_ROOT)
     if small:
@@ -51,10 +81,21 @@ def main() -> int:
         today=datetime.now(UTC).date(),
     )
     try:
-        context, _ = run_collection(settings, github, paths, options)
+        context, mode = run_collection(settings, github, paths, options)
+        if summarizer is not None:
+            run_summaries(
+                context,
+                summarizer,
+                paths,
+                arguments.limit,
+                mode,
+                refresh_prompt=arguments.refresh_prompt,
+            )
+        export_site(context, paths)
     finally:
         github.close()
-    write_metrics(context.metrics, paths, started_at)
+        if "context" in locals():
+            write_metrics(context.metrics, paths, started_at)
     return 0
 
 
