@@ -1,7 +1,7 @@
 import type { Category, Difficulty, Role } from './types';
 
 export const SITE_NAME = '스킬모아';
-export const HOME_TITLE = '스킬을 한눈에 스킬모아';
+export const HOME_TITLE = '스킬모아 | AI 에이전트 스킬 모음';
 /** 저작자의 삭제·수정 요청을 받는 공개 메일. 비어 있으면 푸터에 표시하지 않는다. */
 export const CONTACT_EMAIL: string = 'contact@skillmoa.com';
 export const STAR_PATH = 'M8 1.2 10.1 5.6l4.8.6-3.5 3.3.9 4.8L8 12l-4.3 2.3.9-4.8L1.1 6.2l4.8-.6Z';
