@@ -33,6 +33,9 @@ def parse_arguments() -> argparse.Namespace:
     parser.add_argument("--mode", choices=[mode.value for mode in Mode], default=None)
     parser.add_argument("--limit", type=int, help="N개만 처리하고 build/에만 결과를 쓴다")
     parser.add_argument(
+        "--repo-cap", type=int, help="저장소당 상한을 낮춰 표본을 넓힌다 (--limit 전용)"
+    )
+    parser.add_argument(
         "--mock-summary", action="store_true", help="API 없이 자리표시 요약을 쓴다 (--limit 전용)"
     )
     parser.add_argument("--skip-summary", action="store_true", help="수집과 내보내기만 한다")
@@ -42,6 +45,8 @@ def parse_arguments() -> argparse.Namespace:
     arguments = parser.parse_args()
     if arguments.mock_summary and arguments.limit is None:
         parser.error("--mock-summary는 --limit과 함께만 쓸 수 있습니다")
+    if arguments.repo_cap is not None and arguments.limit is None:
+        parser.error("--repo-cap은 --limit과 함께만 쓸 수 있습니다")
     return arguments
 
 
@@ -59,6 +64,9 @@ def main() -> int:
     logging.getLogger("httpx").setLevel(logging.WARNING)
 
     settings = load_settings()
+    if arguments.repo_cap is not None:
+        ranking = settings.ranking.model_copy(update={"per_repository_cap": arguments.repo_cap})
+        settings = settings.model_copy(update={"ranking": ranking})
     needs_api_key = not (arguments.skip_summary or arguments.mock_summary)
     if needs_api_key and not os.environ.get("ANTHROPIC_API_KEY"):
         logging.error("ANTHROPIC_API_KEY가 없습니다. --mock-summary나 --skip-summary를 쓰세요")
@@ -81,14 +89,13 @@ def main() -> int:
         today=datetime.now(UTC).date(),
     )
     try:
-        context, mode = run_collection(settings, github, paths, options)
+        context, _ = run_collection(settings, github, paths, options)
         if summarizer is not None:
             run_summaries(
                 context,
                 summarizer,
                 paths,
                 arguments.limit,
-                mode,
                 refresh_prompt=arguments.refresh_prompt,
             )
         export_site(context, paths)

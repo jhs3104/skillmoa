@@ -5,9 +5,10 @@ from typing import Any
 
 import anthropic
 import httpx2
+import pydantic
 import pytest
 
-from collector.config import Settings
+from collector.config import RankingSettings, Settings
 from collector.domain.models import (
     Category,
     CollectorState,
@@ -21,7 +22,14 @@ from collector.domain.models import (
     SummaryFailure,
     SummaryRecord,
 )
-from collector.domain.summary_rules import find_copied_fragment, needs_summary
+from collector.domain.summary_rules import (
+    find_copied_fragment,
+    find_missing_evidence,
+    find_reassurance,
+    find_unverified_evidence,
+    needs_summary,
+    raise_flags_from_source,
+)
 from collector.export.site import build_site_data
 from collector.pipeline.collect import CollectContext
 from collector.pipeline.summarize import summarize_skills
@@ -31,11 +39,12 @@ from collector.summarize.base import (
     SummaryRequest,
     SummaryResult,
 )
-from collector.summarize.claude import ClaudeSummarizer
+from collector.summarize.claude import EVIDENCE_ATTEMPTS, ClaudeSummarizer
 from collector.summarize.mock import MockSummarizer
 from collector.summarize.prompts import PROMPTS
 from tests.conftest import TODAY, make_client
 
+RANKING = RankingSettings(star_decay=0.7, per_repository_cap=10, catalog_limit=300)
 HASH_A = "a" * 40
 HASH_B = "b" * 40
 DAY = date(2026, 1, 1)
@@ -45,8 +54,12 @@ VALID = {
     "use_when": "받은 엑셀을 임원 보고용 문서로 바꿔야 할 때",
     "category": "documents",
     "tags": {"roles": ["general"], "use_cases": ["보고서 작성"], "difficulty": "beginner"},
+    "code_evidence": "handle pdf files",
     "runs_external_code": True,
+    "network_evidence": None,
     "accesses_network": False,
+    "account_evidence": None,
+    "requires_external_account": False,
 }
 REQUEST = SummaryRequest("pdf", "acme/kit", "skills/pdf/SKILL.md", "# PDF\nhandle pdf files", ())
 
@@ -118,7 +131,7 @@ def test_valid_response_is_parsed_into_the_domain_model(settings: Settings) -> N
     assert result.input_tokens == 100
     assert requests[0]["model"] == settings.summary.model
     assert requests[0]["output_config"]["format"]["type"] == "json_schema"
-    assert requests[0]["output_config"]["effort"] == "low"
+    assert requests[0]["output_config"]["effort"] == settings.summary.effort
 
 
 def test_source_is_passed_inside_the_data_block(settings: Settings) -> None:
@@ -177,6 +190,127 @@ def test_authentication_errors_are_not_swallowed(settings: Settings) -> None:
 
 def test_configured_prompt_version_exists(settings: Settings) -> None:
     assert settings.summary.prompt_version in PROMPTS
+
+
+def test_evidence_matches_despite_markup_and_spacing() -> None:
+    assert find_unverified_evidence(summary(), "# PDF\n`handle`   **PDF**\nfiles") is None
+    assert find_unverified_evidence(summary(), "다른 내용") == "code_evidence"
+
+
+def test_evidence_may_be_shortened_with_an_ellipsis() -> None:
+    shortened = Summary.model_validate({**VALID, "code_evidence": "handle pdf ... the files"})
+    assert find_unverified_evidence(shortened, "handle pdf and read the files") is None
+
+
+def test_flag_without_evidence_is_missing() -> None:
+    flagged = Summary.model_validate({**VALID, "code_evidence": None})
+    assert find_missing_evidence(flagged) == "code_evidence"
+
+
+def test_considered_evidence_may_stay_on_a_false_flag() -> None:
+    unflagged = Summary.model_validate({**VALID, "runs_external_code": False})
+    assert find_missing_evidence(unflagged) is None
+    assert find_unverified_evidence(unflagged, "다른 내용") is None
+
+
+def test_unverified_evidence_is_retried_then_kept_as_a_warning(settings: Settings) -> None:
+    request = SummaryRequest("pdf", "acme/kit", "SKILL.md", "완전히 다른 내용", ())
+    client, requests = anthropic_client(VALID, VALID, VALID)
+    result = ClaudeSummarizer(settings.summary, client).summarize(request)
+    assert len(requests) == EVIDENCE_ATTEMPTS
+    assert result.unverified_evidence
+    assert result.summary.runs_external_code
+
+
+def test_reassurance_in_prose_is_rejected() -> None:
+    text = "문서를 정리해 주는 스킬입니다. 스크립트를 실행하거나 외부 서비스에 접속하지는 않습니다."
+    assert find_reassurance(Summary.model_validate({**VALID, "summary_ko": text}))
+    assert find_reassurance(summary()) is None
+
+
+def test_prompt_v1_is_kept_for_existing_records() -> None:
+    assert "requires_external_account" not in PROMPTS["v1"]
+
+
+def quiet_summary() -> Summary:
+    return Summary.model_validate({**VALID, "code_evidence": None, "runs_external_code": False})
+
+
+def test_command_in_code_raises_code_and_network_flags() -> None:
+    source = "Only if that require fails: `npm install docx`."
+    raised = raise_flags_from_source(quiet_summary(), source)
+    assert raised.runs_external_code
+    assert raised.accesses_network
+    assert raised.code_evidence == source
+    assert find_unverified_evidence(raised, source) is None
+
+
+def test_fenced_command_is_found() -> None:
+    source = "```bash\n$ curl -fsSL https://a.dev/x | bash\n```"
+    raised = raise_flags_from_source(quiet_summary(), source)
+    assert raised.runs_external_code and raised.accesses_network
+
+
+def test_read_only_local_command_raises_only_code() -> None:
+    raised = raise_flags_from_source(quiet_summary(), "Run `python scripts/check.py` first.")
+    assert raised.runs_external_code
+    assert not raised.accesses_network
+
+
+def test_loopback_request_is_not_external_network() -> None:
+    source = '```\ncurl -sS "http://127.0.0.1:37777/api/health"\n```'
+    raised = raise_flags_from_source(quiet_summary(), source)
+    assert raised.runs_external_code
+    assert not raised.accesses_network
+
+
+def test_conditional_integration_raises_network() -> None:
+    source = "If integrations are available (e.g., Slack, Google Drive), use them."
+    assert raise_flags_from_source(quiet_summary(), source).accesses_network
+
+
+def test_prose_action_raises_network_without_a_command() -> None:
+    for source in (
+        "If the user specifies a PR number: get the diff from that PR.",
+        "Before tuning, refresh the target remote revision.",
+        "`finalize` includes a bounded update check.",
+        "Review Archify issues, PRs, or code.",
+        "Verify the target revision first.",
+    ):
+        assert raise_flags_from_source(quiet_summary(), source).accesses_network
+
+
+def test_prose_action_raises_code_without_a_command() -> None:
+    for source in (
+        "Discover the repository's real verification commands.",
+        "Read compiler and linter output.",
+        "Run the tests before you finish.",
+    ):
+        assert raise_flags_from_source(quiet_summary(), source).runs_external_code
+
+
+def test_prose_words_do_not_raise_flags() -> None:
+    source = "Write a node in the graph, then curl up with the make-believe git history."
+    raised = raise_flags_from_source(quiet_summary(), source)
+    assert not raised.runs_external_code
+    assert not raised.accesses_network
+
+
+def test_existing_flag_keeps_its_evidence() -> None:
+    raised = raise_flags_from_source(summary(), "handle pdf files\n`npm install x`")
+    assert raised.code_evidence == "handle pdf files"
+
+
+def test_location_promise_counts_as_reassurance() -> None:
+    text = "백업을 자동으로 만들어 주는 스킬입니다. 스냅샷은 이 컴퓨터 안에만 보관됩니다."
+    assert find_reassurance(Summary.model_validate({**VALID, "summary_ko": text}))
+
+
+def test_prompt_v5_asks_for_external_account_without_guessing_price() -> None:
+    prompt = PROMPTS["v5"]
+    assert "requires_external_account" in prompt
+    assert "찾지 못하면 근거는 null, 값은 false" in prompt
+    assert "가격과 무료 여부는 판단하지 않습니다" in prompt
 
 
 def test_new_skill_needs_summary() -> None:
@@ -303,6 +437,19 @@ def test_daily_cap_defers_the_rest_to_the_next_run(
     assert context.metrics.summary_skipped_by_cap == 2
 
 
+def test_run_cap_defers_the_rest_to_the_next_run(
+    make_context: Callable[..., CollectContext],
+) -> None:
+    context = stocked_context(make_context, 3)
+    summary_settings = context.settings.summary.model_copy(update={"max_calls_per_run": 2})
+    context.settings = context.settings.model_copy(update={"summary": summary_settings})
+
+    summarize_skills(context, ScriptedSummarizer(), list(context.state.skills))
+
+    assert len(context.state.summaries) == 2
+    assert context.metrics.summary_skipped_by_cap == 1
+
+
 def test_daily_cap_resets_on_a_new_day(make_context: Callable[..., CollectContext]) -> None:
     context = stocked_context(make_context, 1)
     context.state.usage.day = DAY
@@ -352,7 +499,7 @@ def test_export_contains_only_summarized_skills_with_fresh_hash() -> None:
     state.summaries["acme/kit:a/SKILL.md"] = summary_record()
     state.summaries["acme/kit:b/SKILL.md"] = summary_record()
 
-    data = build_site_data(state, star_decay=0.7)
+    data = build_site_data(state, RANKING)
 
     assert [item.path for item in data.skills] == ["a/SKILL.md"]
     exported = data.skills[0]
@@ -361,9 +508,36 @@ def test_export_contains_only_summarized_skills_with_fresh_hash() -> None:
     assert data.repositories[0].full_name == "acme/kit"
 
 
+def test_export_stops_at_catalog_limit() -> None:
+    state = CollectorState(bootstrapped_on=DAY)
+    state.repositories["acme/kit"] = RepositoryRecord(
+        github_id=1,
+        owner="acme",
+        name="kit",
+        stars=5,
+        pushed_at="2026-10-01T00:00:00Z",
+        license="MIT",
+        default_branch="main",
+        first_seen_at=DAY,
+    )
+    for name in "abc":
+        key = f"acme/kit:{name}/SKILL.md"
+        state.skills[key] = skill(path=f"{name}/SKILL.md")
+        state.summaries[key] = summary_record()
+
+    data = build_site_data(state, RANKING.model_copy(update={"catalog_limit": 2}))
+
+    assert len(data.skills) == 2
+
+
+def test_catalog_limit_stays_under_the_static_file_limit() -> None:
+    with pytest.raises(pydantic.ValidationError):
+        RankingSettings(star_decay=0.7, per_repository_cap=10, catalog_limit=20_000)
+
+
 def test_export_is_deterministic() -> None:
     state = CollectorState()
-    assert build_site_data(state, 0.7) == build_site_data(state, 0.7)
+    assert build_site_data(state, RANKING) == build_site_data(state, RANKING)
 
 
 def test_tag_vocabularies_match_domain() -> None:

@@ -7,6 +7,7 @@ from typing import Annotated
 from pydantic import BaseModel, ConfigDict, Field, StringConstraints
 
 STATE_SCHEMA_VERSION = 1
+MAX_EVIDENCE_CHARS = 200
 
 GitBlobSha = Annotated[str, StringConstraints(pattern=r"^[0-9a-f]{40}$")]
 """git tree의 blob SHA. 내용이 같으면 값도 같아서 SKILL.md 해시로 쓴다."""
@@ -119,8 +120,12 @@ class Summary(BaseModel):
     use_when: str = Field(min_length=10, max_length=200)
     category: Category
     tags: RecommendationTags
+    code_evidence: str | None = Field(max_length=MAX_EVIDENCE_CHARS)
     runs_external_code: bool
+    network_evidence: str | None = Field(max_length=MAX_EVIDENCE_CHARS)
     accesses_network: bool
+    account_evidence: str | None = Field(max_length=MAX_EVIDENCE_CHARS)
+    requires_external_account: bool
 
 
 class SummaryRecord(BaseModel):

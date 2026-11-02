@@ -18,6 +18,7 @@ class RunMetrics(BaseModel):
     excluded: Counter[str] = Field(default_factory=Counter)
     summarized: int = 0
     summary_failed: int = 0
+    summary_unverified: int = 0
     summary_skipped_by_cap: int = 0
     summary_aborted: bool = False
     stopped_by_rate_limit: bool = False

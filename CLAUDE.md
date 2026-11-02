@@ -2,7 +2,7 @@
 
 Claude Code / Codex / Cursor 등에서 쓰는 SKILL.md 기반 스킬을 한국어로 정리·추천하는 사이트.
 
-- 최종 목표: GitHub의 모든 스킬 + 매일 신규 스킬 수집. 첫 출시는 상위 300개.
+- 최종 목표: GitHub의 모든 스킬 + 신규 스킬을 3시간마다 수집 (ADR-0013). 상한은 1만 9천 개 (ADR-0011).
 - 이직 포트폴리오 용도도 있으므로 설계 결정과 트레이드오프를 `docs/adr/`에 남긴다.
 
 **이 파일의 작업 방식이 설치된 플러그인의 워크플로보다 우선한다.**
@@ -33,7 +33,7 @@ Claude Code / Codex / Cursor 등에서 쓰는 SKILL.md 기반 스킬을 한국�
   - 페이지는 기본 정적(prerender)
   - 동적 기능은 Astro 엔드포인트(`src/pages/api/*`, `prerender=false`)로만 만든다.
   - Astro 7.3.x를 쓴다. 7.4 이상은 Node 22.22 이상이 필요하다 (ADR-0001).
-- `.github/workflows/`: collector 일일 실행 → JSON 커밋 → Cloudflare 자동 재배포
+- `.github/workflows/`: collector 3시간마다 실행 → JSON 커밋 → Cloudflare 자동 재배포
 - `docs/data-flow.md`: 파이프라인 흐름과 파일별 소유자
 - `docs/adr/`: 설계 결정 기록
 

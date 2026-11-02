@@ -48,6 +48,7 @@ class SiteSkill(_CamelModel):
     tags: SiteTags
     runs_external_code: bool
     accesses_network: bool
+    requires_external_account: bool
     prompt_version: str
 
 

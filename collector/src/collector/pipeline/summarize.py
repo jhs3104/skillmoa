@@ -43,10 +43,15 @@ def summarize_skills(
             refresh_prompt=refresh_prompt,
         )
     ]
+    calls_at_start = state.usage.summary_calls
     for index, key in enumerate(pending):
-        if state.usage.summary_calls >= settings.max_calls_per_day:
+        used_this_run = state.usage.summary_calls - calls_at_start
+        if (
+            state.usage.summary_calls >= settings.max_calls_per_day
+            or used_this_run >= settings.max_calls_per_run
+        ):
             metrics.summary_skipped_by_cap = len(pending) - index
-            logger.warning("일일 호출 상한 도달, %d개는 다음 실행으로", len(pending) - index)
+            logger.warning("호출 상한 도달, %d개는 다음 실행으로", len(pending) - index)
             break
         if not _summarize_one(context, summarizer, key):
             break
@@ -92,6 +97,7 @@ def _summarize_one(context: CollectContext, summarizer: Summarizer, key: str) ->
     metrics.input_tokens += result.input_tokens
     metrics.output_tokens += result.output_tokens
     metrics.summarized += 1
+    metrics.summary_unverified += result.unverified_evidence
     state.summary_failures.pop(key, None)
     state.summaries[key] = SummaryRecord(
         skill_md_hash=skill.skill_md_hash,

@@ -7,7 +7,13 @@ import pydantic
 
 from collector.config import SummarySettings
 from collector.domain.models import Summary
-from collector.domain.summary_rules import find_copied_fragment
+from collector.domain.summary_rules import (
+    find_copied_fragment,
+    find_missing_evidence,
+    find_reassurance,
+    find_unverified_evidence,
+    raise_flags_from_source,
+)
 from collector.summarize.base import (
     SummarizerUnavailableError,
     SummaryRejectedError,
@@ -19,6 +25,8 @@ from collector.summarize.prompts import PROMPTS
 logger = logging.getLogger(__name__)
 
 SDK_MAX_RETRIES = 3
+# 근거 인용만 어긋난 경우 다시 물어도 비슷한 답이 나온다. 표시는 유지되므로 한 번만 재시도한다.
+EVIDENCE_ATTEMPTS = 2
 
 
 class ClaudeSummarizer:
@@ -36,10 +44,14 @@ class ClaudeSummarizer:
         return self._settings.model
 
     def summarize(self, request: SummaryRequest) -> SummaryResult:
-        """형식이 틀리면 다시 요청하고, 끝까지 실패하면 SummaryRejectedError를 낸다."""
+        """형식이 틀리면 다시 요청하고, 끝까지 실패하면 SummaryRejectedError를 낸다.
+
+        근거만 확인되지 않은 요약은 버리지 않는다. 켜진 경고를 스킬째 잃는 쪽이 더 위험하다.
+        """
         input_tokens = 0
         output_tokens = 0
         reason = "no attempt"
+        unverified: Summary | None = None
         for attempt in range(1, self._settings.validation_attempts + 1):
             try:
                 response = self._call(request)
@@ -55,11 +67,22 @@ class ClaudeSummarizer:
                 reason = f"stop_reason: {response.stop_reason}"
             elif summary is None:
                 reason = "empty output"
-            elif find_copied_fragment(summary, request.source):
-                reason = "copied from source"
             else:
-                return SummaryResult(summary, input_tokens, output_tokens)
-            logger.info("요약 거부 %d회차 %s: %s", attempt, request.path, reason)
+                problem = _find_problem(summary, request.source)
+                evidence_gap = find_unverified_evidence(summary, request.source)
+                if problem is None and evidence_gap is None:
+                    raised = raise_flags_from_source(summary, request.source)
+                    return SummaryResult(raised, input_tokens, output_tokens)
+                if problem is None:
+                    unverified = summary
+                reason = problem or f"unverified {evidence_gap}: {_quote(summary, evidence_gap)}"
+            logger.info("요약 재시도 %d회차 %s: %s", attempt, request.path, reason)
+            if unverified is not None and attempt >= EVIDENCE_ATTEMPTS:
+                break
+        if unverified is not None:
+            logger.warning("근거 미확인으로 표시 유지 %s", request.path)
+            raised = raise_flags_from_source(unverified, request.source)
+            return SummaryResult(raised, input_tokens, output_tokens, unverified_evidence=True)
         raise SummaryRejectedError(reason, input_tokens, output_tokens)
 
     def _call(self, request: SummaryRequest) -> anthropic.types.ParsedMessage[Summary]:
@@ -70,12 +93,27 @@ class ClaudeSummarizer:
                 system=self._system,
                 messages=[{"role": "user", "content": _render(request)}],
                 output_format=Summary,
-                output_config={"effort": "low"},
+                output_config={"effort": self._settings.effort},
             )
         except (anthropic.AuthenticationError, anthropic.PermissionDeniedError):
             raise
         except (anthropic.APIConnectionError, anthropic.APIStatusError) as error:
             raise SummarizerUnavailableError(str(error)) from error
+
+
+def _quote(summary: Summary, evidence_name: str | None) -> str:
+    return (getattr(summary, evidence_name or "", None) or "")[:80]
+
+
+def _find_problem(summary: Summary, source: str) -> str | None:
+    if find_copied_fragment(summary, source):
+        return "copied from source"
+    missing = find_missing_evidence(summary)
+    if missing:
+        return f"missing {missing}"
+    if find_reassurance(summary):
+        return "reassurance in prose"
+    return None
 
 
 def _render(request: SummaryRequest) -> str:

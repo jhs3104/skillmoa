@@ -2,10 +2,13 @@
 
 import tomllib
 from pathlib import Path
+from typing import Literal
 
-from pydantic import BaseModel, ConfigDict
+from pydantic import BaseModel, ConfigDict, Field
 
 DEFAULT_CONFIG_PATH = Path(__file__).resolve().parents[2] / "config.toml"
+# Cloudflare 무료 플랜은 Worker 버전당 정적 파일이 2만 개다. 스킬 상세 외 파일을 위해 여유를 둔다.
+MAX_CATALOG_LIMIT = 19_000
 
 
 class _Section(BaseModel):
@@ -28,7 +31,7 @@ class FilterSettings(_Section):
 class RankingSettings(_Section):
     star_decay: float
     per_repository_cap: int
-    catalog_limit: int
+    catalog_limit: int = Field(gt=0, le=MAX_CATALOG_LIMIT)
 
 
 class GitHubSettings(_Section):
@@ -39,7 +42,9 @@ class GitHubSettings(_Section):
 class SummarySettings(_Section):
     model: str
     prompt_version: str
+    effort: Literal["low", "medium", "high"]
     max_calls_per_day: int
+    max_calls_per_run: int
     max_output_tokens: int
     max_source_chars: int
     timeout_seconds: float

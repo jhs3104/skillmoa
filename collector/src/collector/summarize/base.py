@@ -20,6 +20,7 @@ class SummaryResult:
     summary: Summary
     input_tokens: int
     output_tokens: int
+    unverified_evidence: bool = False
 
 
 class SummaryRejectedError(Exception):

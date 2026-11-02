@@ -19,7 +19,11 @@ class MockSummarizer:
             tags=RecommendationTags(
                 roles=(Role.GENERAL,), use_cases=("mock",), difficulty=Difficulty.BEGINNER
             ),
-            runs_external_code=bool(request.bundled_files),
+            code_evidence=None,
+            runs_external_code=False,
+            network_evidence=None,
             accesses_network=False,
+            account_evidence=None,
+            requires_external_account=False,
         )
         return SummaryResult(summary, input_tokens=0, output_tokens=0)

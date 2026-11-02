@@ -49,7 +49,8 @@
           "p5.js"
         ]
       },
-      "useWhen": "포스터나 웹 배경에 쓸 흐름장 그림을 코드로 직접 만들어 보고 싶을 때"
+      "useWhen": "포스터나 웹 배경에 쓸 흐름장 그림을 코드로 직접 만들어 보고 싶을 때",
+      "requiresExternalAccount": false
     },
     {
       "accessesNetwork": true,
@@ -75,7 +76,8 @@
           "승인 관리"
         ]
       },
-      "useWhen": "Paperclip에 등록한 에이전트 팀의 승인 요청과 비용을 대화로 처리해야 할 때"
+      "useWhen": "Paperclip에 등록한 에이전트 팀의 승인 요청과 비용을 대화로 처리해야 할 때",
+      "requiresExternalAccount": true
     },
     {
       "accessesNetwork": true,
@@ -100,7 +102,8 @@
           "작업 기록 검색"
         ]
       },
-      "useWhen": "지난주에 해결했던 버그를 어떻게 고쳤는지 다시 찾아봐야 할 때"
+      "useWhen": "지난주에 해결했던 버그를 어떻게 고쳤는지 다시 찾아봐야 할 때",
+      "requiresExternalAccount": false
     },
     {
       "accessesNetwork": false,
@@ -126,7 +129,8 @@
           "타이포그래피"
         ]
       },
-      "useWhen": "발표 자료를 Anthropic 브랜드 규정에 맞는 색과 글꼴로 정리해야 할 때"
+      "useWhen": "발표 자료를 Anthropic 브랜드 규정에 맞는 색과 글꼴로 정리해야 할 때",
+      "requiresExternalAccount": false
     },
     {
       "accessesNetwork": false,
@@ -152,7 +156,8 @@
           "장기 기억"
         ]
       },
-      "useWhen": "에이전트가 프로젝트별 결정 사항을 세션이 바뀌어도 기억하게 만들고 싶을 때"
+      "useWhen": "에이전트가 프로젝트별 결정 사항을 세션이 바뀌어도 기억하게 만들고 싶을 때",
+      "requiresExternalAccount": false
     },
     {
       "accessesNetwork": true,
@@ -177,7 +182,8 @@
           "CI 대응"
         ]
       },
-      "useWhen": "리뷰 댓글과 CI 실패가 번갈아 나오는 PR을 병합까지 끌고 가야 할 때"
+      "useWhen": "리뷰 댓글과 CI 실패가 번갈아 나오는 PR을 병합까지 끌고 가야 할 때",
+      "requiresExternalAccount": false
     },
     {
       "accessesNetwork": false,
@@ -203,7 +209,8 @@
           "정적 디자인"
         ]
       },
-      "useWhen": "행사 포스터 시안을 PNG나 PDF 파일로 바로 받아 보고 싶을 때"
+      "useWhen": "행사 포스터 시안을 PNG나 PDF 파일로 바로 받아 보고 싶을 때",
+      "requiresExternalAccount": false
     },
     {
       "accessesNetwork": true,
@@ -229,7 +236,8 @@
           "사용량 보고"
         ]
       },
-      "useWhen": "지난주 에이전트 사용 비용을 팀에 근거와 함께 공유해야 할 때"
+      "useWhen": "지난주 에이전트 사용 비용을 팀에 근거와 함께 공유해야 할 때",
+      "requiresExternalAccount": false
     },
     {
       "accessesNetwork": false,
@@ -256,7 +264,8 @@
           "제안서 작성"
         ]
       },
-      "useWhen": "머릿속에 있는 설계 결정을 팀이 읽을 기술 문서로 정리해야 할 때"
+      "useWhen": "머릿속에 있는 설계 결정을 팀이 읽을 기술 문서로 정리해야 할 때",
+      "requiresExternalAccount": false
     },
     {
       "accessesNetwork": false,
@@ -281,7 +290,8 @@
           "문서 자동화"
         ]
       },
-      "useWhen": "계약서 초안의 표와 머리글을 유지한 채 Word 파일 내용을 고쳐야 할 때"
+      "useWhen": "계약서 초안의 표와 머리글을 유지한 채 Word 파일 내용을 고쳐야 할 때",
+      "requiresExternalAccount": false
     },
     {
       "accessesNetwork": false,
@@ -307,7 +317,8 @@
           "타이포그래피"
         ]
       },
-      "useWhen": "서비스 소개 페이지가 흔한 템플릿처럼 보여 인상을 바꾸고 싶을 때"
+      "useWhen": "서비스 소개 페이지가 흔한 템플릿처럼 보여 인상을 바꾸고 싶을 때",
+      "requiresExternalAccount": false
     },
     {
       "accessesNetwork": false,
@@ -333,7 +344,8 @@
           "상태 보고"
         ]
       },
-      "useWhen": "이번 주 프로젝트 진행 상황을 경영진용 보고 형식으로 써야 할 때"
+      "useWhen": "이번 주 프로젝트 진행 상황을 경영진용 보고 형식으로 써야 할 때",
+      "requiresExternalAccount": false
     }
   ]
 }

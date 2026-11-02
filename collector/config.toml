@@ -18,7 +18,8 @@ min_body_chars = 200
 [ranking]
 star_decay = 0.7
 per_repository_cap = 10
-catalog_limit = 300
+# 사이트에 싣는 최대 스킬 수. 상한은 19,000 (ADR-0011).
+catalog_limit = 19000
 
 [github]
 max_wait_seconds_with_token = 3700
@@ -26,8 +27,10 @@ max_wait_seconds_anonymous = 60
 
 [summary]
 model = "claude-haiku-5-5"
-prompt_version = "v1"
-max_calls_per_day = 400
+prompt_version = "v5"
+effort = "medium"
+max_calls_per_day = 8000
+max_calls_per_run = 1000
 max_output_tokens = 4000
 max_source_chars = 200000
 timeout_seconds = 60

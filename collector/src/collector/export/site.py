@@ -1,16 +1,19 @@
 """수집 상태에서 skills.json을 만든다. 같은 상태면 항상 같은 파일이 나온다."""
 
+from collector.config import RankingSettings
 from collector.domain.identity import repository_key, skill_slug
 from collector.domain.models import CollectorState
-from collector.domain.ranking import rank_skills
+from collector.domain.ranking import rank_skills, select_catalog
 from collector.export.schema import SiteData, SiteRepository, SiteSkill, SiteTags
 
 
-def build_site_data(state: CollectorState, star_decay: float) -> SiteData:
-    """요약이 있는 스킬만 내보낸다. 사이트는 요약 없는 스킬을 다루지 않는다."""
+def build_site_data(state: CollectorState, ranking: RankingSettings) -> SiteData:
+    """요약이 있는 스킬을 상한까지만 내보낸다. 사이트는 요약 없는 스킬을 다루지 않는다."""
     stars = {record.full_name: record.stars for record in state.repositories.values()}
-    ranked = rank_skills(state.skills, stars, star_decay)
-    exported = [item for item in ranked if _has_current_summary(state, item.key)]
+    ranked = rank_skills(state.skills, stars, ranking.star_decay)
+    summarized = [item for item in ranked if _has_current_summary(state, item.key)]
+    selected = set(select_catalog(summarized, ranking.catalog_limit, ranking.per_repository_cap))
+    exported = [item for item in summarized if item.key in selected]
 
     skills: list[SiteSkill] = []
     repositories: dict[str, SiteRepository] = {}
@@ -45,6 +48,7 @@ def build_site_data(state: CollectorState, star_decay: float) -> SiteData:
                 ),
                 runs_external_code=summary.runs_external_code,
                 accesses_network=summary.accesses_network,
+                requires_external_account=summary.requires_external_account,
                 prompt_version=summary_record.prompt_version,
             )
         )

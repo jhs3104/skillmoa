@@ -2,7 +2,7 @@
 
 Claude Code, Codex, Cursor에서 쓰는 SKILL.md 기반 AI 에이전트 스킬을 한국어로 정리하고 추천하는 사이트입니다.
 
-GitHub에서 스킬을 매일 수집하고, Claude API로 한국어 설명을 새로 쓰고, 정적 사이트로 배포합니다. 상시 서버와 DB 없이 동작합니다.
+GitHub에서 스킬을 3시간마다 수집하고, Claude API로 한국어 설명을 새로 쓰고, 정적 사이트로 배포합니다. 상시 서버와 DB 없이 동작합니다.
 
 - 둘러보기: 50개씩 펼치는 순위 목록, 카테고리 필터, 대표·스타·업데이트·신규 정렬, 키워드 검색, 목록/카드 보기
 - 상세: GitHub 기록과 AI 판단을 나눈 설치 판단 근거, 라이선스에 따른 에이전트별 설치 명령, 원본 링크
@@ -13,7 +13,7 @@ GitHub에서 스킬을 매일 수집하고, Claude API로 한국어 설명을 �
 
 ```mermaid
 flowchart LR
-    subgraph actions["GitHub Actions (매일)"]
+    subgraph actions["GitHub Actions (3시간마다)"]
         direction TB
         sources["발견<br/>큐레이션 · topic · 코드 검색"]
         scan["git trees로 SKILL.md 스캔"]

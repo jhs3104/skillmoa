@@ -26,9 +26,9 @@ flowchart TD
 
 | 모드 | 언제 | 발견 범위 |
 |---|---|---|
-| `bootstrap` | 최초 1회 | 큐레이션 + topic 검색, 상위 300개를 채우면 중단 |
-| `daily` | 매일 | 알려진 저장소 갱신 + topic 검색 |
-| `weekly` | 주 1회 | `daily` + 코드 검색 전수 조회 |
+| `bootstrap` | 최초 1회 | 큐레이션 + topic 검색, `catalog_limit`을 채우면 중단 |
+| `daily` | 3시간마다 | 알려진 저장소 갱신 + topic 검색 |
+| `weekly` | 주 1회 (일요일 18시 UTC) | `daily` + 코드 검색 전수 조회 |
 
 `--limit N`을 주면 `collector/build/small/`에 격리된 상태로 N개만 처리하고, 샘플을 `collector/build/samples/`에 남긴다. 커밋 대상 파일은 건드리지 않는다.
 
