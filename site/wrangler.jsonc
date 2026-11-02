@@ -3,7 +3,10 @@
   "name": "skillmoa",
   "main": "@astrojs/cloudflare/entrypoints/server",
   "compatibility_date": "2026-10-01",
-  "routes": [{ "pattern": "skillmoa.com", "custom_domain": true }],
+  "routes": [
+    { "pattern": "skillmoa.com", "custom_domain": true },
+    { "pattern": "www.skillmoa.com", "custom_domain": true }
+  ],
   // 한국 접속이 홍콩에서 처리되면 Claude API가 403으로 거부한다. 정적 페이지는 영향받지 않는다.
   "placement": { "region": "aws:us-east-1" },
   "assets": {
