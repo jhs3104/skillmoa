@@ -11,16 +11,18 @@ const fresh = skills
 ---
 
 <Layout
-  title="새로 나온 스킬"
+  title="새로 발견한 스킬"
   description={`최근 ${NEW_SKILL_DAYS}일 안에 발견된 AI 에이전트 스킬을 모았습니다.`}
 >
   <section class="lede">
-    <h1>새로 나온 스킬</h1>
+    <h1>새로 발견한 스킬</h1>
     <p>최근 {NEW_SKILL_DAYS}일 안에 처음 발견한 스킬입니다. 매일 갱신됩니다.</p>
   </section>
   <Browse
     skills={fresh}
-    emptyTitle="최근 7일 안에 발견한 스킬이 없습니다"
-    emptyBody="새 스킬이 수집되면 이곳에 표시됩니다."
+    emptyTitle={`최근 ${NEW_SKILL_DAYS}일 안에 발견한 스킬이 없습니다`}
+    emptyBody="새 스킬을 찾으면 이곳에 표시합니다."
+    defaultSort="new"
+    dateKind="found"
   />
 </Layout>

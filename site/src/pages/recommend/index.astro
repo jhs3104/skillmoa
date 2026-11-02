@@ -1,42 +1,48 @@
 ---
+import SkillResults from '../../components/SkillResults.astro';
 import Layout from '../../layouts/Layout.astro';
 import { INSTALL_TARGETS } from '../../lib/install';
+import { skills } from '../../lib/data';
 import { DIFFICULTY_LABELS, ROLE_LABELS } from '../../lib/labels';
 import { GOALS } from '../../lib/questionnaire';
 
+const anyAnswer = { value: '', label: '상관없음' };
 const questions = [
-  {
-    name: 'role',
-    title: '어떤 일을 하시나요?',
-    options: Object.entries(ROLE_LABELS).map(([value, label]) => ({ value, label: value === 'general' ? '기타' : label })),
-  },
-  {
-    name: 'tool',
-    title: '어떤 도구를 쓰시나요?',
-    options: INSTALL_TARGETS.map(({ id, label }) => ({ value: id, label })),
-  },
   {
     name: 'goal',
     title: '무엇을 하고 싶으신가요?',
     options: GOALS.map(({ id, label }) => ({ value: id, label })),
   },
   {
+    name: 'role',
+    title: '어떤 일을 하시나요?',
+    options: [
+      ...Object.entries(ROLE_LABELS).map(([value, label]) => ({ value, label: value === 'general' ? '기타' : label })),
+      anyAnswer,
+    ],
+  },
+  {
     name: 'level',
     title: '어느 정도 난이도가 편한가요?',
-    options: Object.entries(DIFFICULTY_LABELS).map(([value, label]) => ({ value, label })),
+    options: [...Object.entries(DIFFICULTY_LABELS).map(([value, label]) => ({ value, label })), anyAnswer],
+  },
+  {
+    name: 'tool',
+    title: '어떤 도구에 설치하시나요?',
+    options: INSTALL_TARGETS.map(({ id, label }) => ({ value: id, label })),
   },
 ];
 ---
 
 <Layout title="맞춤 추천" description="직군과 하고 싶은 일을 고르면 맞는 AI 에이전트 스킬을 추천합니다.">
   <section class="lede">
-    <h1>나에게 맞는 스킬 찾기</h1>
-    <p>질문에 답하거나 하고 싶은 일을 문장으로 적어 보세요.</p>
+    <h1>맞춤 추천</h1>
+    <p>네 가지 질문 중 고를 수 있는 것만 답하세요.{skills.length > 0 && <> 문장으로 찾으려면 <a href="/ask/">AI 찾기</a>를 이용하세요.</>}</p>
   </section>
 
   <div class="recommend">
     <form class="panel" data-questionnaire>
-      <h2>네 가지 질문으로 찾기</h2>
+      <h2 class="visually-hidden">네 가지 질문</h2>
       <p>답변은 브라우저 안에서만 계산하고 서버로 보내지 않습니다.</p>
       {questions.map(({ name, title, options }) => (
         <fieldset class="question">
@@ -52,25 +58,13 @@ const questions = [
         </fieldset>
       ))}
       <button class="button button--primary" type="submit">추천 받기</button>
-      <div class="result" data-result hidden>
-        <p class="status" role="status" data-result-status></p>
-        <ol class="result-list" data-result-list></ol>
-        <button class="button" type="button" data-share>결과 링크 복사</button>
-      </div>
-    </form>
-
-    <form class="panel ask" data-ask>
-      <h2>문장으로 물어보기</h2>
-      <p>질문은 추천을 만들기 위해 Claude API로 전송됩니다. 개인정보는 적지 마세요.</p>
-      <label>
-        <span class="visually-hidden">하고 싶은 일</span>
-        <textarea name="question" maxlength="200" required placeholder="예: 회의록을 정리해서 슬랙에 공유하고 싶어요"></textarea>
-      </label>
-      <button class="button button--primary" type="submit">물어보기</button>
-      <p class="status" role="status" data-ask-status></p>
-      <ol class="result-list" data-ask-list></ol>
+      <p class="status" role="status" data-result-status></p>
     </form>
   </div>
+
+  <SkillResults>
+    <button class="button" type="button" data-share>결과 링크 복사</button>
+  </SkillResults>
 </Layout>
 
 <script>

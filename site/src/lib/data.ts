@@ -27,6 +27,13 @@ export function sourceUrl(skill: Skill): string {
   return `https://github.com/${skill.repository}/blob/${encodeURIComponent(skill.defaultBranch)}/${encoded}`;
 }
 
+/** LICENSE 파일이 저장소 루트가 아니라 스킬 폴더에 있는 경우가 있다. */
+export function skillFolderUrl(skill: Skill): string {
+  const folder = skill.path.split('/').slice(0, -1).map(encodeURIComponent).join('/');
+  if (!folder) return repositoryUrl(skill);
+  return `https://github.com/${skill.repository}/tree/${encodeURIComponent(skill.defaultBranch)}/${folder}`;
+}
+
 export function repositoryUrl(skill: Skill): string {
   return `https://github.com/${skill.repository}`;
 }

@@ -1,5 +1,5 @@
 ---
-import { INSTALL_TARGETS, installCommand } from '../lib/install';
+import { INSTALL_TARGETS, installCommand, installLocation } from '../lib/install';
 
 interface Props {
   repository: string;
@@ -10,6 +10,8 @@ const { repository, path } = Astro.props;
 ---
 
 <div data-install>
+  <p class="visually-hidden" role="status" data-copy-status></p>
+  <p class="install__lead">터미널에 붙여 넣어 실행하세요. macOS와 Linux 기준이며 git이 필요합니다. Windows에서는 PowerShell이 아니라 Git Bash에서 실행하세요. 저장소를 임시로 내려받아 스킬 폴더만 복사합니다.</p>
   <div class="tabs" role="tablist" aria-label="에이전트 선택">
     {INSTALL_TARGETS.map((target, index) => (
       <button
@@ -31,16 +33,24 @@ const { repository, path } = Astro.props;
       aria-labelledby={`tab-${target.id}`}
       hidden={index !== 0}
     >
-      <h3>모든 프로젝트에서 쓰기</h3>
       <div class="code">
+        <div class="code__head">
+          <h3>모든 프로젝트에서 쓰기</h3>
+          <button class="button copy" type="button" aria-label="모든 프로젝트용 설치 명령 복사" data-copy>복사</button>
+        </div>
         <pre tabindex="0"><code>{installCommand(repository, path, target.personalDirectory)}</code></pre>
-        <button class="copy" type="button" data-copy>복사</button>
       </div>
-      <h3>현재 프로젝트에서만 쓰기</h3>
       <div class="code">
+        <div class="code__head">
+          <h3>현재 프로젝트에서만 쓰기</h3>
+          <button class="button copy" type="button" aria-label="현재 프로젝트용 설치 명령 복사" data-copy>복사</button>
+        </div>
+        <p class="install__hint">먼저 터미널에서 프로젝트 폴더로 이동하세요.</p>
         <pre tabindex="0"><code>{installCommand(repository, path, target.projectDirectory)}</code></pre>
-        <button class="copy" type="button" data-copy>복사</button>
       </div>
+      <p class="install__done">
+        설치한 뒤 {target.label}에서 새 세션을 시작하세요. '이럴 때 쓰세요'에 적힌 일을 요청하면 에이전트가 스킬을 불러옵니다. 스킬은 <code>{installLocation(repository, path, target.personalDirectory)}</code>에 있습니다. 프로젝트에 설치했다면 <code>{installLocation(repository, path, target.projectDirectory)}</code>에 있습니다.
+      </p>
     </div>
   ))}
 </div>
@@ -73,12 +83,19 @@ const { repository, path } = Astro.props;
     const initial = tabs.find((tab) => tab.dataset.agent === preferred);
     if (initial) select(initial);
 
+    const status = root.querySelector<HTMLElement>('[data-copy-status]')!;
     root.querySelectorAll<HTMLButtonElement>('[data-copy]').forEach((button) => {
       button.addEventListener('click', async () => {
-        const code = button.parentElement!.querySelector('code')!.textContent ?? '';
-        await navigator.clipboard.writeText(code);
-        button.textContent = '복사됨';
-        setTimeout(() => (button.textContent = '복사'), 1500);
+        const code = button.closest('.code')!.querySelector('code')!.textContent ?? '';
+        try {
+          await navigator.clipboard.writeText(code);
+          button.textContent = '복사됨';
+          status.textContent = '설치 명령을 복사했습니다.';
+        } catch {
+          button.textContent = '직접 복사해 주세요';
+          status.textContent = '복사하지 못했습니다. 명령을 직접 선택해 복사해 주세요.';
+        }
+        setTimeout(() => (button.textContent = '복사'), 2000);
       });
     });
   }

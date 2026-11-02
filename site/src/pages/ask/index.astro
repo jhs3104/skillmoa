@@ -1,0 +1,28 @@
+---
+import AskBox from '../../components/AskBox.astro';
+import SkillResults from '../../components/SkillResults.astro';
+import Layout from '../../layouts/Layout.astro';
+import { skills } from '../../lib/data';
+
+const description = '하고 싶은 일을 문장으로 적으면 AI가 맞는 에이전트 스킬을 골라 이유와 함께 알려 드립니다.';
+---
+
+<Layout title="AI 찾기" {description}>
+  <section class="hero" slot="hero">
+    <div class="page">
+      <h1>AI 찾기</h1>
+      {skills.length > 0 ? (
+        <>
+          <p class="hero__lead">하고 싶은 일을 문장으로 적으면 정리된 스킬 중에서 맞는 것을 골라 이유와 함께 알려 드립니다.</p>
+          <AskBox />
+        </>
+      ) : (
+        <p class="hero__lead">첫 수집이 끝나면 쓸 수 있습니다. 지금은 찾을 스킬이 없습니다.</p>
+      )}
+    </div>
+  </section>
+  <SkillResults />
+  {skills.length > 0 && (
+    <p class="ask-more">키워드를 알고 있다면 <a href="/">전체 스킬</a>에서, 질문에 답해 고르고 싶다면 <a href="/recommend/">맞춤 추천</a>에서 바로 찾을 수 있습니다. 하루 횟수 제한도 없습니다.</p>
+  )}
+</Layout>

@@ -1,14 +1,26 @@
 import { describe, expect, it } from 'vitest';
-import { DEFAULT_STATE, parseState, serializeState, visibleItems, type BrowseItem } from './browse';
+import {
+  activeFilterCount,
+  DEFAULT_STATE,
+  moreLabel,
+  PAGE_SIZE,
+  pageItems,
+  parseState,
+  restoreLimit,
+  serializeState,
+  visibleItems,
+  type BrowseItem,
+} from './browse';
 
 const item = (id: string, fields: Partial<BrowseItem> = {}): BrowseItem => ({
   id,
   text: id,
   category: 'documents',
   rank: 1,
+  stars: 10,
   pushedAt: '2026-01-01',
   firstSeenAt: '2026-01-01',
-  runsNothing: true,
+  noFlags: true,
   ...fields,
 });
 
@@ -22,16 +34,26 @@ describe('visibleItems', () => {
   it('filters by category and local-only', () => {
     const items = [
       item('a', { category: 'data' }),
-      item('b', { category: 'data', runsNothing: false }),
+      item('b', { category: 'data', noFlags: false }),
       item('c'),
     ];
-    const found = visibleItems(items, { ...DEFAULT_STATE, category: 'data', localOnly: true });
+    const found = visibleItems(items, { ...DEFAULT_STATE, category: 'data', unflaggedOnly: true });
     expect(found.map(({ id }) => id)).toEqual(['a']);
   });
 
-  it('sorts by rank, not raw repository stars', () => {
-    const items = [item('b', { rank: 2 }), item('a', { rank: 1 })];
+  it('sorts by rank by default, not raw repository stars', () => {
+    const items = [item('b', { rank: 2, stars: 900 }), item('a', { rank: 1, stars: 5 })];
     expect(visibleItems(items, DEFAULT_STATE).map(({ id }) => id)).toEqual(['a', 'b']);
+  });
+
+  it('sorts by real repository stars when asked, breaking ties by rank', () => {
+    const items = [
+      item('low', { rank: 1, stars: 5 }),
+      item('second', { rank: 3, stars: 900 }),
+      item('first', { rank: 2, stars: 900 }),
+    ];
+    const found = visibleItems(items, { ...DEFAULT_STATE, sort: 'stars' });
+    expect(found.map(({ id }) => id)).toEqual(['first', 'second', 'low']);
   });
 
   it('breaks date ties by rank', () => {
@@ -49,7 +71,7 @@ describe('visibleItems', () => {
 
 describe('URL state', () => {
   it('round-trips through query parameters', () => {
-    const state = { query: 'pdf', category: 'data', sort: 'new', localOnly: true, view: 'table' } as const;
+    const state = { query: 'pdf', category: 'data', sort: 'new', unflaggedOnly: true, view: 'cards' } as const;
     expect(parseState(serializeState(state), ['data'])).toEqual(state);
   });
 
@@ -57,8 +79,48 @@ describe('URL state', () => {
     expect(serializeState(DEFAULT_STATE).toString()).toBe('');
   });
 
+  it('uses the page default sort for links and missing values', () => {
+    const state = parseState(new URLSearchParams(), [], 'new');
+    expect(state.sort).toBe('new');
+    expect(serializeState(state, 'new').toString()).toBe('');
+    expect(serializeState({ ...state, sort: 'rank' }, 'new').toString()).toBe('sort=rank');
+  });
+
   it('ignores unknown values', () => {
     const state = parseState(new URLSearchParams('category=nope&sort=hax&view=x'), ['data']);
     expect(state).toEqual(DEFAULT_STATE);
+  });
+});
+
+describe('paging', () => {
+  const items = Array.from({ length: 120 }, (_, index) => item(String(index)));
+
+  it('shows one page and counts the rest', () => {
+    const { shown, remaining } = pageItems(items, PAGE_SIZE);
+    expect(shown).toHaveLength(PAGE_SIZE);
+    expect(remaining).toBe(70);
+  });
+
+  it('never reports negative remainders', () => {
+    expect(pageItems(items.slice(0, 3), PAGE_SIZE).remaining).toBe(0);
+  });
+
+  it('names the next step in the button', () => {
+    expect(moreLabel(250)).toBe('50개 더 보기 (250개 남음)');
+    expect(moreLabel(12)).toBe('12개 더 보기');
+  });
+
+  it('restores only a sensible limit from history', () => {
+    expect(restoreLimit(150)).toBe(150);
+    for (const value of [undefined, null, 'x', -50, 0, 75.5, 10]) {
+      expect(restoreLimit(value)).toBe(PAGE_SIZE);
+    }
+  });
+});
+
+describe('activeFilterCount', () => {
+  it('counts category and the local filter, not the search or sort', () => {
+    expect(activeFilterCount({ ...DEFAULT_STATE, query: 'pdf', sort: 'new' })).toBe(0);
+    expect(activeFilterCount({ ...DEFAULT_STATE, category: 'data', unflaggedOnly: true })).toBe(2);
   });
 });

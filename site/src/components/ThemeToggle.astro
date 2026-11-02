@@ -1,0 +1,30 @@
+<button class="theme-toggle" type="button" aria-pressed="false" data-theme-toggle>
+  <span class="visually-hidden">다크 모드</span>
+  <svg class="theme-toggle__moon" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path fill="currentColor" d="M20.5 14.6A8.5 8.5 0 0 1 9.4 3.5a.6.6 0 0 0-.8-.7 9.8 9.8 0 1 0 12.6 12.6.6.6 0 0 0-.7-.8Z" /></svg>
+  <svg class="theme-toggle__sun" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><circle cx="12" cy="12" r="4.5" fill="currentColor" /><path stroke="currentColor" stroke-width="2" stroke-linecap="round" d="M12 2.5v2M12 19.500v2M2.500 12h2M19.500 12h2M5.300 5.300l1.400 1.400M17.300 17.300l1.400 1.400M5.300 18.700l1.400-1.400M17.300 6.700l1.400-1.400" /></svg>
+</button>
+
+<script>
+  const STORAGE_KEY = 'theme';
+  const root = document.documentElement;
+  const button = document.querySelector<HTMLButtonElement>('[data-theme-toggle]')!;
+  const systemDark = matchMedia('(prefers-color-scheme: dark)');
+
+  const isDark = (): boolean => (root.dataset.theme ? root.dataset.theme === 'dark' : systemDark.matches);
+
+  const sync = (): void => button.setAttribute('aria-pressed', String(isDark()));
+
+  button.addEventListener('click', () => {
+    const next = isDark() ? 'light' : 'dark';
+    root.dataset.theme = next;
+    try {
+      localStorage.setItem(STORAGE_KEY, next);
+    } catch {
+      // 저장하지 못해도 지금 페이지의 테마는 바뀐다.
+    }
+    sync();
+  });
+
+  systemDark.addEventListener('change', sync);
+  sync();
+</script>

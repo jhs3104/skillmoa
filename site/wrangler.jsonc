@@ -1,8 +1,9 @@
 {
   "$schema": "./node_modules/wrangler/config-schema.json",
-  "name": "skill-directory",
+  "name": "skillmoa",
   "main": "@astrojs/cloudflare/entrypoints/server",
   "compatibility_date": "2026-10-01",
+  "routes": [{ "pattern": "skillmoa.com", "custom_domain": true }],
   "assets": {
     "directory": "./dist",
     "binding": "ASSETS"

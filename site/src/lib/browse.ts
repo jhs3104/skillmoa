@@ -1,6 +1,6 @@
 import type { Category } from './types';
 
-export type SortKey = 'stars' | 'updated' | 'new';
+export type SortKey = 'rank' | 'stars' | 'updated' | 'new';
 export type ViewKey = 'cards' | 'table';
 
 export interface BrowseItem {
@@ -8,59 +8,81 @@ export interface BrowseItem {
   text: string;
   category: Category;
   rank: number;
+  stars: number;
   pushedAt: string;
   firstSeenAt: string;
-  runsNothing: boolean;
+  noFlags: boolean;
 }
 
 export interface BrowseState {
   query: string;
   category: Category | '';
   sort: SortKey;
-  localOnly: boolean;
+  unflaggedOnly: boolean;
   view: ViewKey;
 }
+
+export const SORT_LABELS: Record<SortKey, string> = {
+  rank: '대표순',
+  stars: '스타순',
+  updated: '업데이트순',
+  new: '신규순',
+};
 
 export const DEFAULT_STATE: BrowseState = {
   query: '',
   category: '',
-  sort: 'stars',
-  localOnly: false,
-  view: 'cards',
+  sort: 'rank',
+  unflaggedOnly: false,
+  view: 'table',
 };
 
-const SORTS: SortKey[] = ['stars', 'updated', 'new'];
+const SORTS = Object.keys(SORT_LABELS) as SortKey[];
 
-export function parseState(params: URLSearchParams, categories: readonly string[]): BrowseState {
+export function parseState(
+  params: URLSearchParams,
+  categories: readonly string[],
+  defaultSort: SortKey = DEFAULT_STATE.sort,
+): BrowseState {
   const sort = params.get('sort') as SortKey;
   const category = params.get('category') ?? '';
   return {
     query: params.get('q')?.slice(0, 100) ?? '',
     category: categories.includes(category) ? (category as Category) : '',
-    sort: SORTS.includes(sort) ? sort : DEFAULT_STATE.sort,
-    localOnly: params.get('local') === '1',
-    view: params.get('view') === 'table' ? 'table' : 'cards',
+    sort: SORTS.includes(sort) ? sort : defaultSort,
+    unflaggedOnly: params.get('local') === '1',
+    view: params.get('view') === 'cards' ? 'cards' : 'table',
   };
 }
 
-export function serializeState(state: BrowseState): URLSearchParams {
+export function serializeState(
+  state: BrowseState,
+  defaultSort: SortKey = DEFAULT_STATE.sort,
+): URLSearchParams {
   const params = new URLSearchParams();
   if (state.query) params.set('q', state.query);
   if (state.category) params.set('category', state.category);
-  if (state.sort !== DEFAULT_STATE.sort) params.set('sort', state.sort);
-  if (state.localOnly) params.set('local', '1');
+  if (state.sort !== defaultSort) params.set('sort', state.sort);
+  if (state.unflaggedOnly) params.set('local', '1');
   if (state.view !== DEFAULT_STATE.view) params.set('view', state.view);
   return params;
 }
 
+export function activeFilterCount(state: BrowseState): number {
+  return Number(Boolean(state.category)) + Number(state.unflaggedOnly);
+}
+
 export function matches(item: BrowseItem, state: BrowseState): boolean {
   if (state.category && item.category !== state.category) return false;
-  if (state.localOnly && !item.runsNothing) return false;
+  if (state.unflaggedOnly && !item.noFlags) return false;
   const terms = state.query.toLowerCase().split(/\s+/).filter(Boolean);
   return terms.every((term) => item.text.includes(term));
 }
 
 export function compare(a: BrowseItem, b: BrowseItem, sort: SortKey): number {
+  if (sort === 'stars') {
+    return b.stars - a.stars || a.rank - b.rank;
+  }
   if (sort === 'updated') {
     return b.pushedAt.localeCompare(a.pushedAt) || a.rank - b.rank;
   }
@@ -72,4 +94,21 @@ export function compare(a: BrowseItem, b: BrowseItem, sort: SortKey): number {
 
 export function visibleItems(items: BrowseItem[], state: BrowseState): BrowseItem[] {
   return items.filter((item) => matches(item, state)).sort((a, b) => compare(a, b, state.sort));
+}
+
+export const PAGE_SIZE = 50;
+
+export function pageItems<T>(items: T[], limit: number): { shown: T[]; remaining: number } {
+  return { shown: items.slice(0, limit), remaining: Math.max(items.length - limit, 0) };
+}
+
+export function moreLabel(remaining: number): string {
+  return remaining > PAGE_SIZE
+    ? `${PAGE_SIZE}개 더 보기 (${remaining}개 남음)`
+    : `${remaining}개 더 보기`;
+}
+
+/** 상세에서 돌아와도 펼친 만큼 남도록 history에 보관한 값을 되살린다. */
+export function restoreLimit(saved: unknown): number {
+  return typeof saved === 'number' && Number.isInteger(saved) && saved >= PAGE_SIZE ? saved : PAGE_SIZE;
 }

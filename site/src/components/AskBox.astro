@@ -1,0 +1,30 @@
+---
+const examples = [
+  '회의록을 정리해서 공유하고 싶어요',
+  'PR 리뷰를 맡기고 싶어요',
+  '브랜드에 맞는 자료를 만들고 싶어요',
+];
+---
+
+<form class="ask" data-ask>
+  <label class="visually-hidden" for="ask-question">하고 싶은 일</label>
+  <div class="ask__field">
+    <textarea id="ask-question" name="question" rows="2" maxlength="200" required placeholder="예: 회의록을 정리해서 슬랙에 공유하고 싶어요"></textarea>
+    <button class="button button--primary" type="submit">AI로 찾기</button>
+  </div>
+  <div class="ask__examples">
+    {examples.map((example) => (
+      <button class="ask__example" type="button" data-ask-example>{example}</button>
+    ))}
+  </div>
+  <p class="ask__note">입력한 문장은 추천을 위해 Claude API로 전송됩니다. 개인정보는 적지 마세요. 하루 5번까지 쓸 수 있습니다.</p>
+  <p class="status" role="status" data-ask-status></p>
+  <p class="ask__recover" data-ask-recover hidden>
+    <a href="/">전체 스킬 보기</a>
+    <a href="/recommend/">맞춤 추천으로 찾기</a>
+  </p>
+</form>
+
+<script>
+  import '../scripts/recommend';
+</script>

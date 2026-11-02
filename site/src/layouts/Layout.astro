@@ -1,7 +1,8 @@
 ---
 import '../styles/global.css';
+import ThemeToggle from '../components/ThemeToggle.astro';
 import { isSampleData } from '../lib/data';
-import { SITE_NAME } from '../lib/labels';
+import { CONTACT_EMAIL, HOME_TITLE, SITE_NAME } from '../lib/labels';
 
 interface Props {
   title: string;
@@ -12,12 +13,17 @@ interface Props {
 
 const { title, description, noindex = false, structuredData } = Astro.props;
 const canonical = new URL(Astro.url.pathname, Astro.site);
-const fullTitle = title === SITE_NAME ? title : `${title} | ${SITE_NAME}`;
+const fullTitle = title === SITE_NAME ? HOME_TITLE : `${title} | ${SITE_NAME}`;
 const shouldHide = noindex || isSampleData;
+const currentState = (href: string): 'page' | 'true' | undefined => {
+  if (Astro.url.pathname === href) return 'page';
+  return href === '/' && Astro.url.pathname.startsWith('/skills/') ? 'true' : undefined;
+};
 const navigation = [
-  { href: '/', label: '둘러보기' },
+  { href: '/', label: '스킬' },
   { href: '/new/', label: '새 스킬' },
   { href: '/recommend/', label: '맞춤 추천' },
+  { href: '/ask/', label: 'AI 찾기' },
 ];
 ---
 
@@ -25,6 +31,12 @@ const navigation = [
 <html lang="ko">
   <head>
     <meta charset="utf-8" />
+    <script is:inline>
+      try {
+        const theme = localStorage.getItem('theme');
+        if (theme === 'dark' || theme === 'light') document.documentElement.dataset.theme = theme;
+      } catch {}
+    </script>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>{fullTitle}</title>
     <meta name="description" content={description} />
@@ -47,20 +59,25 @@ const navigation = [
     {isSampleData && <p class="sample-banner">개발용 샘플 데이터입니다. 요약은 사람이 작성했습니다.</p>}
     <header class="site-header">
       <div class="page site-header__inner">
-        <a class="wordmark" href="/">스킬<span>서가</span></a>
         <nav class="site-nav" aria-label="주요 메뉴">
           {navigation.map(({ href, label }) => (
-            <a href={href} aria-current={Astro.url.pathname === href ? 'page' : undefined}>{label}</a>
+            <a href={href} aria-current={currentState(href)}>{label}</a>
           ))}
         </nav>
+        <ThemeToggle />
       </div>
     </header>
-    <main id="main" class="page">
-      <slot />
+    <main id="main">
+      <slot name="hero" />
+      <div class="page">
+        <slot />
+      </div>
     </main>
     <footer class="site-footer">
       <div class="page">
-        <p>스킬 설명은 원문을 바탕으로 AI가 새로 쓴 요약이며, 원문과 권리는 각 저장소에 있습니다. 설치 전에 원본을 확인하세요.</p>
+        <p>스킬 설명은 원문을 바탕으로 AI가 새로 쓴 요약이며, 원문과 권리는 각 저장소에 있습니다. 설치 전에 원문을 확인하세요.</p>
+        <p>{SITE_NAME}는 Anthropic, OpenAI, Cursor, GitHub와 제휴하지 않은 독립 사이트입니다. 각 제품 이름과 상표는 해당 회사의 것입니다.</p>
+        {CONTACT_EMAIL && <p>저작자의 삭제·수정 요청은 <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a>로 보내 주세요.</p>}
       </div>
     </footer>
   </body>

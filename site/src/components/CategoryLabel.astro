@@ -1,0 +1,12 @@
+---
+import { CATEGORY_LABELS } from '../lib/labels';
+import type { Category } from '../lib/types';
+
+interface Props {
+  category: Category;
+}
+
+const { category } = Astro.props;
+---
+
+<span class="cat-label" data-cat={category}>{CATEGORY_LABELS[category]}</span>

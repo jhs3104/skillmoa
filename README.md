@@ -1,13 +1,13 @@
-# 스킬서가
+# 스킬모아
 
 Claude Code, Codex, Cursor에서 쓰는 SKILL.md 기반 AI 에이전트 스킬을 한국어로 정리하고 추천하는 사이트입니다.
 
 GitHub에서 스킬을 매일 수집하고, Claude API로 한국어 설명을 새로 쓰고, 정적 사이트로 배포합니다. 상시 서버와 DB 없이 동작합니다.
 
-- 둘러보기: 카테고리 필터, 스타·업데이트·신규 정렬, 키워드 검색, 카드/표 보기
-- 상세: 에이전트별 설치 명령, 원본 링크, 라이선스, 코드 실행·네트워크 접근 표시
+- 둘러보기: 50개씩 펼치는 순위 목록, 카테고리 필터, 대표·스타·업데이트·신규 정렬, 키워드 검색, 목록/카드 보기
+- 상세: GitHub 기록과 AI 판단을 나눈 설치 판단 근거, 라이선스에 따른 에이전트별 설치 명령, 원본 링크
+- AI 찾기: 별도 페이지에서 하고 싶은 일을 문장으로 적으면 Claude가 카탈로그에서 골라 이유와 함께 제시
 - 맞춤 추천: 네 가지 질문을 브라우저에서 계산하고 결과를 URL로 공유
-- 자연어 추천: 문장으로 물어보면 Claude가 카탈로그에서 골라 이유와 함께 제시
 
 ## 아키텍처
 
@@ -65,6 +65,7 @@ docs/adr/    설계 결정 기록
 | 상태와 결과를 JSON으로 커밋 | 러너가 초기화되어도 증분 수집이 이어지고, 데이터 변경이 커밋으로 추적된다 | [ADR-0002](docs/adr/0002-json-commit-and-state-files.md) |
 | 저장소 스타를 감쇠와 상한으로 순위화 | 스타는 저장소 단위라, 큰 모음 저장소가 상위를 독점하는 것을 막아야 한다 | [ADR-0003](docs/adr/0003-ranking-with-repository-stars.md) |
 | 자연어 추천을 인터페이스로 분리하고 KV로 비용 제한 | 300개 규모에는 단순한 방식이 맞고, 커지면 임베딩으로 교체할 수 있다 | [ADR-0004](docs/adr/0004-natural-language-recommendation.md) |
+| AI 찾기를 홈 맨 위에서 별도 페이지로 분리 | 비용이 드는 호출이 첫 동작이 되면 하루 상한이 단순 탐색에 소진된다 | [ADR-0005](docs/adr/0005-separate-ai-search-page.md) |
 
 구현에서 특히 신경 쓴 부분은 다음과 같습니다.
 
@@ -105,7 +106,7 @@ npx wrangler dev --var ANTHROPIC_API_KEY:<키>
 1. GitHub Secrets에 `GH_SEARCH_TOKEN`(공개 저장소 읽기 전용 fine-grained PAT)과 `ANTHROPIC_API_KEY`를 등록합니다.
 2. `npx wrangler kv namespace create RECOMMEND_KV`로 KV를 만들고 `site/wrangler.jsonc`의 `id`를 교체합니다.
 3. `npx wrangler secret put ANTHROPIC_API_KEY`로 Worker에 키를 등록합니다.
-4. Cloudflare Workers Builds에 저장소를 연결합니다. Root directory는 `site`, Build는 `npm run build`, Deploy는 `npx wrangler deploy`, 환경변수 `SITE_URL`에 실제 도메인을 넣습니다.
+4. Cloudflare Workers Builds에 저장소를 연결합니다. Root directory는 `site`, Build는 `npm run build`, Deploy는 `npx wrangler deploy`입니다. 도메인 `skillmoa.com`은 `site/wrangler.jsonc`의 `routes`로 연결됩니다.
 5. Actions에서 `Collect skills`를 `bootstrap` 모드로 한 번 실행합니다.
 
 ## 운영 지표

@@ -29,17 +29,24 @@ function directoryExpression(directory: string): string {
   return directory.startsWith('~/') ? `"$HOME/${directory.slice(2)}"` : shellQuote(directory);
 }
 
-/** 저장소 전체가 아니라 스킬 폴더만 설치한다. */
+export function installLocation(repository: string, path: string, directory: string): string {
+  return `${directory}/${skillFolderName(repository, path)}`;
+}
+
+/**
+ * 저장소 전체가 아니라 스킬 폴더만 설치한다.
+ * 폴더의 내용을 복사해야 다시 설치해도 대상 폴더 안에 중첩되지 않는다.
+ */
 export function installCommand(repository: string, path: string, directory: string): string {
   const url = shellQuote(`https://github.com/${repository}.git`);
   const name = skillFolderName(repository, path);
-  const target = directoryExpression(directory);
+  const target = `${directoryExpression(directory)}/${shellQuote(name)}`;
   const skillDirectory = path.split('/').slice(0, -1).join('/');
   const source = skillDirectory ? `"$tmp"/${shellQuote(skillDirectory)}` : '"$tmp"';
   return [
     `tmp=$(mktemp -d) && git clone --depth 1 ${url} "$tmp"`,
     `mkdir -p ${target}`,
-    `cp -R ${source} ${target}/${shellQuote(name)}`,
+    `cp -R ${source}/. ${target}/`,
     'rm -rf "$tmp"',
   ].join('\n');
 }

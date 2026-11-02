@@ -68,7 +68,7 @@ export function scoreSkill(item: CatalogItem, answers: Answers, total: number): 
 
   if (answers.role && item.roles.includes(answers.role)) {
     score += WEIGHTS.role;
-    reasons.push(`${ROLE_LABELS[answers.role]} 추천`);
+    reasons.push(answers.role === 'general' ? '누구나 쓸 수 있음' : `${ROLE_LABELS[answers.role]}에게 맞음`);
   } else if (answers.role && item.roles.includes('general')) {
     score += WEIGHTS.generalRole;
   }
@@ -87,9 +87,19 @@ export function scoreSkill(item: CatalogItem, answers: Answers, total: number): 
   return { item, score: score + popularity, reasons };
 }
 
-/** 답변과 맞는 근거가 하나도 없는 스킬은 인기만으로 올리지 않는다. */
+/** 도구는 설치 명령을 고르는 값이라 추천 근거가 되지 않는다. */
+export function hasMatchingAnswer(answers: Answers): boolean {
+  return Boolean(answers.role || answers.goal || answers.level);
+}
+
+/**
+ * 답변과 맞는 근거가 하나도 없는 스킬은 인기만으로 올리지 않는다.
+ * 하고 싶은 일을 골랐다면 그 일에 맞는 스킬만 남긴다. 난이도만 맞는 스킬로 칸을 채우지 않는다.
+ */
 export function recommendSkills(items: CatalogItem[], answers: Answers, limit = 6): ScoredSkill[] {
+  const goal = GOALS.find(({ id }) => id === answers.goal);
   return items
+    .filter((item) => !goal || goal.categories.includes(item.category))
     .map((item) => scoreSkill(item, answers, items.length))
     .filter(({ reasons }) => reasons.length > 0)
     .sort((a, b) => b.score - a.score || a.item.rank - b.item.rank)
