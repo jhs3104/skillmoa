@@ -1,13 +1,10 @@
 ---
 import Browse from '../../components/Browse.astro';
 import Layout from '../../layouts/Layout.astro';
-import { bootstrappedOn, skills } from '../../lib/data';
-import { isNewSkill, NEW_SKILL_DAYS } from '../../lib/freshness';
+import { freshSkills } from '../../lib/data';
+import { NEW_SKILL_DAYS } from '../../lib/freshness';
 
-const today = new Date().toISOString().slice(0, 10);
-const fresh = skills
-  .filter((skill) => isNewSkill(skill.firstSeenAt, today, bootstrappedOn))
-  .sort((a, b) => b.firstSeenAt.localeCompare(a.firstSeenAt) || a.rank - b.rank);
+const fresh = freshSkills();
 ---
 
 <Layout
@@ -24,5 +21,6 @@ const fresh = skills
     emptyBody="새 스킬을 찾으면 이곳에 표시합니다."
     defaultSort="new"
     dateKind="found"
+    catalogUrl="/catalog-new.json"
   />
 </Layout>

@@ -480,6 +480,7 @@ main { flex: 1; }
 .skill-list--plain .skill > * { grid-column: 1; }
 
 .more { width: 100%; min-height: 52px; margin-top: 16px; border-radius: var(--radius); }
+.load-error { display: flex; flex-wrap: wrap; align-items: center; gap: 4px 8px; margin-top: 12px; font-size: 14px; color: var(--muted); }
 
 .skill__body { min-width: 0; }
 .skill__title { display: flex; flex-wrap: wrap; align-items: center; gap: 2px 8px; }

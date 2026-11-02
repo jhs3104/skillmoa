@@ -1,18 +1,9 @@
----
-import { skills } from '../lib/data';
-import SkillItem from './SkillItem.astro';
----
-
 <section class="skill-results" data-results hidden>
   <h2 class="visually-hidden">찾은 스킬</h2>
   <ol class="skill-list" data-results-list data-view="table">
     <li class="table-head" aria-hidden="true">
-      <span>코드·네트워크</span><span>업데이트</span><span>저장소 스타</span>
+      <span>AI 판단</span><span>업데이트</span><span>저장소 스타</span>
     </li>
   </ol>
   <slot />
 </section>
-
-<template data-skill-rows>
-  {skills.map((skill) => <SkillItem skill={skill} />)}
-</template>

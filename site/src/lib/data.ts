@@ -1,5 +1,6 @@
 import production from '../data/skills.json';
 import sample from '../data/skills.sample.json';
+import { isNewSkill } from './freshness';
 import type { SiteData, Skill } from './types';
 
 /** 샘플 요약은 사람이 쓴 개발용 데이터다. 명시적으로 켠 빌드에서만 쓴다. */
@@ -21,6 +22,12 @@ export const skills: Skill[] = data.skills.flatMap((skill) => {
     defaultBranch: repository.defaultBranch,
   }];
 });
+
+export function freshSkills(today = new Date().toISOString().slice(0, 10)): Skill[] {
+  return skills
+    .filter((skill) => isNewSkill(skill.firstSeenAt, today, bootstrappedOn))
+    .sort((a, b) => b.firstSeenAt.localeCompare(a.firstSeenAt) || a.rank - b.rank);
+}
 
 export function sourceUrl(skill: Skill): string {
   const encoded = skill.path.split('/').map(encodeURIComponent).join('/');

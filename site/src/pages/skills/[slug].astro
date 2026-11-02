@@ -82,6 +82,9 @@ const structuredData = {
       {risks.length > 0 && (
         <p class="notice">AI가 SKILL.md에서 {risks.join('과 ')} 내용을 찾았습니다. 설치 전에 <a href={sourceUrl(skill)} rel="noopener noreferrer">원문</a>을 확인하세요.</p>
       )}
+      {skill.requiresExternalAccount && (
+        <p class="notice">AI가 SKILL.md에서 외부 서비스의 계정이나 API 키가 필요하다는 내용을 찾았습니다. 비용은 해당 서비스에서 확인하세요.</p>
+      )}
       <div class="evidence__groups">
         <div>
           <h3>GitHub 기록</h3>
@@ -103,6 +106,8 @@ const structuredData = {
             <dd>{skill.runsExternalCode ? '있음' : '확인되지 않음'}</dd>
             <dt>네트워크 접속</dt>
             <dd>{skill.accessesNetwork ? '있음' : '확인되지 않음'}</dd>
+            <dt>외부 계정</dt>
+            <dd>{skill.requiresExternalAccount ? '필요' : '확인되지 않음'}</dd>
             <dt>난이도</dt>
             <dd>{DIFFICULTY_LABELS[skill.tags.difficulty]}</dd>
             <dt>직군</dt>

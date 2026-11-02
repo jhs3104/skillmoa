@@ -1,6 +1,5 @@
 import type { APIRoute } from 'astro';
 import { env } from 'cloudflare:workers';
-import type { CatalogItem } from '../../lib/catalog';
 import { ClaudeRecommender } from '../../recommend/claude';
 import {
   answerQuestion,
@@ -12,8 +11,6 @@ import type { CatalogEntry } from '../../recommend/types';
 
 export const prerender = false;
 
-const MAX_CATALOG_ENTRIES = 300;
-
 function json(body: object, status = 200): Response {
   return new Response(JSON.stringify(body), {
     status,
@@ -21,19 +18,10 @@ function json(body: object, status = 200): Response {
   });
 }
 
-function firstSentence(text: string): string {
-  return text.match(/^.+?[.!?](?=\s|$)/)?.[0] ?? text;
-}
-
 async function loadCatalog(url: URL): Promise<CatalogEntry[]> {
-  const response = await env.ASSETS.fetch(new URL('/catalog.json', url));
+  const response = await env.ASSETS.fetch(new URL('/catalog-ai.json', url));
   if (!response.ok) throw new Error(`catalog: ${response.status}`);
-  const items = (await response.json()) as CatalogItem[];
-  return items.slice(0, MAX_CATALOG_ENTRIES).map(({ slug, name, summary }) => ({
-    slug,
-    name,
-    summary: firstSentence(summary),
-  }));
+  return (await response.json()) as CatalogEntry[];
 }
 
 export const POST: APIRoute = async ({ request, url }) => {

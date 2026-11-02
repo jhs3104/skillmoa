@@ -6,6 +6,8 @@ import {
   serializeAnswers,
   type Answers,
 } from '../lib/questionnaire';
+import { skillRowHtml } from '../lib/skill-row';
+import { loadCatalog } from './catalog';
 
 const ERROR_MESSAGES: Record<string, string> = {
   invalid_question: '하고 싶은 일을 2자 이상 200자 이하로 적어 주세요.',
@@ -31,8 +33,6 @@ interface SavedAsk {
   scrollY?: number;
 }
 
-let catalogRequest: Promise<CatalogItem[]> | undefined;
-
 /** 결과는 주소에 담을 수 없어, 상세에서 돌아와도 남도록 이 탭에만 보관한다. */
 function readSavedAsk(): SavedAsk | null {
   try {
@@ -52,45 +52,20 @@ function writeSavedAsk(saved: SavedAsk | null): void {
   }
 }
 
-function loadCatalog(): Promise<CatalogItem[]> {
-  catalogRequest ??= fetch('/catalog.json')
-    .then((response) => {
-      if (!response.ok) throw new Error(`catalog: ${response.status}`);
-      return response.json() as Promise<CatalogItem[]>;
-    })
-    .catch((error: unknown) => {
-      catalogRequest = undefined;
-      throw error;
-    });
-  return catalogRequest;
-}
-
-/** 목록과 같은 모양을 유지하도록 빌드된 스킬 행을 복제한다. 없는 슬러그는 버린다. */
-function showSkills(rows: SkillRow[]): number {
+/** 목록과 같은 행으로 결과를 그린다. 없는 슬러그는 버린다. */
+function showSkills(items: CatalogItem[], rows: SkillRow[]): number {
   const results = document.querySelector<HTMLElement>('[data-results]')!;
   const list = results.querySelector<HTMLElement>('[data-results-list]')!;
-  const template = document.querySelector<HTMLTemplateElement>('[data-skill-rows]')!;
-  const sources = new Map(
-    [...template.content.querySelectorAll<HTMLElement>('.skill')].map((row) => [row.dataset.id, row]),
-  );
+  const bySlug = new Map(items.map((item) => [item.slug, item]));
 
   list.querySelectorAll('.skill').forEach((row) => row.remove());
-  for (const { slug, reason, query = '' } of rows) {
-    const source = sources.get(slug);
-    if (!source) continue;
-    const row = source.cloneNode(true) as HTMLElement;
-    const link = row.querySelector('a')!;
-    link.setAttribute('href', `${link.getAttribute('href')}${query}`);
-    const why = document.createElement('p');
-    why.className = 'skill__reason';
-    why.textContent = reason;
-    row.querySelector('.skill__title')!.after(why);
-    list.append(row);
-  }
-
-  const shown = list.querySelectorAll('.skill').length;
-  results.hidden = shown === 0;
-  return shown;
+  const html = rows.flatMap(({ slug, reason, query }) => {
+    const item = bySlug.get(slug);
+    return item ? [skillRowHtml(item, { reason, query })] : [];
+  });
+  list.insertAdjacentHTML('beforeend', html.join(''));
+  results.hidden = html.length === 0;
+  return html.length;
 }
 
 function scrollToStatus(status: HTMLElement): void {
@@ -103,7 +78,7 @@ function startQuestionnaire(form: HTMLFormElement): void {
   const share = document.querySelector<HTMLButtonElement>('[data-share]')!;
 
   function askForAnswer(): void {
-    showSkills([]);
+    showSkills([], []);
     status.textContent = '하는 일, 하고 싶은 일, 난이도 중 하나 이상을 골라 주세요. 도구는 설치 명령을 고르는 데만 씁니다.';
   }
 
@@ -112,12 +87,12 @@ function startQuestionnaire(form: HTMLFormElement): void {
     try {
       items = await loadCatalog();
     } catch {
-      showSkills([]);
+      showSkills([], []);
       status.textContent = CATALOG_ERROR_MESSAGE;
       return;
     }
     const query = answers.tool ? `?agent=${answers.tool}` : '';
-    const shown = showSkills(recommendSkills(items, answers).map(({ item, reasons }) => ({
+    const shown = showSkills(items, recommendSkills(items, answers).map(({ item, reasons }) => ({
       slug: item.slug,
       reason: reasons.join(' · '),
       query,
@@ -164,8 +139,8 @@ function startAsk(form: HTMLFormElement): void {
   const input = form.querySelector<HTMLTextAreaElement>('textarea')!;
   const recover = form.querySelector<HTMLElement>('[data-ask-recover]')!;
 
-  function showSuggestions(suggestions: Suggestion[]): number {
-    const shown = showSkills(suggestions);
+  async function showSuggestions(suggestions: Suggestion[]): Promise<number> {
+    const shown = showSkills(await loadCatalog(), suggestions);
     status.textContent = shown > 0
       ? `${shown}개 스킬을 찾았습니다.`
       : '맞는 스킬을 찾지 못했습니다. 조금 다르게 적어 보세요.';
@@ -175,8 +150,12 @@ function startAsk(form: HTMLFormElement): void {
   const saved = readSavedAsk();
   if (saved) {
     input.value = saved.question;
-    showSuggestions(saved.suggestions);
-    window.scrollTo(0, saved.scrollY ?? 0);
+    history.scrollRestoration = 'manual';
+    showSuggestions(saved.suggestions)
+      .then(() => window.scrollTo(0, saved.scrollY ?? 0))
+      .catch(() => {
+        status.textContent = CATALOG_ERROR_MESSAGE;
+      });
   }
 
   window.addEventListener('pagehide', () => {
@@ -219,7 +198,7 @@ function startAsk(form: HTMLFormElement): void {
         return;
       }
       const suggestions = body.suggestions ?? [];
-      const shown = showSuggestions(suggestions);
+      const shown = await showSuggestions(suggestions);
       writeSavedAsk({ question, suggestions });
       if (shown > 0) scrollToStatus(status);
     } catch {

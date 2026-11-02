@@ -18,6 +18,15 @@ const item = (slug: string, fields: Partial<CatalogItem> = {}): CatalogItem => (
   roles: ['general'],
   difficulty: 'beginner',
   rank: 1,
+  repository: 'acme/kit',
+  useCases: [],
+  stars: 1,
+  pushedAt: '2026-01-01',
+  firstSeenAt: '2026-01-01',
+  runsExternalCode: false,
+  accessesNetwork: false,
+  requiresExternalAccount: false,
+  installBlocked: false,
   ...fields,
 });
 

@@ -11,9 +11,10 @@ interface Props {
   emptyBody: string;
   defaultSort?: SortKey;
   dateKind?: 'updated' | 'found';
+  catalogUrl?: string;
 }
 
-const { skills, emptyTitle, emptyBody, defaultSort = 'rank', dateKind } = Astro.props;
+const { skills, emptyTitle, emptyBody, defaultSort = 'rank', dateKind, catalogUrl = '/catalog.json' } = Astro.props;
 const counts = new Map<Category, number>();
 for (const skill of skills) counts.set(skill.category, (counts.get(skill.category) ?? 0) + 1);
 const categories = (Object.keys(CATEGORY_LABELS) as Category[]).filter((category) => counts.has(category));
@@ -22,7 +23,15 @@ const sorts = (Object.entries(SORT_LABELS) as [SortKey, string][])
 const { remaining } = pageItems(skills, PAGE_SIZE);
 ---
 
-<div class="browse" data-browse data-categories={categories.join(',')} data-default-sort={defaultSort}>
+<div
+  class="browse"
+  data-browse
+  data-categories={categories.join(',')}
+  data-default-sort={defaultSort}
+  data-date-kind={dateKind ?? 'updated'}
+  data-catalog={catalogUrl}
+  data-total={skills.length}
+>
   {skills.length > 0 && (
     <div class="toolbar">
       <label>
@@ -61,12 +70,16 @@ const { remaining } = pageItems(skills, PAGE_SIZE);
       </div>
     </fieldset>
     <fieldset>
-      <legend>코드·네트워크</legend>
+      <legend>AI 판단</legend>
       <label class="choice">
         <input type="checkbox" name="local" />
         <span class="choice__label">코드 실행·네트워크가 확인되지 않은 스킬만</span>
       </label>
-      <p class="filters__hint">AI가 SKILL.md에서 찾지 못했다는 뜻입니다. 코드 실행이나 네트워크 접속이 없다는 보장은 아닙니다.</p>
+      <label class="choice">
+        <input type="checkbox" name="no-account" />
+        <span class="choice__label">외부 계정이 확인되지 않은 스킬만</span>
+      </label>
+      <p class="filters__hint">AI가 SKILL.md에서 찾지 못했다는 뜻입니다. 없다는 보장은 아닙니다.</p>
     </fieldset>
     </div>
   )}
@@ -93,12 +106,16 @@ const { remaining } = pageItems(skills, PAGE_SIZE);
     <h2 class="visually-hidden">스킬 목록</h2>
     <ol class="skill-list" data-list data-view="table">
       <li class="table-head" aria-hidden="true">
-        <span>코드·네트워크</span><span>{dateKind === 'found' ? '발견일' : '업데이트'}</span><span>저장소 스타</span>
+        <span>AI 판단</span><span>{dateKind === 'found' ? '발견일' : '업데이트'}</span><span>저장소 스타</span>
       </li>
-      {skills.map((skill, index) => <SkillItem skill={skill} dateKind={dateKind} hidden={index >= PAGE_SIZE} />)}
+      {skills.slice(0, PAGE_SIZE).map((skill) => <SkillItem skill={skill} dateKind={dateKind} />)}
     </ol>
     <button class="button more" type="button" data-more hidden={remaining === 0}>{moreLabel(remaining)}</button>
-    <noscript><style>.skill[hidden] { display: grid !important; } .more { display: none !important; }</style></noscript>
+    <noscript><style>.more { display: none !important; }</style></noscript>
+    <p class="load-error" data-load-error hidden>
+      목록을 불러오지 못했습니다.
+      <button class="text-button" type="button" data-retry>다시 시도</button>
+    </p>
     <div class="empty" data-empty hidden={skills.length > 0}>
       <strong>{skills.length > 0 ? '조건에 맞는 스킬이 없습니다' : emptyTitle}</strong>
       <p>{skills.length > 0 ? '검색어를 줄이거나 필터를 해제해 보세요.' : emptyBody}</p>

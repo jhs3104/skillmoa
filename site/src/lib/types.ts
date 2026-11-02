@@ -31,6 +31,7 @@ export interface SiteSkill {
   tags: { roles: Role[]; useCases: string[]; difficulty: Difficulty };
   runsExternalCode: boolean;
   accessesNetwork: boolean;
+  requiresExternalAccount: boolean;
   promptVersion: string;
 }
 

@@ -5,9 +5,12 @@ import {
   moreLabel,
   PAGE_SIZE,
   pageItems,
+  isFirstPage,
   parseState,
   restoreLimit,
+  restoreScroll,
   serializeState,
+  toBrowseItem,
   visibleItems,
   type BrowseItem,
 } from './browse';
@@ -21,6 +24,7 @@ const item = (id: string, fields: Partial<BrowseItem> = {}): BrowseItem => ({
   pushedAt: '2026-01-01',
   firstSeenAt: '2026-01-01',
   noFlags: true,
+  noAccount: true,
   ...fields,
 });
 
@@ -39,6 +43,12 @@ describe('visibleItems', () => {
     ];
     const found = visibleItems(items, { ...DEFAULT_STATE, category: 'data', unflaggedOnly: true });
     expect(found.map(({ id }) => id)).toEqual(['a']);
+  });
+
+  it('can hide skills that need an external account', () => {
+    const items = [item('free'), item('paid', { noAccount: false })];
+    const found = visibleItems(items, { ...DEFAULT_STATE, noAccountOnly: true });
+    expect(found.map(({ id }) => id)).toEqual(['free']);
   });
 
   it('sorts by rank by default, not raw repository stars', () => {
@@ -71,7 +81,7 @@ describe('visibleItems', () => {
 
 describe('URL state', () => {
   it('round-trips through query parameters', () => {
-    const state = { query: 'pdf', category: 'data', sort: 'new', unflaggedOnly: true, view: 'cards' } as const;
+    const state = { query: 'pdf', category: 'data', sort: 'new', unflaggedOnly: true, noAccountOnly: true, view: 'cards' } as const;
     expect(parseState(serializeState(state), ['data'])).toEqual(state);
   });
 
@@ -118,9 +128,40 @@ describe('paging', () => {
   });
 });
 
+describe('catalog rows', () => {
+  it('builds searchable text and flags from a catalog item', () => {
+    const found = toBrowseItem({
+      slug: 'a', rank: 3, name: 'PDF Kit', repository: 'acme/kit', summary: '문서를 다룹니다', useWhen: '보고서',
+      category: 'documents', roles: ['general'], useCases: ['서명'], difficulty: 'beginner', stars: 9,
+      pushedAt: '2026-01-02', firstSeenAt: '2026-01-01', runsExternalCode: true, accessesNetwork: false,
+      requiresExternalAccount: true, installBlocked: false,
+    });
+    expect(found.text).toContain('pdf kit');
+    expect(found.text).toContain('서명');
+    expect(found.text).toContain('문서');
+    expect(found.noFlags).toBe(false);
+    expect(found.noAccount).toBe(false);
+  });
+
+  it('keeps server rows only for the untouched first page', () => {
+    expect(isFirstPage(DEFAULT_STATE, PAGE_SIZE, 'rank')).toBe(true);
+    expect(isFirstPage({ ...DEFAULT_STATE, view: 'cards' }, PAGE_SIZE, 'rank')).toBe(true);
+    expect(isFirstPage({ ...DEFAULT_STATE, query: 'pdf' }, PAGE_SIZE, 'rank')).toBe(false);
+    expect(isFirstPage({ ...DEFAULT_STATE, noAccountOnly: true }, PAGE_SIZE, 'rank')).toBe(false);
+    expect(isFirstPage(DEFAULT_STATE, PAGE_SIZE * 2, 'rank')).toBe(false);
+    expect(isFirstPage({ ...DEFAULT_STATE, sort: 'new' }, PAGE_SIZE, 'new')).toBe(true);
+  });
+
+  it('restores only a usable scroll position', () => {
+    expect(restoreScroll(420)).toBe(420);
+    for (const value of [undefined, null, 'x', -1, Number.NaN]) expect(restoreScroll(value)).toBe(0);
+  });
+});
+
 describe('activeFilterCount', () => {
   it('counts category and the local filter, not the search or sort', () => {
     expect(activeFilterCount({ ...DEFAULT_STATE, query: 'pdf', sort: 'new' })).toBe(0);
     expect(activeFilterCount({ ...DEFAULT_STATE, category: 'data', unflaggedOnly: true })).toBe(2);
+    expect(activeFilterCount({ ...DEFAULT_STATE, noAccountOnly: true })).toBe(1);
   });
 });

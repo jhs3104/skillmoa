@@ -1,59 +1,14 @@
 ---
-import { CATEGORY_LABELS, formatDate, formatStars } from '../lib/labels';
-import { licenseStatus } from '../lib/license';
+import { toCatalogItem } from '../lib/catalog';
+import { skillRowHtml } from '../lib/skill-row';
 import type { Skill } from '../lib/types';
-import CategoryLabel from './CategoryLabel.astro';
-import Star from './Star.astro';
 
 interface Props {
   skill: Skill;
   dateKind?: 'updated' | 'found';
-  hidden?: boolean;
 }
 
-const { skill, dateKind = 'updated', hidden = false } = Astro.props;
-const searchText = [
-  skill.name,
-  skill.repository,
-  skill.summary,
-  skill.useWhen,
-  CATEGORY_LABELS[skill.category],
-  ...skill.tags.useCases,
-].join(' ').toLowerCase();
-const noFlags = !skill.runsExternalCode && !skill.accessesNetwork;
-const date = dateKind === 'found' ? skill.firstSeenAt : skill.pushedAt;
-const dateLabel = dateKind === 'found' ? '발견일' : '업데이트';
+const { skill, dateKind } = Astro.props;
 ---
 
-<li
-  class="skill"
-  data-id={skill.slug}
-  data-text={searchText}
-  data-category={skill.category}
-  data-rank={skill.rank}
-  data-stars={skill.stars}
-  data-pushed={skill.pushedAt}
-  data-first-seen={skill.firstSeenAt}
-  data-local={noFlags ? '1' : '0'}
-  {hidden}
->
-  <CategoryLabel category={skill.category} />
-  <div class="skill__body">
-    <div class="skill__title">
-      <h3 class="skill__name"><a href={`/skills/${skill.slug}/`}>{skill.name}</a></h3>
-      <span class="skill__repo">{skill.repository}</span>
-      {licenseStatus(skill.license) === 'restricted' && <span class="badge badge--caution">설치 명령 없음</span>}
-    </div>
-    <p class="skill__summary">{skill.summary}</p>
-    <p class="skill__when">{skill.useWhen}</p>
-  </div>
-  <div class="skill__meta">
-    <span class="skill__flags">
-      {skill.runsExternalCode && <span class="badge badge--caution">코드 실행</span>}
-      {skill.accessesNetwork && <span class="badge badge--caution">네트워크</span>}
-      {noFlags && <span class="badge badge--quiet">코드·네트워크 미확인</span>}
-    </span>
-    <span class="stat stat--updated"><span class="stat__label">{dateLabel} </span>{formatDate(date)}</span>
-    <span class="stat stat--stars"><span class="visually-hidden">저장소 스타 </span><Star />{formatStars(skill.stars)}</span>
-  </div>
-</li>
+<Fragment set:html={skillRowHtml(toCatalogItem(skill), { dateKind })} />
