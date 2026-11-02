@@ -1,0 +1,1054 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-11-02T12:58:14Z",
+  "title": "Design System: 스킬모아",
+  "extensions": {
+    "colorMeta": {
+      "accent": {
+        "role": "primary",
+        "displayName": "코발트",
+        "canonical": "#2340e8",
+        "tonalRamp": [
+          "#020035",
+          "#09047b",
+          "#1524bb",
+          "#294bf1",
+          "#537efe",
+          "#89abff",
+          "#c1d4ff",
+          "#e8eefe"
+        ]
+      },
+      "accent-ink": {
+        "role": "primary",
+        "displayName": "코발트 위 글자",
+        "canonical": "#ffffff",
+        "tonalRamp": [
+          "#0b0b0b",
+          "#262626",
+          "#454545",
+          "#666666",
+          "#898989",
+          "#aeaeae",
+          "#d4d4d4",
+          "#eeeeee"
+        ]
+      },
+      "accent-soft": {
+        "role": "primary",
+        "displayName": "옅은 코발트",
+        "canonical": "#e8ecff",
+        "tonalRamp": [
+          "#0a0b10",
+          "#242630",
+          "#414452",
+          "#626575",
+          "#858899",
+          "#aaadbc",
+          "#d1d4df",
+          "#eceef6"
+        ]
+      },
+      "cat-ai-agents": {
+        "role": "secondary",
+        "displayName": "AI 에이전트 코발트",
+        "canonical": "#2340e8",
+        "tonalRamp": [
+          "#020035",
+          "#09047b",
+          "#1524bb",
+          "#294bf1",
+          "#537efe",
+          "#89abff",
+          "#c1d4ff",
+          "#e8eefe"
+        ]
+      },
+      "cat-development": {
+        "role": "secondary",
+        "displayName": "개발 청록",
+        "canonical": "#2dd4bf",
+        "tonalRamp": [
+          "#000f0c",
+          "#002e28",
+          "#005148",
+          "#08766a",
+          "#0b9f8e",
+          "#48c5b3",
+          "#95e6d8",
+          "#c8fbf1"
+        ]
+      },
+      "cat-testing": {
+        "role": "secondary",
+        "displayName": "테스트 라임",
+        "canonical": "#a3e635",
+        "tonalRamp": [
+          "#060e00",
+          "#1b2d00",
+          "#344f02",
+          "#4e7402",
+          "#699b01",
+          "#8bc235",
+          "#bae588",
+          "#ddfabe"
+        ]
+      },
+      "cat-devops": {
+        "role": "secondary",
+        "displayName": "배포 바다색",
+        "canonical": "#0e7490",
+        "tonalRamp": [
+          "#000e14",
+          "#002b38",
+          "#004d61",
+          "#09718d",
+          "#4095b1",
+          "#73b9d3",
+          "#abddf0",
+          "#d8f4fe"
+        ]
+      },
+      "cat-data": {
+        "role": "secondary",
+        "displayName": "데이터 노랑",
+        "canonical": "#f5b700",
+        "tonalRamp": [
+          "#110a00",
+          "#332401",
+          "#594101",
+          "#826001",
+          "#ae8100",
+          "#d8a52a",
+          "#f5cf83",
+          "#ffecc9"
+        ]
+      },
+      "cat-documents": {
+        "role": "secondary",
+        "displayName": "문서 자홍",
+        "canonical": "#c7217f",
+        "tonalRamp": [
+          "#1d000e",
+          "#4b002b",
+          "#7e004d",
+          "#b60271",
+          "#df4395",
+          "#fe7ab8",
+          "#febfd9",
+          "#ffe7f0"
+        ]
+      },
+      "cat-design": {
+        "role": "secondary",
+        "displayName": "디자인 주홍",
+        "canonical": "#d93a1f",
+        "tonalRamp": [
+          "#1e0100",
+          "#4d0700",
+          "#821300",
+          "#bb2000",
+          "#e74d32",
+          "#fe8770",
+          "#ffc4b8",
+          "#fee9e5"
+        ]
+      },
+      "cat-writing": {
+        "role": "secondary",
+        "displayName": "글쓰기 보라",
+        "canonical": "#7c3aed",
+        "tonalRamp": [
+          "#0f002a",
+          "#2e0166",
+          "#5102aa",
+          "#732ee1",
+          "#9364fe",
+          "#b29cfe",
+          "#d5ccfe",
+          "#efecfe"
+        ]
+      },
+      "cat-marketing": {
+        "role": "secondary",
+        "displayName": "마케팅 주황",
+        "canonical": "#ff8a1f",
+        "tonalRamp": [
+          "#170600",
+          "#3e1c00",
+          "#6a3401",
+          "#9a4f02",
+          "#cd6b06",
+          "#f59245",
+          "#ffc7a1",
+          "#feeadd"
+        ]
+      },
+      "cat-productivity": {
+        "role": "secondary",
+        "displayName": "생산성 에메랄드",
+        "canonical": "#00855f",
+        "tonalRamp": [
+          "#000f08",
+          "#012f1f",
+          "#00523a",
+          "#047956",
+          "#369e78",
+          "#6ec29e",
+          "#a8e4c8",
+          "#d3f9e7"
+        ]
+      },
+      "cat-research": {
+        "role": "secondary",
+        "displayName": "리서치 분홍",
+        "canonical": "#fb7185",
+        "tonalRamp": [
+          "#1e0005",
+          "#4e0016",
+          "#83042c",
+          "#b12d49",
+          "#da566b",
+          "#fb8593",
+          "#fec2c7",
+          "#ffe8e9"
+        ]
+      },
+      "cat-security": {
+        "role": "secondary",
+        "displayName": "보안 포도주색",
+        "canonical": "#9f1239",
+        "tonalRamp": [
+          "#1e0005",
+          "#4e0016",
+          "#84012b",
+          "#b22b48",
+          "#db556a",
+          "#fc8492",
+          "#fec3c7",
+          "#fee8ea"
+        ]
+      },
+      "cat-other": {
+        "role": "secondary",
+        "displayName": "기타 회색",
+        "canonical": "#6b7280",
+        "tonalRamp": [
+          "#090b0f",
+          "#22262f",
+          "#3f4551",
+          "#5f6674",
+          "#828997",
+          "#a8aebb",
+          "#cfd4de",
+          "#ebeff5"
+        ]
+      },
+      "cat-ink-white": {
+        "role": "secondary",
+        "displayName": "라벨 흰 글자",
+        "canonical": "#ffffff",
+        "tonalRamp": [
+          "#0b0b0b",
+          "#262626",
+          "#454545",
+          "#666666",
+          "#898989",
+          "#aeaeae",
+          "#d4d4d4",
+          "#eeeeee"
+        ]
+      },
+      "cat-ink-black": {
+        "role": "secondary",
+        "displayName": "라벨 먹색 글자",
+        "canonical": "#0f1115",
+        "tonalRamp": [
+          "#0a0b0d",
+          "#25262a",
+          "#434549",
+          "#63666b",
+          "#86898f",
+          "#abaeb3",
+          "#d2d4d8",
+          "#edeef1"
+        ]
+      },
+      "caution": {
+        "role": "tertiary",
+        "displayName": "주의 앰버",
+        "canonical": "#7a4b00",
+        "tonalRamp": [
+          "#140800",
+          "#382000",
+          "#613b02",
+          "#8a5a1a",
+          "#af7e43",
+          "#d1a572",
+          "#efcea9",
+          "#feebd6"
+        ]
+      },
+      "caution-soft": {
+        "role": "tertiary",
+        "displayName": "주의 바탕",
+        "canonical": "#fff1cc",
+        "tonalRamp": [
+          "#0f0b03",
+          "#2d2611",
+          "#4f4428",
+          "#716545",
+          "#958867",
+          "#b8ad90",
+          "#dcd4be",
+          "#f4eedf"
+        ]
+      },
+      "paper": {
+        "role": "neutral",
+        "displayName": "순백 바탕",
+        "canonical": "#ffffff",
+        "tonalRamp": [
+          "#0b0b0b",
+          "#262626",
+          "#454545",
+          "#666666",
+          "#898989",
+          "#aeaeae",
+          "#d4d4d4",
+          "#eeeeee"
+        ]
+      },
+      "surface": {
+        "role": "neutral",
+        "displayName": "면 흰색",
+        "canonical": "#ffffff",
+        "tonalRamp": [
+          "#0b0b0b",
+          "#262626",
+          "#454545",
+          "#666666",
+          "#898989",
+          "#aeaeae",
+          "#d4d4d4",
+          "#eeeeee"
+        ]
+      },
+      "surface-sunken": {
+        "role": "neutral",
+        "displayName": "가라앉은 회색",
+        "canonical": "#f1f3f7",
+        "tonalRamp": [
+          "#0b0b0c",
+          "#252628",
+          "#444548",
+          "#646669",
+          "#87898d",
+          "#acaeb1",
+          "#d3d4d7",
+          "#eeeef0"
+        ]
+      },
+      "surface-sunken-strong": {
+        "role": "neutral",
+        "displayName": "짙은 가라앉은 회색",
+        "canonical": "#e6e9f0",
+        "tonalRamp": [
+          "#0a0b0d",
+          "#25262a",
+          "#43454a",
+          "#63666c",
+          "#86898f",
+          "#abaeb3",
+          "#d2d4d8",
+          "#edeef1"
+        ]
+      },
+      "ink": {
+        "role": "neutral",
+        "displayName": "먹색",
+        "canonical": "#0f1115",
+        "tonalRamp": [
+          "#0a0b0d",
+          "#25262a",
+          "#434549",
+          "#63666b",
+          "#86898f",
+          "#abaeb3",
+          "#d2d4d8",
+          "#edeef1"
+        ]
+      },
+      "muted": {
+        "role": "neutral",
+        "displayName": "보조 먹색",
+        "canonical": "#5b6270",
+        "tonalRamp": [
+          "#090b0f",
+          "#22262f",
+          "#3f4551",
+          "#5f6674",
+          "#828998",
+          "#a7aebb",
+          "#cfd4de",
+          "#ebeff5"
+        ]
+      },
+      "line": {
+        "role": "neutral",
+        "displayName": "가는 선",
+        "canonical": "#e8ebf0",
+        "tonalRamp": [
+          "#0a0b0c",
+          "#252629",
+          "#434549",
+          "#64666a",
+          "#87898e",
+          "#acaeb2",
+          "#d2d4d7",
+          "#edeef0"
+        ]
+      },
+      "line-strong": {
+        "role": "neutral",
+        "displayName": "스크롤바 회색",
+        "canonical": "#8a93a3",
+        "tonalRamp": [
+          "#090b10",
+          "#222730",
+          "#3e4552",
+          "#5e6675",
+          "#818a99",
+          "#a6aebc",
+          "#ced4df",
+          "#ebeff6"
+        ]
+      },
+      "star": {
+        "role": "neutral",
+        "displayName": "별 먹색",
+        "canonical": "#0f1115",
+        "tonalRamp": [
+          "#0a0b0d",
+          "#25262a",
+          "#434549",
+          "#63666b",
+          "#86898f",
+          "#abaeb3",
+          "#d2d4d8",
+          "#edeef1"
+        ]
+      },
+      "code": {
+        "role": "neutral",
+        "displayName": "코드 바탕",
+        "canonical": "#0f1115",
+        "tonalRamp": [
+          "#0a0b0d",
+          "#25262a",
+          "#434549",
+          "#63666b",
+          "#86898f",
+          "#abaeb3",
+          "#d2d4d8",
+          "#edeef1"
+        ]
+      },
+      "code-ink": {
+        "role": "neutral",
+        "displayName": "코드 글자",
+        "canonical": "#eef1f6",
+        "tonalRamp": [
+          "#0a0b0c",
+          "#252629",
+          "#434549",
+          "#64666a",
+          "#87898e",
+          "#acaeb2",
+          "#d2d4d7",
+          "#edeef0"
+        ]
+      },
+      "accent-dark": {
+        "role": "primary",
+        "displayName": "코발트 (어두운 테마)",
+        "canonical": "#8a9bff",
+        "tonalRamp": [
+          "#060724",
+          "#1a1d58",
+          "#333a8a",
+          "#4f5bb8",
+          "#7180de",
+          "#97a7fd",
+          "#c7d2fe",
+          "#e9eeff"
+        ]
+      },
+      "accent-ink-dark": {
+        "role": "primary",
+        "displayName": "코발트 위 글자 (어두운 테마)",
+        "canonical": "#0e1014",
+        "tonalRamp": [
+          "#0a0b0d",
+          "#25262a",
+          "#434549",
+          "#63666b",
+          "#86898f",
+          "#abaeb3",
+          "#d2d4d8",
+          "#edeef1"
+        ]
+      },
+      "accent-soft-dark": {
+        "role": "primary",
+        "displayName": "옅은 코발트 (어두운 테마)",
+        "canonical": "#1c2344",
+        "tonalRamp": [
+          "#080a16",
+          "#1f253c",
+          "#3b4363",
+          "#5a648a",
+          "#7c87ae",
+          "#a2acd0",
+          "#cbd3ee",
+          "#e9eeff"
+        ]
+      },
+      "caution-dark": {
+        "role": "tertiary",
+        "displayName": "주의 앰버 (어두운 테마)",
+        "canonical": "#ffd166",
+        "tonalRamp": [
+          "#110a00",
+          "#322400",
+          "#584100",
+          "#806101",
+          "#ab8206",
+          "#cea951",
+          "#edd194",
+          "#ffedc5"
+        ]
+      },
+      "caution-soft-dark": {
+        "role": "tertiary",
+        "displayName": "주의 바탕 (어두운 테마)",
+        "canonical": "#3a2c10",
+        "tonalRamp": [
+          "#0f0a03",
+          "#2e2513",
+          "#50432a",
+          "#736447",
+          "#97876a",
+          "#bbac92",
+          "#ded3bf",
+          "#f5eee0"
+        ]
+      },
+      "paper-dark": {
+        "role": "neutral",
+        "displayName": "순백 바탕 (어두운 테마)",
+        "canonical": "#0e1014",
+        "tonalRamp": [
+          "#0a0b0d",
+          "#25262a",
+          "#434549",
+          "#63666b",
+          "#86898f",
+          "#abaeb3",
+          "#d2d4d8",
+          "#edeef1"
+        ]
+      },
+      "surface-dark": {
+        "role": "neutral",
+        "displayName": "면 흰색 (어두운 테마)",
+        "canonical": "#15181e",
+        "tonalRamp": [
+          "#0a0b0d",
+          "#24262b",
+          "#42454b",
+          "#62666e",
+          "#858991",
+          "#aaaeb5",
+          "#d1d4da",
+          "#edeef2"
+        ]
+      },
+      "surface-sunken-dark": {
+        "role": "neutral",
+        "displayName": "가라앉은 회색 (어두운 테마)",
+        "canonical": "#1d2129",
+        "tonalRamp": [
+          "#0a0b0e",
+          "#24262c",
+          "#41454d",
+          "#616670",
+          "#848993",
+          "#a9aeb7",
+          "#d1d4db",
+          "#eceef3"
+        ]
+      },
+      "surface-sunken-strong-dark": {
+        "role": "neutral",
+        "displayName": "짙은 가라앉은 회색 (어두운 테마)",
+        "canonical": "#2a2f39",
+        "tonalRamp": [
+          "#090b0f",
+          "#23262d",
+          "#40454f",
+          "#606672",
+          "#838995",
+          "#a9aeb9",
+          "#d0d4dc",
+          "#eceef4"
+        ]
+      },
+      "ink-dark": {
+        "role": "neutral",
+        "displayName": "먹색 (어두운 테마)",
+        "canonical": "#f2f4f8",
+        "tonalRamp": [
+          "#0b0b0c",
+          "#252628",
+          "#444548",
+          "#646669",
+          "#87898d",
+          "#acaeb1",
+          "#d3d4d7",
+          "#eeeef0"
+        ]
+      },
+      "muted-dark": {
+        "role": "neutral",
+        "displayName": "보조 먹색 (어두운 테마)",
+        "canonical": "#a3abb9",
+        "tonalRamp": [
+          "#090b0f",
+          "#22272e",
+          "#3f4550",
+          "#5f6673",
+          "#828a97",
+          "#a7aeba",
+          "#cfd4de",
+          "#ebeff5"
+        ]
+      },
+      "line-dark": {
+        "role": "neutral",
+        "displayName": "가는 선 (어두운 테마)",
+        "canonical": "#262b35",
+        "tonalRamp": [
+          "#090b0f",
+          "#23262d",
+          "#40454f",
+          "#606672",
+          "#838995",
+          "#a9aeb9",
+          "#d0d4dd",
+          "#eceef4"
+        ]
+      },
+      "line-strong-dark": {
+        "role": "neutral",
+        "displayName": "스크롤바 회색 (어두운 테마)",
+        "canonical": "#6f7889",
+        "tonalRamp": [
+          "#090b10",
+          "#212731",
+          "#3e4553",
+          "#5e6677",
+          "#80899a",
+          "#a6aebe",
+          "#ced4e0",
+          "#eaeff7"
+        ]
+      },
+      "star-dark": {
+        "role": "neutral",
+        "displayName": "별 먹색 (어두운 테마)",
+        "canonical": "#f2f4f8",
+        "tonalRamp": [
+          "#0b0b0c",
+          "#252628",
+          "#444548",
+          "#646669",
+          "#87898d",
+          "#acaeb1",
+          "#d3d4d7",
+          "#eeeef0"
+        ]
+      },
+      "code-dark": {
+        "role": "neutral",
+        "displayName": "코드 바탕 (어두운 테마)",
+        "canonical": "#07080a",
+        "tonalRamp": [
+          "#0b0b0c",
+          "#252628",
+          "#444548",
+          "#646669",
+          "#87898c",
+          "#acaeb1",
+          "#d3d4d6",
+          "#eeeef0"
+        ]
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "Display",
+        "purpose": "홈과 AI 찾기의 제목. 32px, 640px 이상 42px, 900px 이상 52px."
+      },
+      "display-page": {
+        "displayName": "Display Page",
+        "purpose": "새 스킬, 맞춤 추천의 제목. 30px, 640px 이상 36px, 900px 이상 52px."
+      },
+      "display-detail": {
+        "displayName": "Display Detail",
+        "purpose": "스킬 상세의 이름. 34px, 640px 이상 42px, 900px 이상 52px."
+      },
+      "headline-large": {
+        "displayName": "Headline Large",
+        "purpose": "홈 아래 안내의 구역 제목."
+      },
+      "headline": {
+        "displayName": "Headline",
+        "purpose": "상세의 구역 제목."
+      },
+      "rank": {
+        "displayName": "Rank",
+        "purpose": "목록의 순위 숫자. 900px 미만 20px."
+      },
+      "lead": {
+        "displayName": "Lead",
+        "purpose": "상세 위쪽의 요약 문장."
+      },
+      "skill-name": {
+        "displayName": "Skill Name",
+        "purpose": "목록의 스킬 이름."
+      },
+      "body": {
+        "displayName": "Body",
+        "purpose": "본문."
+      },
+      "button": {
+        "displayName": "Button",
+        "purpose": "버튼."
+      },
+      "nav": {
+        "displayName": "Nav",
+        "purpose": "머리글 메뉴. 640px 미만 14px."
+      },
+      "summary": {
+        "displayName": "Summary",
+        "purpose": "목록의 요약 문장."
+      },
+      "body-small": {
+        "displayName": "Body Small",
+        "purpose": "안내 상자."
+      },
+      "chip": {
+        "displayName": "Chip",
+        "purpose": "색 라벨 필터와 링크형 버튼."
+      },
+      "stars": {
+        "displayName": "Stars",
+        "purpose": "목록의 스타 수."
+      },
+      "cat-label": {
+        "displayName": "Cat Label",
+        "purpose": "카테고리 라벨."
+      },
+      "meta": {
+        "displayName": "Meta",
+        "purpose": "저장소 이름, 업데이트일, 힌트."
+      },
+      "badge": {
+        "displayName": "Badge",
+        "purpose": "배지."
+      },
+      "table-head": {
+        "displayName": "Table Head",
+        "purpose": "넓은 목록의 열 머리."
+      },
+      "code": {
+        "displayName": "Code",
+        "purpose": "설치 명령."
+      }
+    },
+    "shadows": [],
+    "motion": [
+      {
+        "name": "state-change",
+        "value": "120ms ease",
+        "purpose": "버튼 배경색과 질문 펼침 화살표에 쓴다. 움직임 줄이기 설정에서는 끈다."
+      },
+      {
+        "name": "sheet-rise",
+        "value": "220ms cubic-bezier(0.16, 1, 0.3, 1)",
+        "purpose": "필터 시트가 24px 아래에서 올라오며 나타나는 유일한 등장 움직임. 움직임 줄이기 설정에서는 끈다."
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "xs",
+        "value": "360px"
+      },
+      {
+        "name": "sm",
+        "value": "640px"
+      },
+      {
+        "name": "md",
+        "value": "900px"
+      },
+      {
+        "name": "lg",
+        "value": "1056px"
+      }
+    ],
+    "focus": [
+      {
+        "name": "focus-default",
+        "value": "2px solid accent, offset 2px",
+        "purpose": "전역 키보드 포커스."
+      },
+      {
+        "name": "focus-chip",
+        "value": "3px solid accent, offset 3px",
+        "purpose": "색 라벨 필터의 키보드 포커스."
+      },
+      {
+        "name": "selected-chip",
+        "value": "3px solid ink, offset 2px",
+        "purpose": "색 라벨 필터의 선택 상태."
+      }
+    ]
+  },
+  "components": [
+    {
+      "name": "주 버튼",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "화면의 대표 동작 하나에 쓰는 코발트 버튼.",
+      "html": "<button class=\"ds-btn-primary\" type=\"button\">GitHub에서 보기</button>",
+      "css": ".ds-btn-primary { display: inline-flex; align-items: center; justify-content: center; min-height: 44px; padding: 0 16px; background: var(--accent); color: var(--accent-ink); border: 0; border-radius: 12px; font-family: 'Pretendard Variable', Pretendard, sans-serif; font-size: 15px; font-weight: 700; cursor: pointer; transition: background-color 120ms ease; } .ds-btn-primary:hover { filter: brightness(1.12); } .ds-btn-primary:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }"
+    },
+    {
+      "name": "기본 버튼",
+      "kind": "button",
+      "refersTo": "button-default",
+      "description": "테두리 없는 가라앉은 회색 면의 보조 버튼.",
+      "html": "<button class=\"ds-btn\" type=\"button\">SKILL.md 원문</button>",
+      "css": ".ds-btn { display: inline-flex; align-items: center; justify-content: center; min-height: 44px; padding: 0 16px; background: var(--surface-sunken); color: var(--ink); border: 0; border-radius: 12px; font-family: 'Pretendard Variable', Pretendard, sans-serif; font-size: 15px; font-weight: 700; cursor: pointer; transition: background-color 120ms ease; } .ds-btn:hover { background: var(--surface-sunken-strong); } .ds-btn:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }"
+    },
+    {
+      "name": "검색칸",
+      "kind": "input",
+      "refersTo": "search-input",
+      "description": "테두리 없는 큰 회색 입력칸. 홈 넓은 화면에서는 높이 64px.",
+      "html": "<input class=\"ds-search\" type=\"search\" placeholder=\"이름, 용도, 저장소로 찾기\" aria-label=\"스킬 검색\">",
+      "css": ".ds-search { width: 100%; min-height: 52px; padding: 0 18px; background: var(--surface-sunken); color: var(--ink); border: 0; border-radius: 16px; font-family: 'Pretendard Variable', Pretendard, sans-serif; font-size: 16px; caret-color: var(--accent); } .ds-search::placeholder { color: var(--muted); opacity: 1; } .ds-search:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }"
+    },
+    {
+      "name": "머리글 메뉴",
+      "kind": "nav",
+      "refersTo": "nav-link",
+      "description": "왼쪽 위 글자 이름 없이 메뉴 네 개를 둔다. 현재 메뉴는 코발트 알약.",
+      "html": "<nav class=\"ds-nav\" aria-label=\"주요 메뉴\"><a href=\"#\" aria-current=\"page\">스킬</a><a href=\"#\">새 스킬</a><a href=\"#\">맞춤 추천</a><a href=\"#\">AI 찾기</a></nav>",
+      "css": ".ds-nav { display: flex; gap: 6px; font-family: 'Pretendard Variable', Pretendard, sans-serif; } .ds-nav a { position: relative; isolation: isolate; display: inline-flex; align-items: center; min-height: 44px; padding: 0 14px; border-radius: 999px; font-size: 15px; font-weight: 700; color: var(--muted); text-decoration: none; white-space: nowrap; } .ds-nav a:hover { color: var(--ink); } .ds-nav a[aria-current] { color: var(--accent-ink); } .ds-nav a[aria-current]::before { content: ''; position: absolute; inset: 6px 0; z-index: -1; background: var(--accent); border-radius: 999px; } .ds-nav a:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }"
+    },
+    {
+      "name": "색 라벨 필터",
+      "kind": "chip",
+      "refersTo": "category-chip",
+      "description": "카테고리 색 그대로의 칩. 선택은 3px 먹색 윤곽선, 키보드 포커스는 3px 코발트 윤곽선.",
+      "html": "<div class=\"ds-chips\"><label class=\"ds-chip\" data-cat=\"all\"><input type=\"radio\" name=\"ds-cat\" checked><span>전체 <small>12</small></span></label><label class=\"ds-chip\" data-cat=\"ai-agents\"><input type=\"radio\" name=\"ds-cat\"><span>AI 에이전트 <small>1</small></span></label><label class=\"ds-chip\" data-cat=\"development\"><input type=\"radio\" name=\"ds-cat\"><span>개발 <small>2</small></span></label><label class=\"ds-chip\" data-cat=\"data\"><input type=\"radio\" name=\"ds-cat\"><span>데이터 <small>2</small></span></label><label class=\"ds-chip\" data-cat=\"design\"><input type=\"radio\" name=\"ds-cat\"><span>디자인 <small>4</small></span></label></div>",
+      "css": ".ds-chips { display: flex; flex-wrap: wrap; gap: 6px; font-family: 'Pretendard Variable', Pretendard, sans-serif; } .ds-chip { position: relative; display: block; } .ds-chip input { position: absolute; inset: 0; width: 100%; height: 100%; margin: 0; opacity: 0; cursor: pointer; } .ds-chip span { display: inline-flex; align-items: center; min-height: 44px; padding: 0 14px; border-radius: 12px; font-size: 14px; font-weight: 700; } .ds-chip small { margin-left: 3px; font-size: 12.5px; font-variant-numeric: tabular-nums; } .ds-chip[data-cat='all'] span { background: var(--ink); color: var(--paper); } .ds-chip[data-cat='ai-agents'] span { background: #2340e8; color: #ffffff; } .ds-chip[data-cat='development'] span { background: #2dd4bf; color: #0f1115; } .ds-chip[data-cat='data'] span { background: #f5b700; color: #0f1115; } .ds-chip[data-cat='design'] span { background: #d93a1f; color: #ffffff; } .ds-chip input:checked + span { outline: 3px solid var(--ink); outline-offset: 2px; } .ds-chip input:focus-visible + span { outline: 3px solid var(--accent); outline-offset: 3px; }"
+    },
+    {
+      "name": "스킬 목록 행",
+      "kind": "custom",
+      "refersTo": "skill-row-wide",
+      "description": "큰 순위 숫자, 카테고리 라벨, 이름과 요약, 수치 열로 이루어진 시스템의 기본 단위.",
+      "html": "<article class=\"ds-row\"><span class=\"ds-rank\">1</span><span class=\"ds-label\" style=\"--cat:#d93a1f;--cat-ink:#ffffff\">디자인</span><div class=\"ds-row__body\"><div class=\"ds-row__title\"><a href=\"#\">algorithmic-art</a><span>anthropics/skills</span></div><p>p5.js로 시드 기반 난수와 조절 가능한 매개변수를 써서 생성 예술 작품을 만듭니다.</p></div><div class=\"ds-row__meta\"><span class=\"ds-badge-caution\">코드 실행</span><span>2026.10.28</span><span class=\"ds-stars\"><svg class=\"ds-star\" viewBox=\"0 0 16 16\" width=\"14\" height=\"14\" aria-hidden=\"true\"><path fill=\"currentColor\" d=\"M8 1.2 10.1 5.6l4.8.6-3.5 3.3.9 4.8L8 12l-4.3 2.3.9-4.8L1.1 6.2l4.8-.6Z\"/></svg>18.6만</span></div></article>",
+      "css": ".ds-row { display: grid; grid-template-columns: 44px 104px minmax(0, 1fr) auto; gap: 0 14px; align-items: center; padding: 14px 0; border-top: 1px solid var(--line); color: var(--ink); font-family: 'Pretendard Variable', Pretendard, sans-serif; } .ds-rank { font-size: 22px; font-weight: 900; letter-spacing: -0.02em; font-variant-numeric: tabular-nums; } .ds-label { display: inline-flex; align-items: center; justify-content: center; min-height: 36px; padding: 0 10px; background: var(--cat); color: var(--cat-ink); border-radius: 8px; font-size: 13px; font-weight: 700; line-height: 1; white-space: nowrap; } .ds-row__body { min-width: 0; } .ds-row__title { display: flex; flex-wrap: wrap; align-items: center; gap: 2px 8px; font-size: 13px; color: var(--muted); } .ds-row__title a { font-size: 17px; font-weight: 700; letter-spacing: -0.01em; color: var(--ink); text-decoration: none; } .ds-row:hover .ds-row__title a { color: var(--accent); } .ds-row__title a:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; } .ds-row p { margin: 2px 0 0; overflow: hidden; font-size: 14.5px; line-height: 1.5; color: var(--muted); white-space: nowrap; text-overflow: ellipsis; } .ds-row__meta { display: grid; grid-template-columns: 172px 84px 72px; gap: 12px; justify-items: end; align-items: center; font-size: 13px; color: var(--muted); font-variant-numeric: tabular-nums; } .ds-badge-caution { padding: 2px 8px; background: var(--caution-soft); color: var(--caution); border-radius: 7px; font-size: 12.5px; font-weight: 700; white-space: nowrap; } .ds-stars { display: inline-flex; align-items: center; gap: 3px; font-size: 14px; font-weight: 800; color: var(--ink); } .ds-star { flex: none; color: var(--star); }"
+    },
+    {
+      "name": "스킬 카드",
+      "kind": "card",
+      "refersTo": "skill-card",
+      "description": "목록과 같은 내용을 가라앉은 회색 면에 담은 대안 보기. 테두리와 그림자가 없다.",
+      "html": "<article class=\"ds-card\"><span class=\"ds-card__label\">생산성</span><a href=\"#\">mem-search</a><span class=\"ds-card__repo\">thedotmack/claude-mem</span><p>이전 세션에서 쌓인 작업 기록을 검색해 지금 프로젝트에 필요한 맥락을 되찾습니다.</p></article>",
+      "css": ".ds-card { display: grid; gap: 6px; justify-items: start; padding: 18px 16px; background: var(--surface-sunken); color: var(--ink); border-radius: 16px; font-family: 'Pretendard Variable', Pretendard, sans-serif; } .ds-card__label { display: inline-flex; align-items: center; min-height: 26px; padding: 0 10px; background: #00855f; color: #ffffff; border-radius: 8px; font-size: 13px; font-weight: 700; line-height: 1; } .ds-card a { font-size: 17px; font-weight: 700; letter-spacing: -0.01em; color: var(--ink); text-decoration: none; } .ds-card:hover a { color: var(--accent); } .ds-card a:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; } .ds-card__repo { font-size: 13px; color: var(--muted); } .ds-card p { margin: 0; font-size: 14.5px; line-height: 1.5; }"
+    },
+    {
+      "name": "코드·네트워크 표시",
+      "kind": "custom",
+      "refersTo": "badge-caution",
+      "description": "발견한 값은 주의 앰버 배지, 찾지 못한 값은 배경 없는 `미확인` 글자.",
+      "html": "<div class=\"ds-flags\"><span class=\"ds-flag ds-flag--caution\">코드 실행</span><span class=\"ds-flag ds-flag--caution\">네트워크</span><span class=\"ds-flag ds-flag--quiet\">코드·네트워크 미확인</span></div>",
+      "css": ".ds-flags { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; font-family: 'Pretendard Variable', Pretendard, sans-serif; } .ds-flag { display: inline-flex; align-items: center; padding: 2px 8px; border-radius: 7px; font-size: 12.5px; font-weight: 700; white-space: nowrap; } .ds-flag--caution { background: var(--caution-soft); color: var(--caution); } .ds-flag--quiet { padding-inline: 0; color: var(--muted); font-weight: 500; }"
+    },
+    {
+      "name": "판단 근거 표",
+      "kind": "custom",
+      "refersTo": "notice",
+      "description": "GitHub 사실과 AI 판단을 제목을 단 두 묶음으로 나눈다. 상자 없이 위쪽 가는 선으로 시작한다.",
+      "html": "<section class=\"ds-evidence\"><div><h3>GitHub 기록</h3><dl><dt>저장소 스타</dt><dd>18.6만</dd><dt>라이선스</dt><dd>MIT</dd></dl></div><div><h3>AI가 SKILL.md를 읽고 판단</h3><dl><dt>코드 실행</dt><dd>있음</dd><dt>네트워크 접속</dt><dd>확인되지 않음</dd></dl></div></section>",
+      "css": ".ds-evidence { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 32px; padding-top: 24px; border-top: 1px solid var(--line); color: var(--ink); font-family: 'Pretendard Variable', Pretendard, sans-serif; } .ds-evidence h3 { margin: 0 0 6px; font-size: 14px; font-weight: 700; letter-spacing: -0.02em; } .ds-evidence dl { display: grid; grid-template-columns: auto minmax(0, 1fr); gap: 6px 16px; margin: 0; font-size: 14px; } .ds-evidence dt { color: var(--muted); white-space: nowrap; } .ds-evidence dd { margin: 0; text-align: right; font-weight: 700; font-variant-numeric: tabular-nums; }"
+    },
+    {
+      "name": "설치 명령 블록",
+      "kind": "custom",
+      "refersTo": "code-block",
+      "description": "복사 버튼이 붙은 어두운 코드 블록. 640px 미만에서는 줄을 바꾼다. 독점 라이선스 스킬에는 두지 않는다.",
+      "html": "<div class=\"ds-code\"><div class=\"ds-code__head\"><h3>모든 프로젝트에서 쓰기</h3><button type=\"button\">복사</button></div><pre tabindex=\"0\"><code>git clone --depth 1 https://github.com/anthropics/skills</code></pre></div>",
+      "css": ".ds-code { font-family: 'Pretendard Variable', Pretendard, sans-serif; color: var(--ink); } .ds-code__head { display: flex; align-items: center; justify-content: space-between; gap: 8px; margin-bottom: 6px; } .ds-code h3 { margin: 0; font-size: 14px; font-weight: 700; } .ds-code button { min-width: 64px; min-height: 44px; padding: 0 16px; background: var(--surface-sunken); color: var(--ink); border: 0; border-radius: 12px; font: inherit; font-size: 14px; font-weight: 700; cursor: pointer; transition: background-color 120ms ease; } .ds-code button:hover { background: var(--surface-sunken-strong); } .ds-code button:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; } .ds-code pre { margin: 0; padding: 16px; background: var(--code); color: var(--code-ink); border-radius: 12px; font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size: 13px; line-height: 1.6; white-space: pre-wrap; overflow-wrap: anywhere; } .ds-code pre:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }"
+    }
+  ],
+  "narrative": {
+    "northStar": "색으로 훑는 색인",
+    "overview": "스킬모아의 목록은 색 탭이 붙은 색인처럼 읽힙니다. 방문자는 카테고리 라벨의 색을 따라 훑고, 키워드로 좁히고, 그래도 찾지 못하면 AI 찾기에 문장으로 묻습니다. 상세에서는 요약을 읽고 판단 근거를 본 뒤 설치하거나 GitHub로 갑니다.\n\n바탕은 순백이고 글자는 거의 검은색이며, 아주 굵은 큰 한글 제목이 화면의 뼈대를 잡습니다. 채도 높은 색은 라벨에 몰아 두고 나머지는 조용하게 둡니다. 입력칸과 버튼은 테두리 없는 가라앉은 회색 면이고, 목록은 얇은 가로선으로만 나눕니다. 코발트 하나가 조작과 현재 위치를 맡고, 앰버는 주의가 필요한 곳에만 나옵니다.\n\nclaudeskills.info는 느낌의 참고일 뿐이며 화면이 같아 보이면 안 됩니다. 왼쪽 필터 레일, 행마다 붙는 수치 캡션, 따뜻한 흰 바탕과 주황 강조색을 들여오지 않습니다.",
+    "keyCharacteristics": [
+      "카테고리 13개마다 바탕색과 글자색이 고정된 단색 라벨이 있고, 목록 행과 필터가 같은 색을 씁니다.",
+      "첫 화면은 큰 제목, 큰 검색칸, 전폭 색 라벨 필터, 큰 순위 숫자가 붙은 목록입니다. AI 찾기는 별도 페이지입니다.",
+      "목록이 기본 보기이고 카드는 대안이며, 50행을 먼저 보여 준 뒤 더 보기로 펼칩니다.",
+      "그림자와 사방 테두리 없이 얇은 가로선과 가라앉은 회색 면으로 층을 나눕니다.",
+      "GitHub 사실과 AI 판단을 시각적으로 나눕니다.",
+      "시스템 설정을 따르는 밝은 테마와 어두운 테마를 함께 둡니다. 카테고리 라벨 색은 두 테마에서 같습니다."
+    ],
+    "rules": [
+      {
+        "name": "The 라벨 전용 Rule",
+        "body": "카테고리 색은 라벨과 필터 칩의 면에만 씁니다. 제목, 링크, 행 바탕으로 번지지 않습니다. 색이 13개여도 화면이 산만해지지 않는 이유가 이 제한입니다. 라벨 하나를 더하면 바탕색과 글자색을 한 쌍으로 정하고 4.5:1 대비를 확인합니다.",
+        "section": "colors"
+      },
+      {
+        "name": "The 코발트 하나 Rule",
+        "body": "강조색은 코발트 하나입니다. 조작과 현재 위치에만 쓰고, 다른 강조색을 더하지 않습니다. `AI 에이전트` 라벨이 같은 값을 쓰는 것은 카테고리 색이기 때문이며, 강조색의 쓰임을 넓히는 근거가 아닙니다.",
+        "section": "colors"
+      },
+      {
+        "name": "The 앰버 주의 Rule",
+        "body": "앰버 토큰은 주의를 알리는 곳에만 씁니다. 별, 버튼, 링크, 제목, 넓은 바탕으로 넓히지 않습니다. 반대로 주의를 알리는 데 카테고리 색을 쓰지 않습니다. 데이터 노랑과 마케팅 주황은 분류일 뿐 주의를 뜻하지 않습니다.",
+        "section": "colors"
+      },
+      {
+        "name": "The 먹색 별 Rule",
+        "body": "저장소 스타의 별과 숫자는 먹색입니다. 인기 수치를 색으로 띄우지 않고 굵기로만 읽게 합니다.",
+        "section": "colors"
+      },
+      {
+        "name": "The 순백 바탕 Rule",
+        "body": "밝은 테마의 바탕은 순백입니다. 크림이나 따뜻한 흰색으로 데우지 않습니다.",
+        "section": "colors"
+      },
+      {
+        "name": "The 한 글꼴 Rule",
+        "body": "화면 글자는 모두 Pretendard입니다. 고정폭은 코드와 경로에만 씁니다.",
+        "section": "typography"
+      },
+      {
+        "name": "The 굵기로 말하기 Rule",
+        "body": "위계는 크기와 굵기로 만듭니다. 제목은 800, 순위 숫자는 900까지 올리고, 제목에 색이나 위쪽 작은 꼬리표를 더하지 않습니다.",
+        "section": "typography"
+      },
+      {
+        "name": "The 탭형 숫자 Rule",
+        "body": "순위, 날짜, 스타, 개수는 탭형 숫자로 씁니다. 넓은 목록과 사실 표에서는 오른쪽으로 맞춥니다.",
+        "section": "typography"
+      },
+      {
+        "name": "The 어절 줄바꿈 Rule",
+        "body": "한글은 어절 단위로 줄을 바꾸고, 제목은 균형 줄바꿈, 문단은 다듬은 줄바꿈을 씁니다.",
+        "section": "typography"
+      },
+      {
+        "name": "The 첫 화면 Rule",
+        "body": "홈의 첫 화면은 제목, 키워드 검색, 색 라벨 필터, 목록입니다. 호출 비용이 드는 AI 찾기는 첫 동작으로 두지 않고, 메뉴와 검색 결과가 없을 때의 안내에서 들어갑니다.",
+        "section": "layout"
+      },
+      {
+        "name": "The 목록 우선 Rule",
+        "body": "기본 보기는 목록이고 카드는 사용자가 고르는 대안입니다. AI 찾기와 맞춤 추천의 결과도 같은 목록 행으로 보여 주어 어디서 찾아도 같은 방식으로 비교합니다.",
+        "section": "layout"
+      },
+      {
+        "name": "The 50행 Rule",
+        "body": "목록은 50행을 먼저 보여 주고, 목록 아래 전폭 버튼 `50개 더 보기 (N개 남음)`으로 이어서 펼칩니다. 남은 행이 50개 이하면 `N개 더 보기`라고 씁니다.",
+        "section": "layout"
+      },
+      {
+        "name": "The 레일 금지 Rule",
+        "body": "넓은 화면의 필터는 목록 위 가로 줄입니다. 왼쪽 필터 레일을 두지 않습니다.",
+        "section": "layout"
+      },
+      {
+        "name": "The 선과 면 Rule",
+        "body": "묶음은 사방 테두리 대신 가라앉은 회색 면으로, 목록과 구역은 1px 가로선으로 나눕니다. 그림자와 테두리 상자로 면을 띄우지 않습니다.",
+        "section": "elevation"
+      },
+      {
+        "name": "The 고리 구분 Rule",
+        "body": "색 라벨 필터의 선택과 포커스는 바탕색을 바꾸지 않고 윤곽선으로만 말합니다. 선택은 3px 먹색, 키보드 포커스는 3px 코발트입니다. 라벨 색이 곧 카테고리를 뜻하므로 선택 상태가 그 색을 덮으면 안 됩니다.",
+        "section": "components"
+      },
+      {
+        "name": "The 이름 없는 머리글 Rule",
+        "body": "머리글 왼쪽 위에 글자 이름을 넣지 않습니다. 첫 메뉴가 그 자리에 옵니다. 제작자가 정한 사항입니다.",
+        "section": "components"
+      },
+      {
+        "name": "The 독점 라이선스 Rule",
+        "body": "독점 라이선스 스킬은 이름 줄에 주의 앰버 배지 `설치 명령 없음`을 달아 상세에 들어가기 전에 알리고, 상세에는 설치 블록을 두지 않습니다.",
+        "section": "components"
+      },
+      {
+        "name": "The 미확인 Rule",
+        "body": "코드 실행과 네트워크 표시는 AI가 SKILL.md를 읽은 값입니다. 찾지 못한 값은 `미확인` 또는 `확인되지 않음`으로 쓰고, `안전`이나 `없음`으로 쓰지 않습니다. 체크 표시나 안심을 주는 색으로 신호를 주지도 않습니다.",
+        "section": "components"
+      },
+      {
+        "name": "The 사실과 판단 Rule",
+        "body": "GitHub 사실과 AI 판단을 한 묶음에 섞지 않습니다. 목록에서는 사실을 탭형 숫자로, 판단을 배지와 표시 글자로 나누고, 상세에서는 제목을 단 두 묶음으로 나눕니다.",
+        "section": "components"
+      },
+      {
+        "name": "The 열 머리 Rule",
+        "body": "넓은 목록에서 수치의 뜻은 표 머리 한 줄이 말합니다. 수치마다 캡션을 달지 않습니다. 표 머리가 없는 좁은 화면, 카드, 같은 분류 목록에서는 날짜 앞에 `업데이트` 또는 `발견일` 한 단어만 붙이며, 스타는 별 아이콘으로만 나타냅니다.",
+        "section": "components"
+      }
+    ],
+    "dos": [
+      "Do 홈을 큰 제목, 키워드 검색, 색 라벨 필터, 목록으로 엽니다.",
+      "Do 카테고리마다 정해진 바탕색과 글자색 쌍을 그대로 쓰고, 목록과 필터에서 같은 색을 유지합니다.",
+      "Do 필터 칩의 선택은 3px 먹색 윤곽선으로, 키보드 포커스는 코발트 윤곽선으로 나타냅니다.",
+      "Do 스킬을 목록으로 먼저 50행 보여 주고, 더 보기로 펼치며, 카드는 전환해서 고르게 합니다.",
+      "Do 찾지 못한 코드 실행·네트워크 값을 `미확인` 또는 `확인되지 않음`으로 쓰고, AI가 읽은 값임을 밝힙니다.",
+      "Do GitHub 사실과 AI 판단을 묶음이나 표현 방식으로 나눕니다.",
+      "Do 수치를 탭형 숫자로 쓰고, 넓은 목록에서는 오른쪽 열에 맞춥니다.",
+      "Do 저장소 스타를 먹색 별과 굵은 숫자로 씁니다.",
+      "Do 층을 1px 가로선과 가라앉은 회색 면으로 나눕니다.",
+      "Do 조작 요소의 높이를 44px 기준으로 잡습니다.",
+      "Do 독점 라이선스 스킬에 `설치 명령 없음` 배지를 달고 설치 블록을 뺍니다.",
+      "Do 640px 미만에서 설치 명령을 줄바꿈해 끝까지 읽게 합니다.",
+      "Do 조작 면의 새 색을 쓰기 전에 어두운 테마 값까지 함께 정합니다."
+    ],
+    "donts": [
+      "Don't 머리글 왼쪽 위에 글자 이름을 넣지 않습니다.",
+      "Don't 카테고리 색을 라벨과 필터 칩 밖으로 넓히지 않습니다.",
+      "Don't 앰버를 주의 표시 밖으로 넓히지 않고, 스타 별에도 쓰지 않습니다.",
+      "Don't 코드 실행이나 네트워크가 표시되지 않은 스킬을 `안전` 또는 `없음`으로 쓰지 않습니다.",
+      "Don't GitHub 사실과 AI 판단을 구분 없이 한 표에 섞지 않습니다.",
+      "Don't 넓은 화면에 왼쪽 필터 레일을 두지 않습니다.",
+      "Don't 넓은 목록의 행마다 수치 캡션을 달지 않습니다.",
+      "Don't 바탕을 크림이나 따뜻한 흰색으로 데우지 않고, 코발트 외의 색을 강조색으로 쓰지 않습니다.",
+      "Don't 입력칸과 카드에 사방 테두리를 두르거나 그림자로 면을 띄우지 않습니다.",
+      "Don't 제목 구역에 전폭 색면을 깔지 않습니다.",
+      "Don't 저장소 이미지나 회사 로고로 제휴처럼 보이게 하지 않습니다.",
+      "Don't 홈을 AI 찾기나 카드 나열로 시작하지 않습니다."
+    ]
+  }
+}

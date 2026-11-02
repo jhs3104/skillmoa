@@ -11,3 +11,7 @@ collector/build
 .dev.vars
 .wrangler
 .playwright-mcp
+.impeccable/review
+.impeccable/critique
+.impeccable/mocks
+.idea

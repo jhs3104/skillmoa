@@ -70,7 +70,7 @@ Claude Code / Codex / Cursor 등에서 쓰는 SKILL.md 기반 스킬을 한국�
 ## 콘텐츠
 
 - 요약은 새로 쓴 설명이어야 한다. 원문 번역·복사 금지.
-- 원본 링크·라이선스를 항상 표시한다.
+- 원본 링크·라이선스를 항상 표시한다. 독점 라이선스 스킬은 설치 명령을 보여 주지 않는다 (ADR-0006).
 - SEO: 저장소 스타 50개 이상 또는 `site/src/data/reviewed-skills.json`에 있는 스킬만 index, 나머지는 noindex. 사이트맵에는 index 대상만 넣는다.
 
 ## 환경
@@ -83,13 +83,13 @@ Claude Code / Codex / Cursor 등에서 쓰는 SKILL.md 기반 스킬을 한국�
 
 ## 디자인
 
-impeccable 스킬을 사용한다 (하네스 세팅 후 별도 설치). 다른 frontend-design 스킬과 섞지 않는다.
+impeccable 스킬을 사용한다 (`.claude/skills/impeccable`). 다른 frontend-design 스킬과 섞지 않는다. 제품 맥락은 `PRODUCT.md`에 있다.
 
-- UI 작업 시작 전 `/teach-impeccable`이 아직 안 됐으면 먼저 실행을 제안한다.
-- UI 단계마다 구현 → `/audit` → `/critique` → 수정 → `/polish` 순서로 진행하고, 결과를 요약해서 보고한다.
+- UI 단계마다 구현 → `/impeccable audit` → `/impeccable critique` → 수정 → `/impeccable polish` 순서로 진행하고, 결과를 요약해서 보고한다.
 - 모바일 우선, 한국어 가독성 우선. 본문 폰트는 Pretendard 등 한글 웹폰트를 셀프 호스팅한다.
 - 템플릿 같은 기본 디자인 금지. 광고 영역은 콘텐츠를 가리지 않는 위치에 미리 자리를 잡아둔다.
-- 디자인 방향: 둘러보기 쉬운 정보 밀도. 카드/표 전환 가능.
+- 디자인 방향: 순위 목록형 디렉터리. https://claudeskills.info/ko/skills/ 는 느낌의 참고일 뿐 화면이 같아 보이면 안 된다. 홈의 중심은 키워드 검색과 목록이다. AI 찾기는 호출 비용이 들므로 `/ask/`에 따로 둔다 (ADR-0005). 기본은 목록이고 카드로 전환할 수 있다.
   - 스타 수·업데이트일·외부 실행 여부 배지를 한눈에 보여준다.
+  - 코드 실행·네트워크 표시는 AI 판단이다. "안전"이나 "없음"으로 표현하지 않고 "미확인"으로 쓴다.
   - 필터는 모바일에서 하단 시트로 연다.
-  - 맞춤 추천 질문 흐름은 `/onboard`, 문구는 `/clarify`로 점검한다.
+  - 맞춤 추천 질문 흐름은 `/impeccable onboard`, 문구는 `/impeccable clarify`로 점검한다.

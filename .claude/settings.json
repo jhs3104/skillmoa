@@ -12,7 +12,7 @@
       "Bash(npm run build *)",
       "Bash(npm install *)",
       "Bash(npx astro *)",
-      "Bash(npx wrangler *)",
+      "Bash(npx wrangler deploy --dry-run *)",
       "Bash(git status *)",
       "Bash(git diff *)",
       "Bash(git add *)",
