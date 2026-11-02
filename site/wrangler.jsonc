@@ -11,11 +11,10 @@
   "vars": {
     "RECOMMEND_MODEL": "claude-haiku-5-5"
   },
-  // id는 `npx wrangler kv namespace create RECOMMEND_KV`의 출력으로 교체한다.
   "kv_namespaces": [
     {
       "binding": "RECOMMEND_KV",
-      "id": "00000000000000000000000000000000"
+      "id": "aecbf54c794a4ab0ab2ea5b34b4fd499"
     }
   ]
 }

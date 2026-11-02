@@ -104,7 +104,7 @@ npx wrangler dev --var ANTHROPIC_API_KEY:<키>
 ## 운영 준비
 
 1. GitHub Secrets에 `GH_SEARCH_TOKEN`(공개 저장소 읽기 전용 fine-grained PAT)과 `ANTHROPIC_API_KEY`를 등록합니다.
-2. `npx wrangler kv namespace create RECOMMEND_KV`로 KV를 만들고 `site/wrangler.jsonc`의 `id`를 교체합니다.
+2. KV 네임스페이스 `RECOMMEND_KV`는 만들어져 있고 `site/wrangler.jsonc`에 연결되어 있습니다. 새 계정에 배포할 때만 다시 만듭니다.
 3. `npx wrangler secret put ANTHROPIC_API_KEY`로 Worker에 키를 등록합니다.
 4. Cloudflare Workers Builds에 저장소를 연결합니다. Root directory는 `site`, Build는 `npm run build`, Deploy는 `npx wrangler deploy`입니다. 도메인 `skillmoa.com`은 `site/wrangler.jsonc`의 `routes`로 연결됩니다.
 5. Actions에서 `Collect skills`를 `bootstrap` 모드로 한 번 실행합니다.
