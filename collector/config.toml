@@ -22,6 +22,8 @@ per_repository_cap = 10
 catalog_limit = 19000
 
 [github]
+# 스캔이 요약 시간까지 잡아먹지 않게 멈춘다. 남은 저장소는 다음 실행이 이어받는다.
+max_scan_minutes = 120
 max_wait_seconds_with_token = 3700
 max_wait_seconds_anonymous = 60
 

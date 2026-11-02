@@ -1,6 +1,7 @@
 """저장소 발견과 SKILL.md 스캔. 결과는 전부 CollectorState에 누적된다."""
 
 import logging
+import time
 from collections.abc import Callable
 from dataclasses import dataclass, field
 from datetime import date
@@ -191,14 +192,24 @@ def needs_scan(record: RepositoryRecord) -> bool:
     return record.exclusion is None and record.pushed_at != record.scanned_pushed_at
 
 
-def scan_repositories(context: CollectContext, target: int | None) -> None:
-    """스타가 많은 저장소부터 스캔한다. target개를 채우면 멈춘다."""
+def scan_repositories(
+    context: CollectContext,
+    target: int | None,
+    *,
+    clock: Callable[[], float] = time.monotonic,
+) -> None:
+    """스타가 많은 저장소부터 스캔한다. target개를 채우거나 시간 예산을 쓰면 멈춘다."""
     pending = [record for record in context.state.repositories.values() if needs_scan(record)]
     pending.sort(key=lambda record: (-record.stars, record.full_name.lower()))
 
     if target is not None and _catalog_is_full(context, target):
         return
+    deadline = clock() + context.settings.github.max_scan_minutes * 60
     for index, record in enumerate(pending, start=1):
+        if index > 1 and clock() >= deadline:
+            context.metrics.scan_deferred_repositories = len(pending) - index + 1
+            logger.warning("스캔 시간 예산 소진, %d개는 다음 실행으로", len(pending) - index + 1)
+            break
         try:
             _scan_repository(context, record)
         except httpx.HTTPStatusError as error:
@@ -230,6 +241,12 @@ def catalog_keys(context: CollectContext, limit: int) -> list[str]:
     return select_catalog(ranked, limit, ranking.per_repository_cap)
 
 
+def files_to_read(files: list[SkillFile], per_repository_cap: int) -> list[SkillFile]:
+    """목록에 실을 수 있는 수만큼만 읽는다. 스킬 수천 개짜리 저장소가 한도를 다 쓰지 않게 한다."""
+    shallow_first = sorted(files, key=lambda file: (file.path.count("/"), file.path))
+    return shallow_first[: per_repository_cap * 2]
+
+
 def _scan_repository(context: CollectContext, record: RepositoryRecord) -> None:
     metrics = context.metrics
     tree = context.github.get_tree(record)
@@ -243,7 +260,8 @@ def _scan_repository(context: CollectContext, record: RepositoryRecord) -> None:
 
     files = find_skill_files(tree.entries)
     complete = True
-    for file in files:
+    cap = context.settings.ranking.per_repository_cap
+    for file in files_to_read(files, cap):
         complete = _record_skill(context, record, file) and complete
 
     if not tree.truncated:

@@ -10,6 +10,7 @@ class RunMetrics(BaseModel):
     discovered_repositories: int = 0
     refreshed_repositories: int = 0
     scanned_repositories: int = 0
+    scan_deferred_repositories: int = 0
     failed_repositories: int = 0
     truncated_trees: int = 0
     new_skills: int = 0

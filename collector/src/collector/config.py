@@ -35,6 +35,7 @@ class RankingSettings(_Section):
 
 
 class GitHubSettings(_Section):
+    max_scan_minutes: int
     max_wait_seconds_with_token: int
     max_wait_seconds_anonymous: int
 

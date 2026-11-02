@@ -13,9 +13,11 @@ from collector.domain.models import (
     RepositoryRecord,
     SkillRecord,
 )
+from collector.domain.tree import SkillFile
 from collector.pipeline.collect import (
     CollectContext,
     discover,
+    files_to_read,
     needs_scan,
     refresh_known_repositories,
     register_repositories,
@@ -156,6 +158,31 @@ def test_removed_skill_is_forgotten(make_context: ContextFactory) -> None:
 
     assert context.state.skills == {}
     assert context.metrics.removed_skills == 1
+
+
+def test_files_to_read_stop_at_twice_the_repository_cap() -> None:
+    files = [SkillFile(f"skills/{index:03}/SKILL.md", "a" * 40, ()) for index in range(50)]
+    assert len(files_to_read(files, per_repository_cap=10)) == 20
+
+
+def test_files_to_read_prefer_shallow_paths() -> None:
+    deep = SkillFile("a/b/c/SKILL.md", "a" * 40, ())
+    shallow = SkillFile("z/SKILL.md", "b" * 40, ())
+    assert files_to_read([deep, shallow], per_repository_cap=1)[0] is shallow
+
+
+def test_scan_time_budget_defers_remaining_repositories(make_context: ContextFactory) -> None:
+    client = make_client(github_site(tree_body(("SKILL.md", SAMPLE_SHA))))
+    context = make_context(client)
+    context.state.repositories["big/one"] = record("big/one", stars=100)
+    context.state.repositories["small/two"] = record("small/two", stars=1)
+    ticks = iter([0.0, 999_999.0])
+
+    scan_repositories(context, None, clock=lambda: next(ticks))
+
+    assert context.metrics.scanned_repositories == 1
+    assert context.metrics.scan_deferred_repositories == 1
+    assert context.state.repositories["small/two"].scanned_pushed_at is None
 
 
 def test_scan_stops_once_target_is_filled(make_context: ContextFactory) -> None:

@@ -57,7 +57,9 @@ jobs:
             echo "arguments=--mode $mode" >> "$GITHUB_OUTPUT"
           fi
 
+      # 작업 제한보다 먼저 끊어, 중간 저장한 상태를 커밋할 시간을 남긴다.
       - name: Collect, summarize, export
+        timeout-minutes: 320
         env:
           GH_SEARCH_TOKEN: ${{ secrets.GH_SEARCH_TOKEN }}
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
@@ -85,9 +87,11 @@ jobs:
           retention-days: 90
 
       - name: Commit data
+        if: ${{ !cancelled() }}
         working-directory: .
         run: |
           git add collector/state site/src/data/skills.json
+          # 수집이 중간에 끊겨도 다음 실행이 이어받도록 상태는 남긴다.
           if git diff --cached --quiet; then
             echo '변경 사항이 없습니다.'
             exit 0
