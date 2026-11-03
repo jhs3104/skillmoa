@@ -1,5 +1,5 @@
 ---
-import { moreLabel, PAGE_SIZE, pageItems, SORT_LABELS, type SortKey } from '../lib/browse';
+import { PAGE_SIZE, pageCount, pagerHtml, SORT_LABELS, type SortKey } from '../lib/browse';
 import { CATEGORY_LABELS } from '../lib/labels';
 import type { Category, Skill } from '../lib/types';
 import AdSlot from './AdSlot.astro';
@@ -20,7 +20,7 @@ for (const skill of skills) counts.set(skill.category, (counts.get(skill.categor
 const categories = (Object.keys(CATEGORY_LABELS) as Category[]).filter((category) => counts.has(category));
 const sorts = (Object.entries(SORT_LABELS) as [SortKey, string][])
   .filter(([value]) => value !== 'new' || dateKind === 'found');
-const { remaining } = pageItems(skills, PAGE_SIZE);
+const pager = pagerHtml(1, pageCount(skills.length), (page) => `?page=${page}`);
 ---
 
 <div
@@ -110,8 +110,8 @@ const { remaining } = pageItems(skills, PAGE_SIZE);
       </li>
       {skills.slice(0, PAGE_SIZE).map((skill) => <SkillItem skill={skill} dateKind={dateKind} />)}
     </ol>
-    <button class="button more" type="button" data-more hidden={remaining === 0}>{moreLabel(remaining)}</button>
-    <noscript><style>.more { display: none !important; }</style></noscript>
+    <nav class="pager" aria-label="목록 쪽 번호" data-pager><Fragment set:html={pager} /></nav>
+    <noscript><style>.pager { display: none !important; }</style></noscript>
     <p class="load-error" data-load-error hidden>
       목록을 불러오지 못했습니다.
       <button class="text-button" type="button" data-retry>다시 시도</button>

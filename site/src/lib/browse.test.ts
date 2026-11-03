@@ -2,12 +2,12 @@ import { describe, expect, it } from 'vitest';
 import {
   activeFilterCount,
   DEFAULT_STATE,
-  moreLabel,
   PAGE_SIZE,
-  pageItems,
   isFirstPage,
+  pageLinks,
+  pagerHtml,
+  pageSlice,
   parseState,
-  restoreLimit,
   restoreScroll,
   serializeState,
   toBrowseItem,
@@ -81,7 +81,7 @@ describe('visibleItems', () => {
 
 describe('URL state', () => {
   it('round-trips through query parameters', () => {
-    const state = { query: 'pdf', category: 'data', sort: 'new', unflaggedOnly: true, noAccountOnly: true, view: 'cards' } as const;
+    const state = { query: 'pdf', category: 'data', sort: 'new', unflaggedOnly: true, noAccountOnly: true, view: 'cards', page: 3 } as const;
     expect(parseState(serializeState(state), ['data'])).toEqual(state);
   });
 
@@ -97,7 +97,7 @@ describe('URL state', () => {
   });
 
   it('ignores unknown values', () => {
-    const state = parseState(new URLSearchParams('category=nope&sort=hax&view=x'), ['data']);
+    const state = parseState(new URLSearchParams('category=nope&sort=hax&view=x&page=-2'), ['data']);
     expect(state).toEqual(DEFAULT_STATE);
   });
 });
@@ -105,26 +105,31 @@ describe('URL state', () => {
 describe('paging', () => {
   const items = Array.from({ length: 120 }, (_, index) => item(String(index)));
 
-  it('shows one page and counts the rest', () => {
-    const { shown, remaining } = pageItems(items, PAGE_SIZE);
+  it('shows one page of rows', () => {
+    const { shown, pages } = pageSlice(items, 2);
+    expect(shown.map(({ id }) => id)[0]).toBe('50');
     expect(shown).toHaveLength(PAGE_SIZE);
-    expect(remaining).toBe(70);
+    expect(pages).toBe(3);
   });
 
-  it('never reports negative remainders', () => {
-    expect(pageItems(items.slice(0, 3), PAGE_SIZE).remaining).toBe(0);
+  it('moves an out-of-range page to the last one', () => {
+    expect(pageSlice(items, 9).page).toBe(3);
+    expect(pageSlice([], 4)).toEqual({ shown: [], page: 1, pages: 1 });
   });
 
-  it('names the next step in the button', () => {
-    expect(moreLabel(250)).toBe('50개 더 보기 (250개 남음)');
-    expect(moreLabel(12)).toBe('12개 더 보기');
+  it('keeps the same number of page slots wherever you are', () => {
+    expect(pageLinks(1, 20)).toEqual([1, 2, 3, 4, 5, 'gap', 20]);
+    expect(pageLinks(10, 20)).toEqual([1, 'gap', 9, 10, 11, 'gap', 20]);
+    expect(pageLinks(20, 20)).toEqual([1, 'gap', 16, 17, 18, 19, 20]);
+    expect(pageLinks(2, 4)).toEqual([1, 2, 3, 4]);
   });
 
-  it('restores only a sensible limit from history', () => {
-    expect(restoreLimit(150)).toBe(150);
-    for (const value of [undefined, null, 'x', -50, 0, 75.5, 10]) {
-      expect(restoreLimit(value)).toBe(PAGE_SIZE);
-    }
+  it('marks the current page and disables the missing step', () => {
+    const html = pagerHtml(1, 3, (page) => `?page=${page}`);
+    expect(html).toContain('aria-current="page" aria-label="1쪽"');
+    expect(html).toContain('<span class="pager__step" aria-disabled="true">이전</span>');
+    expect(html).toContain('href="?page=2" data-page="2" rel="next"');
+    expect(pagerHtml(1, 1, String)).toBe('');
   });
 });
 
@@ -144,12 +149,12 @@ describe('catalog rows', () => {
   });
 
   it('keeps server rows only for the untouched first page', () => {
-    expect(isFirstPage(DEFAULT_STATE, PAGE_SIZE, 'rank')).toBe(true);
-    expect(isFirstPage({ ...DEFAULT_STATE, view: 'cards' }, PAGE_SIZE, 'rank')).toBe(true);
-    expect(isFirstPage({ ...DEFAULT_STATE, query: 'pdf' }, PAGE_SIZE, 'rank')).toBe(false);
-    expect(isFirstPage({ ...DEFAULT_STATE, noAccountOnly: true }, PAGE_SIZE, 'rank')).toBe(false);
-    expect(isFirstPage(DEFAULT_STATE, PAGE_SIZE * 2, 'rank')).toBe(false);
-    expect(isFirstPage({ ...DEFAULT_STATE, sort: 'new' }, PAGE_SIZE, 'new')).toBe(true);
+    expect(isFirstPage(DEFAULT_STATE, 'rank')).toBe(true);
+    expect(isFirstPage({ ...DEFAULT_STATE, view: 'cards' }, 'rank')).toBe(true);
+    expect(isFirstPage({ ...DEFAULT_STATE, query: 'pdf' }, 'rank')).toBe(false);
+    expect(isFirstPage({ ...DEFAULT_STATE, noAccountOnly: true }, 'rank')).toBe(false);
+    expect(isFirstPage({ ...DEFAULT_STATE, page: 2 }, 'rank')).toBe(false);
+    expect(isFirstPage({ ...DEFAULT_STATE, sort: 'new' }, 'new')).toBe(true);
   });
 
   it('restores only a usable scroll position', () => {

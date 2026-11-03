@@ -2,11 +2,10 @@ import {
   activeFilterCount,
   DEFAULT_STATE,
   isFirstPage,
-  moreLabel,
-  PAGE_SIZE,
-  pageItems,
+  pagerHtml,
+  pageCount,
+  pageSlice,
   parseState,
-  restoreLimit,
   restoreScroll,
   serializeState,
   toBrowseItem,
@@ -24,7 +23,6 @@ import { loadCatalog } from './catalog';
 const WIDE_SCREEN = '(min-width: 900px)';
 
 interface SavedView {
-  limit?: unknown;
   scrollY?: unknown;
 }
 
@@ -43,7 +41,7 @@ function start(root: HTMLElement): void {
   const controls = root.querySelector<HTMLElement>('[data-filter-controls]')!;
   const sheetSlot = root.querySelector<HTMLElement>('[data-sheet-slot]')!;
   const resets = [...root.querySelectorAll<HTMLButtonElement>('[data-reset]')];
-  const more = root.querySelector<HTMLButtonElement>('[data-more]')!;
+  const pager = root.querySelector<HTMLElement>('[data-pager]')!;
   const loadError = root.querySelector<HTMLElement>('[data-load-error]')!;
   const retry = root.querySelector<HTMLButtonElement>('[data-retry]')!;
   const viewButtons = [...root.querySelectorAll<HTMLButtonElement>('[data-view]:not(ol)')];
@@ -55,7 +53,6 @@ function start(root: HTMLElement): void {
 
   const saved = (history.state ?? {}) as SavedView;
   const state: BrowseState = parseState(new URLSearchParams(location.search), categories, defaultSort);
-  let limit = restoreLimit(saved.limit);
   let pendingScroll = restoreScroll(saved.scrollY);
   let catalog: { items: BrowseItem[]; byId: Map<string, CatalogItem> } | null = null;
   let waiting = false;
@@ -70,26 +67,37 @@ function start(root: HTMLElement): void {
     const active = activeFilterCount(state);
     filterOpen.textContent = active > 0 ? `필터 ${active}` : '필터';
     for (const reset of resets) reset.hidden = active === 0 && !state.query;
-    const query = serializeState(state, defaultSort).toString();
-    history.replaceState({ limit }, '', query ? `?${query}` : location.pathname);
+    history.replaceState(history.state, '', currentUrl());
   }
 
-  function showCount(visible: number, remaining: number): void {
+  function urlFor(page: number): string {
+    const query = serializeState({ ...state, page }, defaultSort).toString();
+    return query ? `?${query}` : location.pathname;
+  }
+
+  function currentUrl(): string {
+    return urlFor(state.page);
+  }
+
+  function showCount(visible: number): void {
     count.textContent = `${visible}개 스킬`;
     apply.textContent = `${visible}개 스킬 보기`;
-    more.hidden = remaining === 0;
-    more.textContent = moreLabel(remaining);
+    pager.innerHTML = pagerHtml(state.page, pageCount(visible), urlFor);
   }
 
   function renderRows(): void {
     const visible = visibleItems(catalog!.items, state);
-    const { shown, remaining } = pageItems(visible, limit);
+    const { shown, page } = pageSlice(visible, state.page);
+    if (page !== state.page) {
+      state.page = page;
+      history.replaceState(history.state, '', currentUrl());
+    }
     list.querySelectorAll('.skill').forEach((row) => row.remove());
     const html = shown.map(({ id }) => skillRowHtml(catalog!.byId.get(id)!, rowOptions)).join('');
     list.insertAdjacentHTML('beforeend', html);
     list.hidden = visible.length === 0;
     empty.hidden = visible.length > 0;
-    showCount(visible.length, remaining);
+    showCount(visible.length);
   }
 
   function finishRestore(): void {
@@ -112,8 +120,8 @@ function start(root: HTMLElement): void {
       finishRestore();
       return;
     }
-    if (isFirstPage(state, limit, defaultSort)) {
-      showCount(total, Math.max(total - PAGE_SIZE, 0));
+    if (isFirstPage(state, defaultSort)) {
+      showCount(total);
       finishRestore();
       return;
     }
@@ -133,10 +141,21 @@ function start(root: HTMLElement): void {
       });
   }
 
-  /** 조건이 바뀌면 결과가 달라지므로 첫 묶음부터 다시 보여 준다. */
+  /** 조건이 바뀌면 결과가 달라지므로 첫 쪽부터 다시 보여 준다. */
   function renderFromStart(): void {
-    limit = PAGE_SIZE;
+    state.page = 1;
     render();
+  }
+
+  /** 쪽을 옮기면 기록을 남겨 뒤로 가기로 이전 쪽에 돌아갈 수 있게 한다. */
+  function goToPage(page: number): void {
+    state.page = page;
+    history.pushState({}, '', currentUrl());
+    render();
+    if (!catalog) return;
+    const top = root.querySelector<HTMLElement>('.browse__main')!;
+    if (top.getBoundingClientRect().top < 0) top.scrollIntoView({ block: 'start' });
+    list.querySelector<HTMLAnchorElement>('.skill a')?.focus({ preventScroll: true });
   }
 
   if (![...sort.options].some(({ value }) => value === state.sort)) state.sort = defaultSort;
@@ -185,18 +204,23 @@ function start(root: HTMLElement): void {
       (filters.open ? apply : search).focus();
     });
   }
-  more.addEventListener('click', () => {
-    limit += PAGE_SIZE;
-    const firstNew = list.querySelectorAll('.skill').length;
+  pager.addEventListener('click', (event) => {
+    const link = (event.target as Element).closest<HTMLAnchorElement>('a[data-page]');
+    if (!link || event.metaKey || event.ctrlKey || event.shiftKey || event.button !== 0) return;
+    event.preventDefault();
+    const page = Number(link.dataset.page);
     void ensureCatalog()
-      .then(() => {
-        render();
-        list.querySelectorAll('.skill')[firstNew]?.querySelector('a')?.focus({ preventScroll: true });
-      })
+      .then(() => goToPage(page))
       .catch(() => {
-        limit -= PAGE_SIZE;
         loadError.hidden = false;
       });
+  });
+  window.addEventListener('popstate', () => {
+    Object.assign(state, parseState(new URLSearchParams(location.search), categories, defaultSort));
+    if (![...sort.options].some(({ value }) => value === state.sort)) state.sort = defaultSort;
+    pendingScroll = restoreScroll((history.state as SavedView | null)?.scrollY);
+    syncControls();
+    render();
   });
   retry.addEventListener('click', () => {
     loadError.hidden = true;
@@ -221,13 +245,13 @@ function start(root: HTMLElement): void {
   });
   window.matchMedia(WIDE_SCREEN).addEventListener('change', () => filters.close());
   window.addEventListener('pagehide', () => {
-    history.replaceState({ limit, scrollY: window.scrollY }, '');
+    history.replaceState({ scrollY: window.scrollY }, '');
   });
 
   render();
 
   const prefersLessData = (navigator as Navigator & { connection?: { saveData?: boolean } }).connection?.saveData;
-  if (total > PAGE_SIZE && !prefersLessData) {
+  if (pageCount(total) > 1 && !prefersLessData) {
     const prefetch = (): void => void ensureCatalog().catch(() => undefined);
     if ('requestIdleCallback' in window) requestIdleCallback(prefetch);
     else setTimeout(prefetch, 2000);
