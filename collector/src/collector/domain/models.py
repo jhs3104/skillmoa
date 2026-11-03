@@ -184,6 +184,8 @@ class ExclusionReason(StrEnum):
     EMPTY = "empty"
     TOO_SHORT = "too_short"
     DUPLICATE = "duplicate"
+    # 본문이 중국어·일본어 위주다. 한국 사용자가 원문을 확인할 수 없다 (ADR-0017).
+    FOREIGN_LANGUAGE = "foreign_language"
 
 
 class Repository(BaseModel):

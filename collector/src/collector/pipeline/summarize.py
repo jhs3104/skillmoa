@@ -7,6 +7,8 @@ API 호출만 작업 스레드에서 동시에 보낸다. 원문 읽기와 상�
 import logging
 from concurrent.futures import FIRST_COMPLETED, Future, ThreadPoolExecutor, wait
 
+from collector.domain.filters import language_exclusion
+from collector.domain.frontmatter import parse_skill_document
 from collector.domain.identity import repository_key
 from collector.domain.models import SkillRecord, SummaryFailure, SummaryRecord
 from collector.domain.summary_rules import needs_summary
@@ -118,6 +120,14 @@ def _prepare(context: CollectContext, key: str) -> SummaryRequest | None:
     repository = context.state.repositories[repository_key(skill.repository)]
     source = context.content.read(repository, skill.path, skill.skill_md_hash)
     if source is None:
+        return None
+    # 규칙보다 먼저 수집된 스킬은 해시가 그대로라 필터를 다시 거치지 않는다.
+    # 요약 직전에 한 번 더 본다.
+    exclusion = language_exclusion(parse_skill_document(source).body)
+    if exclusion is not None:
+        context.state.skills[key] = skill.model_copy(update={"exclusion": exclusion})
+        context.state.summary_redo.pop(key, None)
+        context.metrics.excluded[exclusion] += 1
         return None
     if len(source) > context.settings.summary.max_source_chars:
         _record_failure(context, key, skill, "source too long")

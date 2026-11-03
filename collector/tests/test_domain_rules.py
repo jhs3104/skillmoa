@@ -4,6 +4,7 @@ import pytest
 
 from collector.domain.filters import (
     content_exclusion,
+    language_exclusion,
     mark_duplicates,
     path_exclusion,
     repository_exclusion,
@@ -68,6 +69,22 @@ def test_content_filter_reports_empty_and_short() -> None:
     assert content_exclusion("  \n", 10) == ExclusionReason.EMPTY
     assert content_exclusion("short", 10) == ExclusionReason.TOO_SHORT
     assert content_exclusion("long enough body", 10) is None
+
+
+def test_chinese_or_japanese_bodies_are_excluded() -> None:
+    chinese = "这个技能帮助你在微信公众号上撰写长文章，并检查格式和发布流程。"
+    japanese = "このスキルは議事録をまとめて、次のタスクを整理します。"
+    assert language_exclusion(chinese) == ExclusionReason.FOREIGN_LANGUAGE
+    assert language_exclusion(japanese) == ExclusionReason.FOREIGN_LANGUAGE
+    assert content_exclusion(chinese, 10) == ExclusionReason.FOREIGN_LANGUAGE
+
+
+def test_korean_english_and_code_samples_are_kept() -> None:
+    assert language_exclusion("회의록을 정리하고 다음 할 일을 뽑아 주는 스킬입니다.") is None
+    english = "Write release notes. Example output: `发布说明` for Chinese teams.\n"
+    assert language_exclusion(english * 3) is None
+    fenced = "Translate the UI strings.\n```json\n{\"title\": \"标题标题标题标题标题标题\"}\n```\n"
+    assert language_exclusion(fenced) is None
 
 
 def test_duplicates_keep_most_starred_repository() -> None:

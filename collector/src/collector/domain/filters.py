@@ -7,6 +7,14 @@ from collections.abc import Mapping
 from collector.domain.models import ExclusionReason, Repository, SkillRecord
 
 _TOKEN_SPLIT = re.compile(r"[-_.]+")
+_CODE = re.compile(r"(`{3,}|~{3,}).*?\1|`[^`\n]*`", re.DOTALL)
+_HAN_OR_KANA = re.compile(r"[\u3040-\u30ff\u3400-\u4dbf\u4e00-\u9fff\uf900-\ufaff]")
+_HANGUL = re.compile(r"[\uac00-\ud7a3]")
+_LATIN = re.compile(r"[A-Za-z]")
+# 한자·가나·한글 한 글자는 로마자 서너 글자만큼의 뜻을 담는다.
+# 글자 수를 그대로 세면 한자 비중이 작게 나온다.
+_IDEOGRAM_WEIGHT = 3
+FOREIGN_SHARE = 0.5
 _FILLER_TOKENS = {"agent", "agents", "claude", "code", "my", "repo", "skill", "skills"}
 _TEST_TOKENS = {
     "demo",
@@ -62,6 +70,19 @@ def content_exclusion(body: str, min_chars: int) -> ExclusionReason | None:
         return ExclusionReason.EMPTY
     if len(body.strip()) < min_chars:
         return ExclusionReason.TOO_SHORT
+    return language_exclusion(body)
+
+
+def language_exclusion(body: str) -> ExclusionReason | None:
+    """본문의 절반 이상이 한자·가나이면 제외한다. 코드는 세지 않는다.
+
+    영어 스킬에 중국어 예시가 조금 섞인 경우는 남는다.
+    """
+    prose = _CODE.sub(" ", body)
+    foreign = len(_HAN_OR_KANA.findall(prose)) * _IDEOGRAM_WEIGHT
+    readable = len(_HANGUL.findall(prose)) * _IDEOGRAM_WEIGHT + len(_LATIN.findall(prose))
+    if foreign and foreign >= (foreign + readable) * FOREIGN_SHARE:
+        return ExclusionReason.FOREIGN_LANGUAGE
     return None
 
 

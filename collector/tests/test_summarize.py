@@ -589,6 +589,25 @@ def test_failed_redo_keeps_the_old_summary_and_stops_retrying(
     assert context.state.summary_redo == {}
 
 
+def test_chinese_skill_found_before_the_rule_is_excluded_without_a_call(
+    make_context: Callable[..., CollectContext],
+) -> None:
+    context = stocked_context(make_context, 2)
+    chinese_key, english_key = list(context.state.skills)
+    context.state.summary_redo[chinese_key] = "중국어 확인"
+    sha = context.state.skills[chinese_key].skill_md_hash
+    body = "这个技能帮助你在微信公众号上撰写长文章，并检查格式和发布流程。"
+    (context.content._cache / f"{sha}.md").write_text(body, encoding="utf-8")
+    summarizer = ScriptedSummarizer()
+
+    summarize_skills(context, summarizer, [chinese_key, english_key])
+
+    assert summarizer.calls == [context.state.skills[english_key].path]
+    assert context.state.skills[chinese_key].exclusion == ExclusionReason.FOREIGN_LANGUAGE
+    assert context.metrics.excluded[ExclusionReason.FOREIGN_LANGUAGE] == 1
+    assert context.state.summary_redo == {}
+
+
 def test_oversized_source_is_recorded_not_truncated(
     make_context: Callable[..., CollectContext],
 ) -> None:
