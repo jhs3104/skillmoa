@@ -183,7 +183,7 @@ def _rename_repository(context: CollectContext, record: RepositoryRecord, new_na
         new_id = skill_key(new_name, skill.path)
         del state.skills[skill_id]
         state.skills[new_id] = skill.model_copy(update={"repository": new_name})
-        for table in (state.summaries, state.summary_failures):
+        for table in (state.summaries, state.summary_failures, state.summary_redo):
             if skill_id in table:
                 table[new_id] = table.pop(skill_id)
 
@@ -287,6 +287,7 @@ def _remove_skill(context: CollectContext, skill_id: str) -> None:
     state.skills.pop(skill_id, None)
     state.summaries.pop(skill_id, None)
     state.summary_failures.pop(skill_id, None)
+    state.summary_redo.pop(skill_id, None)
 
 
 def _record_skill(context: CollectContext, record: RepositoryRecord, file: SkillFile) -> bool:

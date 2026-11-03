@@ -29,7 +29,7 @@ max_wait_seconds_anonymous = 60
 
 [summary]
 model = "claude-haiku-5-5"
-prompt_version = "v5"
+prompt_version = "v6"
 effort = "medium"
 max_calls_per_day = 8000
 max_calls_per_run = 1000

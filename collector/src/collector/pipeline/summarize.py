@@ -35,7 +35,8 @@ def summarize_skills(
     pending = [
         key
         for key in keys
-        if needs_summary(
+        if (key in state.summary_redo and state.skills[key].exclusion is None)
+        or needs_summary(
             state.skills[key],
             state.summaries.get(key),
             state.summary_failures.get(key),
@@ -99,6 +100,7 @@ def _summarize_one(context: CollectContext, summarizer: Summarizer, key: str) ->
     metrics.summarized += 1
     metrics.summary_unverified += result.unverified_evidence
     state.summary_failures.pop(key, None)
+    state.summary_redo.pop(key, None)
     state.summaries[key] = SummaryRecord(
         skill_md_hash=skill.skill_md_hash,
         prompt_version=settings.prompt_version,
@@ -111,6 +113,8 @@ def _summarize_one(context: CollectContext, summarizer: Summarizer, key: str) ->
 def _record_failure(context: CollectContext, key: str, skill: SkillRecord, reason: str) -> None:
     logger.warning("요약 실패 %s: %s", key, reason)
     context.metrics.summary_failed += 1
+    # 다시 만들지 못하면 기존 요약을 그대로 두고, 같은 스킬에 호출을 반복하지 않는다.
+    context.state.summary_redo.pop(key, None)
     context.state.summary_failures[key] = SummaryFailure(
         skill_md_hash=skill.skill_md_hash,
         prompt_version=context.settings.summary.prompt_version,

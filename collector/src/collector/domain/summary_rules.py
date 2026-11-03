@@ -19,10 +19,16 @@ _REASSURANCE = re.compile(
     r"네트워크 없이|외부 서비스 없이|설치 없이|무료로 쓸|무료입니다|"
     r"이 컴퓨터 안에|로컬에만|원문"
 )
+# 한국어 문장 속 한자·가나는 오타처럼 읽힌다. 괄호 안 병기만 허용한다.
+_BRACKETED = re.compile(r"\([^()]*\)|（[^（）]*）")
+_HAN_OR_KANA = re.compile(r"[\u3040-\u30ff\u3400-\u4dbf\u4e00-\u9fff\uf900-\ufaff]+")
 _FENCE = re.compile(r"^(`{3,}|~{3,}).*$")
 _INLINE_CODE = re.compile(r"`([^`\n]+)`")
 _PROMPT = re.compile(r"^\s*(?:[$>#]\s+)?")
-_LOCAL_COMMANDS = r"python3?|node|bash|sh|make|cargo|go|docker|uv|deno|bun|ant"
+_LOCAL_COMMANDS = (
+    r"python3?|node|bash|sh|zsh|make|cargo|go|docker|uv|deno|bun|ant|git|"
+    r"xcrun|swift|ruby|php|java|osascript|ffmpeg|pytest|kubectl|terraform"
+)
 _NETWORK_COMMANDS = (
     r"npx|uvx|curl|wget|gh|git\s+(?:clone|pull|push|fetch)|"
     r"(?:npm|pnpm|yarn|pip3?|uv|cargo|brew|apt(?:-get)?)\s+(?:install|add|i)\b"
@@ -146,6 +152,15 @@ def find_reassurance(summary: Summary) -> str | None:
     """표시로 전할 내용을 본문의 안심 문구로 쓰지 못하게 막는다."""
     for text in (summary.summary_ko, summary.use_when):
         match = _REASSURANCE.search(text)
+        if match:
+            return match.group()
+    return None
+
+
+def find_bare_han(summary: Summary) -> str | None:
+    """괄호 밖에 남은 한자·가나를 찾는다. 이름은 "샤오훙수(小红书)"처럼 한글 뒤에 병기해야 한다."""
+    for text in (summary.summary_ko, summary.use_when, *summary.tags.use_cases):
+        match = _HAN_OR_KANA.search(_BRACKETED.sub("", text))
         if match:
             return match.group()
     return None

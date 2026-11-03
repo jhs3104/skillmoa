@@ -13,7 +13,7 @@ from collector.domain.models import CollectorState
 _FILES = {
     "repositories.json": ("repositories",),
     "skills.json": ("skills",),
-    "summaries.json": ("summaries", "summary_failures"),
+    "summaries.json": ("summaries", "summary_failures", "summary_redo"),
     "meta.json": ("schema_version", "bootstrapped_on", "usage"),
 }
 

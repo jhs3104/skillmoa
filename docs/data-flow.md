@@ -46,4 +46,5 @@ flowchart TD
 
 - `skills.json`은 `Repository`와 `Skill`을 정규화해서 담는다. 스킬은 `repository`로 저장소를 참조한다.
 - 요약이 없는 스킬은 내보내지 않는다.
+- `collector/state/summaries.json`의 `summary_redo`는 검수에서 걸린 요약 목록이다. 다음 실행이 먼저 다시 만들고, 그때까지는 기존 요약을 보여 준다. 다시 만들지 못하면 기존 요약을 두고 목록에서 뺀다.
 - 모델을 바꾸면 `skills.schema.json`을 재생성한다. 테스트가 불일치를 잡는다.

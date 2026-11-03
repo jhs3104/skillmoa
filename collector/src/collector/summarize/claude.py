@@ -8,6 +8,7 @@ import pydantic
 from collector.config import SummarySettings
 from collector.domain.models import Summary
 from collector.domain.summary_rules import (
+    find_bare_han,
     find_copied_fragment,
     find_missing_evidence,
     find_reassurance,
@@ -113,6 +114,8 @@ def _find_problem(summary: Summary, source: str) -> str | None:
         return f"missing {missing}"
     if find_reassurance(summary):
         return "reassurance in prose"
+    if find_bare_han(summary):
+        return "han characters outside brackets"
     return None
 
 

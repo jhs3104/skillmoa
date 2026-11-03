@@ -164,3 +164,5 @@ class CollectorState(BaseModel):
     skills: dict[str, SkillRecord] = {}
     summaries: dict[str, SummaryRecord] = {}
     summary_failures: dict[str, SummaryFailure] = {}
+    # 검수에서 걸린 요약. 키는 스킬, 값은 사유. 다시 만들 때까지 기존 요약은 그대로 보여 준다.
+    summary_redo: dict[str, str] = {}

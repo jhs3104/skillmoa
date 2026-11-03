@@ -23,6 +23,7 @@ from collector.domain.models import (
     SummaryRecord,
 )
 from collector.domain.summary_rules import (
+    find_bare_han,
     find_copied_fragment,
     find_missing_evidence,
     find_reassurance,
@@ -313,6 +314,33 @@ def test_prompt_v5_asks_for_external_account_without_guessing_price() -> None:
     assert "가격과 무료 여부는 판단하지 않습니다" in prompt
 
 
+def test_platform_tools_in_inline_code_raise_the_code_flag() -> None:
+    source = "Record the flow with `xcrun simctl io booted recordVideo flow.mov`."
+    raised = raise_flags_from_source(quiet_summary(), source)
+    assert raised.runs_external_code
+    assert raised.code_evidence == source
+
+
+def test_han_characters_must_sit_in_brackets() -> None:
+    def with_text(text: str) -> Summary:
+        return Summary.model_validate({**VALID, "summary_ko": text})
+
+    wechat = "위챗 공众号에 올릴 장문 원고를 쓰도록 돕는 스킬입니다."
+    assert find_bare_han(with_text(wechat)) == "众号"
+    assert find_bare_han(with_text("小跃라는 가상 동반자 캐릭터가 대화를 이어 가는 스킬입니다."))
+    bracketed = "샤오훙수(小红书)와 더우인（抖音）의 게시글을 읽어 오는 스킬입니다."
+    assert find_bare_han(with_text(bracketed)) is None
+    assert find_bare_han(summary()) is None
+
+
+def test_prompt_v6_keeps_names_readable_in_korean() -> None:
+    prompt = PROMPTS["v6"]
+    assert "샤오훙수(小红书)" in prompt
+    assert "라틴 문자로 쓴 제품명" in prompt
+    assert "라틴 문자로 쓴 제품명" not in PROMPTS["v5"]
+    assert PROMPTS["v5"].count("<flags>") == prompt.count("<flags>") == 1
+
+
 def test_new_skill_needs_summary() -> None:
     assert needs_summary(skill(), None, None, "v1")
 
@@ -458,6 +486,38 @@ def test_daily_cap_resets_on_a_new_day(make_context: Callable[..., CollectContex
     summarize_skills(context, ScriptedSummarizer(), list(context.state.skills))
 
     assert context.state.usage.summary_calls == 1
+
+
+def test_skill_marked_for_redo_is_summarized_again(
+    make_context: Callable[..., CollectContext],
+) -> None:
+    context = stocked_context(make_context, 1)
+    key = next(iter(context.state.skills))
+    sha = context.state.skills[key].skill_md_hash
+    context.state.summaries[key] = summary_record(skill_md_hash=sha, model="old")
+    context.state.summary_redo[key] = "한자 혼용"
+    summarizer = ScriptedSummarizer()
+
+    summarize_skills(context, summarizer, [key])
+
+    assert summarizer.calls == [context.state.skills[key].path]
+    assert context.state.summaries[key].model == "scripted"
+    assert context.state.summary_redo == {}
+
+
+def test_failed_redo_keeps_the_old_summary_and_stops_retrying(
+    make_context: Callable[..., CollectContext],
+) -> None:
+    context = stocked_context(make_context, 1)
+    key = next(iter(context.state.skills))
+    sha = context.state.skills[key].skill_md_hash
+    context.state.summaries[key] = summary_record(skill_md_hash=sha, model="old")
+    context.state.summary_redo[key] = "오타"
+
+    summarize_skills(context, ScriptedSummarizer(SummaryRejectedError("schema", 1, 1)), [key])
+
+    assert context.state.summaries[key].model == "old"
+    assert context.state.summary_redo == {}
 
 
 def test_oversized_source_is_recorded_not_truncated(
