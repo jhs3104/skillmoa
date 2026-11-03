@@ -341,6 +341,12 @@ def test_prompt_v6_keeps_names_readable_in_korean() -> None:
     assert PROMPTS["v5"].count("<flags>") == prompt.count("<flags>") == 1
 
 
+def test_prompt_v6_defines_every_category() -> None:
+    prompt = PROMPTS["v6"]
+    for category in Category:
+        assert f"  - {category.value}: " in prompt
+
+
 def test_new_skill_needs_summary() -> None:
     assert needs_summary(skill(), None, None, "v1")
 
