@@ -1,4 +1,5 @@
-import type { Category, Difficulty, Role } from './types';
+import taxonomy from '../data/taxonomy.json';
+import type { Category, Difficulty, Role, Subcategory } from './types';
 
 export const SITE_NAME = '스킬모아';
 export const HOME_TITLE = '스킬모아 | AI 에이전트 스킬 모음';
@@ -21,6 +22,73 @@ export const CATEGORY_LABELS: Record<Category, string> = {
   'ai-agents': 'AI 에이전트',
   other: '기타',
 };
+
+/** 세부 분류의 표시 이름. 목록과 순서의 원본은 collector가 생성한 taxonomy.json이다. */
+export const SUBCATEGORY_LABELS: Record<Subcategory, string> = {
+  frontend: '프론트엔드',
+  backend: '백엔드',
+  mobile: '모바일',
+  git: 'Git',
+  'code-quality': '코드 품질',
+  debugging: '디버깅',
+  'dev-tools': '개발 도구',
+  'game-dev': '게임 개발',
+  web3: 'Web3',
+  'test-writing': '테스트 작성',
+  'browser-testing': '브라우저 테스트',
+  qa: 'QA',
+  deployment: '배포·CI',
+  infrastructure: '인프라',
+  monitoring: '모니터링',
+  release: '릴리스',
+  'data-analysis': '데이터 분석',
+  database: '데이터베이스',
+  'machine-learning': '머신러닝',
+  visualization: '시각화',
+  pdf: 'PDF',
+  office: '워드·엑셀',
+  presentation: '프레젠테이션',
+  diagram: '다이어그램',
+  'ui-ux': 'UI·UX',
+  'visual-design': '시각 디자인',
+  image: '이미지',
+  video: '영상',
+  accessibility: '접근성',
+  drafting: '원고·초안',
+  translation: '번역',
+  editing: '교정·윤문',
+  seo: 'SEO',
+  'social-media': '소셜 미디어',
+  advertising: '광고·카피',
+  sales: '영업',
+  ecommerce: '이커머스',
+  communication: '메일·메신저',
+  'notes-calendar': '일정·메모',
+  'project-management': '프로젝트 관리',
+  automation: '업무 자동화',
+  learning: '학습',
+  'web-research': '자료 조사',
+  academic: '논문·학술',
+  'market-research': '시장 조사',
+  'security-review': '보안 점검',
+  vulnerability: '취약점',
+  auth: '인증·권한',
+  'skill-authoring': '스킬 만들기',
+  mcp: 'MCP·연동',
+  'agent-operations': '에이전트 운영',
+  'ai-engineering': 'AI 엔지니어링',
+  persona: '페르소나',
+  finance: '금융·회계',
+  legal: '법률',
+  health: '건강·의료',
+  'business-ops': '비즈니스 운영',
+  audio: '오디오·음악',
+  lifestyle: '생활·여행',
+  misc: '그 밖',
+};
+
+/** 대분류마다 세부 분류를 collector가 정한 순서대로 담는다. */
+export const SUBCATEGORIES = taxonomy as Record<Category, Subcategory[]>;
 
 export const ROLE_LABELS: Record<Role, string> = {
   developer: '개발자',

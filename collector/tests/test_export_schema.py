@@ -1,13 +1,23 @@
 import json
 from pathlib import Path
 
-from collector.export.schema import SCHEMA_PATH, SiteData, render_schema
+from collector.export.schema import (
+    SCHEMA_PATH,
+    TAXONOMY_PATH,
+    SiteData,
+    render_schema,
+    render_taxonomy,
+)
 
 SITE_DATA_DIR = Path(__file__).resolve().parents[2] / "site/src/data"
 
 
 def test_committed_schema_matches_models() -> None:
     assert SCHEMA_PATH.read_text(encoding="utf-8") == render_schema()
+
+
+def test_committed_taxonomy_matches_models() -> None:
+    assert TAXONOMY_PATH.read_text(encoding="utf-8") == render_taxonomy()
 
 
 def test_committed_site_data_matches_contract() -> None:

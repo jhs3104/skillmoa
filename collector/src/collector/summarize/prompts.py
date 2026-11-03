@@ -1,5 +1,7 @@
 """요약 프롬프트. 내용을 바꾸면 새 버전을 추가하고 config.toml의 prompt_version을 올린다."""
 
+from collector.domain.models import SUBCATEGORY_PARENT, Category, Subcategory
+
 _V1 = """\
 당신은 AI 에이전트 스킬을 한국어로 소개하는 디렉터리의 편집자입니다.
 SKILL.md 원문을 읽고, 한국 사용자가 이 스킬이 자신에게 필요한지 판단할 수 있는 설명을 새로 씁니다.
@@ -196,26 +198,96 @@ _V5 = (
     )
 )
 
+# 세부 분류마다 모델이 읽을 설명. 대분류와의 관계는 domain.models.SUBCATEGORY_PARENT가 원본이다.
+_SUBCATEGORY_GUIDE: dict[Subcategory, str] = {
+    Subcategory.FRONTEND: "웹 화면, 컴포넌트, 스타일",
+    Subcategory.BACKEND: "서버, API, 백엔드 프레임워크",
+    Subcategory.MOBILE: "iOS·Android·크로스플랫폼 앱",
+    Subcategory.GIT: "Git, 브랜치, 커밋, PR 작성",
+    Subcategory.CODE_QUALITY: "코드 리뷰, 리팩터링, 코딩 규칙",
+    Subcategory.DEBUGGING: "오류 원인 찾기, 로그 분석",
+    Subcategory.DEV_TOOLS: "개발 도구, CLI, 빌드, 언어별 관례, 그 밖의 개발 작업",
+    Subcategory.GAME_DEV: "게임 만들기",
+    Subcategory.WEB3: "블록체인, 스마트 계약",
+    Subcategory.TEST_WRITING: "단위·통합 테스트 작성과 실행",
+    Subcategory.BROWSER_TESTING: "브라우저 자동화, E2E 테스트",
+    Subcategory.QA: "기능 검수, 품질 점검 절차",
+    Subcategory.DEPLOYMENT: "배포, CI/CD",
+    Subcategory.INFRASTRUCTURE: "클라우드, 서버, 컨테이너, 백업과 복구",
+    Subcategory.MONITORING: "모니터링, 장애 대응",
+    Subcategory.RELEASE: "버전, 변경 기록, 릴리스",
+    Subcategory.DATA_ANALYSIS: "데이터 분석, 통계, 데이터 정제",
+    Subcategory.DATABASE: "데이터베이스, SQL, 스키마",
+    Subcategory.MACHINE_LEARNING: "모델 학습, 실험, 데이터 과학",
+    Subcategory.VISUALIZATION: "차트, 대시보드",
+    Subcategory.PDF: "PDF 만들기, 읽기, 변환",
+    Subcategory.OFFICE: "Word, Excel, 스프레드시트 파일",
+    Subcategory.PRESENTATION: "슬라이드, 발표 자료",
+    Subcategory.DIAGRAM: "다이어그램, 순서도, 구조도",
+    Subcategory.UI_UX: "화면 설계, 사용성, 디자인 시스템",
+    Subcategory.VISUAL_DESIGN: "그래픽, 브랜드, 시각 디자인",
+    Subcategory.IMAGE: "이미지 생성과 편집",
+    Subcategory.VIDEO: "영상 생성과 편집",
+    Subcategory.ACCESSIBILITY: "접근성 점검과 개선",
+    Subcategory.DRAFTING: "글, 원고, 블로그, 문서 초안 쓰기",
+    Subcategory.TRANSLATION: "번역, 다국어",
+    Subcategory.EDITING: "교정, 윤문, 문체 다듬기",
+    Subcategory.SEO: "검색 노출, 검색 엔진 최적화",
+    Subcategory.SOCIAL_MEDIA: "SNS 게시, 콘텐츠 플랫폼 운영",
+    Subcategory.ADVERTISING: "광고, 카피, 캠페인",
+    Subcategory.SALES: "영업, 고객 발굴, CRM",
+    Subcategory.ECOMMERCE: "온라인 쇼핑몰, 상품 관리",
+    Subcategory.COMMUNICATION: "메일, 메신저, 회의",
+    Subcategory.NOTES_CALENDAR: "일정, 메모, 개인 지식 관리",
+    Subcategory.PROJECT_MANAGEMENT: "프로젝트·이슈·제품 관리, 기획",
+    Subcategory.AUTOMATION: "반복 업무 자동화, 워크플로",
+    Subcategory.LEARNING: "학습, 교육, 튜터링",
+    Subcategory.WEB_RESEARCH: "웹 검색, 자료 조사, 사실 확인",
+    Subcategory.ACADEMIC: "논문, 학술 연구",
+    Subcategory.MARKET_RESEARCH: "시장, 경쟁사, 사용자 조사",
+    Subcategory.SECURITY_REVIEW: "보안 점검, 코드 보안 리뷰",
+    Subcategory.VULNERABILITY: "취약점 분석, 침투 테스트",
+    Subcategory.AUTH: "인증, 권한, 비밀값 관리",
+    Subcategory.SKILL_AUTHORING: "스킬 만들기와 고치기",
+    Subcategory.MCP: "MCP 서버, 에이전트 도구 연동",
+    Subcategory.AGENT_OPERATIONS: "에이전트 설정, 운영, 평가, 메모리, 서브에이전트 구성",
+    Subcategory.AI_ENGINEERING: "LLM 앱, RAG, 프롬프트 설계",
+    Subcategory.PERSONA: "캐릭터, 말투, 역할극",
+    Subcategory.FINANCE: "금융, 투자, 회계",
+    Subcategory.LEGAL: "법률, 계약",
+    Subcategory.HEALTH: "건강, 의료",
+    Subcategory.BUSINESS_OPS: "인사, 고객 지원, 회사 운영",
+    Subcategory.AUDIO: "음악, 오디오, 음성",
+    Subcategory.LIFESTYLE: "여행, 생활, 취미",
+    Subcategory.MISC: "그 밖의 모든 것",
+}
+
+_CATEGORY_NOTES: dict[Category, str] = {
+    Category.AI_AGENTS: "에이전트 자체를 만들거나 다루는 일만 해당합니다. 에이전트가 대신 해 주는 일은 그 일의 항목입니다.",
+    Category.OTHER: "위 어디에도 맞지 않을 때만 고릅니다.",
+}
+
+
+def _taxonomy_block() -> str:
+    lines = [
+        "- subcategory, category: 아래 목록에서 subcategory 하나를 고르고, category에는 그 줄의 대분류를 씁니다.",
+        "  사용자가 이 스킬로 끝내는 일을 기준으로 고릅니다. 스킬이 쓰는 도구나 만든 사람이 기준이 아닙니다.",
+        "  여러 개가 맞으면 사용자가 가장 먼저 기대하는 결과에 가까운 것을 고릅니다.",
+    ]
+    for category in Category:
+        lines.append(f"  - {category.value}: {_CATEGORY_NOTES.get(category, '')}".rstrip())
+        for subcategory, parent in SUBCATEGORY_PARENT.items():
+            if parent is category:
+                lines.append(f"    - {subcategory.value}: {_SUBCATEGORY_GUIDE[subcategory]}")
+    return "\n".join(lines) + "\n"
+
+
 _V6 = _V5.replace(
-    """  에이전트나 도구 자체를 운영, 설정, 측정하는 스킬은 ai-agents입니다.
+    """- category: 스킬의 주된 용도 하나를 고릅니다. 맞는 값이 없으면 other입니다.
+  에이전트나 도구 자체를 운영, 설정, 측정하는 스킬은 ai-agents입니다.
   학습 자료를 추천하는 스킬은 productivity입니다.
 """,
-    """  사용자가 이 스킬로 끝내는 일을 기준으로 고릅니다. 스킬이 쓰는 도구나 만든 사람이 기준이 아닙니다.
-  - development: 코드 작성·리뷰·리팩터링·디버깅, 개발 도구와 CLI, 라이브러리·API 사용법
-  - testing: 테스트 작성과 실행, QA, 화면 동작 검증
-  - devops: 배포, CI/CD, 인프라, 클라우드, 컨테이너, 모니터링, 백업과 복구
-  - data: 데이터 분석, SQL, 통계, 시각화, 데이터 정제
-  - documents: PDF, Word, 슬라이드, 스프레드시트 파일 만들기와 변환
-  - design: UI·UX 설계, 시각 디자인, 이미지 생성, 접근성 점검
-  - writing: 글쓰기, 번역, 교정, 원고와 문체 다듬기
-  - marketing: SEO, 광고, SNS 게시, 영업, 브랜드 문구
-  - productivity: 메일, 일정, 메모, 메신저, 프로젝트·이슈 관리, 개인 업무 자동화, 학습
-  - research: 자료 조사, 논문, 시장·경쟁 분석, 사실 확인
-  - security: 보안 점검, 취약점, 인증과 권한
-  - ai-agents: 에이전트 자체를 만들거나 설정·운영·측정하는 일. 스킬·프롬프트·MCP 서버 만들기,
-    서브에이전트 구성, 에이전트 메모리. 에이전트가 대신 해 주는 일이 위 항목에 맞으면 그 항목입니다.
-  - other: 위 어디에도 맞지 않을 때만 고릅니다. 예: 게임, 음악과 오디오, 건강
-""",
+    _taxonomy_block(),
 ).replace(
     """ 제품명과 고유 용어는 번역하지 않고 원래 표기를 씁니다.
 """,
@@ -230,3 +302,10 @@ _V6 = _V5.replace(
 )
 
 PROMPTS = {"v1": _V1, "v2": _V2, "v3": _V3, "v4": _V4, "v5": _V5, "v6": _V6}
+
+# 세부 분류를 묻지 않던 버전. 이 버전으로 만든 요약은 subcategory가 비어 있어도 된다.
+_WITHOUT_SUBCATEGORY = frozenset({"v1", "v2", "v3", "v4", "v5"})
+
+
+def asks_for_subcategory(prompt_version: str) -> bool:
+    return prompt_version not in _WITHOUT_SUBCATEGORY

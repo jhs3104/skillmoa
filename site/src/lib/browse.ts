@@ -1,6 +1,6 @@
 import type { CatalogItem } from './catalog';
-import { CATEGORY_LABELS } from './labels';
-import type { Category } from './types';
+import { CATEGORY_LABELS, SUBCATEGORIES, SUBCATEGORY_LABELS } from './labels';
+import type { Category, Subcategory } from './types';
 
 export type SortKey = 'rank' | 'stars' | 'updated' | 'new';
 export type ViewKey = 'cards' | 'table';
@@ -9,6 +9,7 @@ export interface BrowseItem {
   id: string;
   text: string;
   category: Category;
+  subcategory: Subcategory | null;
   rank: number;
   stars: number;
   pushedAt: string;
@@ -20,6 +21,8 @@ export interface BrowseItem {
 export interface BrowseState {
   query: string;
   category: Category | '';
+  /** 대분류가 정해졌을 때만 의미가 있다. */
+  subcategory: Subcategory | '';
   sort: SortKey;
   unflaggedOnly: boolean;
   noAccountOnly: boolean;
@@ -37,6 +40,7 @@ export const SORT_LABELS: Record<SortKey, string> = {
 export const DEFAULT_STATE: BrowseState = {
   query: '',
   category: '',
+  subcategory: '',
   sort: 'rank',
   unflaggedOnly: false,
   noAccountOnly: false,
@@ -52,10 +56,12 @@ export function parseState(
   defaultSort: SortKey = DEFAULT_STATE.sort,
 ): BrowseState {
   const sort = params.get('sort') as SortKey;
-  const category = params.get('category') ?? '';
+  const category = categories.includes(params.get('category') ?? '') ? (params.get('category') as Category) : '';
+  const subcategory = params.get('sub') ?? '';
   return {
     query: params.get('q')?.slice(0, 100) ?? '',
-    category: categories.includes(category) ? (category as Category) : '',
+    category,
+    subcategory: category && (SUBCATEGORIES[category] as string[]).includes(subcategory) ? (subcategory as Subcategory) : '',
     sort: SORTS.includes(sort) ? sort : defaultSort,
     unflaggedOnly: params.get('local') === '1',
     noAccountOnly: params.get('account') === '0',
@@ -71,6 +77,7 @@ export function serializeState(
   const params = new URLSearchParams();
   if (state.query) params.set('q', state.query);
   if (state.category) params.set('category', state.category);
+  if (state.category && state.subcategory) params.set('sub', state.subcategory);
   if (state.sort !== defaultSort) params.set('sort', state.sort);
   if (state.unflaggedOnly) params.set('local', '1');
   if (state.noAccountOnly) params.set('account', '0');
@@ -80,11 +87,17 @@ export function serializeState(
 }
 
 export function activeFilterCount(state: BrowseState): number {
-  return Number(Boolean(state.category)) + Number(state.unflaggedOnly) + Number(state.noAccountOnly);
+  return (
+    Number(Boolean(state.category)) +
+    Number(Boolean(state.subcategory)) +
+    Number(state.unflaggedOnly) +
+    Number(state.noAccountOnly)
+  );
 }
 
 export function matches(item: BrowseItem, state: BrowseState): boolean {
   if (state.category && item.category !== state.category) return false;
+  if (state.subcategory && item.subcategory !== state.subcategory) return false;
   if (state.unflaggedOnly && !item.noFlags) return false;
   if (state.noAccountOnly && !item.noAccount) return false;
   const terms = state.query.toLowerCase().split(/\s+/).filter(Boolean);
@@ -107,10 +120,19 @@ export function compare(a: BrowseItem, b: BrowseItem, sort: SortKey): number {
 export function toBrowseItem(item: CatalogItem): BrowseItem {
   return {
     id: item.slug,
-    text: [item.name, item.repository, item.summary, item.useWhen, CATEGORY_LABELS[item.category], ...item.useCases]
+    text: [
+      item.name,
+      item.repository,
+      item.summary,
+      item.useWhen,
+      CATEGORY_LABELS[item.category],
+      item.subcategory ? SUBCATEGORY_LABELS[item.subcategory] : '',
+      ...item.useCases,
+    ]
       .join(' ')
       .toLowerCase(),
     category: item.category,
+    subcategory: item.subcategory,
     rank: item.rank,
     stars: item.stars,
     pushedAt: item.pushedAt,
@@ -125,6 +147,7 @@ export function isFirstPage(state: BrowseState, defaultSort: SortKey): boolean {
   return (
     !state.query &&
     !state.category &&
+    !state.subcategory &&
     !state.unflaggedOnly &&
     !state.noAccountOnly &&
     state.sort === defaultSort &&

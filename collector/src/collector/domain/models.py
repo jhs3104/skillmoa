@@ -29,6 +29,135 @@ class Category(StrEnum):
     OTHER = "other"
 
 
+class Subcategory(StrEnum):
+    """대분류 아래의 세부 분류. 모델은 이것만 고르고 대분류는 SUBCATEGORY_PARENT로 정한다."""
+
+    FRONTEND = "frontend"
+    BACKEND = "backend"
+    MOBILE = "mobile"
+    GIT = "git"
+    CODE_QUALITY = "code-quality"
+    DEBUGGING = "debugging"
+    DEV_TOOLS = "dev-tools"
+    GAME_DEV = "game-dev"
+    WEB3 = "web3"
+    TEST_WRITING = "test-writing"
+    BROWSER_TESTING = "browser-testing"
+    QA = "qa"
+    DEPLOYMENT = "deployment"
+    INFRASTRUCTURE = "infrastructure"
+    MONITORING = "monitoring"
+    RELEASE = "release"
+    DATA_ANALYSIS = "data-analysis"
+    DATABASE = "database"
+    MACHINE_LEARNING = "machine-learning"
+    VISUALIZATION = "visualization"
+    PDF = "pdf"
+    OFFICE = "office"
+    PRESENTATION = "presentation"
+    DIAGRAM = "diagram"
+    UI_UX = "ui-ux"
+    VISUAL_DESIGN = "visual-design"
+    IMAGE = "image"
+    VIDEO = "video"
+    ACCESSIBILITY = "accessibility"
+    DRAFTING = "drafting"
+    TRANSLATION = "translation"
+    EDITING = "editing"
+    SEO = "seo"
+    SOCIAL_MEDIA = "social-media"
+    ADVERTISING = "advertising"
+    SALES = "sales"
+    ECOMMERCE = "ecommerce"
+    COMMUNICATION = "communication"
+    NOTES_CALENDAR = "notes-calendar"
+    PROJECT_MANAGEMENT = "project-management"
+    AUTOMATION = "automation"
+    LEARNING = "learning"
+    WEB_RESEARCH = "web-research"
+    ACADEMIC = "academic"
+    MARKET_RESEARCH = "market-research"
+    SECURITY_REVIEW = "security-review"
+    VULNERABILITY = "vulnerability"
+    AUTH = "auth"
+    SKILL_AUTHORING = "skill-authoring"
+    MCP = "mcp"
+    AGENT_OPERATIONS = "agent-operations"
+    AI_ENGINEERING = "ai-engineering"
+    PERSONA = "persona"
+    FINANCE = "finance"
+    LEGAL = "legal"
+    HEALTH = "health"
+    BUSINESS_OPS = "business-ops"
+    AUDIO = "audio"
+    LIFESTYLE = "lifestyle"
+    MISC = "misc"
+
+
+SUBCATEGORY_PARENT: dict[Subcategory, Category] = {
+    Subcategory.FRONTEND: Category.DEVELOPMENT,
+    Subcategory.BACKEND: Category.DEVELOPMENT,
+    Subcategory.MOBILE: Category.DEVELOPMENT,
+    Subcategory.GIT: Category.DEVELOPMENT,
+    Subcategory.CODE_QUALITY: Category.DEVELOPMENT,
+    Subcategory.DEBUGGING: Category.DEVELOPMENT,
+    Subcategory.DEV_TOOLS: Category.DEVELOPMENT,
+    Subcategory.GAME_DEV: Category.DEVELOPMENT,
+    Subcategory.WEB3: Category.DEVELOPMENT,
+    Subcategory.TEST_WRITING: Category.TESTING,
+    Subcategory.BROWSER_TESTING: Category.TESTING,
+    Subcategory.QA: Category.TESTING,
+    Subcategory.DEPLOYMENT: Category.DEVOPS,
+    Subcategory.INFRASTRUCTURE: Category.DEVOPS,
+    Subcategory.MONITORING: Category.DEVOPS,
+    Subcategory.RELEASE: Category.DEVOPS,
+    Subcategory.DATA_ANALYSIS: Category.DATA,
+    Subcategory.DATABASE: Category.DATA,
+    Subcategory.MACHINE_LEARNING: Category.DATA,
+    Subcategory.VISUALIZATION: Category.DATA,
+    Subcategory.PDF: Category.DOCUMENTS,
+    Subcategory.OFFICE: Category.DOCUMENTS,
+    Subcategory.PRESENTATION: Category.DOCUMENTS,
+    Subcategory.DIAGRAM: Category.DOCUMENTS,
+    Subcategory.UI_UX: Category.DESIGN,
+    Subcategory.VISUAL_DESIGN: Category.DESIGN,
+    Subcategory.IMAGE: Category.DESIGN,
+    Subcategory.VIDEO: Category.DESIGN,
+    Subcategory.ACCESSIBILITY: Category.DESIGN,
+    Subcategory.DRAFTING: Category.WRITING,
+    Subcategory.TRANSLATION: Category.WRITING,
+    Subcategory.EDITING: Category.WRITING,
+    Subcategory.SEO: Category.MARKETING,
+    Subcategory.SOCIAL_MEDIA: Category.MARKETING,
+    Subcategory.ADVERTISING: Category.MARKETING,
+    Subcategory.SALES: Category.MARKETING,
+    Subcategory.ECOMMERCE: Category.MARKETING,
+    Subcategory.COMMUNICATION: Category.PRODUCTIVITY,
+    Subcategory.NOTES_CALENDAR: Category.PRODUCTIVITY,
+    Subcategory.PROJECT_MANAGEMENT: Category.PRODUCTIVITY,
+    Subcategory.AUTOMATION: Category.PRODUCTIVITY,
+    Subcategory.LEARNING: Category.PRODUCTIVITY,
+    Subcategory.WEB_RESEARCH: Category.RESEARCH,
+    Subcategory.ACADEMIC: Category.RESEARCH,
+    Subcategory.MARKET_RESEARCH: Category.RESEARCH,
+    Subcategory.SECURITY_REVIEW: Category.SECURITY,
+    Subcategory.VULNERABILITY: Category.SECURITY,
+    Subcategory.AUTH: Category.SECURITY,
+    Subcategory.SKILL_AUTHORING: Category.AI_AGENTS,
+    Subcategory.MCP: Category.AI_AGENTS,
+    Subcategory.AGENT_OPERATIONS: Category.AI_AGENTS,
+    Subcategory.AI_ENGINEERING: Category.AI_AGENTS,
+    Subcategory.PERSONA: Category.AI_AGENTS,
+    Subcategory.FINANCE: Category.OTHER,
+    Subcategory.LEGAL: Category.OTHER,
+    Subcategory.HEALTH: Category.OTHER,
+    Subcategory.BUSINESS_OPS: Category.OTHER,
+    Subcategory.AUDIO: Category.OTHER,
+    Subcategory.LIFESTYLE: Category.OTHER,
+    Subcategory.MISC: Category.OTHER,
+}
+
+
 class Role(StrEnum):
     """추천 질문의 직군 선택지와 같은 어휘를 쓴다."""
 
@@ -119,6 +248,8 @@ class Summary(BaseModel):
     summary_ko: str = Field(min_length=20, max_length=400)
     use_when: str = Field(min_length=10, max_length=200)
     category: Category
+    # v6부터 채운다. 이전 프롬프트의 기록에는 없다.
+    subcategory: Subcategory | None = None
     tags: RecommendationTags
     code_evidence: str | None = Field(max_length=MAX_EVIDENCE_CHARS)
     runs_external_code: bool

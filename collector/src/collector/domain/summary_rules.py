@@ -4,6 +4,7 @@ import re
 
 from collector.domain.models import (
     MAX_EVIDENCE_CHARS,
+    SUBCATEGORY_PARENT,
     SkillRecord,
     Summary,
     SummaryFailure,
@@ -155,6 +156,16 @@ def find_reassurance(summary: Summary) -> str | None:
         if match:
             return match.group()
     return None
+
+
+def align_category(summary: Summary) -> Summary:
+    """대분류를 세부 분류에 맞춘다. 모델이 둘을 어긋나게 골라도 목록에서 엇갈리지 않는다."""
+    if summary.subcategory is None:
+        return summary
+    parent = SUBCATEGORY_PARENT[summary.subcategory]
+    if summary.category is parent:
+        return summary
+    return summary.model_copy(update={"category": parent})
 
 
 def find_bare_han(summary: Summary) -> str | None:

@@ -13,6 +13,7 @@ import {
   formatLicense,
   formatStars,
   ROLE_LABELS,
+  SUBCATEGORY_LABELS,
 } from '../../lib/labels';
 import { licenseNotice, licenseStatus } from '../../lib/license';
 import { isIndexable, truncate } from '../../lib/seo';
@@ -67,7 +68,11 @@ const SCRIPT_FILE_LABELS = {
 
     <header class="detail__head">
       <h1>{skill.name}</h1>
-      <p class="detail__source"><CategoryLabel category={skill.category} />{skill.repository}</p>
+      <p class="detail__source">
+        <CategoryLabel category={skill.category} />
+        {skill.subcategory && <span class="detail__sub">{SUBCATEGORY_LABELS[skill.subcategory]}</span>}
+        {skill.repository}
+      </p>
     </header>
 
     <section class="detail__about">

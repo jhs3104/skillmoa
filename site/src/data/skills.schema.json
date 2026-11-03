@@ -150,6 +150,17 @@
           "title": "Slug",
           "type": "string"
         },
+        "subcategory": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/Subcategory"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
         "summary": {
           "title": "Summary",
           "type": "string"
@@ -210,6 +221,73 @@
       ],
       "title": "SiteTags",
       "type": "object"
+    },
+    "Subcategory": {
+      "description": "대분류 아래의 세부 분류. 모델은 이것만 고르고 대분류는 SUBCATEGORY_PARENT로 정한다.",
+      "enum": [
+        "frontend",
+        "backend",
+        "mobile",
+        "git",
+        "code-quality",
+        "debugging",
+        "dev-tools",
+        "game-dev",
+        "web3",
+        "test-writing",
+        "browser-testing",
+        "qa",
+        "deployment",
+        "infrastructure",
+        "monitoring",
+        "release",
+        "data-analysis",
+        "database",
+        "machine-learning",
+        "visualization",
+        "pdf",
+        "office",
+        "presentation",
+        "diagram",
+        "ui-ux",
+        "visual-design",
+        "image",
+        "video",
+        "accessibility",
+        "drafting",
+        "translation",
+        "editing",
+        "seo",
+        "social-media",
+        "advertising",
+        "sales",
+        "ecommerce",
+        "communication",
+        "notes-calendar",
+        "project-management",
+        "automation",
+        "learning",
+        "web-research",
+        "academic",
+        "market-research",
+        "security-review",
+        "vulnerability",
+        "auth",
+        "skill-authoring",
+        "mcp",
+        "agent-operations",
+        "ai-engineering",
+        "persona",
+        "finance",
+        "legal",
+        "health",
+        "business-ops",
+        "audio",
+        "lifestyle",
+        "misc"
+      ],
+      "title": "Subcategory",
+      "type": "string"
     }
   },
   "properties": {

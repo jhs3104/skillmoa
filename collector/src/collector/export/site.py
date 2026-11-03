@@ -42,6 +42,7 @@ def build_site_data(state: CollectorState, ranking: RankingSettings) -> SiteData
                 summary=summary.summary_ko,
                 use_when=summary.use_when,
                 category=summary.category,
+                subcategory=summary.subcategory,
                 tags=SiteTags(
                     roles=summary.tags.roles,
                     use_cases=summary.tags.use_cases,

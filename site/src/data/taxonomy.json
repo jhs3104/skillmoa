@@ -1,0 +1,88 @@
+{
+  "development": [
+    "frontend",
+    "backend",
+    "mobile",
+    "git",
+    "code-quality",
+    "debugging",
+    "dev-tools",
+    "game-dev",
+    "web3"
+  ],
+  "testing": [
+    "test-writing",
+    "browser-testing",
+    "qa"
+  ],
+  "devops": [
+    "deployment",
+    "infrastructure",
+    "monitoring",
+    "release"
+  ],
+  "data": [
+    "data-analysis",
+    "database",
+    "machine-learning",
+    "visualization"
+  ],
+  "documents": [
+    "pdf",
+    "office",
+    "presentation",
+    "diagram"
+  ],
+  "design": [
+    "ui-ux",
+    "visual-design",
+    "image",
+    "video",
+    "accessibility"
+  ],
+  "writing": [
+    "drafting",
+    "translation",
+    "editing"
+  ],
+  "marketing": [
+    "seo",
+    "social-media",
+    "advertising",
+    "sales",
+    "ecommerce"
+  ],
+  "productivity": [
+    "communication",
+    "notes-calendar",
+    "project-management",
+    "automation",
+    "learning"
+  ],
+  "research": [
+    "web-research",
+    "academic",
+    "market-research"
+  ],
+  "security": [
+    "security-review",
+    "vulnerability",
+    "auth"
+  ],
+  "ai-agents": [
+    "skill-authoring",
+    "mcp",
+    "agent-operations",
+    "ai-engineering",
+    "persona"
+  ],
+  "other": [
+    "finance",
+    "legal",
+    "health",
+    "business-ops",
+    "audio",
+    "lifestyle",
+    "misc"
+  ]
+}

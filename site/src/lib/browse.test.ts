@@ -19,6 +19,7 @@ const item = (id: string, fields: Partial<BrowseItem> = {}): BrowseItem => ({
   id,
   text: id,
   category: 'documents',
+  subcategory: null,
   rank: 1,
   stars: 10,
   pushedAt: '2026-01-01',
@@ -43,6 +44,12 @@ describe('visibleItems', () => {
     ];
     const found = visibleItems(items, { ...DEFAULT_STATE, category: 'data', unflaggedOnly: true });
     expect(found.map(({ id }) => id)).toEqual(['a']);
+  });
+
+  it('narrows a category to one subcategory', () => {
+    const items = [item('pg', { category: 'data', subcategory: 'database' }), item('chart', { category: 'data', subcategory: 'visualization' })];
+    const found = visibleItems(items, { ...DEFAULT_STATE, category: 'data', subcategory: 'database' });
+    expect(found.map(({ id }) => id)).toEqual(['pg']);
   });
 
   it('can hide skills that need an external account', () => {
@@ -81,7 +88,10 @@ describe('visibleItems', () => {
 
 describe('URL state', () => {
   it('round-trips through query parameters', () => {
-    const state = { query: 'pdf', category: 'data', sort: 'new', unflaggedOnly: true, noAccountOnly: true, view: 'cards', page: 3 } as const;
+    const state = {
+      query: 'pdf', category: 'data', subcategory: 'database', sort: 'new',
+      unflaggedOnly: true, noAccountOnly: true, view: 'cards', page: 3,
+    } as const;
     expect(parseState(serializeState(state), ['data'])).toEqual(state);
   });
 
@@ -94,6 +104,12 @@ describe('URL state', () => {
     expect(state.sort).toBe('new');
     expect(serializeState(state, 'new').toString()).toBe('');
     expect(serializeState({ ...state, sort: 'rank' }, 'new').toString()).toBe('sort=rank');
+  });
+
+  it('keeps a subcategory only under its own category', () => {
+    expect(parseState(new URLSearchParams('category=data&sub=database'), ['data']).subcategory).toBe('database');
+    expect(parseState(new URLSearchParams('category=data&sub=pdf'), ['data']).subcategory).toBe('');
+    expect(parseState(new URLSearchParams('sub=database'), ['data']).subcategory).toBe('');
   });
 
   it('ignores unknown values', () => {
@@ -137,7 +153,7 @@ describe('catalog rows', () => {
   it('builds searchable text and flags from a catalog item', () => {
     const found = toBrowseItem({
       slug: 'a', rank: 3, name: 'PDF Kit', repository: 'acme/kit', summary: '문서를 다룹니다', useWhen: '보고서',
-      category: 'documents', roles: ['general'], useCases: ['서명'], difficulty: 'beginner', stars: 9,
+      category: 'documents', subcategory: 'pdf', roles: ['general'], useCases: ['서명'], difficulty: 'beginner', stars: 9,
       pushedAt: '2026-01-02', firstSeenAt: '2026-01-01', runsExternalCode: true, accessesNetwork: false,
       requiresExternalAccount: true, scriptFiles: 'present', installBlocked: false,
     });

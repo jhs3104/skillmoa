@@ -1,5 +1,6 @@
 import { describe, expect, it } from 'vitest';
-import { formatLicense } from './labels';
+import taxonomy from '../data/taxonomy.json';
+import { CATEGORY_LABELS, formatLicense, SUBCATEGORY_LABELS } from './labels';
 
 describe('formatLicense', () => {
   it('keeps license names as they are', () => {
@@ -13,5 +14,16 @@ describe('formatLicense', () => {
   it('replaces free-form pointers to a license file', () => {
     expect(formatLicense('Complete terms in LICENSE.txt')).toBe('LICENSE 파일 참고');
     expect(formatLicense('Proprietary. LICENSE.txt has complete terms')).toBe('독점 라이선스 (LICENSE 파일 참고)');
+  });
+});
+
+describe('taxonomy labels', () => {
+  it('names every subcategory that the collector can produce, and nothing else', () => {
+    const fromCollector = Object.values(taxonomy).flat().sort();
+    expect(Object.keys(SUBCATEGORY_LABELS).sort()).toEqual(fromCollector);
+  });
+
+  it('groups subcategories under the same categories the site knows', () => {
+    expect(Object.keys(taxonomy).sort()).toEqual(Object.keys(CATEGORY_LABELS).sort());
   });
 });

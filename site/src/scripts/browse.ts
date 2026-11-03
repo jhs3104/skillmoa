@@ -17,7 +17,7 @@ import {
 } from '../lib/browse';
 import type { CatalogItem } from '../lib/catalog';
 import { skillRowHtml, type RowOptions } from '../lib/skill-row';
-import type { Category } from '../lib/types';
+import type { Category, Subcategory } from '../lib/types';
 import { loadCatalog } from './catalog';
 
 const WIDE_SCREEN = '(min-width: 900px)';
@@ -33,6 +33,7 @@ function start(root: HTMLElement): void {
   const search = root.querySelector<HTMLInputElement>('input[name="q"]')!;
   const sort = root.querySelector<HTMLSelectElement>('select[name="sort"]')!;
   const categoryInputs = [...root.querySelectorAll<HTMLInputElement>('input[name="category"]')];
+  const subGroups = [...root.querySelectorAll<HTMLFieldSetElement>('[data-sub-for]')];
   const local = root.querySelector<HTMLInputElement>('input[name="local"]')!;
   const noAccount = root.querySelector<HTMLInputElement>('input[name="no-account"]')!;
   const filters = root.querySelector<HTMLDialogElement>('[data-filters]')!;
@@ -166,6 +167,13 @@ function start(root: HTMLElement): void {
     noAccount.checked = state.noAccountOnly;
     sort.value = state.sort;
     for (const input of categoryInputs) input.checked = input.value === state.category;
+    for (const group of subGroups) {
+      const active = group.dataset.subFor === state.category;
+      group.hidden = !active;
+      for (const input of group.querySelectorAll<HTMLInputElement>('input')) {
+        input.checked = input.value === (active ? state.subcategory : '');
+      }
+    }
   }
 
   syncControls();
@@ -190,6 +198,14 @@ function start(root: HTMLElement): void {
   for (const input of categoryInputs) {
     input.addEventListener('change', () => {
       state.category = input.value as Category | '';
+      state.subcategory = '';
+      syncControls();
+      renderFromStart();
+    });
+  }
+  for (const group of subGroups) {
+    group.addEventListener('change', (event) => {
+      state.subcategory = (event.target as HTMLInputElement).value as Subcategory | '';
       renderFromStart();
     });
   }
@@ -197,6 +213,7 @@ function start(root: HTMLElement): void {
     reset.addEventListener('click', () => {
       state.query = '';
       state.category = '';
+      state.subcategory = '';
       state.unflaggedOnly = false;
       state.noAccountOnly = false;
       syncControls();

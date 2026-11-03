@@ -1,5 +1,5 @@
 import type { CatalogItem } from './catalog';
-import { CATEGORY_LABELS, formatDate, formatStars, STAR_PATH } from './labels';
+import { CATEGORY_LABELS, formatDate, formatStars, STAR_PATH, SUBCATEGORY_LABELS } from './labels';
 
 export interface RowOptions {
   dateKind?: 'updated' | 'found';
@@ -41,11 +41,12 @@ export function skillRowHtml(item: CatalogItem, { dateKind = 'updated', reason, 
   const href = `/skills/${encodeURIComponent(item.slug)}/${query}`;
   const blocked = item.installBlocked ? badge('설치 명령 없음') : '';
   const why = reason ? `<p class="skill__reason">${escapeHtml(reason)}</p>` : '';
+  const sub = item.subcategory ? `<span class="skill__sub">${SUBCATEGORY_LABELS[item.subcategory]}</span>` : '';
   return `<li class="skill" data-id="${escapeHtml(item.slug)}">
   <span class="cat-label" data-cat="${item.category}">${CATEGORY_LABELS[item.category]}</span>
   <div class="skill__body">
     <div class="skill__title">
-      <h3 class="skill__name"><a href="${escapeHtml(href)}">${escapeHtml(item.name)}</a></h3>
+      <h3 class="skill__name"><a href="${escapeHtml(href)}">${escapeHtml(item.name)}</a></h3>${sub}
       <span class="skill__repo">${escapeHtml(item.repository)}</span>${blocked}
     </div>${why}
     <p class="skill__summary">${escapeHtml(item.summary)}</p>

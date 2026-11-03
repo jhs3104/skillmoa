@@ -15,6 +15,7 @@ const item = (slug: string, fields: Partial<CatalogItem> = {}): CatalogItem => (
   summary: '',
   useWhen: '',
   category: 'documents',
+  subcategory: null,
   roles: ['general'],
   difficulty: 'beginner',
   rank: 1,

@@ -1,6 +1,6 @@
 """skills.json 계약. 사이트는 이 스키마로 생성된 파일만 읽는다.
 
-실행하면 site/src/data/skills.schema.json을 다시 생성한다.
+실행하면 site/src/data/skills.schema.json과 taxonomy.json을 다시 생성한다.
 """
 
 import json
@@ -10,11 +10,12 @@ from pathlib import Path
 from pydantic import BaseModel, ConfigDict
 from pydantic.alias_generators import to_camel
 
-from collector.domain.models import Category, Difficulty, Role
+from collector.domain.models import SUBCATEGORY_PARENT, Category, Difficulty, Role, Subcategory
 from collector.domain.tree import ScriptPresence
 
 SITE_SCHEMA_VERSION = 1
 SCHEMA_PATH = Path(__file__).resolve().parents[4] / "site/src/data/skills.schema.json"
+TAXONOMY_PATH = SCHEMA_PATH.with_name("taxonomy.json")
 
 
 class _CamelModel(BaseModel):
@@ -46,6 +47,8 @@ class SiteSkill(_CamelModel):
     summary: str
     use_when: str
     category: Category
+    # v6 이전 요약에는 없다.
+    subcategory: Subcategory | None = None
     tags: SiteTags
     runs_external_code: bool
     accesses_network: bool
@@ -67,5 +70,19 @@ def render_schema() -> str:
     return json.dumps(schema, ensure_ascii=False, indent=2, sort_keys=True) + "\n"
 
 
+def render_taxonomy() -> str:
+    """대분류마다 세부 분류를 순서대로 담는다. 사이트는 이 파일로 필터 칩을 만든다."""
+    taxonomy = {
+        category.value: [
+            subcategory.value
+            for subcategory, parent in SUBCATEGORY_PARENT.items()
+            if parent is category
+        ]
+        for category in Category
+    }
+    return json.dumps(taxonomy, ensure_ascii=False, indent=2) + "\n"
+
+
 if __name__ == "__main__":
     SCHEMA_PATH.write_text(render_schema(), encoding="utf-8")
+    TAXONOMY_PATH.write_text(render_taxonomy(), encoding="utf-8")

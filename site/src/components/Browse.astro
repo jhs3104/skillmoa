@@ -1,7 +1,7 @@
 ---
 import { PAGE_SIZE, pageCount, pagerHtml, SORT_LABELS, type SortKey } from '../lib/browse';
-import { CATEGORY_LABELS } from '../lib/labels';
-import type { Category, Skill } from '../lib/types';
+import { CATEGORY_LABELS, SUBCATEGORIES, SUBCATEGORY_LABELS } from '../lib/labels';
+import type { Category, Skill, Subcategory } from '../lib/types';
 import AdSlot from './AdSlot.astro';
 import SkillItem from './SkillItem.astro';
 
@@ -18,6 +18,14 @@ const { skills, emptyTitle, emptyBody, defaultSort = 'rank', dateKind, catalogUr
 const counts = new Map<Category, number>();
 for (const skill of skills) counts.set(skill.category, (counts.get(skill.category) ?? 0) + 1);
 const categories = (Object.keys(CATEGORY_LABELS) as Category[]).filter((category) => counts.has(category));
+const subCounts = new Map<Subcategory, number>();
+for (const { subcategory } of skills) {
+  if (subcategory) subCounts.set(subcategory, (subCounts.get(subcategory) ?? 0) + 1);
+}
+// 세부 분류가 둘 이상 있는 대분류만 칩 줄을 둔다. 하나뿐이면 고를 것이 없다.
+const subGroups = categories
+  .map((category) => ({ category, subs: SUBCATEGORIES[category].filter((sub) => subCounts.has(sub)) }))
+  .filter(({ subs }) => subs.length > 1);
 const sorts = (Object.entries(SORT_LABELS) as [SortKey, string][])
   .filter(([value]) => value !== 'new' || dateKind === 'found');
 const pager = pagerHtml(1, pageCount(skills.length), (page) => `?page=${page}`);
@@ -69,6 +77,23 @@ const pager = pagerHtml(1, pageCount(skills.length), (page) => `?page=${page}`);
         ))}
       </div>
     </fieldset>
+    {subGroups.map(({ category, subs }) => (
+      <fieldset class="subfilter" data-sub-for={category} hidden>
+        <legend>{CATEGORY_LABELS[category]} 세부 분류</legend>
+        <div class="chips">
+          <label class="option">
+            <input type="radio" name={`sub-${category}`} value="" checked />
+            <span>{CATEGORY_LABELS[category]} 전체</span>
+          </label>
+          {subs.map((sub) => (
+            <label class="option">
+              <input type="radio" name={`sub-${category}`} value={sub} />
+              <span>{SUBCATEGORY_LABELS[sub]} <small>{subCounts.get(sub)}</small></span>
+            </label>
+          ))}
+        </div>
+      </fieldset>
+    ))}
     <fieldset>
       <legend>AI 판단</legend>
       <label class="choice">

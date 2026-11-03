@@ -17,6 +17,68 @@ export interface SiteRepository {
   defaultBranch: string;
 }
 
+export type Subcategory =
+  | 'frontend'
+  | 'backend'
+  | 'mobile'
+  | 'git'
+  | 'code-quality'
+  | 'debugging'
+  | 'dev-tools'
+  | 'game-dev'
+  | 'web3'
+  | 'test-writing'
+  | 'browser-testing'
+  | 'qa'
+  | 'deployment'
+  | 'infrastructure'
+  | 'monitoring'
+  | 'release'
+  | 'data-analysis'
+  | 'database'
+  | 'machine-learning'
+  | 'visualization'
+  | 'pdf'
+  | 'office'
+  | 'presentation'
+  | 'diagram'
+  | 'ui-ux'
+  | 'visual-design'
+  | 'image'
+  | 'video'
+  | 'accessibility'
+  | 'drafting'
+  | 'translation'
+  | 'editing'
+  | 'seo'
+  | 'social-media'
+  | 'advertising'
+  | 'sales'
+  | 'ecommerce'
+  | 'communication'
+  | 'notes-calendar'
+  | 'project-management'
+  | 'automation'
+  | 'learning'
+  | 'web-research'
+  | 'academic'
+  | 'market-research'
+  | 'security-review'
+  | 'vulnerability'
+  | 'auth'
+  | 'skill-authoring'
+  | 'mcp'
+  | 'agent-operations'
+  | 'ai-engineering'
+  | 'persona'
+  | 'finance'
+  | 'legal'
+  | 'health'
+  | 'business-ops'
+  | 'audio'
+  | 'lifestyle'
+  | 'misc';
+
 export type ScriptFiles = 'none' | 'present' | 'unknown';
 
 export interface SiteSkill {
@@ -30,6 +92,8 @@ export interface SiteSkill {
   summary: string;
   useWhen: string;
   category: Category;
+  /** v6 이전 요약에는 없다. */
+  subcategory: Subcategory | null;
   tags: { roles: Role[]; useCases: string[]; difficulty: Difficulty };
   runsExternalCode: boolean;
   accessesNetwork: boolean;

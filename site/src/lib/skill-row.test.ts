@@ -10,6 +10,7 @@ const item = (fields: Partial<CatalogItem> = {}): CatalogItem => ({
   summary: '요약',
   useWhen: '문서가 필요할 때',
   category: 'documents',
+  subcategory: 'pdf',
   roles: ['general'],
   useCases: ['PDF 편집'],
   difficulty: 'beginner',
@@ -56,6 +57,11 @@ describe('skillRowHtml', () => {
     const scripts = skillRowHtml(item({ scriptFiles: 'present' }));
     expect(scripts).toContain('badge--caution">스크립트 포함');
     expect(skillRowHtml(item({ runsExternalCode: true, scriptFiles: 'none' }))).not.toContain('지침 문서만');
+  });
+
+  it('names the subcategory when the summary has one', () => {
+    expect(skillRowHtml(item())).toContain('<span class="skill__sub">PDF</span>');
+    expect(skillRowHtml(item({ subcategory: null }))).not.toContain('skill__sub');
   });
 
   it('switches the date for new skills', () => {

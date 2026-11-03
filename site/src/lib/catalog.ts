@@ -1,5 +1,5 @@
 import { licenseStatus } from './license';
-import type { Category, Difficulty, Role, ScriptFiles, Skill } from './types';
+import type { Category, Difficulty, Role, ScriptFiles, Skill, Subcategory } from './types';
 
 /** 목록 행을 그리고 검색하는 데 필요한 값만 담는다. 상세 페이지 내용은 넣지 않는다. */
 export interface CatalogItem {
@@ -10,6 +10,7 @@ export interface CatalogItem {
   summary: string;
   useWhen: string;
   category: Category;
+  subcategory: Subcategory | null;
   roles: Role[];
   useCases: string[];
   difficulty: Difficulty;
@@ -32,6 +33,7 @@ export function toCatalogItem(skill: Skill): CatalogItem {
     summary: skill.summary,
     useWhen: skill.useWhen,
     category: skill.category,
+    subcategory: skill.subcategory,
     roles: skill.tags.roles,
     useCases: skill.tags.useCases,
     difficulty: skill.tags.difficulty,

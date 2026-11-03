@@ -10,6 +10,7 @@ import pytest
 
 from collector.config import RankingSettings, Settings
 from collector.domain.models import (
+    SUBCATEGORY_PARENT,
     Category,
     CollectorState,
     Difficulty,
@@ -23,6 +24,7 @@ from collector.domain.models import (
     SummaryRecord,
 )
 from collector.domain.summary_rules import (
+    align_category,
     find_bare_han,
     find_copied_fragment,
     find_missing_evidence,
@@ -54,6 +56,7 @@ VALID = {
     "summary_ko": "월별 데이터를 읽어 차트가 들어간 보고서를 만드는 스킬입니다. 표도 정리합니다.",
     "use_when": "받은 엑셀을 임원 보고용 문서로 바꿔야 할 때",
     "category": "documents",
+    "subcategory": "office",
     "tags": {"roles": ["general"], "use_cases": ["보고서 작성"], "difficulty": "beginner"},
     "code_evidence": "handle pdf files",
     "runs_external_code": True,
@@ -341,10 +344,33 @@ def test_prompt_v6_keeps_names_readable_in_korean() -> None:
     assert PROMPTS["v5"].count("<flags>") == prompt.count("<flags>") == 1
 
 
-def test_prompt_v6_defines_every_category() -> None:
+def test_prompt_v6_lists_every_subcategory_under_its_category() -> None:
     prompt = PROMPTS["v6"]
-    for category in Category:
-        assert f"  - {category.value}: " in prompt
+
+    def section_of(line: str) -> Category:
+        before = prompt[: prompt.index(line)]
+        return max(Category, key=lambda category: before.rfind(f"\n  - {category.value}:"))
+
+    for subcategory, parent in SUBCATEGORY_PARENT.items():
+        line = f"\n    - {subcategory.value}: "
+        assert line in prompt
+        assert section_of(line) is parent
+
+
+def test_category_follows_the_subcategory() -> None:
+    mismatched = Summary.model_validate({**VALID, "category": "design", "subcategory": "pdf"})
+    assert align_category(mismatched).category == Category.DOCUMENTS
+    legacy = Summary.model_validate({k: v for k, v in VALID.items() if k != "subcategory"})
+    assert align_category(legacy) == legacy
+
+
+def test_missing_subcategory_is_retried_on_v6(settings: Settings) -> None:
+    request = SummaryRequest("pdf", "acme/kit", "SKILL.md", "완전히 다른 내용 handle pdf files", ())
+    without = {k: v for k, v in VALID.items() if k != "subcategory"}
+    client, requests = anthropic_client(without, VALID)
+    result = ClaudeSummarizer(settings.summary, client).summarize(request)
+    assert len(requests) == 2
+    assert result.summary.subcategory == "office"
 
 
 def test_new_skill_needs_summary() -> None:

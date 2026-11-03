@@ -39,6 +39,7 @@
       "runsExternalCode": true,
       "scriptFiles": "present",
       "slug": "anthropics--skills--skills--algorithmic-art",
+      "subcategory": "image",
       "summary": "p5.js로 시드 기반 난수와 조절 가능한 매개변수를 써서 생성 예술 작품을 만듭니다. 흐름장이나 입자 시스템처럼 코드로 그리는 작업에 맞고, 결과물을 값을 바꿔 가며 탐색할 수 있습니다.",
       "tags": {
         "difficulty": "intermediate",
@@ -67,6 +68,7 @@
       "runsExternalCode": true,
       "scriptFiles": "present",
       "slug": "paperclipai--paperclip--skills--paperclip-board",
+      "subcategory": "agent-operations",
       "summary": "Paperclip으로 운영하는 회사를 이사회 구성원 입장에서 채팅으로 관리합니다. 에이전트 관리, 승인 처리, 작업 현황과 비용 확인, 결과물 검토를 한곳에서 진행합니다.",
       "tags": {
         "difficulty": "intermediate",
@@ -95,6 +97,7 @@
       "runsExternalCode": true,
       "scriptFiles": "present",
       "slug": "thedotmack--claude-mem--cowork--skills--mem-search",
+      "subcategory": "notes-calendar",
       "summary": "이전 세션에서 쌓인 작업 기록을 검색해 지금 프로젝트에 필요한 맥락을 되찾습니다. 지난번에 내린 결정이나 수정한 파일을 다시 설명하지 않고 이어서 일할 수 있습니다.",
       "tags": {
         "difficulty": "intermediate",
@@ -122,6 +125,7 @@
       "runsExternalCode": false,
       "scriptFiles": "none",
       "slug": "anthropics--skills--skills--brand-guidelines",
+      "subcategory": "visual-design",
       "summary": "Anthropic의 공식 브랜드 색상과 타이포그래피를 문서나 산출물에 적용합니다. 시각 스타일을 하나로 맞춰야 하는 작업에서 기준 역할을 합니다.",
       "tags": {
         "difficulty": "beginner",
@@ -150,6 +154,7 @@
       "runsExternalCode": false,
       "scriptFiles": "none",
       "slug": "paperclipai--paperclip--skills--para-memory-files",
+      "subcategory": "notes-calendar",
       "summary": "PARA 방식의 파일 구조로 에이전트의 장기 기억을 저장하고 찾습니다. 사실 기록, 일일 노트, 주간 정리처럼 세션을 넘어 남겨야 할 지식을 분류해 둡니다.",
       "tags": {
         "difficulty": "intermediate",
@@ -178,6 +183,7 @@
       "runsExternalCode": true,
       "scriptFiles": "present",
       "slug": "thedotmack--claude-mem--plugin--skills--babysit",
+      "subcategory": "git",
       "summary": "풀 리퀘스트의 리뷰 댓글과 CI 결과를 계속 확인하면서 처리할 일이 모두 해결될 때까지 따라갑니다. 병합 가능한 상태가 될 때까지 사람이 반복해서 들여다보는 수고를 줄입니다.",
       "tags": {
         "difficulty": "intermediate",
@@ -205,6 +211,7 @@
       "runsExternalCode": true,
       "scriptFiles": "present",
       "slug": "anthropics--skills--skills--canvas-design",
+      "subcategory": "visual-design",
       "summary": "디자인 철학을 먼저 세운 뒤 그에 맞는 정적 시각물을 PNG와 PDF로 만듭니다. 포스터 같은 한 장짜리 작품을 기존 작가의 작업을 베끼지 않고 새로 구성합니다.",
       "tags": {
         "difficulty": "beginner",
@@ -233,6 +240,7 @@
       "runsExternalCode": true,
       "scriptFiles": "present",
       "slug": "thedotmack--claude-mem--claude-mem-cursor--skills--agent-cost-report",
+      "subcategory": "data-analysis",
       "summary": "Claude Code 대화 기록의 토큰을 기준으로 정해진 기간의 에이전트 비용을 추정해 보고서로 정리합니다. 실제 지출과 추정치를 구분해서 보여 주므로 수치의 근거를 확인할 수 있습니다.",
       "tags": {
         "difficulty": "intermediate",
@@ -261,6 +269,7 @@
       "runsExternalCode": false,
       "scriptFiles": "none",
       "slug": "anthropics--skills--skills--doc-coauthoring",
+      "subcategory": "drafting",
       "summary": "제안서, 기술 명세, 의사결정 문서를 함께 쓰는 절차를 단계별로 안내합니다. 맥락을 먼저 옮기고 내용을 다듬은 뒤 독자 입장에서 검증하도록 이끕니다.",
       "tags": {
         "difficulty": "beginner",
@@ -290,6 +299,7 @@
       "runsExternalCode": true,
       "scriptFiles": "present",
       "slug": "anthropics--skills--skills--docx",
+      "subcategory": "office",
       "summary": "Word 문서와 템플릿을 만들고 읽고 고칩니다. 목차, 표지, 서식을 갖춘 문서를 작성하거나 기존 파일의 내용을 추출하고 수정하는 작업을 처리합니다.",
       "tags": {
         "difficulty": "beginner",
@@ -317,6 +327,7 @@
       "runsExternalCode": false,
       "scriptFiles": "none",
       "slug": "anthropics--skills--skills--frontend-design",
+      "subcategory": "ui-ux",
       "summary": "새 화면을 만들거나 기존 화면을 바꿀 때 시각 방향과 타이포그래피를 정하도록 돕습니다. 템플릿을 그대로 쓴 듯한 기본값 대신 의도가 드러나는 선택을 하게 합니다.",
       "tags": {
         "difficulty": "intermediate",
@@ -345,6 +356,7 @@
       "runsExternalCode": false,
       "scriptFiles": "unknown",
       "slug": "anthropics--skills--skills--internal-comms",
+      "subcategory": null,
       "summary": "상태 보고, 경영진 업데이트, 사내 공지처럼 회사 안에서 쓰는 글을 정해진 형식에 맞춰 작성합니다. 글 종류별 참고 양식을 활용해 일관된 문서를 만듭니다.",
       "tags": {
         "difficulty": "beginner",
