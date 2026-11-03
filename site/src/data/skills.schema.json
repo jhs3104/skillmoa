@@ -137,6 +137,15 @@
           "title": "Runsexternalcode",
           "type": "boolean"
         },
+        "scriptFiles": {
+          "enum": [
+            "none",
+            "present",
+            "unknown"
+          ],
+          "title": "Scriptfiles",
+          "type": "string"
+        },
         "slug": {
           "title": "Slug",
           "type": "string"
@@ -168,6 +177,7 @@
         "runsExternalCode",
         "accessesNetwork",
         "requiresExternalAccount",
+        "scriptFiles",
         "promptVersion"
       ],
       "title": "SiteSkill",

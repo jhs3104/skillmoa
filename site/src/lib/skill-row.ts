@@ -17,13 +17,20 @@ function badge(label: string, tone: 'caution' | 'quiet' = 'caution'): string {
   return `<span class="badge badge--${tone}">${label}</span>`;
 }
 
+/** AI가 코드 실행·네트워크를 찾지 못한 스킬은 폴더의 파일로 한 번 더 나눈다. */
+function quietBadge(item: CatalogItem): string {
+  if (item.runsExternalCode || item.accessesNetwork) return '';
+  if (item.scriptFiles === 'none') return badge('지침 문서만', 'quiet');
+  if (item.scriptFiles === 'present') return badge('스크립트 포함');
+  return badge('코드·네트워크 미확인', 'quiet');
+}
+
 function flags(item: CatalogItem): string {
-  const noFlags = !item.runsExternalCode && !item.accessesNetwork;
   return [
     item.runsExternalCode ? badge('코드 실행') : '',
     item.accessesNetwork ? badge('네트워크') : '',
     item.requiresExternalAccount ? badge('외부 계정 필요') : '',
-    noFlags ? badge('코드·네트워크 미확인', 'quiet') : '',
+    quietBadge(item),
   ].join('');
 }
 

@@ -4,6 +4,7 @@ from collector.config import RankingSettings
 from collector.domain.identity import repository_key, skill_slug
 from collector.domain.models import CollectorState
 from collector.domain.ranking import rank_skills, select_catalog
+from collector.domain.tree import script_presence
 from collector.export.schema import SiteData, SiteRepository, SiteSkill, SiteTags
 
 
@@ -49,6 +50,7 @@ def build_site_data(state: CollectorState, ranking: RankingSettings) -> SiteData
                 runs_external_code=summary.runs_external_code,
                 accesses_network=summary.accesses_network,
                 requires_external_account=summary.requires_external_account,
+                script_files=script_presence(skill.path, skill.bundled_files),
                 prompt_version=summary_record.prompt_version,
             )
         )

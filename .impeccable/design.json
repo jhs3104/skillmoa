@@ -887,7 +887,7 @@
       "name": "코드·네트워크 표시",
       "kind": "custom",
       "refersTo": "badge-caution",
-      "description": "발견한 값은 주의 앰버 배지, 찾지 못한 값은 배경 없는 `미확인` 글자.",
+      "description": "발견한 값은 주의 앰버 배지, 찾지 못한 값은 폴더 파일로 나눠 `지침 문서만`(보조 글자), `스크립트 포함`(앰버), `미확인`(보조 글자).",
       "html": "<div class=\"ds-flags\"><span class=\"ds-flag ds-flag--caution\">코드 실행</span><span class=\"ds-flag ds-flag--caution\">네트워크</span><span class=\"ds-flag ds-flag--quiet\">코드·네트워크 미확인</span></div>",
       "css": ".ds-flags { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; font-family: 'Pretendard Variable', Pretendard, sans-serif; } .ds-flag { display: inline-flex; align-items: center; padding: 2px 8px; border-radius: 7px; font-size: 12.5px; font-weight: 700; white-space: nowrap; } .ds-flag--caution { background: var(--caution-soft); color: var(--caution); } .ds-flag--quiet { padding-inline: 0; color: var(--muted); font-weight: 500; }"
     },

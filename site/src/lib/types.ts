@@ -17,6 +17,8 @@ export interface SiteRepository {
   defaultBranch: string;
 }
 
+export type ScriptFiles = 'none' | 'present' | 'unknown';
+
 export interface SiteSkill {
   slug: string;
   rank: number;
@@ -32,6 +34,8 @@ export interface SiteSkill {
   runsExternalCode: boolean;
   accessesNetwork: boolean;
   requiresExternalAccount: boolean;
+  /** 스킬 폴더의 파일 목록으로 정한 사실이다. unknown은 저장소 루트 스킬이거나 목록이 잘린 경우다. */
+  scriptFiles: ScriptFiles;
   promptVersion: string;
 }
 

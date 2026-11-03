@@ -26,6 +26,7 @@ const item = (slug: string, fields: Partial<CatalogItem> = {}): CatalogItem => (
   runsExternalCode: false,
   accessesNetwork: false,
   requiresExternalAccount: false,
+  scriptFiles: 'none',
   installBlocked: false,
   ...fields,
 });

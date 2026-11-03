@@ -1,5 +1,5 @@
 import { licenseStatus } from './license';
-import type { Category, Difficulty, Role, Skill } from './types';
+import type { Category, Difficulty, Role, ScriptFiles, Skill } from './types';
 
 /** 목록 행을 그리고 검색하는 데 필요한 값만 담는다. 상세 페이지 내용은 넣지 않는다. */
 export interface CatalogItem {
@@ -19,6 +19,7 @@ export interface CatalogItem {
   runsExternalCode: boolean;
   accessesNetwork: boolean;
   requiresExternalAccount: boolean;
+  scriptFiles: ScriptFiles;
   installBlocked: boolean;
 }
 
@@ -40,6 +41,7 @@ export function toCatalogItem(skill: Skill): CatalogItem {
     runsExternalCode: skill.runsExternalCode,
     accessesNetwork: skill.accessesNetwork,
     requiresExternalAccount: skill.requiresExternalAccount,
+    scriptFiles: skill.scriptFiles,
     installBlocked: licenseStatus(skill.license) === 'restricted',
   };
 }

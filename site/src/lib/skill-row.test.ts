@@ -19,6 +19,7 @@ const item = (fields: Partial<CatalogItem> = {}): CatalogItem => ({
   runsExternalCode: false,
   accessesNetwork: false,
   requiresExternalAccount: false,
+  scriptFiles: 'unknown',
   installBlocked: false,
   ...fields,
 });
@@ -48,6 +49,13 @@ describe('skillRowHtml', () => {
     expect(flagged).toContain('외부 계정 필요');
     expect(flagged).toContain('설치 명령 없음');
     expect(flagged).not.toContain('미확인');
+  });
+
+  it('splits unflagged skills by the files in their folder', () => {
+    expect(skillRowHtml(item({ scriptFiles: 'none' }))).toContain('지침 문서만');
+    const scripts = skillRowHtml(item({ scriptFiles: 'present' }));
+    expect(scripts).toContain('badge--caution">스크립트 포함');
+    expect(skillRowHtml(item({ runsExternalCode: true, scriptFiles: 'none' }))).not.toContain('지침 문서만');
   });
 
   it('switches the date for new skills', () => {

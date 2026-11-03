@@ -139,7 +139,7 @@ describe('catalog rows', () => {
       slug: 'a', rank: 3, name: 'PDF Kit', repository: 'acme/kit', summary: '문서를 다룹니다', useWhen: '보고서',
       category: 'documents', roles: ['general'], useCases: ['서명'], difficulty: 'beginner', stars: 9,
       pushedAt: '2026-01-02', firstSeenAt: '2026-01-01', runsExternalCode: true, accessesNetwork: false,
-      requiresExternalAccount: true, installBlocked: false,
+      requiresExternalAccount: true, scriptFiles: 'present', installBlocked: false,
     });
     expect(found.text).toContain('pdf kit');
     expect(found.text).toContain('서명');

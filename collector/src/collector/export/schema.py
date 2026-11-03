@@ -11,6 +11,7 @@ from pydantic import BaseModel, ConfigDict
 from pydantic.alias_generators import to_camel
 
 from collector.domain.models import Category, Difficulty, Role
+from collector.domain.tree import ScriptPresence
 
 SITE_SCHEMA_VERSION = 1
 SCHEMA_PATH = Path(__file__).resolve().parents[4] / "site/src/data/skills.schema.json"
@@ -49,6 +50,8 @@ class SiteSkill(_CamelModel):
     runs_external_code: bool
     accesses_network: bool
     requires_external_account: bool
+    # 폴더의 파일 목록에서 정한 사실이다. AI 판단과 달리 확인할 수 있다.
+    script_files: ScriptPresence
     prompt_version: str
 
 

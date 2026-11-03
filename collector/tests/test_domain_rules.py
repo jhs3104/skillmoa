@@ -12,7 +12,7 @@ from collector.domain.frontmatter import parse_skill_document
 from collector.domain.identity import git_blob_sha
 from collector.domain.models import ExclusionReason, Repository, SkillRecord
 from collector.domain.ranking import rank_skills, select_catalog
-from collector.domain.tree import TreeEntry, find_skill_files
+from collector.domain.tree import MAX_BUNDLED_FILES, TreeEntry, find_skill_files, script_presence
 
 DAY = date(2026, 1, 1)
 
@@ -175,3 +175,21 @@ def test_bundled_files_are_relative_to_the_skill() -> None:
 
 def test_only_exact_skill_file_name_matches() -> None:
     assert find_skill_files([TreeEntry("docs/MY-SKILL.md", "a", 1)]) == []
+
+
+
+def test_instruction_only_folder_has_no_scripts() -> None:
+    assert script_presence("skills/a/SKILL.md", ("references/guide.md", "LICENSE.txt")) == "none"
+    assert script_presence("skills/a/SKILL.md", ()) == "none"
+
+
+def test_script_files_and_folders_count_as_scripts() -> None:
+    assert script_presence("skills/a/SKILL.md", ("scripts/run",)) == "present"
+    assert script_presence("skills/a/SKILL.md", ("tools/Convert.PY",)) == "present"
+    assert script_presence("SKILL.md", ("build.sh",)) == "present"
+
+
+def test_folders_that_cannot_be_listed_are_unknown() -> None:
+    assert script_presence("SKILL.md", ()) == "unknown"
+    full = tuple(f"references/{index}.md" for index in range(MAX_BUNDLED_FILES))
+    assert script_presence("skills/a/SKILL.md", full) == "unknown"

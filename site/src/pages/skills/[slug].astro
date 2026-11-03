@@ -45,6 +45,11 @@ const structuredData = {
   inLanguage: 'ko',
   ...(skill.license ? { license: skill.license } : {}),
 };
+const SCRIPT_FILE_LABELS = {
+  none: '없음, 지침 문서만 있음',
+  present: '있음',
+  unknown: '폴더를 확인하지 못함',
+} as const;
 ---
 
 <Layout
@@ -97,6 +102,8 @@ const structuredData = {
             <dd>{formatLicense(skill.license)}</dd>
             <dt>SKILL.md 경로</dt>
             <dd>{skill.path}</dd>
+            <dt>스크립트 파일</dt>
+            <dd>{SCRIPT_FILE_LABELS[skill.scriptFiles]}</dd>
           </dl>
         </div>
         <div>
