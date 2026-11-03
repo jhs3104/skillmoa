@@ -1,11 +1,7 @@
-"""순위 순서대로 요약한다. 한도에 닿으면 남은 스킬은 다음 실행으로 넘긴다.
-
-API 호출만 작업 스레드에서 동시에 보낸다. 원문 읽기와 상태 기록은 모두 이 스레드에서 하므로
-상태에 잠금이 필요 없다.
-"""
+"""순위 순서대로 요약한다. 한도에 닿으면 남은 스킬은 다음 실행으로 넘긴다."""
 
 import logging
-from concurrent.futures import FIRST_COMPLETED, Future, ThreadPoolExecutor, wait
+from concurrent.futures import Future
 
 from collector.domain.filters import language_exclusion
 from collector.domain.frontmatter import parse_skill_document
@@ -13,6 +9,7 @@ from collector.domain.identity import repository_key
 from collector.domain.models import SkillRecord, SummaryFailure, SummaryRecord
 from collector.domain.summary_rules import needs_summary
 from collector.pipeline.collect import CollectContext
+from collector.pipeline.concurrency import run_concurrently
 from collector.summarize.base import (
     Summarizer,
     SummarizerUnavailableError,
@@ -35,9 +32,8 @@ def summarize_skills(
 ) -> None:
     state = context.state
     settings = context.settings.summary
-    if state.usage.day != context.today:
-        state.usage.day = context.today
-        state.usage.summary_calls = 0
+    usage = state.usage
+    usage.roll_over(context.today)
 
     pending = [
         key
@@ -51,67 +47,43 @@ def summarize_skills(
             refresh_prompt=refresh_prompt,
         )
     ]
-    queue = _Queue(pending, calls_at_start=state.usage.summary_calls)
-    running: dict[Future[SummaryResult], str] = {}
-    finished_count = 0
+    calls_at_start = usage.summary_calls
+    position = 0
+    recorded = 0
 
-    with ThreadPoolExecutor(max_workers=settings.concurrency) as pool:
-        while True:
-            while len(running) < settings.concurrency:
-                request = queue.next_request(context)
-                if request is None:
-                    break
-                key, summary_request = request
-                running[pool.submit(summarizer.summarize, summary_request)] = key
-            if not running:
-                break
-            done, _ = wait(running, return_when=FIRST_COMPLETED)
-            for future in done:
-                key = running.pop(future)
-                if not _record(context, summarizer, key, future):
-                    # 이미 보낸 호출은 끝까지 받아 기록하고, 새 호출만 멈춘다.
-                    queue.stop()
-                finished_count += 1
-                if finished_count % CHECKPOINT_EVERY_SUMMARIES == 0:
-                    context.checkpoint()
-
-
-class _Queue:
-    """보낼 차례의 스킬을 순위 순서로 내준다.
-
-    상한은 보낸 호출 수로 세므로 동시에 보내도 넘지 않는다.
-    """
-
-    def __init__(self, keys: list[str], *, calls_at_start: int) -> None:
-        self._keys = keys
-        self._next = 0
-        self._calls_at_start = calls_at_start
-        self._stopped = False
-
-    def stop(self) -> None:
-        self._stopped = True
-
-    def next_request(self, context: CollectContext) -> tuple[str, SummaryRequest] | None:
-        usage = context.state.usage
-        settings = context.settings.summary
-        while not self._stopped and self._next < len(self._keys):
-            used_this_run = usage.summary_calls - self._calls_at_start
+    def next_request() -> tuple[str, SummaryRequest] | None:
+        # 상한은 보낸 호출 수로 센다. 동시에 보내도 넘지 않는다.
+        nonlocal position
+        while position < len(pending):
             if (
                 usage.summary_calls >= settings.max_calls_per_day
-                or used_this_run >= settings.max_calls_per_run
+                or usage.summary_calls - calls_at_start >= settings.max_calls_per_run
             ):
-                remaining = len(self._keys) - self._next
+                remaining = len(pending) - position
                 context.metrics.summary_skipped_by_cap = remaining
                 logger.warning("호출 상한 도달, %d개는 다음 실행으로", remaining)
-                self._stopped = True
-                break
-            key = self._keys[self._next]
-            self._next += 1
+                return None
+            key = pending[position]
+            position += 1
             request = _prepare(context, key)
             if request is not None:
                 usage.summary_calls += 1
                 return key, request
         return None
+
+    def checkpoint_now_and_then() -> None:
+        nonlocal recorded
+        recorded += 1
+        if recorded % CHECKPOINT_EVERY_SUMMARIES == 0:
+            context.checkpoint()
+
+    run_concurrently(
+        next_request,
+        summarizer.summarize,
+        lambda key, future: _record(context, summarizer, key, future),
+        concurrency=settings.concurrency,
+        on_recorded=checkpoint_now_and_then,
+    )
 
 
 def _prepare(context: CollectContext, key: str) -> SummaryRequest | None:

@@ -2,8 +2,15 @@
 
 from collector.config import RankingSettings
 from collector.domain.identity import repository_key, skill_slug
-from collector.domain.models import CollectorState
+from collector.domain.models import (
+    SUBCATEGORY_PARENT,
+    Category,
+    CollectorState,
+    Subcategory,
+    SummaryRecord,
+)
 from collector.domain.ranking import rank_skills, select_catalog
+from collector.domain.summary_rules import is_current_classification
 from collector.domain.tree import script_presence
 from collector.export.schema import SiteData, SiteRepository, SiteSkill, SiteTags
 
@@ -23,6 +30,7 @@ def build_site_data(state: CollectorState, ranking: RankingSettings) -> SiteData
         record = state.repositories[repository_key(skill.repository)]
         summary_record = state.summaries[item.key]
         summary = summary_record.summary
+        category, subcategory = _classification(state, item.key, summary_record)
         repositories[record.full_name] = SiteRepository(
             full_name=record.full_name,
             stars=record.stars,
@@ -41,8 +49,8 @@ def build_site_data(state: CollectorState, ranking: RankingSettings) -> SiteData
                 first_seen_at=skill.first_seen_at,
                 summary=summary.summary_ko,
                 use_when=summary.use_when,
-                category=summary.category,
-                subcategory=summary.subcategory,
+                category=category,
+                subcategory=subcategory,
                 tags=SiteTags(
                     roles=summary.tags.roles,
                     use_cases=summary.tags.use_cases,
@@ -65,3 +73,14 @@ def build_site_data(state: CollectorState, ranking: RankingSettings) -> SiteData
 def _has_current_summary(state: CollectorState, key: str) -> bool:
     record = state.summaries.get(key)
     return record is not None and record.skill_md_hash == state.skills[key].skill_md_hash
+
+
+def _classification(
+    state: CollectorState, key: str, summary_record: SummaryRecord
+) -> tuple[Category, Subcategory | None]:
+    """따로 정한 분류가 지금 요약 기준이면 그것을, 아니면 요약이 고른 분류를 쓴다."""
+    classification = state.classifications.get(key)
+    if is_current_classification(classification, summary_record):
+        assert classification is not None
+        return SUBCATEGORY_PARENT[classification.subcategory], classification.subcategory
+    return summary_record.summary.category, summary_record.summary.subcategory

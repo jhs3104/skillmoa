@@ -13,10 +13,11 @@ flowchart TD
     state --> gate
     gate -- 예 --> tree["git trees로 SKILL.md 탐색<br/>blob SHA, 크기"]
     gate -- 아니오 --> rank
-    tree --> filter["품질 필터<br/>포크, 테스트, 빈 내용, 중복"]
+    tree --> filter["품질 필터<br/>포크, 테스트, 빈 내용, 중복, 중국어·일본어"]
     filter --> rank["순위 계산<br/>ADR-0003"]
-    rank --> summarize["Claude 한국어 요약<br/>해시가 바뀐 스킬만"]
-    summarize --> state
+    rank --> summarize["Claude 한국어 요약<br/>해시가 바뀐 스킬만, 4개씩 동시에"]
+    summarize --> classify["세부 분류<br/>요약문만 읽음, ADR-0018"]
+    classify --> state
     state --> export["skills.json export"]
     export --> site["Astro 빌드"]
     site --> workers["Cloudflare Workers"]
@@ -39,6 +40,7 @@ flowchart TD
 | `collector/state/*.json` | collector | collector | O |
 | `site/src/data/skills.json` | collector export | site | O |
 | `site/src/data/skills.schema.json` | `python -m collector.export.schema` | 사람, 테스트 | O |
+| `site/src/data/taxonomy.json` | `python -m collector.export.schema` | site, 테스트 | O |
 | `site/src/data/skills.sample.json` | 사람 | 개발용 site | O |
 | `collector/build/` | collector | 사람, `summary-reviewer` | X |
 

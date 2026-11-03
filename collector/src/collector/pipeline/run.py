@@ -12,13 +12,14 @@ from collector.config import Settings
 from collector.export.samples import write_samples
 from collector.export.site import build_site_data
 from collector.pipeline import collect
+from collector.pipeline.classify import classify_skills
 from collector.pipeline.collect import CollectContext
 from collector.pipeline.content import SkillContentStore
 from collector.pipeline.metrics import RunMetrics
 from collector.pipeline.summarize import summarize_skills
 from collector.sources.github import GitHubClient, RateLimitExceededError
 from collector.store import load_state, save_state, write_json
-from collector.summarize.base import Summarizer
+from collector.summarize.base import Classifier, Summarizer
 
 logger = logging.getLogger(__name__)
 
@@ -106,14 +107,18 @@ def run_summaries(
     paths: Paths,
     limit: int | None,
     *,
+    classifier: Classifier | None = None,
     refresh_prompt: bool = False,
 ) -> None:
-    """사이트에 실을 상한까지만 요약한다. 상한 밖 스킬에는 비용을 쓰지 않는다."""
+    """사이트에 실을 상한까지만 요약하고 분류한다. 상한 밖 스킬에는 비용을 쓰지 않는다."""
     state = context.state
     keys = collect.catalog_keys(context, limit or context.settings.ranking.catalog_limit)
 
     summarize_skills(context, summarizer, keys, refresh_prompt=refresh_prompt)
     save_state(state, paths.state)
+    if classifier is not None:
+        classify_skills(context, classifier, keys)
+        save_state(state, paths.state)
     if limit is not None:
         write_samples(state, keys, context.content, paths.samples)
 

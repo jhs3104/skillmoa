@@ -285,6 +285,26 @@ class SummaryFailure(BaseModel):
 class DailyUsage(BaseModel):
     day: date | None = None
     summary_calls: int = 0
+    classify_calls: int = 0
+
+    def roll_over(self, today: date) -> None:
+        """날짜가 바뀌면 하루 호출 수를 0부터 다시 센다."""
+        if self.day != today:
+            self.day = today
+            self.summary_calls = 0
+            self.classify_calls = 0
+
+
+class ClassificationRecord(BaseModel):
+    """요약과 따로 정한 세부 분류. 어떤 요약과 분류 기준으로 정했는지 남겨 다시 정할지 판단한다."""
+
+    model_config = ConfigDict(frozen=True)
+
+    subcategory: Subcategory
+    taxonomy_version: str
+    skill_md_hash: GitBlobSha
+    summary_prompt_version: str
+    model: str
 
 
 class CollectorState(BaseModel):
@@ -299,3 +319,4 @@ class CollectorState(BaseModel):
     summary_failures: dict[str, SummaryFailure] = {}
     # 검수에서 걸린 요약. 키는 스킬, 값은 사유. 다시 만들 때까지 기존 요약은 그대로 보여 준다.
     summary_redo: dict[str, str] = {}
+    classifications: dict[str, ClassificationRecord] = {}

@@ -199,7 +199,7 @@ _V5 = (
 )
 
 # 세부 분류마다 모델이 읽을 설명. 대분류와의 관계는 domain.models.SUBCATEGORY_PARENT가 원본이다.
-_SUBCATEGORY_GUIDE: dict[Subcategory, str] = {
+V6_SUBCATEGORY_GUIDE: dict[Subcategory, str] = {
     Subcategory.FRONTEND: "웹 화면, 컴포넌트, 스타일",
     Subcategory.BACKEND: "서버, API, 백엔드 프레임워크",
     Subcategory.MOBILE: "iOS·Android·크로스플랫폼 앱",
@@ -262,7 +262,7 @@ _SUBCATEGORY_GUIDE: dict[Subcategory, str] = {
     Subcategory.MISC: "그 밖의 모든 것",
 }
 
-_CATEGORY_NOTES: dict[Category, str] = {
+V6_CATEGORY_NOTES: dict[Category, str] = {
     Category.AI_AGENTS: "에이전트 자체를 만들거나 다루는 일만 해당합니다. 에이전트가 대신 해 주는 일은 그 일의 항목입니다.",
     Category.OTHER: "위 어디에도 맞지 않을 때만 고릅니다.",
 }
@@ -275,10 +275,10 @@ def _taxonomy_block() -> str:
         "  여러 개가 맞으면 사용자가 가장 먼저 기대하는 결과에 가까운 것을 고릅니다.",
     ]
     for category in Category:
-        lines.append(f"  - {category.value}: {_CATEGORY_NOTES.get(category, '')}".rstrip())
+        lines.append(f"  - {category.value}: {V6_CATEGORY_NOTES.get(category, '')}".rstrip())
         for subcategory, parent in SUBCATEGORY_PARENT.items():
             if parent is category:
-                lines.append(f"    - {subcategory.value}: {_SUBCATEGORY_GUIDE[subcategory]}")
+                lines.append(f"    - {subcategory.value}: {V6_SUBCATEGORY_GUIDE[subcategory]}")
     return "\n".join(lines) + "\n"
 
 

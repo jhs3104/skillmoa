@@ -54,12 +54,28 @@ class SummarySettings(_Section):
     concurrency: int = Field(ge=1, le=16)
 
 
+class ClassifySettings(_Section):
+    """요약문만 읽고 세부 분류를 고르는 별도 호출 (ADR-0018)."""
+
+    model: str
+    # 분류 기준(프롬프트)을 바꾸면 올린다. 요약은 그대로 두고 분류만 다시 정한다.
+    taxonomy_version: str
+    effort: Literal["low", "medium", "high"]
+    max_calls_per_day: int
+    max_calls_per_run: int
+    max_output_tokens: int
+    timeout_seconds: float
+    validation_attempts: int
+    concurrency: int = Field(ge=1, le=16)
+
+
 class Settings(_Section):
     discovery: DiscoverySettings
     filter: FilterSettings
     ranking: RankingSettings
     github: GitHubSettings
     summary: SummarySettings
+    classify: ClassifySettings
 
 
 def load_settings(path: Path = DEFAULT_CONFIG_PATH) -> Settings:

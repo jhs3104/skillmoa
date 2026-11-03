@@ -13,6 +13,7 @@ from collector.domain.summary_rules import (
     find_copied_fragment,
     find_missing_evidence,
     find_reassurance,
+    find_stray_letters,
     find_unverified_evidence,
     raise_flags_from_source,
 )
@@ -120,6 +121,8 @@ def _find_problem(summary: Summary, source: str, needs_subcategory: bool) -> str
         return "reassurance in prose"
     if find_bare_han(summary):
         return "han characters outside brackets"
+    if find_stray_letters(summary):
+        return "stray letters"
     return None
 
 

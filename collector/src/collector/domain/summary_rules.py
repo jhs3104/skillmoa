@@ -1,10 +1,12 @@
 """요약을 다시 만들지, 받은 요약을 믿을지를 정하는 규칙."""
 
 import re
+import unicodedata
 
 from collector.domain.models import (
     MAX_EVIDENCE_CHARS,
     SUBCATEGORY_PARENT,
+    ClassificationRecord,
     SkillRecord,
     Summary,
     SummaryFailure,
@@ -23,6 +25,8 @@ _REASSURANCE = re.compile(
 # 한국어 문장 속 한자·가나는 오타처럼 읽힌다. 괄호 안 병기만 허용한다.
 _BRACKETED = re.compile(r"\([^()]*\)|（[^（）]*）")
 _HAN_OR_KANA = re.compile(r"[\u3040-\u30ff\u3400-\u4dbf\u4e00-\u9fff\uf900-\ufaff]+")
+# 한글 낱말 한가운데 끼어든 로마자 소문자. "도meen인" 같은 생성 오류를 잡는다.
+_LATIN_INSIDE_HANGUL = re.compile(r"[\uac00-\ud7a3][a-z]{2,}[\uac00-\ud7a3]")
 _FENCE = re.compile(r"^(`{3,}|~{3,}).*$")
 _INLINE_CODE = re.compile(r"`([^`\n]+)`")
 _PROMPT = re.compile(r"^\s*(?:[$>#]\s+)?")
@@ -71,6 +75,34 @@ def needs_summary(
     if record is None or record.skill_md_hash != skill.skill_md_hash:
         return True
     return refresh_prompt and record.prompt_version != prompt_version
+
+
+def needs_classification(
+    skill: SkillRecord,
+    summary: SummaryRecord | None,
+    classification: ClassificationRecord | None,
+    taxonomy_version: str,
+) -> bool:
+    """사이트에 실린 요약이 있고, 그 요약이나 분류 기준으로 아직 분류하지 않았으면 분류한다."""
+    if skill.exclusion is not None or summary is None:
+        return False
+    if summary.skill_md_hash != skill.skill_md_hash:
+        return False
+    return not is_current_classification(classification, summary, taxonomy_version)
+
+
+def is_current_classification(
+    classification: ClassificationRecord | None,
+    summary: SummaryRecord,
+    taxonomy_version: str | None = None,
+) -> bool:
+    """분류가 지금 요약을 보고 정한 것인지 본다. 기준 버전을 주면 그것도 맞아야 한다."""
+    return (
+        classification is not None
+        and classification.skill_md_hash == summary.skill_md_hash
+        and classification.summary_prompt_version == summary.prompt_version
+        and (taxonomy_version is None or classification.taxonomy_version == taxonomy_version)
+    )
 
 
 def find_copied_fragment(summary: Summary, source: str) -> str | None:
@@ -166,6 +198,26 @@ def align_category(summary: Summary) -> Summary:
     if summary.category is parent:
         return summary
     return summary.model_copy(update={"category": parent})
+
+
+def find_stray_letters(summary: Summary) -> str | None:
+    """한글·로마자·한자·가나 밖의 문자나 한글 낱말 속 로마자를 찾는다.
+
+    대부분 생성 중에 깨진 글자다.
+    """
+    for text in (summary.summary_ko, summary.use_when, *summary.tags.use_cases):
+        for char in text:
+            if unicodedata.category(char).startswith("L") and not _is_expected_letter(char):
+                return char
+        match = _LATIN_INSIDE_HANGUL.search(text)
+        if match:
+            return match.group()
+    return None
+
+
+def _is_expected_letter(char: str) -> bool:
+    name = unicodedata.name(char, "")
+    return name.startswith(("HANGUL", "LATIN", "CJK", "HIRAGANA", "KATAKANA"))
 
 
 def find_bare_han(summary: Summary) -> str | None:

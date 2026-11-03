@@ -38,3 +38,14 @@ max_source_chars = 200000
 timeout_seconds = 60
 validation_attempts = 3
 concurrency = 4
+
+[classify]
+model = "claude-haiku-5-5"
+taxonomy_version = "t1"
+effort = "medium"
+max_calls_per_day = 8000
+max_calls_per_run = 3000
+max_output_tokens = 2000
+timeout_seconds = 60
+validation_attempts = 2
+concurrency = 4

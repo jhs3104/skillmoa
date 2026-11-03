@@ -3,7 +3,7 @@
 from dataclasses import dataclass
 from typing import Protocol
 
-from collector.domain.models import Summary
+from collector.domain.models import Subcategory, Summary
 
 
 @dataclass(frozen=True)
@@ -42,3 +42,29 @@ class Summarizer(Protocol):
     def model(self) -> str: ...
 
     def summarize(self, request: SummaryRequest) -> SummaryResult: ...
+
+
+@dataclass(frozen=True)
+class ClassificationRequest:
+    skill_name: str
+    repository: str
+    path: str
+    summary_ko: str
+    use_when: str
+    use_cases: tuple[str, ...]
+
+
+@dataclass(frozen=True)
+class ClassificationResult:
+    subcategory: Subcategory
+    input_tokens: int
+    output_tokens: int
+
+
+class Classifier(Protocol):
+    """요약문만 읽고 세부 분류를 고른다. 실패는 요약기와 같은 두 예외로 알린다."""
+
+    @property
+    def model(self) -> str: ...
+
+    def classify(self, request: ClassificationRequest) -> ClassificationResult: ...

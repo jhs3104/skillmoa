@@ -1,7 +1,19 @@
 """API 키 없이 파이프라인을 검증하기 위한 요약기. 결과는 실제 요약이 아니다."""
 
-from collector.domain.models import Category, Difficulty, RecommendationTags, Role, Summary
-from collector.summarize.base import SummaryRequest, SummaryResult
+from collector.domain.models import (
+    Category,
+    Difficulty,
+    RecommendationTags,
+    Role,
+    Subcategory,
+    Summary,
+)
+from collector.summarize.base import (
+    ClassificationRequest,
+    ClassificationResult,
+    SummaryRequest,
+    SummaryResult,
+)
 
 MOCK_MODEL = "mock"
 
@@ -27,3 +39,12 @@ class MockSummarizer:
             requires_external_account=False,
         )
         return SummaryResult(summary, input_tokens=0, output_tokens=0)
+
+
+class MockClassifier:
+    @property
+    def model(self) -> str:
+        return MOCK_MODEL
+
+    def classify(self, request: ClassificationRequest) -> ClassificationResult:
+        return ClassificationResult(Subcategory.MISC, input_tokens=0, output_tokens=0)

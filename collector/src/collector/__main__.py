@@ -20,9 +20,10 @@ from collector.pipeline.run import (
     write_metrics,
 )
 from collector.sources.github import GitHubClient
-from collector.summarize.base import Summarizer
+from collector.summarize.base import Classifier, Summarizer
+from collector.summarize.classify import ClaudeClassifier
 from collector.summarize.claude import ClaudeSummarizer
-from collector.summarize.mock import MockSummarizer
+from collector.summarize.mock import MockClassifier, MockSummarizer
 
 COLLECTOR_ROOT = Path(__file__).resolve().parents[2]
 EXIT_USAGE = 2
@@ -58,6 +59,14 @@ def build_summarizer(arguments: argparse.Namespace, settings: Settings) -> Summa
     return ClaudeSummarizer(settings.summary)
 
 
+def build_classifier(arguments: argparse.Namespace, settings: Settings) -> Classifier | None:
+    if arguments.skip_summary:
+        return None
+    if arguments.mock_summary:
+        return MockClassifier()
+    return ClaudeClassifier(settings.classify)
+
+
 def main() -> int:
     arguments = parse_arguments()
     logging.basicConfig(level=logging.INFO, format="%(levelname)s %(message)s", stream=sys.stderr)
@@ -72,6 +81,7 @@ def main() -> int:
         logging.error("ANTHROPIC_API_KEY가 없습니다. --mock-summary나 --skip-summary를 쓰세요")
         return EXIT_USAGE
     summarizer = build_summarizer(arguments, settings)
+    classifier = build_classifier(arguments, settings)
 
     small = arguments.limit is not None
     paths = Paths.small(COLLECTOR_ROOT) if small else Paths.production(COLLECTOR_ROOT)
@@ -96,6 +106,7 @@ def main() -> int:
                 summarizer,
                 paths,
                 arguments.limit,
+                classifier=classifier,
                 refresh_prompt=arguments.refresh_prompt,
             )
         export_site(context, paths)

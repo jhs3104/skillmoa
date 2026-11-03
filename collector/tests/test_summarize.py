@@ -1,3 +1,4 @@
+import hashlib
 import json
 import threading
 from collections.abc import Callable
@@ -30,6 +31,7 @@ from collector.domain.summary_rules import (
     find_copied_fragment,
     find_missing_evidence,
     find_reassurance,
+    find_stray_letters,
     find_unverified_evidence,
     needs_summary,
     raise_flags_from_source,
@@ -325,6 +327,18 @@ def test_platform_tools_in_inline_code_raise_the_code_flag() -> None:
     assert raised.code_evidence == source
 
 
+def test_stray_letters_from_generation_are_rejected() -> None:
+    def with_text(text: str) -> Summary:
+        return Summary.model_validate({**VALID, "summary_ko": text})
+
+    armenian = "모바일 기기와 에մ뮬레이터에서 화면을 조작하는 스킬입니다."
+    assert find_stray_letters(with_text(armenian)) == "մ"
+    assert find_stray_letters(with_text("연결된 도meen인 수와 앵커 텍스트를 보여 주는 스킬입니다."))
+    fine = "npm으로 설치한 CLI를 Git 브랜치마다 실행해 PR 설명을 만드는 스킬입니다."
+    assert find_stray_letters(with_text(fine)) is None
+    assert find_stray_letters(summary()) is None
+
+
 def test_han_characters_must_sit_in_brackets() -> None:
     def with_text(text: str) -> Summary:
         return Summary.model_validate({**VALID, "summary_ko": text})
@@ -343,6 +357,22 @@ def test_prompt_v6_keeps_names_readable_in_korean() -> None:
     assert "라틴 문자로 쓴 제품명" in prompt
     assert "라틴 문자로 쓴 제품명" not in PROMPTS["v5"]
     assert PROMPTS["v5"].count("<flags>") == prompt.count("<flags>") == 1
+
+
+# 기록에 남은 프롬프트 버전은 내용이 바뀌면 안 된다. 바꾸려면 새 버전을 만든다.
+RELEASED_PROMPT_HASHES = {
+    "v1": "776cc8f629f4",
+    "v2": "92df71a9128e",
+    "v3": "3b0dc4ae0f49",
+    "v4": "35af733cba96",
+    "v5": "d5863c0e3104",
+    "v6": "d4fadca639b5",
+}
+
+
+def test_released_prompts_never_change() -> None:
+    for version, expected in RELEASED_PROMPT_HASHES.items():
+        assert hashlib.sha256(PROMPTS[version].encode()).hexdigest()[:12] == expected, version
 
 
 def test_prompt_v6_lists_every_subcategory_under_its_category() -> None:
