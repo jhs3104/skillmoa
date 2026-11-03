@@ -1,4 +1,5 @@
 import json
+import threading
 from collections.abc import Callable
 from datetime import date
 from typing import Any
@@ -471,17 +472,53 @@ def test_rejected_skill_is_recorded_and_the_run_continues(
     assert context.metrics.input_tokens == 15
 
 
-def test_service_outage_stops_without_recording_failures(
+def with_summary_settings(context: CollectContext, **changes: Any) -> CollectContext:
+    summary_settings = context.settings.summary.model_copy(update=changes)
+    context.settings = context.settings.model_copy(update={"summary": summary_settings})
+    return context
+
+
+def test_service_outage_stops_new_calls_without_recording_failures(
     make_context: Callable[..., CollectContext],
 ) -> None:
-    context = stocked_context(make_context, 2)
+    context = with_summary_settings(stocked_context(make_context, 6), concurrency=2)
     summarizer = ScriptedSummarizer(SummarizerUnavailableError("503"))
 
     summarize_skills(context, summarizer, list(context.state.skills))
 
     assert context.state.summary_failures == {}
     assert context.metrics.summary_aborted
-    assert len(summarizer.calls) == 1
+    assert len(summarizer.calls) <= 2
+
+
+def test_summaries_are_requested_concurrently(
+    make_context: Callable[..., CollectContext],
+) -> None:
+    context = with_summary_settings(stocked_context(make_context, 2), concurrency=2)
+    both_waiting = threading.Barrier(2, timeout=5)
+
+    class WaitingSummarizer(ScriptedSummarizer):
+        def summarize(self, request: SummaryRequest) -> SummaryResult:
+            both_waiting.wait()  # 하나씩 보내면 두 번째가 오지 않아 시간 초과로 실패한다
+            return super().summarize(request)
+
+    summarize_skills(context, WaitingSummarizer(), list(context.state.skills))
+
+    assert len(context.state.summaries) == 2
+
+
+def test_run_cap_holds_exactly_under_concurrency(
+    make_context: Callable[..., CollectContext],
+) -> None:
+    context = with_summary_settings(
+        stocked_context(make_context, 10), concurrency=4, max_calls_per_run=3
+    )
+    summarizer = ScriptedSummarizer()
+
+    summarize_skills(context, summarizer, list(context.state.skills))
+
+    assert len(summarizer.calls) == 3
+    assert context.metrics.summary_skipped_by_cap == 7
 
 
 def test_daily_cap_defers_the_rest_to_the_next_run(

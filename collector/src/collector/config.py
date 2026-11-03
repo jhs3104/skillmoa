@@ -50,6 +50,8 @@ class SummarySettings(_Section):
     max_source_chars: int
     timeout_seconds: float
     validation_attempts: int
+    # 동시에 보내는 요약 호출 수. 높이면 빨라지지만 API 분당 한도(429)에 먼저 닿는다.
+    concurrency: int = Field(ge=1, le=16)
 
 
 class Settings(_Section):

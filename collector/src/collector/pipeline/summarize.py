@@ -1,6 +1,11 @@
-"""순위 순서대로 요약한다. 한도에 닿으면 남은 스킬은 다음 실행으로 넘긴다."""
+"""순위 순서대로 요약한다. 한도에 닿으면 남은 스킬은 다음 실행으로 넘긴다.
+
+API 호출만 작업 스레드에서 동시에 보낸다. 원문 읽기와 상태 기록은 모두 이 스레드에서 하므로
+상태에 잠금이 필요 없다.
+"""
 
 import logging
+from concurrent.futures import FIRST_COMPLETED, Future, ThreadPoolExecutor, wait
 
 from collector.domain.identity import repository_key
 from collector.domain.models import SkillRecord, SummaryFailure, SummaryRecord
@@ -11,6 +16,7 @@ from collector.summarize.base import (
     SummarizerUnavailableError,
     SummaryRejectedError,
     SummaryRequest,
+    SummaryResult,
 )
 
 logger = logging.getLogger(__name__)
@@ -27,7 +33,6 @@ def summarize_skills(
 ) -> None:
     state = context.state
     settings = context.settings.summary
-    metrics = context.metrics
     if state.usage.day != context.today:
         state.usage.day = context.today
         state.usage.summary_calls = 0
@@ -44,54 +49,108 @@ def summarize_skills(
             refresh_prompt=refresh_prompt,
         )
     ]
-    calls_at_start = state.usage.summary_calls
-    for index, key in enumerate(pending):
-        used_this_run = state.usage.summary_calls - calls_at_start
-        if (
-            state.usage.summary_calls >= settings.max_calls_per_day
-            or used_this_run >= settings.max_calls_per_run
-        ):
-            metrics.summary_skipped_by_cap = len(pending) - index
-            logger.warning("호출 상한 도달, %d개는 다음 실행으로", len(pending) - index)
-            break
-        if not _summarize_one(context, summarizer, key):
-            break
-        if (index + 1) % CHECKPOINT_EVERY_SUMMARIES == 0:
-            context.checkpoint()
+    queue = _Queue(pending, calls_at_start=state.usage.summary_calls)
+    running: dict[Future[SummaryResult], str] = {}
+    finished_count = 0
+
+    with ThreadPoolExecutor(max_workers=settings.concurrency) as pool:
+        while True:
+            while len(running) < settings.concurrency:
+                request = queue.next_request(context)
+                if request is None:
+                    break
+                key, summary_request = request
+                running[pool.submit(summarizer.summarize, summary_request)] = key
+            if not running:
+                break
+            done, _ = wait(running, return_when=FIRST_COMPLETED)
+            for future in done:
+                key = running.pop(future)
+                if not _record(context, summarizer, key, future):
+                    # 이미 보낸 호출은 끝까지 받아 기록하고, 새 호출만 멈춘다.
+                    queue.stop()
+                finished_count += 1
+                if finished_count % CHECKPOINT_EVERY_SUMMARIES == 0:
+                    context.checkpoint()
 
 
-def _summarize_one(context: CollectContext, summarizer: Summarizer, key: str) -> bool:
-    """요약 서비스를 쓸 수 없으면 False를 돌려 이번 실행의 요약을 멈춘다."""
-    state = context.state
-    settings = context.settings.summary
-    metrics = context.metrics
-    skill = state.skills[key]
-    repository = state.repositories[repository_key(skill.repository)]
+class _Queue:
+    """보낼 차례의 스킬을 순위 순서로 내준다.
 
+    상한은 보낸 호출 수로 세므로 동시에 보내도 넘지 않는다.
+    """
+
+    def __init__(self, keys: list[str], *, calls_at_start: int) -> None:
+        self._keys = keys
+        self._next = 0
+        self._calls_at_start = calls_at_start
+        self._stopped = False
+
+    def stop(self) -> None:
+        self._stopped = True
+
+    def next_request(self, context: CollectContext) -> tuple[str, SummaryRequest] | None:
+        usage = context.state.usage
+        settings = context.settings.summary
+        while not self._stopped and self._next < len(self._keys):
+            used_this_run = usage.summary_calls - self._calls_at_start
+            if (
+                usage.summary_calls >= settings.max_calls_per_day
+                or used_this_run >= settings.max_calls_per_run
+            ):
+                remaining = len(self._keys) - self._next
+                context.metrics.summary_skipped_by_cap = remaining
+                logger.warning("호출 상한 도달, %d개는 다음 실행으로", remaining)
+                self._stopped = True
+                break
+            key = self._keys[self._next]
+            self._next += 1
+            request = _prepare(context, key)
+            if request is not None:
+                usage.summary_calls += 1
+                return key, request
+        return None
+
+
+def _prepare(context: CollectContext, key: str) -> SummaryRequest | None:
+    """원문을 읽어 요청을 만든다. 보낼 수 없으면 None이다."""
+    skill = context.state.skills[key]
+    repository = context.state.repositories[repository_key(skill.repository)]
     source = context.content.read(repository, skill.path, skill.skill_md_hash)
     if source is None:
-        return True
-    if len(source) > settings.max_source_chars:
+        return None
+    if len(source) > context.settings.summary.max_source_chars:
         _record_failure(context, key, skill, "source too long")
-        return True
-
-    request = SummaryRequest(
+        return None
+    return SummaryRequest(
         skill_name=skill.name,
         repository=skill.repository,
         path=skill.path,
         source=source,
         bundled_files=skill.bundled_files,
     )
-    state.usage.summary_calls += 1
+
+
+def _record(
+    context: CollectContext,
+    summarizer: Summarizer,
+    key: str,
+    future: Future[SummaryResult],
+) -> bool:
+    """결과를 상태에 남긴다. 요약 서비스를 쓸 수 없으면 False를 돌려 새 호출을 멈춘다."""
+    state = context.state
+    metrics = context.metrics
+    skill = state.skills[key]
     try:
-        result = summarizer.summarize(request)
+        result = future.result()
     except SummaryRejectedError as error:
         metrics.input_tokens += error.input_tokens
         metrics.output_tokens += error.output_tokens
         _record_failure(context, key, skill, error.reason)
         return True
     except SummarizerUnavailableError as error:
-        logger.warning("요약 서비스 오류, 이번 실행의 요약을 멈춥니다: %s", error)
+        if not metrics.summary_aborted:
+            logger.warning("요약 서비스 오류, 이번 실행의 요약을 멈춥니다: %s", error)
         metrics.summary_aborted = True
         return False
 
@@ -103,7 +162,7 @@ def _summarize_one(context: CollectContext, summarizer: Summarizer, key: str) ->
     state.summary_redo.pop(key, None)
     state.summaries[key] = SummaryRecord(
         skill_md_hash=skill.skill_md_hash,
-        prompt_version=settings.prompt_version,
+        prompt_version=context.settings.summary.prompt_version,
         model=summarizer.model,
         summary=result.summary,
     )

@@ -37,3 +37,4 @@ max_output_tokens = 4000
 max_source_chars = 200000
 timeout_seconds = 60
 validation_attempts = 3
+concurrency = 4
