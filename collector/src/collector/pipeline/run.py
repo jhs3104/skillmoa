@@ -9,6 +9,7 @@ from enum import StrEnum
 from pathlib import Path
 
 from collector.config import Settings
+from collector.domain.tool_news import ToolRelease
 from collector.domain.trends import record_stars
 from collector.export.news import build_news_data
 from collector.export.samples import write_samples
@@ -19,9 +20,10 @@ from collector.pipeline.collect import CollectContext
 from collector.pipeline.content import SkillContentStore
 from collector.pipeline.metrics import RunMetrics
 from collector.pipeline.summarize import summarize_skills
+from collector.pipeline.tool_news import update_tool_news
 from collector.sources.github import GitHubClient, RateLimitExceededError
 from collector.store import load_state, save_state, write_json
-from collector.summarize.base import Classifier, Summarizer
+from collector.summarize.base import Classifier, Summarizer, ToolNewsWriter
 
 logger = logging.getLogger(__name__)
 
@@ -135,6 +137,14 @@ def run_summaries(
         save_state(state, paths.state)
     if limit is not None:
         write_samples(state, keys, context.content, paths.samples)
+
+
+def run_tool_news(
+    context: CollectContext, writer: ToolNewsWriter, releases: list[ToolRelease], paths: Paths
+) -> None:
+    """도구 업데이트를 요약한다 (ADR-0022). 스킬 요약과 따로 상한을 센다."""
+    update_tool_news(context, writer, releases)
+    save_state(context.state, paths.state)
 
 
 def export_site(context: CollectContext, paths: Paths) -> None:

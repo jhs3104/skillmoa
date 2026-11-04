@@ -140,6 +140,15 @@ class GitHubClient:
         repositories = [item["repository"]["full_name"] for item in body["items"]]
         return CodeSearchPage(total_count=body["total_count"], repositories=repositories)
 
+    def list_releases(self, full_name: str, per_page: int = 40) -> list[dict[str, Any]]:
+        """최근 릴리스를 최신순으로 돌려준다. 해석은 sources.tool_releases가 한다."""
+        response = self._get(
+            Resource.CORE, f"{API_URL}/repos/{full_name}/releases", {"per_page": str(per_page)}
+        )
+        response.raise_for_status()
+        releases: list[dict[str, Any]] = response.json()
+        return releases
+
     def fetch_raw(self, full_name: str, ref: str, path: str) -> bytes | None:
         """raw 호스트는 API 한도를 쓰지 않는다. 호출 횟수를 신경 쓰지 않아도 된다."""
         url = f"{RAW_URL}/{full_name}/{quote(ref)}/{quote(path)}"

@@ -22,7 +22,9 @@ flowchart TD
     stars --> state
     state --> export["skills.json export"]
     export --> site["Astro 빌드"]
-    state --> news["news.json export<br/>급상승 저장소"]
+    releases["도구 릴리스<br/>Claude Code·Codex GitHub Releases, Cursor RSS"] --> toolnews["도구별 하루 요약<br/>Claude, ADR-0022"]
+    toolnews --> state
+    state --> news["news.json export<br/>급상승 저장소, 도구 업데이트"]
     news --> site
     site --> workers["Cloudflare Workers"]
 ```

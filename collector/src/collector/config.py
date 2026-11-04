@@ -69,6 +69,24 @@ class ClassifySettings(_Section):
     concurrency: int = Field(ge=1, le=16)
 
 
+class NewsSettings(_Section):
+    """소식 페이지의 도구 업데이트 요약 (ADR-0022)."""
+
+    model: str
+    prompt_version: str
+    effort: Literal["low", "medium", "high"]
+    max_calls_per_day: int
+    max_calls_per_run: int
+    max_output_tokens: int
+    # 하루치 변경 기록이 길면 앞부분만 보낸다.
+    max_source_chars: int
+    timeout_seconds: float
+    validation_attempts: int
+    # 이 기간 안의 릴리스만 요약하고, 기록은 keep_days까지 둔다.
+    window_days: int
+    keep_days: int
+
+
 class ExcludeSettings(_Section):
     """사람이 정하는 사이트 제외 목록 (ADR-0020). 수집과 요약은 그대로 하고 내보낼 때만 뺀다."""
 
@@ -87,6 +105,7 @@ class Settings(_Section):
     github: GitHubSettings
     summary: SummarySettings
     classify: ClassifySettings
+    news: NewsSettings
     exclude: ExcludeSettings = ExcludeSettings()
 
 

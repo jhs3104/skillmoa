@@ -17,6 +17,7 @@ from collector.domain.models import (
     Difficulty,
     Role,
     Subcategory,
+    Tool,
 )
 from collector.domain.tree import ScriptPresence
 
@@ -36,11 +37,21 @@ class SiteRisingRepository(_CamelModel):
     window_days: int
 
 
+class SiteToolUpdate(_CamelModel):
+    tool: Tool
+    date: date
+    versions: tuple[str, ...]
+    highlights: tuple[str, ...]
+    url: str
+
+
 class SiteNews(_CamelModel):
-    """news.json 계약 (ADR-0022). 도구 업데이트는 다음 단계에서 더한다."""
+    """news.json 계약 (ADR-0022)."""
 
     schema_version: int = 1
     rising_repositories: tuple[SiteRisingRepository, ...] = ()
+    # 최신 날짜부터. 의미 있는 변경이 없던 날은 싣지 않는다.
+    tool_updates: tuple[SiteToolUpdate, ...] = ()
 
 
 class SiteRepository(_CamelModel):

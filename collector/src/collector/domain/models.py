@@ -325,6 +325,7 @@ class DailyUsage(BaseModel):
     day: date | None = None
     summary_calls: int = 0
     classify_calls: int = 0
+    news_calls: int = 0
 
     def roll_over(self, today: date) -> None:
         """날짜가 바뀌면 하루 호출 수를 0부터 다시 센다."""
@@ -332,6 +333,7 @@ class DailyUsage(BaseModel):
             self.day = today
             self.summary_calls = 0
             self.classify_calls = 0
+            self.news_calls = 0
 
 
 class ClassificationRecord(BaseModel):
@@ -345,6 +347,30 @@ class ClassificationRecord(BaseModel):
     summary_prompt_version: str
     model: str
     excluded: ContentExclusion | None = None
+
+
+class Tool(StrEnum):
+    """소식 페이지가 업데이트를 싣는 도구 (ADR-0022). 사이트가 설치 명령을 주는 도구와 같다."""
+
+    CLAUDE_CODE = "claude-code"
+    CODEX = "codex"
+    CURSOR = "cursor"
+
+
+class ToolUpdateRecord(BaseModel):
+    """도구 하나의 하루치 업데이트 요약. 원문이 바뀌거나 프롬프트가 바뀌면 다시 쓴다."""
+
+    model_config = ConfigDict(frozen=True)
+
+    tool: Tool
+    day: date
+    versions: tuple[str, ...]
+    url: str
+    source_hash: str
+    # 비어 있으면 스킬·에이전트 사용자에게 의미 있는 변경이 없다는 판단이다. 사이트에 싣지 않는다.
+    highlights: tuple[str, ...]
+    prompt_version: str
+    model: str
 
 
 class CollectorState(BaseModel):
@@ -362,3 +388,5 @@ class CollectorState(BaseModel):
     classifications: dict[str, ClassificationRecord] = {}
     # 저장소 키마다 날짜별 스타. 급상승 계산에 쓰고 35일만 보관한다 (ADR-0022).
     star_history: dict[str, dict[date, int]] = {}
+    # 키는 "도구:날짜" (ADR-0022).
+    tool_updates: dict[str, ToolUpdateRecord] = {}

@@ -3,7 +3,7 @@
 from collector.domain.identity import repository_key
 from collector.domain.models import CollectorState
 from collector.domain.trends import rising_repositories
-from collector.export.schema import SiteData, SiteNews, SiteRisingRepository
+from collector.export.schema import SiteData, SiteNews, SiteRisingRepository, SiteToolUpdate
 
 RISING_WINDOW_DAYS = 7
 RISING_LIMIT = 10
@@ -14,6 +14,10 @@ def build_news_data(state: CollectorState, site: SiteData) -> SiteNews:
     on_site = {repository_key(repository.full_name): repository for repository in site.repositories}
     history = {key: snapshots for key, snapshots in state.star_history.items() if key in on_site}
     rising = rising_repositories(history, window_days=RISING_WINDOW_DAYS, limit=RISING_LIMIT)
+    updates = sorted(
+        (record for record in state.tool_updates.values() if record.highlights),
+        key=lambda record: (-record.day.toordinal(), record.tool.value),
+    )
     return SiteNews(
         rising_repositories=tuple(
             SiteRisingRepository(
@@ -23,5 +27,15 @@ def build_news_data(state: CollectorState, site: SiteData) -> SiteNews:
                 window_days=RISING_WINDOW_DAYS,
             )
             for item in rising
-        )
+        ),
+        tool_updates=tuple(
+            SiteToolUpdate(
+                tool=record.tool,
+                date=record.day,
+                versions=record.versions,
+                highlights=record.highlights,
+                url=record.url,
+            )
+            for record in updates
+        ),
     )

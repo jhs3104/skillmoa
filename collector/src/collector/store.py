@@ -16,6 +16,7 @@ _FILES = {
     "summaries.json": ("summaries", "summary_failures", "summary_redo"),
     "classifications.json": ("classifications",),
     "star_history.json": ("star_history",),
+    "tool_updates.json": ("tool_updates",),
     "meta.json": ("schema_version", "bootstrapped_on", "usage"),
 }
 

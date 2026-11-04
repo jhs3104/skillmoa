@@ -3,7 +3,7 @@
 from dataclasses import dataclass
 from typing import Protocol
 
-from collector.domain.models import ContentExclusion, Subcategory, Summary
+from collector.domain.models import ContentExclusion, Subcategory, Summary, Tool
 
 
 @dataclass(frozen=True)
@@ -69,3 +69,28 @@ class Classifier(Protocol):
     def model(self) -> str: ...
 
     def classify(self, request: ClassificationRequest) -> ClassificationResult: ...
+
+
+@dataclass(frozen=True)
+class ToolNewsRequest:
+    tool: Tool
+    versions: tuple[str, ...]
+    notes: str
+
+
+@dataclass(frozen=True)
+class ToolNewsResult:
+    """비어 있으면 스킬·에이전트 사용자에게 의미 있는 변경이 없다는 판단이다."""
+
+    highlights: tuple[str, ...]
+    input_tokens: int
+    output_tokens: int
+
+
+class ToolNewsWriter(Protocol):
+    """도구의 하루치 변경 기록을 한국어 몇 줄로 새로 쓴다 (ADR-0022)."""
+
+    @property
+    def model(self) -> str: ...
+
+    def write(self, request: ToolNewsRequest) -> ToolNewsResult: ...

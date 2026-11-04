@@ -8,6 +8,8 @@ import time
 from datetime import UTC, datetime
 from pathlib import Path
 
+import httpx
+
 from collector.config import Settings, load_settings
 from collector.pipeline.run import (
     Mode,
@@ -17,16 +19,20 @@ from collector.pipeline.run import (
     reset_small_run,
     run_collection,
     run_summaries,
+    run_tool_news,
     write_metrics,
 )
 from collector.sources.github import GitHubClient
+from collector.sources.tool_releases import fetch_tool_releases
 from collector.summarize.base import Classifier, Summarizer
 from collector.summarize.classify import ClaudeClassifier
 from collector.summarize.claude import ClaudeSummarizer
 from collector.summarize.mock import MockClassifier, MockSummarizer
+from collector.summarize.tool_news import ClaudeToolNewsWriter
 
 COLLECTOR_ROOT = Path(__file__).resolve().parents[2]
 EXIT_USAGE = 2
+FEED_TIMEOUT_SECONDS = 30.0
 
 
 def parse_arguments() -> argparse.Namespace:
@@ -92,6 +98,8 @@ def main() -> int:
     limits = settings.github
     max_wait = limits.max_wait_seconds_with_token if token else limits.max_wait_seconds_anonymous
     github = GitHubClient(token, max_wait_seconds=max_wait)
+    # Cursor 변경 기록 RSS용. 요청은 sources.tool_releases가 보낸다.
+    feeds = httpx.Client(timeout=FEED_TIMEOUT_SECONDS, follow_redirects=True)
     started_at = time.monotonic()
     options = RunOptions(
         mode=Mode(arguments.mode) if arguments.mode else None,
@@ -109,9 +117,13 @@ def main() -> int:
                 classifier=classifier,
                 refresh_prompt=arguments.refresh_prompt,
             )
+        if needs_api_key:
+            releases = fetch_tool_releases(github, feeds)
+            run_tool_news(context, ClaudeToolNewsWriter(settings.news), releases, paths)
         export_site(context, paths)
     finally:
         github.close()
+        feeds.close()
         if "context" in locals():
             write_metrics(context.metrics, paths, started_at)
     return 0

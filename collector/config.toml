@@ -51,6 +51,20 @@ timeout_seconds = 60
 validation_attempts = 2
 concurrency = 4
 
+# 소식 페이지의 도구 업데이트 요약 (ADR-0022). 도구별로 하루 한 번이라 호출이 적다.
+[news]
+model = "claude-haiku-5-5"
+prompt_version = "n1"
+effort = "low"
+max_calls_per_day = 60
+max_calls_per_run = 40
+max_output_tokens = 1000
+max_source_chars = 12000
+timeout_seconds = 60
+validation_attempts = 2
+window_days = 30
+keep_days = 60
+
 # 사이트에서 뺄 스킬을 사람이 정한다 (ADR-0020). 수집과 요약은 그대로 하고 내보낼 때만 뺀다.
 [exclude]
 repositories = [
