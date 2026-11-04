@@ -1,4 +1,361 @@
 {
   "schemaVersion": 1,
-  "updates": []
+  "updates": [
+    {
+      "date": "2026-11-04",
+      "highlights": [
+        "`claude mcp add`와 `remove`가 설정 파일 잠금을 기다리거나 잠금을 얻지 못하면 종료 코드 1로 끝나도록 고쳐졌습니다.",
+        "`--continue`가 잘못된 도구 호출 재시도가 모두 소진된 뒤 이전 대화를 잃던 문제를 고쳤습니다.",
+        "`claude auth status`와 `claude -p` JSON 결과에 저장된 claude.ai 로그인 만료 시각이 추가되었고, 만료 10일 전부터 `claude -p` 텍스트 출력에 경고가 표시됩니다."
+      ],
+      "tool": "claude-code",
+      "url": "https://github.com/anthropics/claude-code/releases/tag/v2.1.318",
+      "versions": [
+        "2.1.318"
+      ]
+    },
+    {
+      "date": "2026-11-03",
+      "highlights": [
+        "`/schedule`로 만든 클라우드 예약 작업에 요청하지 않은 커넥터가 붙으면 경고하고 제거 방법을 안내합니다.",
+        "웹 또는 셸 도구 호출이 계정 이메일 주소를 네트워크로 보내기 전에 확인을 요청하도록 했습니다.",
+        "Agent SDK 훅 콜백에 `onFailure: \"block\"` 옵션을 더해, 콜백이 실패하면 동작을 막도록 했습니다."
+      ],
+      "tool": "claude-code",
+      "url": "https://github.com/anthropics/claude-code/releases/tag/v2.1.317",
+      "versions": [
+        "2.1.317"
+      ]
+    },
+    {
+      "date": "2026-10-31",
+      "highlights": [
+        "`CLAUDE_CODE_SUBAGENT_EFFORT`를 추가해 서브에이전트가 지정되지 않았을 때 쓸 effort 수준을 세션 설정과 별도로 정할 수 있게 했습니다.",
+        "`CLAUDE_CODE_DISABLE_ULTRATHINK`를 추가해 `ultrathink` 키워드를 끌 수 있게 했습니다.",
+        "Claude Code가 종료될 때 macOS와 Linux에서 셸 명령이 계속 실행되어 남던 문제를 고쳤습니다."
+      ],
+      "tool": "claude-code",
+      "url": "https://github.com/anthropics/claude-code/releases/tag/v2.1.316",
+      "versions": [
+        "2.1.316"
+      ]
+    },
+    {
+      "date": "2026-10-30",
+      "highlights": [
+        "`permissions.blockWritesOutsideWorkingDirectories` 설정을 추가해 모든 권한 모드에서 작업 디렉터리 밖 경로에 대한 Write, Edit, NotebookEdit 쓰기를 막을 수 있습니다.",
+        "`claude mcp logout`이 MCP 로그인이 실제로 삭제되지 않았는데도 성공으로 보고하던 문제를 고쳤습니다.",
+        "Microsoft Foundry에서 리소스에 기본 Sonnet, Opus, Haiku 모델 배포가 없으면 세션이 실패하던 문제를 고쳤습니다. 이제 같은 계열의 이전 모델로 대체합니다."
+      ],
+      "tool": "claude-code",
+      "url": "https://github.com/anthropics/claude-code/releases/tag/v2.1.314",
+      "versions": [
+        "2.1.314"
+      ]
+    },
+    {
+      "date": "2026-10-29",
+      "highlights": [
+        "키보드만으로 transcript를 단어·줄·페이지 단위로 선택하고 검색할 수 있게 되었고, 단축키도 바꿀 수 있습니다.",
+        "`codex queue --resume`을 추가해 메시지를 대기열에 넣은 뒤 unload된 스레드를 다시 열 수 있습니다.",
+        "스킬 목록 변경을 점진적으로 반영하는 `skill_catalog_deltas` 기능 플래그를 추가했습니다."
+      ],
+      "tool": "codex",
+      "url": "https://github.com/openai/codex/releases/tag/rust-v0.166.0",
+      "versions": [
+        "0.166.0"
+      ]
+    },
+    {
+      "date": "2026-10-27",
+      "highlights": [
+        "Claude apps gateway에 oidc.user_id_claim을 추가해 sub 대신 id_token의 다른 클레임(예: Entra ID의 oid)으로 사용자를 식별할 수 있게 했습니다.",
+        "Bedrock, Vertex, Foundry, Mantle에서 인식하지 못하는 모델 이름일 때 짧은 시스템 프롬프트를 쓰도록 바꿨습니다. CLAUDE_CODE_SIMPLE_SYSTEM_PROMPT=0으로 전체 프롬프트를 유지할 수 있습니다.",
+        "Bash로 git 저장소 깊은 곳에 cd한 뒤 디렉터리별 스킬과 paths: 스킬을 찾지 못하던 문제를 고쳤습니다."
+      ],
+      "tool": "claude-code",
+      "url": "https://github.com/anthropics/claude-code/releases/tag/v2.1.312",
+      "versions": [
+        "2.1.312"
+      ]
+    },
+    {
+      "date": "2026-10-27",
+      "highlights": [
+        "built-in Google Cloud Vertex AI 제공자를 `model_provider = \"gcp\"`로 설정해 쓸 수 있게 되었습니다.",
+        "추론 강도(reasoning effort)를 지원 모델에서 대화 중에도 기본으로 바꿀 수 있게 했습니다.",
+        "새 프로필의 메모리 기능을 v2로 기본 설정하고, 외부 에이전트의 메모리를 가져올 수 있게 했습니다."
+      ],
+      "tool": "codex",
+      "url": "https://github.com/openai/codex/releases/tag/rust-v0.165.0",
+      "versions": [
+        "0.165.0"
+      ]
+    },
+    {
+      "date": "2026-10-26",
+      "highlights": [
+        "`--hold-idle-file`와 `--max-hold-min` 옵션을 `self-hosted-runner`에 더해, 호스트가 남은 프로세스를 보고하는 동안 유휴 세션을 유지할 수 있게 했습니다.",
+        "컨텍스트가 200K 토큰을 넘는 요청에서 표준 컨텍스트 세션이 \"Usage credits required for 1M context\" 오류로 멈추던 문제를 고쳤고, 이제 대화를 압축한 뒤 이어서 진행합니다.",
+        "MCP 서버가 응답하지 않거나 스킬을 내려받는 중에도 Claude 중단 입력이 타임아웃까지 반영되지 않던 문제를 고쳤습니다."
+      ],
+      "tool": "claude-code",
+      "url": "https://github.com/anthropics/claude-code/releases/tag/v2.1.311",
+      "versions": [
+        "2.1.311"
+      ]
+    },
+    {
+      "date": "2026-10-23",
+      "highlights": [
+        "Monitor 도구와 플러그인 모니터를 Bedrock, Vertex, Foundry 환경과 텔레메트리 또는 비필수 트래픽을 끈 상태에서도 쓸 수 있게 했습니다.",
+        "게이트웨이가 `effort-2025-11-24` 베타 값이나 대화 중간의 시스템 메시지를 거부할 때 요청이 실패하던 문제를 고쳤습니다. 이제 해당 값 없이 자동으로 다시 시도합니다.",
+        "Windows에서 Git Bash가 없고 훅 명령이 따옴표 문자열만 있을 때 PreToolUse와 PermissionRequest 훅이 도구 호출을 통과시키던 문제를 고쳤습니다."
+      ],
+      "tool": "claude-code",
+      "url": "https://github.com/anthropics/claude-code/releases/tag/v2.1.310",
+      "versions": [
+        "2.1.310"
+      ]
+    },
+    {
+      "date": "2026-10-23",
+      "highlights": [
+        "`/presets`로 자주 쓰는 프롬프트와 슬래시 명령을 번호 슬롯 10개에 저장하고 키보드 메뉴로 빠르게 불러올 수 있게 되었습니다.",
+        "인라인 `/model`, `/permissions` 인자로 모델, 추론 강도, 속도, 권한 프로필을 바로 지정할 수 있게 되었습니다.",
+        "엔터프라이즈 MCP 연결을 Codex 계정 권한 또는 전용 로그인으로 인증할 수 있도록 추가했습니다."
+      ],
+      "tool": "codex",
+      "url": "https://github.com/openai/codex/releases/tag/rust-v0.164.0",
+      "versions": [
+        "0.164.0"
+      ]
+    },
+    {
+      "date": "2026-10-22",
+      "highlights": [
+        "2.1.309에서 샌드박스 Bash 명령이 명령 실행 전마다 셸 시작 파일을 샌드박스 밖에서 실행하던 문제를 고쳤습니다.",
+        "2.1.309에서 `--mcp-config`로 넘긴 MCP 설정 파일을 샌드박스 명령이나 자동 승인된 편집으로 수정할 수 있던 문제를 막았습니다.",
+        "2.1.309에서 `/claude-api` 스킬이 Managed Agents 서브에이전트 팀을 `coordinator` 대신 `multiagent_20261001`과 동적 워크플로로 구성하도록 바꿨습니다."
+      ],
+      "tool": "claude-code",
+      "url": "https://github.com/anthropics/claude-code/releases/tag/v2.1.309",
+      "versions": [
+        "2.1.308",
+        "2.1.309"
+      ]
+    },
+    {
+      "date": "2026-10-21",
+      "highlights": [
+        "`/claude-api api-version`을 추가해 Claude API 코드를 API 버전 `2026-10-21`로 옮길 수 있게 했습니다.",
+        "`claude_code.safety_event` OpenTelemetry 이벤트를 추가해 권한 규칙, 자동 모드, 훅, 샌드박스가 막거나 확인을 요청한 도구 호출을 기록하게 했습니다.",
+        "`CLAUDE_CODE_DISABLE_1M_CONTEXT` 설정 시 `opus[1m]` 같은 별칭 모델에서 발생하던 model-not-found 오류를 고쳤습니다."
+      ],
+      "tool": "claude-code",
+      "url": "https://github.com/anthropics/claude-code/releases/tag/v2.1.307",
+      "versions": [
+        "2.1.306",
+        "2.1.307"
+      ]
+    },
+    {
+      "date": "2026-10-20",
+      "highlights": [
+        "MCP 서버 허용 목록 변경: allowedMcpServers가 env에서만 ${VAR}를 쓰는 managed-mcp.json stdio 서버를 더 이상 걸러내지 않으며, 막으려면 deniedMcpServers를 씁니다.",
+        "프로바이더 호환성 수정: Vertex, Bedrock 등에서 엔드포인트나 게이트웨이가 tool search를 거부하면 이를 빼고 다시 요청합니다.",
+        "/usage 개선: 각 경고가 원인을 밝히는 한 줄 해결책으로 바뀌었고, f 키로 한 번에 적용할 수 있습니다."
+      ],
+      "tool": "claude-code",
+      "url": "https://github.com/anthropics/claude-code/releases/tag/v2.1.305",
+      "versions": [
+        "2.1.305"
+      ]
+    },
+    {
+      "date": "2026-10-20",
+      "highlights": [
+        "`npx @cursor/agent-sdk init`으로 에이전트 프로젝트를 만들고 `agent-sdk dev`로 로컬 플레이그라운드에서 실행할 수 있게 되었습니다.",
+        "`agent-sdk deploy`로 에이전트를 빌드해 Cursor 인프라에 URL을 받아 배포할 수 있게 되었습니다.",
+        "`agent-sdk eval`로 봇이 어떤 도구를 어떤 입력으로 호출했는지 검증하는 테스트를 로컬과 CI에서 실행할 수 있게 되었습니다."
+      ],
+      "tool": "cursor",
+      "url": "https://cursor.com/changelog/agent-sdk",
+      "versions": [
+        "Agent SDK"
+      ]
+    },
+    {
+      "date": "2026-10-19",
+      "highlights": [
+        "`/auto-mode-setup`을 추가해 프로젝트와 최근 세션을 읽고 자동 모드에 환경 정보를 알려주는 안내 설정을 제공합니다. Bedrock, Vertex, Foundry 등에서도 쓸 수 있습니다.",
+        "Pro·Max 요금제에서 오래된 대화를 재개할 때 5시간 사용량 한도를 많이 쓰면 경고를 표시하도록 추가했습니다.",
+        "`/claude-api managed-agents-secure`를 추가해 Managed Agents 에이전트의 설정을 Anthropic 보안 가이드와 비교합니다. 설정은 바꾸지 않습니다."
+      ],
+      "tool": "claude-code",
+      "url": "https://github.com/anthropics/claude-code/releases/tag/v2.1.304",
+      "versions": [
+        "2.1.304"
+      ]
+    },
+    {
+      "date": "2026-10-16",
+      "highlights": [
+        "`CLAUDE_CODE_FORK_SUBAGENT=0`로 끌 수 있게 되었지만, fork 서브에이전트가 `claude -p`, Agent SDK, 데스크톱 앱, VS Code에서 기본으로 켜졌습니다.",
+        "`CLAUDE_CODE_AUTO_MODE_MODEL`을 더해 클라이언트 측 auto 모드 분류기가 쓸 모델을 고를 수 있게 했습니다.",
+        "`/config`에 `Idle compaction` 항목을 더해 유휴 상태 압축을 끄거나 다시 켤 수 있게 했습니다."
+      ],
+      "tool": "claude-code",
+      "url": "https://github.com/anthropics/claude-code/releases/tag/v2.1.302",
+      "versions": [
+        "2.1.302"
+      ]
+    },
+    {
+      "date": "2026-10-16",
+      "highlights": [
+        "클라우드 에이전트가 작업 중 인터랙티브 캔버스를 만들 수 있게 되었고, 완성한 캔버스는 링크로 팀에 공유할 수 있습니다.",
+        "Environments API가 베타로 제공되어, 에이전트가 실행되는 클라우드 환경을 코드로 만들고 관리할 수 있습니다.",
+        "클라우드 에이전트 환경이 최대 300개 저장소를 지원하며, 큰 환경의 로딩 속도도 5배 빨라졌습니다."
+      ],
+      "tool": "cursor",
+      "url": "https://cursor.com/changelog/cloud-agent-canvases-and-environments",
+      "versions": [
+        "Cloud Agent Canvases and Environment Improvements"
+      ]
+    },
+    {
+      "date": "2026-10-15",
+      "highlights": [
+        "Claude Code 2.1.301에서 `fable` 모델 별칭이 새 Fable 모델을 쓸 수 없는 조직에서 API 오류를 내던 문제를 고쳐, 이전 Fable 모델로 한 번 재시도합니다.",
+        "`claude-api` 스킬에 OpenTelemetry 추적 설정 안내를 더하고, `ant` CLI로 추적 대상을 설정하는 방법을 담았습니다.",
+        "auto 모드 분류기의 판단을 권한 규칙과 구분할 수 있도록 OpenTelemetry `tool_decision` 이벤트에 `classifier_verdict`와 `permission_mode`를 더했습니다."
+      ],
+      "tool": "claude-code",
+      "url": "https://github.com/anthropics/claude-code/releases/tag/v2.1.301",
+      "versions": [
+        "2.1.301"
+      ]
+    },
+    {
+      "date": "2026-10-15",
+      "highlights": [
+        "`/config`에서 설정을 검색하고 지원되는 항목을 바로 바꿀 수 있게 되었으며, 재시작이 필요한 변경도 표시됩니다.",
+        "응답 중에 추가 메시지를 보내 Codex의 작업 방향을 즉시 바꿀 수 있게 되었습니다.",
+        "`/keymap`에서 리더 키를 설정할 수 있게 되었고, 음소거 단축키는 `F9`로 옮겨졌습니다."
+      ],
+      "tool": "codex",
+      "url": "https://github.com/openai/codex/releases/tag/rust-v0.163.0",
+      "versions": [
+        "0.163.0"
+      ]
+    },
+    {
+      "date": "2026-10-14",
+      "highlights": [
+        "유휴 상태로 200K 토큰 이상인 대화를 프롬프트 캐시가 만료되기 전에 자동으로 압축해, 다음 메시지를 보낼 때 전체 재처리를 줄였습니다.",
+        "CLAUDE_CODE_DISABLE_FILE_MENTIONS 환경 변수를 추가해, @ 파일 멘션이 내용 대신 경로만 Claude에 전달되도록 설정할 수 있습니다.",
+        "MCP 서버 deny 및 ask 규칙이 서버 이름에 이중 밑줄이 있을 때도 적용되도록 고쳤습니다."
+      ],
+      "tool": "claude-code",
+      "url": "https://github.com/anthropics/claude-code/releases/tag/v2.1.300",
+      "versions": [
+        "2.1.299",
+        "2.1.300"
+      ]
+    },
+    {
+      "date": "2026-10-13",
+      "highlights": [
+        "Origin 앱 마켓플레이스에 Cloudflare, Sentry, Linear 등 20개 이상의 배포·CI·코드 리뷰·보안·모니터링·프로젝트 관리 앱이 추가되었습니다.",
+        "이제 누구나 Origin 앱 마켓플레이스에 앱을 공개 제출할 수 있으며, 승인 후 목록에 등록됩니다.",
+        "Origin API로 앱을 만들고 공개 설정 후 슬러그, 태그, 데모 영상을 제출해 배포할 수 있습니다."
+      ],
+      "tool": "cursor",
+      "url": "https://cursor.com/changelog/origin-app-marketplace",
+      "versions": [
+        "Origin App Marketplace"
+      ]
+    },
+    {
+      "date": "2026-10-09",
+      "highlights": [
+        "서브에이전트 frontmatter와 --agents 정의에 autoCompactWindow를 추가해, 메인 대화보다 일찍 자동 압축되도록 설정할 수 있게 했습니다.",
+        "CLAUDE_CODE_WORKFLOW_SUBAGENT_MODEL 환경 변수를 추가해 워크플로 에이전트 전체를 하나의 모델로 실행하고 다른 서브에이전트는 기존 모델을 유지하게 했습니다.",
+        "Read 도구에 allow_large 옵션을 추가해 전체 파일이 필요할 때 일반 크기 제한을 넘는 텍스트 파일도 한 번에 읽을 수 있게 했습니다."
+      ],
+      "tool": "claude-code",
+      "url": "https://github.com/anthropics/claude-code/releases/tag/v2.1.296",
+      "versions": [
+        "2.1.296"
+      ]
+    },
+    {
+      "date": "2026-10-08",
+      "highlights": [
+        "`onFailure: \"block\"` 옵션을 command·HTTP hook에 더해, 실행 실패나 시간 초과 시 작업을 막을 수 있습니다.",
+        "`prompt` hook이 지시형 문장(예: \"Block commands that...\")을 잘못 통과시키던 문제를 고쳤습니다.",
+        "Stop·SubagentStop의 지시형 `prompt` hook 판단을 개선해 Claude가 너무 일찍 멈추는 경우를 줄였습니다."
+      ],
+      "tool": "claude-code",
+      "url": "https://github.com/anthropics/claude-code/releases/tag/v2.1.295",
+      "versions": [
+        "2.1.294",
+        "2.1.295"
+      ]
+    },
+    {
+      "date": "2026-10-07",
+      "highlights": [
+        "Claude Haiku 5.5(`claude-haiku-5-5`)를 추가했습니다. Anthropic API에서 기본 Haiku 모델이 되었으며 컨텍스트는 1M입니다.",
+        "`isDeferred`를 `$.tool.register`에 추가해 mods가 도구 스키마를 처음부터 프롬프트에 넣을 수 있습니다.",
+        "HTTP MCP 연결이 닫힐 때까지 보낸 요청을 모두 쥐고 있던 메모리 누수를 고쳤습니다."
+      ],
+      "tool": "claude-code",
+      "url": "https://github.com/anthropics/claude-code/releases/tag/v2.1.293",
+      "versions": [
+        "2.1.293"
+      ]
+    },
+    {
+      "date": "2026-10-06",
+      "highlights": [
+        "`claude plugin install`에 `--marketplace <source>` 옵션을 더해, 마켓플레이스 추가와 플러그인 설치를 한 번에 할 수 있게 했습니다.",
+        "Agent 도구에 `effort` 매개변수를 더해, 서브 에이전트를 원하는 노력 수준으로 실행할 수 있게 했습니다.",
+        "로컬(stdio) MCP 서버 연결이 기본으로 프로토콜 버전 2026-07-28을 협상하도록 바꿨고, `MCP_PROTOCOL_NEGOTIATION=legacy`로 이전 방식을 쓸 수 있게 했습니다."
+      ],
+      "tool": "claude-code",
+      "url": "https://github.com/anthropics/claude-code/releases/tag/v2.1.292",
+      "versions": [
+        "2.1.291",
+        "2.1.292"
+      ]
+    },
+    {
+      "date": "2026-10-06",
+      "highlights": [
+        "Cursor iOS 앱에서 내 컴퓨터의 로컬 에이전트 작업 상황을 보고 메시지를 보낼 수 있게 되었습니다.",
+        "데스크톱 설정의 'Keep this computer awake'로 자리를 비운 동안에도 컴퓨터가 잠들지 않게 할 수 있습니다.",
+        "Enterprise 조직은 기본적으로 꺼져 있으며, 관리자가 Org settings에서 원격 제어를 켤 수 있습니다."
+      ],
+      "tool": "cursor",
+      "url": "https://cursor.com/changelog/remote-control-local-agents",
+      "versions": [
+        "Remote control for local agents"
+      ]
+    },
+    {
+      "date": "2026-10-05",
+      "highlights": [
+        "`claude attach <name>`와 `claude logs <name>`에서 세션 ID 대신 세션 이름의 일부만 입력해도 되도록 했습니다.",
+        "`/claude-api managed-agents-onboard <url>`로 페이지에 설명된 Managed Agents 패턴을 `ant apply` 파일로 설정할 수 있게 했습니다.",
+        "WebFetch가 100,000자를 넘는 페이지 본문을 조용히 버리던 문제를 고쳤고, 읽지 못한 분량을 알려주며 `offset`으로 이어서 읽을 수 있게 했습니다."
+      ],
+      "tool": "claude-code",
+      "url": "https://github.com/anthropics/claude-code/releases/tag/v2.1.290",
+      "versions": [
+        "2.1.290"
+      ]
+    }
+  ]
 }
