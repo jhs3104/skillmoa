@@ -64,10 +64,11 @@ class ClaudeToolNewsWriter:
                 continue
             if not answer.relevant:
                 return ToolNewsResult((), input_tokens, output_tokens)
-            problem = _find_problem(answer.highlights)
+            # 중요한 순서로 쓰라고 했으므로 넘치면 앞에서부터 자른다. 다시 묻는 것보다 낫다.
+            highlights = [line.strip() for line in answer.highlights][:MAX_HIGHLIGHTS]
+            problem = _find_problem(highlights)
             if problem is None:
-                highlights = tuple(line.strip() for line in answer.highlights)
-                return ToolNewsResult(highlights, input_tokens, output_tokens)
+                return ToolNewsResult(tuple(highlights), input_tokens, output_tokens)
             reason = problem
             logger.info("업데이트 요약 재시도 %d회차 %s: %s", attempt, request.tool.value, reason)
         raise SummaryRejectedError(reason, input_tokens, output_tokens)
@@ -99,8 +100,6 @@ class ClaudeToolNewsWriter:
 def _find_problem(highlights: list[str]) -> str | None:
     if not highlights:
         return "relevant without highlights"
-    if len(highlights) > MAX_HIGHLIGHTS:
-        return "too many highlights"
     for line in highlights:
         if len(line.strip()) > MAX_HIGHLIGHT_CHARS:
             return "highlight too long"

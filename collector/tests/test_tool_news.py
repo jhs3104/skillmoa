@@ -171,6 +171,13 @@ class TestWriter:
         assert result.highlights == (line,)
         assert "Fixed --continue" in requests[0]["messages"][0]["content"]
 
+    def test_extra_highlights_are_cut_to_the_first_three(self, settings: Settings) -> None:
+        lines = [f"{n}번째로 중요한 변경 사항을 사용자에게 알려 드립니다." for n in range(1, 6)]
+        client, requests = anthropic_client({"relevant": True, "highlights": lines})
+        result = ClaudeToolNewsWriter(settings.news, client).write(news_request())
+        assert result.highlights == tuple(lines[:3])
+        assert len(requests) == 1
+
     def test_nothing_relevant_is_a_valid_answer(self, settings: Settings) -> None:
         client, _ = anthropic_client({"relevant": False, "highlights": []})
         assert ClaudeToolNewsWriter(settings.news, client).write(news_request()).highlights == ()
@@ -251,6 +258,8 @@ def test_tool_news_run_touches_only_its_own_files(
     context.today = TODAY
     context.state.star_history = {"acme/kit": {TODAY: 3}}
     save_state(context.state, paths.state)
+    # 스킬 수집이 아직 새 형식으로 저장하지 않은 파일도 그대로 남아야 한다.
+    (paths.state / "classifications.json").write_text('{"classifications": {}}', encoding="utf-8")
     before = {path.name: path.read_bytes() for path in paths.state.iterdir()}
 
     run_tool_news(context, ScriptedWriter(), [release()], paths)

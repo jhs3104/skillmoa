@@ -25,7 +25,7 @@ from collector.pipeline.summarize import summarize_skills
 from collector.pipeline.tool_news import update_tool_news
 from collector.sources.github import GitHubClient, RateLimitExceededError
 from collector.sources.tool_releases import fetch_tool_releases
-from collector.store import load_state, save_state, write_json
+from collector.store import TOOL_NEWS_FILE, load_state, save_state, write_json
 from collector.summarize.base import Classifier, Summarizer, ToolNewsWriter
 
 logger = logging.getLogger(__name__)
@@ -153,7 +153,7 @@ def run_tool_news(
     상태 파일 가운데 tool_updates.json만 바뀌고, 사이트 파일은 tool-updates.json만 쓴다.
     """
     update_tool_news(context, writer, releases)
-    save_state(context.state, paths.state)
+    save_state(context.state, paths.state, only=(TOOL_NEWS_FILE,))
     data = build_tool_updates_data(context.state)
     write_json(paths.tool_updates_data, data.model_dump(mode="json", by_alias=True))
 
@@ -175,7 +175,7 @@ def run_tool_news_only(
         settings=settings,
         today=today,
         metrics=RunMetrics(mode="tool-news"),
-        checkpoint=lambda: save_state(state, paths.state),
+        checkpoint=lambda: save_state(state, paths.state, only=(TOOL_NEWS_FILE,)),
     )
     run_tool_news(context, writer, fetch_tool_releases(github, feeds), paths)
     return context
