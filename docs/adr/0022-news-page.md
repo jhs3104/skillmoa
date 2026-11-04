@@ -22,6 +22,7 @@
   - Claude Code: `anthropics/claude-code`의 `CHANGELOG.md`
   - Codex: `openai/codex`의 GitHub Releases 중 정식 버전. 알파는 본문이 거의 비어 있다.
   - Cursor: `cursor.com/changelog/rss.xml`
+- 도구 업데이트 탭에는 `전체 · Claude Code · Codex · Cursor` 필터 칩을 둔다. 고른 도구는 주소(`/news/?tool=claude-code`)에 남겨 그대로 공유할 수 있다. 업데이트 항목마다 도구 값을 저장한다.
 - 도구별로 하루에 한 번, 그날 나온 버전을 묶어 Haiku가 한국어 2~3줄로 새로 쓴다. 스킬과 에이전트 사용자에게 의미 있는 변경만 고르고 원문 링크를 붙인다. 프롬프트는 버전으로 관리하고 하루 상한을 둔다.
 - 스킬 동향 중 새 스킬 수, 늘어난 분야, 눈에 띄는 새 스킬은 사이트가 `skills.json`의 발견일·분류·스타로 계산한다.
 - 스타 급상승은 기록이 있어야 한다. collector가 실행마다 저장소 스타를 `collector/state/star_history.json`에 하루 한 값으로 남기고 35일만 보관한다. 기록의 마지막 날을 기준으로 7일 전 기록이 있는 저장소만 비교해 `site/src/data/news.json`에 상위 10개를 낸다. 사이트에 실린 저장소만 싣는다.
