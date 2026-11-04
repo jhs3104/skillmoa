@@ -13,10 +13,11 @@ export const GOALS: Goal[] = [
   { id: 'code', label: '코드 작성·리뷰', categories: ['development', 'testing'] },
   { id: 'ops', label: '배포·운영·보안', categories: ['devops', 'security'] },
   { id: 'documents', label: '문서·보고서 작성', categories: ['documents', 'writing'] },
-  { id: 'design', label: '디자인·시각 자료', categories: ['design'] },
+  { id: 'design', label: '디자인·영상·음악', categories: ['design', 'audio'] },
   { id: 'data', label: '데이터 분석·리서치', categories: ['data', 'research'] },
   { id: 'marketing', label: '마케팅·콘텐츠', categories: ['marketing', 'writing'] },
   { id: 'agents', label: '에이전트 운영·자동화', categories: ['ai-agents', 'productivity'] },
+  { id: 'life', label: '금융·법률·생활', categories: ['finance', 'legal', 'health-lifestyle'] },
 ];
 
 export interface Answers {

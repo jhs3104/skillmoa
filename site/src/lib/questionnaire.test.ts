@@ -1,6 +1,8 @@
 import { describe, expect, it } from 'vitest';
 import type { CatalogItem } from './catalog';
+import { CATEGORY_LABELS } from './labels';
 import {
+  GOALS,
   hasMatchingAnswer,
   parseAnswers,
   recommendSkills,
@@ -46,6 +48,30 @@ describe('recommendSkills', () => {
     const roleMatch = item('role', { roles: ['designer'], difficulty: 'advanced', rank: 2 });
     const found = recommendSkills([levelMatch, roleMatch], answers({ role: 'designer', level: 'advanced' }));
     expect(found[0]?.item.slug).toBe('role');
+  });
+
+  it('finds finance, law and everyday-life skills under one goal', () => {
+    const items = [
+      item('finance', { category: 'finance' }),
+      item('legal', { category: 'legal' }),
+      item('life', { category: 'health-lifestyle' }),
+      item('design', { category: 'design' }),
+    ];
+    const found = recommendSkills(items, answers({ goal: 'life' })).map(({ item: { slug } }) => slug);
+    expect(found.sort()).toEqual(['finance', 'legal', 'life']);
+  });
+
+  it('puts audio skills under the design and media goal', () => {
+    const found = recommendSkills([item('audio', { category: 'audio' })], answers({ goal: 'design' }));
+    expect(found).toHaveLength(1);
+  });
+
+  it('reaches every category except other through some goal', () => {
+    const reachable = new Set(GOALS.flatMap(({ categories }) => categories));
+    const missing = Object.keys(CATEGORY_LABELS).filter(
+      (category) => category !== 'other' && !reachable.has(category as never),
+    );
+    expect(missing).toEqual([]);
   });
 
   it('keeps only skills for the chosen goal', () => {
