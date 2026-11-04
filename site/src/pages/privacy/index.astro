@@ -1,0 +1,194 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { CONTACT_EMAIL, SITE_NAME } from '../../lib/labels';
+
+const EFFECTIVE_DATE = '2026년 11월 4일';
+const description = `${SITE_NAME}가 어떤 정보를 왜 처리하고 언제 지우는지, 광고 쿠키를 어떻게 끌 수 있는지 안내합니다.`;
+const mail = `mailto:${CONTACT_EMAIL}`;
+
+const sections = [
+  { id: 'items', title: '처리하는 정보와 목적' },
+  { id: 'retention', title: '보관 기간과 파기' },
+  { id: 'transfer', title: '처리 위탁과 국외 이전' },
+  { id: 'cookies', title: '쿠키와 브라우저 저장소' },
+  { id: 'rights', title: '이용자의 권리' },
+  { id: 'security', title: '안전성 확보 조치' },
+  { id: 'contact', title: '개인정보 보호책임자와 문의' },
+  { id: 'changes', title: '방침의 변경' },
+] as const;
+const heading = (id: (typeof sections)[number]['id']): string => {
+  const index = sections.findIndex((section) => section.id === id);
+  return `${index + 1}. ${sections[index].title}`;
+};
+
+/** 국외 이전은 받는 곳마다 같은 항목을 적어야 해서 사실 표로 둔다. */
+const recipients = [
+  {
+    name: 'Anthropic, PBC',
+    rows: [
+      ['국가', '미국'],
+      ['보내는 정보', 'AI 찾기에 적은 질문 문장. IP 주소는 보내지 않습니다.'],
+      ['목적', '질문에 맞는 스킬 추천 만들기'],
+      ['시기와 방법', '질문을 보낼 때마다 암호화된 연결(HTTPS)로 전송'],
+      ['보관 기간', 'Anthropic의 방침에 따름'],
+    ],
+    policy: { href: 'https://www.anthropic.com/legal/privacy', label: 'Anthropic 개인정보 처리방침' },
+  },
+  {
+    name: 'Cloudflare, Inc.',
+    rows: [
+      ['국가', '미국(전 세계 데이터센터에서 처리)'],
+      ['보내는 정보', '접속 정보, AI 찾기 질문과 IP 주소의 해시, 하루 이용 횟수'],
+      ['목적', '사이트 전송, 보안, AI 찾기 이용 횟수 저장'],
+      ['시기와 방법', '페이지를 열 때마다 암호화된 연결(HTTPS)로 전송'],
+      ['보관 기간', '해시는 7일 또는 2일 뒤 삭제, 접속 정보는 Cloudflare의 방침에 따름'],
+    ],
+    policy: { href: 'https://www.cloudflare.com/privacypolicy/', label: 'Cloudflare 개인정보 처리방침' },
+  },
+  {
+    name: 'Google LLC',
+    rows: [
+      ['국가', '미국'],
+      ['보내는 정보', '광고 쿠키, 기기와 브라우저 정보, 방문한 페이지 주소'],
+      ['목적', 'Google AdSense 광고 게재와 성과 측정'],
+      ['시기와 방법', '광고가 있는 페이지를 열 때마다 암호화된 연결(HTTPS)로 전송'],
+      ['보관 기간', 'Google의 방침에 따름'],
+    ],
+    policy: {
+      href: 'https://policies.google.com/technologies/partner-sites?hl=ko',
+      label: 'Google이 파트너 사이트의 정보를 사용하는 방식',
+    },
+  },
+];
+---
+
+<Layout title="개인정보처리방침" {description}>
+  <article class="policy">
+    <header class="lede">
+      <h1>개인정보처리방침</h1>
+      <p>{SITE_NAME}는 회원가입이 없어 이름이나 전화번호를 받지 않습니다. 이메일 주소는 직접 문의를 보낼 때만 받습니다. 서비스에 꼭 필요한 정보만 짧게 보관하며, 이 방침은 {EFFECTIVE_DATE}부터 적용합니다.</p>
+    </header>
+
+    <section class="policy__glance" aria-labelledby="glance">
+      <h2 id="glance">한눈에 보기</h2>
+      <div class="policy__table">
+        <table>
+          <thead>
+            <tr><th scope="col">정보</th><th scope="col">보관</th><th scope="col">보내는 곳</th></tr>
+          </thead>
+          <tbody>
+            <tr><th scope="row">AI 찾기 질문</th><td>원문은 저장 안 함, 해시 7일</td><td>Anthropic(미국)</td></tr>
+            <tr><th scope="row">AI 찾기 IP 주소</th><td>해시 2일</td><td>Cloudflare(미국)</td></tr>
+            <tr><th scope="row">문의 메일</th><td>처리 후 삭제</td><td>없음</td></tr>
+            <tr><th scope="row">접속 정보</th><td>각 업체 방침</td><td>Cloudflare, Google(미국)</td></tr>
+            <tr><th scope="row">테마, 마지막 질문</th><td>내 브라우저에만</td><td>없음</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <nav class="policy__toc" aria-label="목차">
+      <ol>
+        {sections.map(({ id, title }) => <li><a href={`#${id}`}>{title}</a></li>)}
+      </ol>
+    </nav>
+
+    <section id="items">
+      <h2>{heading('items')}</h2>
+      <dl class="policy__items">
+        <div>
+          <dt><a href="/ask/">AI 찾기</a>에 적은 질문</dt>
+          <dd>맞는 스킬을 골라 드리려고 처리합니다. AI 찾기는 하고 싶은 일을 문장으로 적으면 AI가 스킬을 골라 주는 기능입니다. 질문 원문은 서버에 저장하지 않고, 같은 질문에 다시 답하려고 질문을 해시로 변환한 값과 추천 결과만 보관합니다.</dd>
+        </div>
+        <div>
+          <dt>AI 찾기를 쓸 때의 IP 주소</dt>
+          <dd>한 사람이 하루 5번까지만 쓰도록 횟수를 세려고 처리합니다. IP 주소는 그대로 저장하지 않고, 날짜와 함께 해시로 변환한 값만 보관합니다.</dd>
+        </div>
+        <div>
+          <dt>문의 메일</dt>
+          <dd>보내 주신 이메일 주소와 내용은 답장과 스킬 삭제·수정 요청 처리에만 씁니다.</dd>
+        </div>
+        <div>
+          <dt>자동으로 생성되는 접속 정보</dt>
+          <dd>페이지를 열면 IP 주소, 브라우저 종류, 접속 시각 같은 정보가 호스팅 업체(Cloudflare)와 광고 업체(Google)로 전달됩니다. 사이트 전송, 보안, 광고 게재에 쓰입니다.</dd>
+        </div>
+      </dl>
+      <p>맞춤 추천 질문지와 목록 검색은 브라우저 안에서만 동작하며, 고른 답이나 검색어를 서버로 보내지 않습니다.</p>
+    </section>
+
+    <section id="retention">
+      <h2>{heading('retention')}</h2>
+      <ul>
+        <li>질문 해시와 추천 결과: 7일 뒤 자동으로 지워집니다.</li>
+        <li>IP 주소 해시와 하루 이용 횟수: 2일 뒤 자동으로 지워집니다.</li>
+        <li>문의 메일: 요청 처리가 끝나면 지체 없이 지웁니다.</li>
+      </ul>
+      <p>자동 삭제는 저장소에 정해 둔 만료 시간이 지나면 이루어지며, 지운 정보는 되살릴 수 없습니다.</p>
+    </section>
+
+    <section id="transfer">
+      <h2>{heading('transfer')}</h2>
+      <p>사이트 운영에 필요한 일을 아래 세 업체에 맡기며(처리 위탁), 세 업체 모두 국외에 있어 정보가 국외로 전송됩니다(국외 이전).</p>
+      {recipients.map(({ name, rows, policy }) => (
+        <div class="policy__recipient">
+          <h3>{name}</h3>
+          <dl class="policy__facts">
+            {rows.map(([label, value]) => (
+              <div><dt>{label}</dt><dd>{value}</dd></div>
+            ))}
+            <div><dt>연락처</dt><dd><a href={policy.href} rel="noopener">{policy.label}</a></dd></div>
+          </dl>
+        </div>
+      ))}
+      <p>국외 이전을 원하지 않으면 AI 찾기를 쓰지 않거나, <a href="#cookies">쿠키와 브라우저 저장소</a>에 적은 방법으로 광고 쿠키를 끌 수 있습니다. 다만 호스팅 업체를 거치지 않고는 사이트를 열 수 없습니다.</p>
+      <p>위탁과 국외 이전 외에 다른 곳에 정보를 제공하지 않습니다. 법령에 따라 수사기관 등이 요청하는 경우는 예외입니다.</p>
+    </section>
+
+    <section id="cookies">
+      <h2>{heading('cookies')}</h2>
+      <p>{SITE_NAME}는 자체 쿠키를 만들지 않습니다. 대신 브라우저에 아래 두 가지를 저장하며, 이 값은 서버로 보내지 않습니다.</p>
+      <ul>
+        <li>화면 테마(밝게·어둡게) 선택: 브라우저 데이터를 지울 때까지 남습니다.</li>
+        <li>AI 찾기의 마지막 질문과 결과: 탭을 닫으면 지워집니다.</li>
+      </ul>
+      <p>Google을 비롯한 제3자 광고 업체는 쿠키를 사용해 이용자가 이 사이트나 다른 사이트를 방문한 기록을 바탕으로 광고를 보여 줍니다. Google은 광고 쿠키로 이용자의 방문 기록에 맞는 광고를 게재할 수 있습니다.</p>
+      <ul>
+        <li><a href="https://adssettings.google.com/" rel="noopener">Google 광고 설정</a>에서 맞춤 광고를 끌 수 있습니다.</li>
+        <li><a href="https://www.aboutads.info/choices/" rel="noopener">aboutads.info</a>에서 다른 광고 업체의 맞춤 광고 쿠키를 끌 수 있습니다.</li>
+        <li>브라우저 설정에서 쿠키를 막을 수도 있습니다. 이 경우에도 사이트는 그대로 쓸 수 있습니다.</li>
+      </ul>
+    </section>
+
+    <section id="rights">
+      <h2>{heading('rights')}</h2>
+      <p>자신의 정보를 열람, 정정, 삭제하거나 처리를 멈춰 달라고 요청할 수 있습니다. <a href={mail}>{CONTACT_EMAIL}</a>으로 보내 주시면 지체 없이 처리하고 결과를 알려 드립니다. 질문과 IP 주소는 해시로만 남아 있어 요청하신 분의 정보인지 확인하기 어려울 수 있습니다. 그런 경우에도 보관 기간이 지나면 자동으로 지워집니다.</p>
+      <p>만 14세 미만 아동의 정보를 따로 받지 않습니다.</p>
+    </section>
+
+    <section id="security">
+      <h2>{heading('security')}</h2>
+      <ul>
+        <li>모든 연결을 HTTPS로 암호화합니다.</li>
+        <li>질문과 IP 주소는 원문 대신 해시로 저장하고, 정해진 기간이 지나면 자동으로 지웁니다.</li>
+        <li>외부 서비스에 접속하는 비밀 키는 코드와 분리해 운영자만 접근할 수 있는 곳에 둡니다.</li>
+      </ul>
+    </section>
+
+    <section id="contact">
+      <h2>{heading('contact')}</h2>
+      <p>개인정보 보호책임자는 {SITE_NAME} 운영자이며, <a href={mail}>{CONTACT_EMAIL}</a>으로 연락할 수 있습니다.</p>
+      <p>침해 신고나 상담이 필요하면 아래 기관에 문의할 수 있습니다.</p>
+      <ul>
+        <li>개인정보침해신고센터: 국번 없이 <a href="tel:118">118</a>, <a href="https://privacy.kisa.or.kr/" rel="noopener">privacy.kisa.or.kr</a></li>
+        <li>개인정보분쟁조정위원회: <a href="tel:1833-6972">1833-6972</a>, <a href="https://www.kopico.go.kr/" rel="noopener">kopico.go.kr</a></li>
+        <li>대검찰청 사이버수사과: 국번 없이 <a href="tel:1301">1301</a>, <a href="https://www.spo.go.kr/" rel="noopener">spo.go.kr</a></li>
+        <li>경찰청 사이버수사국: 국번 없이 <a href="tel:182">182</a>, <a href="https://ecrm.police.go.kr/" rel="noopener">ecrm.police.go.kr</a></li>
+      </ul>
+    </section>
+
+    <section id="changes">
+      <h2>{heading('changes')}</h2>
+      <p>내용이 바뀌면 이 페이지에 시행일과 함께 알립니다. 지금 방침은 {SITE_NAME}의 첫 방침이며 {EFFECTIVE_DATE}부터 적용합니다. 궁금한 점은 언제든 <a href={mail}>{CONTACT_EMAIL}</a>으로 물어봐 주세요.</p>
+    </section>
+  </article>
+</Layout>

@@ -4,7 +4,7 @@ import { isIndexable } from '../lib/seo';
 
 /** 색인 대상만 싣는다. noindex 페이지는 사이트맵에 넣지 않는다. */
 export const GET: APIRoute = ({ site }) => {
-  const paths = ['/', '/new/', '/recommend/', '/ask/'];
+  const paths = ['/', '/new/', '/recommend/', '/ask/', '/privacy/'];
   paths.push(...skills.filter(isIndexable).map((skill) => `/skills/${skill.slug}/`));
   const entries = paths
     .map((path) => `  <url><loc>${new URL(path, site).href}</loc></url>`)

@@ -77,7 +77,8 @@ const navigation = [
       <div class="page">
         <p>스킬 설명은 원문을 바탕으로 AI가 새로 쓴 요약이며, 원문과 권리는 각 저장소에 있습니다. 설치 전에 원문을 확인하세요.</p>
         <p>{SITE_NAME}는 Anthropic, OpenAI, Cursor, GitHub와 제휴하지 않은 독립 사이트입니다. 각 제품 이름과 상표는 해당 회사의 것입니다.</p>
-        {CONTACT_EMAIL && <p>저작자의 삭제·수정 요청은 <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a>로 보내 주세요.</p>}
+        <p><a href="/privacy/">개인정보처리방침</a></p>
+        {CONTACT_EMAIL && <p>저작자의 삭제·수정 요청은 <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a>으로 보내 주세요.</p>}
       </div>
     </footer>
   </body>

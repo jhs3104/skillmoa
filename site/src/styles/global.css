@@ -234,6 +234,44 @@ main { flex: 1; }
 /* AI 찾기 */
 .ask__recover { display: flex; flex-wrap: wrap; gap: 4px 16px; font-size: 14px; font-weight: 600; }
 .ask__recover a { display: inline-flex; align-items: center; min-height: 44px; }
+/* 개인정보처리방침처럼 긴 안내문. 한 줄 길이를 줄여 한국어 본문을 읽기 쉽게 한다. */
+.policy { max-width: 68ch; padding-bottom: 56px; }
+.policy > section:not(.policy__glance) { margin-top: 32px; padding-top: 24px; border-top: 1px solid var(--line); }
+.policy h2 { font-size: 22px; font-weight: 800; }
+.policy h3 { font-size: 16px; font-weight: 700; }
+.policy p, .policy ul { margin-top: 10px; }
+.policy ul { padding-left: 1.2em; }
+.policy li + li { margin-top: 4px; }
+.policy a { color: var(--ink); font-weight: 600; text-decoration: underline; text-underline-offset: 3px; overflow-wrap: anywhere; }
+.policy__items { display: grid; gap: 16px; margin: 14px 0 0; }
+.policy__items dt { font-weight: 700; }
+.policy__items dd { margin: 2px 0 0; }
+
+/* 한눈에 보기: 무엇을, 얼마나, 어디로를 한 표에 모은다. */
+.policy__glance { margin-top: 8px; padding: 16px; border-radius: 12px; background: var(--surface-sunken); }
+.policy__glance h2 { font-size: 17px; font-weight: 700; }
+.policy__table { margin-top: 8px; overflow-x: auto; }
+.policy__table table { width: 100%; border-collapse: collapse; font-size: 14px; line-height: 1.45; }
+.policy__table th, .policy__table td { padding: 9px 12px 9px 0; text-align: left; vertical-align: top; border-bottom: 1px solid var(--line); }
+.policy__table tr > :last-child { padding-right: 0; }
+.policy__table tbody tr:last-child > * { border-bottom: 0; padding-bottom: 0; }
+.policy__table thead th { padding-top: 0; font-size: 12.5px; font-weight: 600; color: var(--muted); }
+.policy__table tbody th { font-weight: 700; }
+
+.policy__toc { margin-top: 20px; }
+.policy__toc ol { display: grid; margin: 0; padding-left: 1.5em; font-size: 15px; font-variant-numeric: tabular-nums; }
+.policy__toc li + li { margin-top: 0; }
+.policy__toc a { display: inline-block; padding: 4px 0; font-weight: 600; text-decoration: none; }
+.policy__toc a:hover { text-decoration: underline; }
+
+/* 국외 이전: 받는 곳마다 같은 항목을 사실 표로 맞춘다. */
+.policy__recipient { margin-top: 22px; }
+.policy__facts { display: grid; margin: 8px 0 0; font-size: 15px; line-height: 1.5; }
+.policy__facts > div { display: grid; grid-template-columns: 6.5em minmax(0, 1fr); gap: 12px; padding: 8px 0; border-bottom: 1px solid var(--line); }
+.policy__facts > div:first-child { border-top: 1px solid var(--line); }
+.policy__facts dt { color: var(--muted); }
+.policy__facts dd { margin: 0; }
+
 .ask-more { padding: 20px 0 36px; max-width: 68ch; color: var(--muted); }
 .ask { display: grid; gap: 12px; max-width: 880px; margin-top: 20px; }
 .ask__field {
@@ -800,6 +838,7 @@ main { flex: 1; }
   .hero h1 { font-size: 42px; }
   .lede h1 { font-size: 36px; }
   .ask__field { grid-template-columns: minmax(0, 1fr) auto; align-items: end; }
+  .policy__toc ol { grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: 24px; }
   .skill-list[data-view='cards'] { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .guide__steps { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px; }
   .evidence__groups { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 32px; }
