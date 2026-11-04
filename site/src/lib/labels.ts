@@ -109,6 +109,13 @@ export const DIFFICULTY_LABELS: Record<Difficulty, string> = {
 
 const compact = new Intl.NumberFormat('ko-KR', { notation: 'compact', maximumFractionDigits: 1 });
 
+const integer = new Intl.NumberFormat('ko-KR');
+
+/** 목록 개수는 정확한 값을 보여 주되 천 단위로 끊는다. */
+export function formatCount(count: number): string {
+  return integer.format(count);
+}
+
 export function formatStars(stars: number): string {
   return compact.format(stars);
 }

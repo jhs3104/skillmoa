@@ -16,6 +16,7 @@ import {
   type ViewKey,
 } from '../lib/browse';
 import type { CatalogItem } from '../lib/catalog';
+import { formatCount } from '../lib/labels';
 import { skillRowHtml, type RowOptions } from '../lib/skill-row';
 import type { Category, Subcategory } from '../lib/types';
 import { loadCatalog } from './catalog';
@@ -81,8 +82,8 @@ function start(root: HTMLElement): void {
   }
 
   function showCount(visible: number): void {
-    count.textContent = `${visible}개 스킬`;
-    apply.textContent = `${visible}개 스킬 보기`;
+    count.textContent = `${formatCount(visible)}개 스킬`;
+    apply.textContent = `${formatCount(visible)}개 스킬 보기`;
     pager.innerHTML = pagerHtml(state.page, pageCount(visible), urlFor);
   }
 
@@ -137,7 +138,7 @@ function start(root: HTMLElement): void {
       })
       .catch(() => {
         waiting = false;
-        count.textContent = `${total}개 스킬`;
+        count.textContent = `${formatCount(total)}개 스킬`;
         loadError.hidden = false;
       });
   }

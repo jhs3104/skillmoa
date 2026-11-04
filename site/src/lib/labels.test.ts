@@ -1,6 +1,18 @@
 import { describe, expect, it } from 'vitest';
 import taxonomy from '../data/taxonomy.json';
-import { CATEGORY_LABELS, formatLicense, SUBCATEGORY_LABELS } from './labels';
+import { CATEGORY_LABELS, formatCount, formatLicense, SUBCATEGORY_LABELS } from './labels';
+
+describe('formatCount', () => {
+  it('groups thousands with commas', () => {
+    expect(formatCount(3807)).toBe('3,807');
+    expect(formatCount(19000)).toBe('19,000');
+  });
+
+  it('leaves small numbers as they are', () => {
+    expect(formatCount(0)).toBe('0');
+    expect(formatCount(214)).toBe('214');
+  });
+});
 
 describe('formatLicense', () => {
   it('keeps license names as they are', () => {

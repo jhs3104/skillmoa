@@ -1,6 +1,6 @@
 ---
 import { PAGE_SIZE, pageCount, pagerHtml, SORT_LABELS, type SortKey } from '../lib/browse';
-import { CATEGORY_LABELS, SUBCATEGORIES, SUBCATEGORY_LABELS } from '../lib/labels';
+import { CATEGORY_LABELS, formatCount, SUBCATEGORIES, SUBCATEGORY_LABELS } from '../lib/labels';
 import type { Category, Skill, Subcategory } from '../lib/types';
 import AdSlot from './AdSlot.astro';
 import SkillItem from './SkillItem.astro';
@@ -67,12 +67,12 @@ const pager = pagerHtml(1, pageCount(skills.length), (page) => `?page=${page}`);
       <div class="chips">
         <label class="option option--cat" data-cat="all">
           <input type="radio" name="category" value="" checked />
-          <span>전체 <small>{skills.length}</small></span>
+          <span>전체 <small>{formatCount(skills.length)}</small></span>
         </label>
         {categories.map((category) => (
           <label class="option option--cat" data-cat={category}>
             <input type="radio" name="category" value={category} />
-            <span>{CATEGORY_LABELS[category]} <small>{counts.get(category)}</small></span>
+            <span>{CATEGORY_LABELS[category]} <small>{formatCount(counts.get(category) ?? 0)}</small></span>
           </label>
         ))}
       </div>
@@ -112,7 +112,7 @@ const pager = pagerHtml(1, pageCount(skills.length), (page) => `?page=${page}`);
   <div class="browse__main">
     {skills.length > 0 && (
       <div class="result-bar">
-        <p role="status"><b data-count>{skills.length}개 스킬</b></p>
+        <p role="status"><b data-count>{formatCount(skills.length)}개 스킬</b></p>
         <div class="result-bar__controls">
           <button class="text-button" type="button" data-reset hidden>초기화</button>
           <label>
