@@ -102,7 +102,7 @@ const pager = pagerHtml(1, pageCount(skills.length), (page) => `?page=${page}`);
       </label>
       <label class="choice">
         <input type="checkbox" name="no-account" />
-        <span class="choice__label">외부 계정이 확인되지 않은 스킬만</span>
+        <span class="choice__label">계정·API 키가 확인되지 않은 스킬만</span>
       </label>
       <p class="filters__hint">AI가 SKILL.md에서 찾지 못했다는 뜻입니다. 없다는 보장은 아닙니다.</p>
     </fieldset>
@@ -131,7 +131,7 @@ const pager = pagerHtml(1, pageCount(skills.length), (page) => `?page=${page}`);
     <h2 class="visually-hidden">스킬 목록</h2>
     <ol class="skill-list" data-list data-view="table">
       <li class="table-head" aria-hidden="true">
-        <span>AI 판단</span><span>{dateKind === 'found' ? '발견일' : '업데이트'}</span><span>저장소 스타</span>
+        <span>{dateKind === 'found' ? '발견일' : '업데이트'}</span><span>저장소 스타</span>
       </li>
       {skills.slice(0, PAGE_SIZE).map((skill) => <SkillItem skill={skill} dateKind={dateKind} />)}
     </ol>

@@ -590,7 +590,6 @@ main { flex: 1; }
   font-size: 13px;
   color: var(--muted);
 }
-.skill__flags { order: 1; display: flex; flex-wrap: wrap; gap: 4px; }
 .stat { font-variant-numeric: tabular-nums; white-space: nowrap; }
 .stat--stars { display: inline-flex; align-items: center; gap: 3px; font-size: 14px; font-weight: 800; color: var(--ink); }
 .table-head { display: none; }
@@ -608,7 +607,6 @@ main { flex: 1; }
   white-space: nowrap;
 }
 .badge--caution { background: var(--caution-soft); color: var(--caution); }
-.badge--quiet { background: none; padding-inline: 0; color: var(--muted); font-weight: 500; }
 
 /* 카드 보기 */
 .skill-list[data-view='cards'] { gap: 10px; }
@@ -888,14 +886,13 @@ main { flex: 1; }
   }
   .skill-list[data-view='table'] .skill__meta {
     display: grid;
-    grid-template-columns: 172px 84px 72px;
+    grid-template-columns: 84px 72px;
     gap: 12px;
     justify-items: end;
   }
   .skill-list--plain[data-view='table'] .skill { grid-template-columns: 104px minmax(0, 1fr) auto; }
   .skill-list--plain[data-view='table'] .skill::before { display: none; }
-  .skill-list--plain[data-view='table'] .skill__meta { grid-template-columns: 172px 136px 72px; }
-  .skill-list[data-view='table'] .skill__flags { order: 0; justify-content: flex-end; }
+  .skill-list--plain[data-view='table'] .skill__meta { grid-template-columns: 136px 72px; }
   .skill-list[data-view='table']:not(.skill-list--plain) .stat__label {
     position: absolute;
     width: 1px;
@@ -905,7 +902,7 @@ main { flex: 1; }
   }
   .skill-list[data-view='table'] .table-head {
     display: grid;
-    grid-template-columns: 172px 84px 72px;
+    grid-template-columns: 84px 72px;
     gap: 12px;
     justify-content: end;
     justify-items: end;

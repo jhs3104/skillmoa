@@ -43,20 +43,26 @@ describe('skillRowHtml', () => {
     expect(skillRowHtml(item(), { query: '?agent=codex' })).toContain('href="/skills/acme--kit--pdf/?agent=codex"');
   });
 
-  it('shows only what was found', () => {
-    expect(skillRowHtml(item())).toContain('코드·네트워크 미확인');
-    const flagged = skillRowHtml(item({ runsExternalCode: true, requiresExternalAccount: true, installBlocked: true }));
-    expect(flagged).toContain('코드 실행');
-    expect(flagged).toContain('외부 계정 필요');
-    expect(flagged).toContain('설치 명령 없음');
-    expect(flagged).not.toContain('미확인');
+  it('marks skills that need an account or API key in the title line', () => {
+    const row = skillRowHtml(item({ requiresExternalAccount: true, installBlocked: true }));
+    const title = row.slice(row.indexOf('skill__title'), row.indexOf('skill__summary'));
+    expect(title).toMatch(/badge--caution" title="AI가 SKILL\.md[^"]*">계정·API 키 필요</);
+    expect(title).toContain('설치 명령 없음');
+    expect(skillRowHtml(item())).not.toContain('계정·API 키 필요');
   });
 
-  it('splits unflagged skills by the files in their folder', () => {
-    expect(skillRowHtml(item({ scriptFiles: 'none' }))).toContain('지침 문서만');
-    const scripts = skillRowHtml(item({ scriptFiles: 'present' }));
-    expect(scripts).toContain('badge--caution">스크립트 포함');
-    expect(skillRowHtml(item({ runsExternalCode: true, scriptFiles: 'none' }))).not.toContain('지침 문서만');
+  it('leaves code and network judgement to the detail page', () => {
+    for (const flags of [
+      { runsExternalCode: true, accessesNetwork: true },
+      { scriptFiles: 'none' as const },
+      { scriptFiles: 'present' as const },
+      {},
+    ]) {
+      const row = skillRowHtml(item(flags));
+      for (const label of ['코드 실행', '네트워크', '지침 문서만', '스크립트 포함', '미확인']) {
+        expect(row).not.toContain(label);
+      }
+    }
   });
 
   it('names the subcategory when the summary has one', () => {
