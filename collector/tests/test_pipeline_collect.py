@@ -307,7 +307,23 @@ def fake_github(requests: list[str]) -> Callable:
 
 
 def run_twice_paths(tmp_path: Path) -> Paths:
-    return Paths(tmp_path / "state", tmp_path, tmp_path / "skills.json", tmp_path / "samples")
+    return Paths(
+        tmp_path / "state",
+        tmp_path,
+        tmp_path / "skills.json",
+        tmp_path / "samples",
+        tmp_path / "news.json",
+    )
+
+
+def test_collection_records_todays_stars(tmp_path: Path, settings: Settings) -> None:
+    paths = run_twice_paths(tmp_path)
+    options = RunOptions(mode=Mode.BOOTSTRAP, limit=None, today=TODAY)
+
+    context, _ = run_collection(settings, make_client(fake_github([])), paths, options)
+
+    stars = context.state.repositories["anthropics/skills"].stars
+    assert load_state(paths.state).star_history["anthropics/skills"] == {TODAY: stars}
 
 
 def test_second_run_is_idempotent(tmp_path: Path, settings: Settings) -> None:

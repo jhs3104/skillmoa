@@ -5,6 +5,7 @@ from collector.export.schema import (
     SCHEMA_PATH,
     TAXONOMY_PATH,
     SiteData,
+    SiteNews,
     render_schema,
     render_taxonomy,
 )
@@ -28,6 +29,11 @@ def test_committed_site_data_matches_contract() -> None:
 def test_sample_site_data_matches_contract() -> None:
     raw = (SITE_DATA_DIR / "skills.sample.json").read_text(encoding="utf-8")
     assert SiteData.model_validate(json.loads(raw)).skills
+
+
+def test_committed_news_matches_contract() -> None:
+    raw = (SITE_DATA_DIR / "news.json").read_text(encoding="utf-8")
+    SiteNews.model_validate(json.loads(raw))
 
 
 def test_site_data_serializes_as_camel_case() -> None:

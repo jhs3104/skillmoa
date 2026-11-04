@@ -9,6 +9,8 @@ from enum import StrEnum
 from pathlib import Path
 
 from collector.config import Settings
+from collector.domain.trends import record_stars
+from collector.export.news import build_news_data
 from collector.export.samples import write_samples
 from collector.export.site import build_site_data
 from collector.pipeline import collect
@@ -36,6 +38,7 @@ class Paths:
     build: Path
     site_data: Path
     samples: Path
+    news_data: Path
 
     @classmethod
     def production(cls, collector_root: Path) -> "Paths":
@@ -45,6 +48,7 @@ class Paths:
             build=build,
             site_data=collector_root.parent / "site/src/data/skills.json",
             samples=build / "samples",
+            news_data=collector_root.parent / "site/src/data/news.json",
         )
 
     @classmethod
@@ -57,6 +61,7 @@ class Paths:
             build=small,
             site_data=small / "skills.json",
             samples=build / "samples",
+            news_data=small / "news.json",
         )
 
 
@@ -97,6 +102,15 @@ def run_collection(
         collect.apply_duplicates(context)
     finally:
         state.bootstrapped_on = state.bootstrapped_on or options.today
+        state.star_history = record_stars(
+            state.star_history,
+            {
+                key: record.stars
+                for key, record in state.repositories.items()
+                if record.exclusion is None
+            },
+            options.today,
+        )
         save_state(state, paths.state)
     return context, mode
 
@@ -126,6 +140,8 @@ def run_summaries(
 def export_site(context: CollectContext, paths: Paths) -> None:
     data = build_site_data(context.state, context.settings.ranking, context.settings.exclude)
     write_json(paths.site_data, data.model_dump(mode="json", by_alias=True))
+    news = build_news_data(context.state, data)
+    write_json(paths.news_data, news.model_dump(mode="json", by_alias=True))
 
 
 def reset_small_run(paths: Paths) -> None:

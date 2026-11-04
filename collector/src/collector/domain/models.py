@@ -360,3 +360,5 @@ class CollectorState(BaseModel):
     # 검수에서 걸린 요약. 키는 스킬, 값은 사유. 다시 만들 때까지 기존 요약은 그대로 보여 준다.
     summary_redo: dict[str, str] = {}
     classifications: dict[str, ClassificationRecord] = {}
+    # 저장소 키마다 날짜별 스타. 급상승 계산에 쓰고 35일만 보관한다 (ADR-0022).
+    star_history: dict[str, dict[date, int]] = {}

@@ -97,7 +97,7 @@ jobs:
         if: ${{ !cancelled() }}
         working-directory: .
         run: |
-          git add collector/state site/src/data/skills.json
+          git add collector/state site/src/data/skills.json site/src/data/news.json
           # 수집이 중간에 끊겨도 다음 실행이 이어받도록 상태는 남긴다.
           if git diff --cached --quiet; then
             echo '변경 사항이 없습니다.'

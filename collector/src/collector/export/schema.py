@@ -29,6 +29,20 @@ class _CamelModel(BaseModel):
     model_config = ConfigDict(alias_generator=to_camel, populate_by_name=True, frozen=True)
 
 
+class SiteRisingRepository(_CamelModel):
+    full_name: str
+    stars_gained: int
+    stars: int
+    window_days: int
+
+
+class SiteNews(_CamelModel):
+    """news.json 계약 (ADR-0022). 도구 업데이트는 다음 단계에서 더한다."""
+
+    schema_version: int = 1
+    rising_repositories: tuple[SiteRisingRepository, ...] = ()
+
+
 class SiteRepository(_CamelModel):
     full_name: str
     stars: int

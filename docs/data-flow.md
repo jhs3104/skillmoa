@@ -18,8 +18,12 @@ flowchart TD
     rank --> summarize["Claude 한국어 요약<br/>해시가 바뀐 스킬만, 4개씩 동시에"]
     summarize --> classify["세부 분류와 제외 판단<br/>요약문만 읽음, ADR-0018·0020"]
     classify --> state
+    metadata --> stars["스타 기록<br/>하루 한 번, 35일 보관, ADR-0022"]
+    stars --> state
     state --> export["skills.json export"]
     export --> site["Astro 빌드"]
+    state --> news["news.json export<br/>급상승 저장소"]
+    news --> site
     site --> workers["Cloudflare Workers"]
 ```
 
@@ -39,6 +43,7 @@ flowchart TD
 |---|---|---|---|
 | `collector/state/*.json` | collector | collector | O |
 | `site/src/data/skills.json` | collector export | site | O |
+| `site/src/data/news.json` | collector export | site | O |
 | `site/src/data/skills.schema.json` | `python -m collector.export.schema` | 사람, 테스트 | O |
 | `site/src/data/taxonomy.json` | `python -m collector.export.schema` | site, 테스트 | O |
 | `site/src/data/skills.sample.json` | 사람 | 개발용 site | O |
