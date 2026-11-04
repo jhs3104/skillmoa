@@ -237,7 +237,18 @@ def test_t2_explains_when_to_exclude() -> None:
     prompt = CLASSIFY_PROMPTS["t2"]
     assert "placeholder" in prompt
     assert "demo" in prompt
+    assert "foreign_region" in prompt
+    assert "한국" in prompt
     assert "확실하지 않으면 null" in prompt
+
+
+def test_claude_classifier_parses_a_foreign_region(settings: Settings) -> None:
+    t2 = settings.classify.model_copy(update={"taxonomy_version": "t2"})
+    client, _ = anthropic_client({"subcategory": "accounting-tax", "exclude": "foreign_region"})
+
+    result = ClaudeClassifier(t2, client).classify(classify_request())
+
+    assert result.excluded is ContentExclusion.FOREIGN_REGION
 
 
 def test_legacy_subcategories_belong_to_the_new_categories() -> None:

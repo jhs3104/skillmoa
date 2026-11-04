@@ -193,6 +193,8 @@ class ContentExclusion(StrEnum):
     PLACEHOLDER = "placeholder"
     # 기능을 보여 주려고 만든 견본이라 그 자체로 쓸 일이 없다.
     DEMO = "demo"
+    # 한국이 아닌 한 나라의 법률, 세금, 행정이나 그 나라 사람만 쓰는 서비스에 맞춘 스킬 (ADR-0021).
+    FOREIGN_REGION = "foreign_region"
 
 
 class Role(StrEnum):

@@ -53,8 +53,14 @@ concurrency = 4
 
 # 사이트에서 뺄 스킬을 사람이 정한다 (ADR-0020). 수집과 요약은 그대로 하고 내보낼 때만 뺀다.
 [exclude]
-# 예전 스킬이 옮겨졌다는 안내 페이지만 모아 둔 저장소
-repositories = ["majiayu000/claude-skill-registry"]
+repositories = [
+  # 예전 스킬이 옮겨졌다는 안내 페이지만 모아 둔 저장소
+  "majiayu000/claude-skill-registry",
+  # 한 나라 전용 (ADR-0021): 독일 약관법, 프랑스 세무·공증·회계, 베트남 법령
+  "Klotzkette/claude-fuer-deutsches-recht",
+  "romainsimon/paperasse",
+  "mhfed/vn-law-check",
+]
 # 뺄 스킬. "owner/repo:path"
 skills = [
   # Claude Code 사용법 예제 저장소의 견본: 파키스탄·두바이 시각과 날씨, 그 값을 그리는 부품

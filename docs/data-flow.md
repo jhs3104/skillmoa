@@ -13,7 +13,7 @@ flowchart TD
     state --> gate
     gate -- 예 --> tree["git trees로 SKILL.md 탐색<br/>blob SHA, 크기"]
     gate -- 아니오 --> rank
-    tree --> filter["품질 필터<br/>포크, 테스트, 빈 내용, 중복, 중국어·일본어"]
+    tree --> filter["품질 필터<br/>포크, 테스트, 빈 내용, 중복, 외국어 본문 (ADR-0017·0021)"]
     filter --> rank["순위 계산<br/>ADR-0003"]
     rank --> summarize["Claude 한국어 요약<br/>해시가 바뀐 스킬만, 4개씩 동시에"]
     summarize --> classify["세부 분류와 제외 판단<br/>요약문만 읽음, ADR-0018·0020"]

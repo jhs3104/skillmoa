@@ -87,6 +87,37 @@ def test_korean_english_and_code_samples_are_kept() -> None:
     assert language_exclusion(fenced) is None
 
 
+FRENCH = (
+    "Vous êtes un expert-comptable. Pour chaque client, vérifiez les comptes annuels "
+    "et les déclarations de TVA. Les écritures sont classées dans le plan comptable, "
+    "avec une attention particulière aux charges qui ne sont pas déductibles. "
+)
+GERMAN = (
+    "Prüfe die Klausel nach dem AGB-Recht. Die Abtretung ist nicht wirksam, wenn sie "
+    "den Vertragspartner unangemessen benachteiligt. Der Prüfer gibt eine Einschätzung "
+    "mit Risikostufe und einer Formulierung, die auch vor Gericht hält. "
+)
+VIETNAMESE = (
+    "Kiểm tra trang web theo quy định pháp luật Việt Nam về bảo vệ dữ liệu cá nhân, "
+    "thương mại điện tử và an ninh mạng. Đánh giá mức độ rủi ro cho từng hạng mục. "
+)
+
+
+def test_european_and_vietnamese_bodies_are_excluded() -> None:
+    for body in (FRENCH * 3, GERMAN * 3, VIETNAMESE * 3):
+        assert language_exclusion(body) == ExclusionReason.FOREIGN_LANGUAGE
+
+
+def test_english_with_a_few_foreign_words_is_kept() -> None:
+    english = (
+        "Use this skill when you need to review a contract. It reads the clauses and "
+        "flags risky terms such as 'la clause pénale' or 'die Abtretung' for the lawyer. "
+    )
+    assert language_exclusion(english * 4) is None
+    sample = "Translate the strings.\n```\nles des pour une dans avec sur pas aux\n```\n"
+    assert language_exclusion(sample * 10) is None
+
+
 def test_duplicates_keep_most_starred_repository() -> None:
     skills = {"a": skill("a/x", "SKILL.md"), "b": skill("b/y", "SKILL.md")}
     marked = mark_duplicates(skills, {"a/x": 1, "b/y": 9})
