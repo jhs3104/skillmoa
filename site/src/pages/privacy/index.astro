@@ -39,10 +39,10 @@ const recipients = [
     name: 'Cloudflare, Inc.',
     rows: [
       ['국가', '미국(전 세계 데이터센터에서 처리)'],
-      ['보내는 정보', '접속 정보, AI 찾기 질문과 IP 주소의 해시, 하루 이용 횟수'],
-      ['목적', '사이트 전송, 보안, AI 찾기 이용 횟수 저장'],
-      ['시기와 방법', '페이지를 열 때마다 암호화된 연결(HTTPS)로 전송'],
-      ['보관 기간', '질문 해시는 7일, IP 주소 해시는 2일 뒤 삭제. 접속 정보는 Cloudflare의 방침에 따름'],
+      ['보내는 정보', '접속 정보, AI 찾기 질문과 IP 주소의 해시, 하루 이용 횟수, 문의 메일'],
+      ['목적', '사이트 전송, 보안, AI 찾기 이용 횟수 저장, 문의 메일을 운영자 메일함으로 전달(Email Routing)'],
+      ['시기와 방법', '페이지를 열 때와 문의 메일을 보낼 때마다 네트워크로 전송'],
+      ['보관 기간', '질문 해시는 7일, IP 주소 해시는 2일 뒤 삭제. 접속 정보와 메일 전달 기록은 Cloudflare의 방침에 따름'],
     ],
     contact: 'privacyquestions@cloudflare.com',
     policy: { href: 'https://www.cloudflare.com/privacypolicy/', label: 'Cloudflare 개인정보 처리방침 보기' },
@@ -51,10 +51,10 @@ const recipients = [
     name: 'Google LLC',
     rows: [
       ['국가', '미국'],
-      ['보내는 정보', '광고 쿠키, 기기와 브라우저 정보, 방문한 페이지 주소'],
-      ['목적', 'Google AdSense 광고 게재와 성과 측정'],
-      ['시기와 방법', '광고가 있는 페이지를 열 때마다 암호화된 연결(HTTPS)로 전송'],
-      ['보관 기간', 'Google의 방침에 따름'],
+      ['보내는 정보', '광고 쿠키, 기기와 브라우저 정보, 방문한 페이지 주소, 문의 메일'],
+      ['목적', 'Google AdSense 광고 게재와 성과 측정, 문의 메일 보관(Gmail)'],
+      ['시기와 방법', '광고가 있는 페이지를 열 때와 문의 메일이 전달될 때마다 네트워크로 전송'],
+      ['보관 기간', '문의 메일은 처리 후 운영자가 삭제. 광고 정보는 Google의 방침에 따름'],
     ],
     contact: 'googlekrsupport@google.com',
     policy: {
@@ -82,7 +82,7 @@ const recipients = [
           <tbody>
             <tr><th scope="row">AI 찾기 질문</th><td>원문은 저장 안 함, 해시 7일</td><td>Anthropic, Cloudflare(해시)</td></tr>
             <tr><th scope="row">AI 찾기 IP 주소</th><td>해시 2일</td><td>Cloudflare(미국)</td></tr>
-            <tr><th scope="row">문의 메일</th><td>처리 후 삭제</td><td>없음</td></tr>
+            <tr><th scope="row">문의 메일</th><td>처리 후 삭제</td><td>Cloudflare, Google(미국)</td></tr>
             <tr><th scope="row">접속 정보</th><td>각 업체 방침</td><td>Cloudflare, Google(미국)</td></tr>
             <tr><th scope="row">테마, 마지막 질문</th><td>내 브라우저에만</td><td>없음</td></tr>
           </tbody>
@@ -110,7 +110,7 @@ const recipients = [
         </div>
         <div>
           <dt>문의 메일</dt>
-          <dd>보내 주신 이메일 주소와 내용은 답장과 스킬 삭제·수정 요청 처리에만 씁니다.</dd>
+          <dd>보내 주신 이메일 주소와 내용은 답장과 스킬 삭제·수정 요청 처리에만 씁니다. 메일은 Cloudflare Email Routing을 거쳐 운영자의 Gmail 메일함으로 전달됩니다.</dd>
         </div>
         <div>
           <dt>자동으로 생성되는 접속 정보</dt>
