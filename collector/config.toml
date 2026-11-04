@@ -42,7 +42,7 @@ concurrency = 4
 
 [classify]
 model = "claude-haiku-5-5"
-taxonomy_version = "t1"
+taxonomy_version = "t2"
 effort = "medium"
 max_calls_per_day = 8000
 max_calls_per_run = 3000
@@ -50,3 +50,12 @@ max_output_tokens = 2000
 timeout_seconds = 60
 validation_attempts = 2
 concurrency = 4
+
+# 사이트에서 뺄 스킬을 사람이 정한다 (ADR-0020). 수집과 요약은 그대로 하고 내보낼 때만 뺀다.
+[exclude]
+# 예전 스킬이 옮겨졌다는 안내 페이지만 모아 둔 저장소
+repositories = ["majiayu000/claude-skill-registry"]
+# 뺄 스킬. "owner/repo:path"
+skills = []
+# 분류 호출이 빼자고 했지만 남길 스킬. "owner/repo:path"
+keep = []

@@ -2,7 +2,8 @@
 
 export type Category =
   | 'development' | 'testing' | 'devops' | 'data' | 'documents' | 'design' | 'writing'
-  | 'marketing' | 'productivity' | 'research' | 'security' | 'ai-agents' | 'other';
+  | 'marketing' | 'productivity' | 'research' | 'security' | 'ai-agents' | 'finance' | 'audio'
+  | 'legal' | 'health-lifestyle' | 'other';
 
 export type Role =
   | 'developer' | 'designer' | 'data' | 'product' | 'marketer' | 'writer' | 'researcher' | 'general';
@@ -77,7 +78,16 @@ export type Subcategory =
   | 'business-ops'
   | 'audio'
   | 'lifestyle'
-  | 'misc';
+  | 'misc'
+  | 'investing'
+  | 'financial-analysis'
+  | 'accounting-tax'
+  | 'speech'
+  | 'music'
+  | 'sound'
+  | 'contracts'
+  | 'compliance'
+  | 'legal-work';
 
 export type ScriptFiles = 'none' | 'present' | 'unknown';
 

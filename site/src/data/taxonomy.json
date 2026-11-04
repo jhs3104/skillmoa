@@ -76,13 +76,27 @@
     "ai-engineering",
     "persona"
   ],
-  "other": [
-    "finance",
-    "legal",
+  "finance": [
+    "investing",
+    "financial-analysis",
+    "accounting-tax"
+  ],
+  "audio": [
+    "speech",
+    "music",
+    "sound"
+  ],
+  "legal": [
+    "contracts",
+    "compliance",
+    "legal-work"
+  ],
+  "health-lifestyle": [
     "health",
+    "lifestyle"
+  ],
+  "other": [
     "business-ops",
-    "audio",
-    "lifestyle",
     "misc"
   ]
 }

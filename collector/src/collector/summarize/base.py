@@ -3,7 +3,7 @@
 from dataclasses import dataclass
 from typing import Protocol
 
-from collector.domain.models import Subcategory, Summary
+from collector.domain.models import ContentExclusion, Subcategory, Summary
 
 
 @dataclass(frozen=True)
@@ -59,6 +59,7 @@ class ClassificationResult:
     subcategory: Subcategory
     input_tokens: int
     output_tokens: int
+    excluded: ContentExclusion | None = None
 
 
 class Classifier(Protocol):

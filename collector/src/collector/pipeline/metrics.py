@@ -26,6 +26,7 @@ class RunMetrics(BaseModel):
     classify_failed: int = 0
     classify_skipped_by_cap: int = 0
     classify_changed: int = 0
+    classify_excluded: int = 0
     stopped_by_rate_limit: bool = False
     input_tokens: int = 0
     output_tokens: int = 0

@@ -1,6 +1,6 @@
 """수집 상태에서 skills.json을 만든다. 같은 상태면 항상 같은 파일이 나온다."""
 
-from collector.config import RankingSettings
+from collector.config import ExcludeSettings, RankingSettings
 from collector.domain.identity import repository_key, skill_slug
 from collector.domain.models import (
     SUBCATEGORY_PARENT,
@@ -14,12 +14,23 @@ from collector.domain.summary_rules import is_current_classification
 from collector.domain.tree import script_presence
 from collector.export.schema import SiteData, SiteRepository, SiteSkill, SiteTags
 
+_NO_EXCLUSIONS = ExcludeSettings()
 
-def build_site_data(state: CollectorState, ranking: RankingSettings) -> SiteData:
-    """요약이 있는 스킬을 상한까지만 내보낸다. 사이트는 요약 없는 스킬을 다루지 않는다."""
+
+def build_site_data(
+    state: CollectorState, ranking: RankingSettings, exclude: ExcludeSettings = _NO_EXCLUSIONS
+) -> SiteData:
+    """요약이 있는 스킬을 상한까지만 내보낸다. 사이트는 요약 없는 스킬을 다루지 않는다.
+
+    빼기로 한 스킬은 상한을 세기 전에 뺀다. 그래야 다른 스킬의 자리를 차지하지 않는다.
+    """
     stars = {record.full_name: record.stars for record in state.repositories.values()}
     ranked = rank_skills(state.skills, stars, ranking.star_decay)
-    summarized = [item for item in ranked if _has_current_summary(state, item.key)]
+    summarized = [
+        item
+        for item in ranked
+        if _has_current_summary(state, item.key) and not _is_excluded(state, item.key, exclude)
+    ]
     selected = set(select_catalog(summarized, ranking.catalog_limit, ranking.per_repository_cap))
     exported = [item for item in summarized if item.key in selected]
 
@@ -73,6 +84,21 @@ def build_site_data(state: CollectorState, ranking: RankingSettings) -> SiteData
 def _has_current_summary(state: CollectorState, key: str) -> bool:
     record = state.summaries.get(key)
     return record is not None and record.skill_md_hash == state.skills[key].skill_md_hash
+
+
+def _is_excluded(state: CollectorState, key: str, exclude: ExcludeSettings) -> bool:
+    """사람이 정한 목록이 먼저다. 그다음 지금 요약을 보고 한 분류의 판단을 따른다 (ADR-0020)."""
+    if key in exclude.keep:
+        return False
+    repository = state.skills[key].repository.lower()
+    if key in exclude.skills or repository in {name.lower() for name in exclude.repositories}:
+        return True
+    classification = state.classifications.get(key)
+    return (
+        is_current_classification(classification, state.summaries[key])
+        and classification is not None
+        and classification.excluded is not None
+    )
 
 
 def _classification(

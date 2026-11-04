@@ -69,6 +69,17 @@ class ClassifySettings(_Section):
     concurrency: int = Field(ge=1, le=16)
 
 
+class ExcludeSettings(_Section):
+    """사람이 정하는 사이트 제외 목록 (ADR-0020). 수집과 요약은 그대로 하고 내보낼 때만 뺀다."""
+
+    # 빈 안내 페이지만 모아 둔 저장소처럼 통째로 뺄 저장소. 대소문자는 가리지 않는다.
+    repositories: tuple[str, ...] = ()
+    # 뺄 스킬. 키는 "owner/repo:path"다.
+    skills: tuple[str, ...] = ()
+    # 분류 호출이 빼자고 판단했지만 사이트에 남길 스킬.
+    keep: tuple[str, ...] = ()
+
+
 class Settings(_Section):
     discovery: DiscoverySettings
     filter: FilterSettings
@@ -76,6 +87,7 @@ class Settings(_Section):
     github: GitHubSettings
     summary: SummarySettings
     classify: ClassifySettings
+    exclude: ExcludeSettings = ExcludeSettings()
 
 
 def load_settings(path: Path = DEFAULT_CONFIG_PATH) -> Settings:

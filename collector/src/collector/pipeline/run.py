@@ -124,7 +124,7 @@ def run_summaries(
 
 
 def export_site(context: CollectContext, paths: Paths) -> None:
-    data = build_site_data(context.state, context.settings.ranking)
+    data = build_site_data(context.state, context.settings.ranking, context.settings.exclude)
     write_json(paths.site_data, data.model_dump(mode="json", by_alias=True))
 
 

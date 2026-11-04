@@ -7,7 +7,7 @@ import pydantic
 from pydantic import BaseModel
 
 from collector.config import ClassifySettings
-from collector.domain.models import Subcategory
+from collector.domain.models import LEGACY_SUBCATEGORIES, ContentExclusion, Subcategory
 from collector.summarize.base import (
     ClassificationRequest,
     ClassificationResult,
@@ -23,6 +23,12 @@ SDK_MAX_RETRIES = 3
 
 class _Choice(BaseModel):
     subcategory: Subcategory
+    # t1은 묻지 않았다. t2부터 빼야 할 스킬이면 이유를 답한다 (ADR-0020).
+    exclude: ContentExclusion | None = None
+
+
+# t1은 예전 세부 분류를 포함한 목록을 보여 줬다. 그 뒤 버전에서는 예전 값을 받지 않는다.
+_TAXONOMIES_WITH_LEGACY = frozenset({"t1"})
 
 
 class ClaudeClassifier:
@@ -53,9 +59,19 @@ class ClaudeClassifier:
             input_tokens += response.usage.input_tokens
             output_tokens += response.usage.output_tokens
             choice = response.parsed_output
-            if response.stop_reason == "end_turn" and choice is not None:
-                return ClassificationResult(choice.subcategory, input_tokens, output_tokens)
-            reason = f"stop_reason: {response.stop_reason}"
+            if response.stop_reason != "end_turn" or choice is None:
+                reason = f"stop_reason: {response.stop_reason}"
+                continue
+            if (
+                choice.subcategory in LEGACY_SUBCATEGORIES
+                and self._settings.taxonomy_version not in _TAXONOMIES_WITH_LEGACY
+            ):
+                reason = f"legacy subcategory: {choice.subcategory.value}"
+                logger.info("예전 세부 분류 %d회차 %s", attempt, request.path)
+                continue
+            return ClassificationResult(
+                choice.subcategory, input_tokens, output_tokens, choice.exclude
+            )
         raise SummaryRejectedError(reason, input_tokens, output_tokens)
 
     def _call(self, request: ClassificationRequest) -> anthropic.types.ParsedMessage[_Choice]:

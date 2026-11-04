@@ -26,6 +26,11 @@ class Category(StrEnum):
     RESEARCH = "research"
     SECURITY = "security"
     AI_AGENTS = "ai-agents"
+    # 기타에 많이 모인 주제를 꺼냈다 (ADR-0020).
+    FINANCE = "finance"
+    AUDIO = "audio"
+    LEGAL = "legal"
+    HEALTH_LIFESTYLE = "health-lifestyle"
     OTHER = "other"
 
 
@@ -85,13 +90,23 @@ class Subcategory(StrEnum):
     AGENT_OPERATIONS = "agent-operations"
     AI_ENGINEERING = "ai-engineering"
     PERSONA = "persona"
+    INVESTING = "investing"
+    FINANCIAL_ANALYSIS = "financial-analysis"
+    ACCOUNTING_TAX = "accounting-tax"
+    SPEECH = "speech"
+    MUSIC = "music"
+    SOUND = "sound"
+    CONTRACTS = "contracts"
+    COMPLIANCE = "compliance"
+    LEGAL_WORK = "legal-work"
+    HEALTH = "health"
+    LIFESTYLE = "lifestyle"
+    BUSINESS_OPS = "business-ops"
+    MISC = "misc"
+    # t1까지의 세부 분류. 다시 분류될 때까지 남은 기록을 읽으려고 둔다. t2부터는 고르지 않는다.
     FINANCE = "finance"
     LEGAL = "legal"
-    HEALTH = "health"
-    BUSINESS_OPS = "business-ops"
     AUDIO = "audio"
-    LIFESTYLE = "lifestyle"
-    MISC = "misc"
 
 
 SUBCATEGORY_PARENT: dict[Subcategory, Category] = {
@@ -148,14 +163,36 @@ SUBCATEGORY_PARENT: dict[Subcategory, Category] = {
     Subcategory.AGENT_OPERATIONS: Category.AI_AGENTS,
     Subcategory.AI_ENGINEERING: Category.AI_AGENTS,
     Subcategory.PERSONA: Category.AI_AGENTS,
-    Subcategory.FINANCE: Category.OTHER,
-    Subcategory.LEGAL: Category.OTHER,
-    Subcategory.HEALTH: Category.OTHER,
+    Subcategory.INVESTING: Category.FINANCE,
+    Subcategory.FINANCIAL_ANALYSIS: Category.FINANCE,
+    Subcategory.ACCOUNTING_TAX: Category.FINANCE,
+    Subcategory.SPEECH: Category.AUDIO,
+    Subcategory.MUSIC: Category.AUDIO,
+    Subcategory.SOUND: Category.AUDIO,
+    Subcategory.CONTRACTS: Category.LEGAL,
+    Subcategory.COMPLIANCE: Category.LEGAL,
+    Subcategory.LEGAL_WORK: Category.LEGAL,
+    Subcategory.HEALTH: Category.HEALTH_LIFESTYLE,
+    Subcategory.LIFESTYLE: Category.HEALTH_LIFESTYLE,
     Subcategory.BUSINESS_OPS: Category.OTHER,
-    Subcategory.AUDIO: Category.OTHER,
-    Subcategory.LIFESTYLE: Category.OTHER,
     Subcategory.MISC: Category.OTHER,
+    # 예전 기록도 다시 분류되기 전부터 새 카테고리에 보이도록 옮겨 둔다.
+    Subcategory.FINANCE: Category.FINANCE,
+    Subcategory.LEGAL: Category.LEGAL,
+    Subcategory.AUDIO: Category.AUDIO,
 }
+
+LEGACY_SUBCATEGORIES = frozenset({Subcategory.FINANCE, Subcategory.LEGAL, Subcategory.AUDIO})
+"""t2부터 고르지 않는 세부 분류. 사이트의 세부 분류 목록에도 싣지 않는다."""
+
+
+class ContentExclusion(StrEnum):
+    """분류하면서 사이트에서 빼기로 판단한 이유 (ADR-0020)."""
+
+    # 본문이 없다. 다른 곳으로 옮겨졌다는 안내, 암호화되어 읽을 수 없는 파일 등.
+    PLACEHOLDER = "placeholder"
+    # 기능을 보여 주려고 만든 견본이라 그 자체로 쓸 일이 없다.
+    DEMO = "demo"
 
 
 class Role(StrEnum):
@@ -305,6 +342,7 @@ class ClassificationRecord(BaseModel):
     skill_md_hash: GitBlobSha
     summary_prompt_version: str
     model: str
+    excluded: ContentExclusion | None = None
 
 
 class CollectorState(BaseModel):

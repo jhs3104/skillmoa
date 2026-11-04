@@ -17,6 +17,10 @@ colors:
   cat-productivity: "#00855f"
   cat-research: "#fb7185"
   cat-security: "#9f1239"
+  cat-finance: "#1e3a8a"
+  cat-audio: "#38bdf8"
+  cat-legal: "#78350f"
+  cat-health-lifestyle: "#c4b5fd"
   cat-other: "#6b7280"
   cat-ink-white: "#ffffff"
   cat-ink-black: "#0f1115"
@@ -339,6 +343,18 @@ components:
   category-security:
     backgroundColor: "{colors.cat-security}"
     textColor: "{colors.cat-ink-white}"
+  category-finance:
+    backgroundColor: "{colors.cat-finance}"
+    textColor: "{colors.cat-ink-white}"
+  category-audio:
+    backgroundColor: "{colors.cat-audio}"
+    textColor: "{colors.cat-ink-black}"
+  category-legal:
+    backgroundColor: "{colors.cat-legal}"
+    textColor: "{colors.cat-ink-white}"
+  category-health-lifestyle:
+    backgroundColor: "{colors.cat-health-lifestyle}"
+    textColor: "{colors.cat-ink-black}"
   category-other:
     backgroundColor: "{colors.cat-other}"
     textColor: "{colors.cat-ink-white}"
@@ -426,7 +442,7 @@ claudeskills.info는 느낌의 참고일 뿐이며 화면이 같아 보이면 �
 
 ### Secondary
 
-카테고리 라벨 13쌍입니다. 라벨 글자는 흰색(#ffffff) 또는 먹색(#0f1115) 가운데 대비가 맞는 쪽으로 카테고리마다 정해 두었고, 어두운 테마에서도 바꾸지 않습니다.
+카테고리 라벨 17쌍입니다. 라벨 글자는 흰색(#ffffff) 또는 먹색(#0f1115) 가운데 대비가 맞는 쪽으로 카테고리마다 정해 두었고, 어두운 테마에서도 바꾸지 않습니다.
 
 - **AI 에이전트 코발트** (#2340e8, 흰 글자): `AI 에이전트` 라벨입니다.
 - **개발 청록** (#2dd4bf, 먹색 글자): `개발` 라벨입니다.
@@ -440,6 +456,10 @@ claudeskills.info는 느낌의 참고일 뿐이며 화면이 같아 보이면 �
 - **생산성 에메랄드** (#00855f, 흰 글자): `생산성` 라벨입니다.
 - **리서치 분홍** (#fb7185, 먹색 글자): `리서치` 라벨입니다.
 - **보안 포도주색** (#9f1239, 흰 글자): `보안` 라벨입니다.
+- **금융 남색** (#1e3a8a, 흰 글자): `금융` 라벨입니다. AI 에이전트 코발트보다 훨씬 어둡게 두어 구별합니다.
+- **오디오 하늘색** (#38bdf8, 먹색 글자): `오디오·음악` 라벨입니다.
+- **법률 갈색** (#78350f, 흰 글자): `법률` 라벨입니다.
+- **건강·생활 라벤더** (#c4b5fd, 먹색 글자): `건강·생활` 라벨입니다.
 - **기타 회색** (#6b7280, 흰 글자): `기타` 라벨이자 정해진 색이 없는 카테고리의 기본값입니다.
 
 필터의 `전체` 칩만 카테고리가 아니어서 테마를 따릅니다. 먹색 면에 바탕색 글자를 씁니다.

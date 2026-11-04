@@ -12,7 +12,6 @@ import pytest
 
 from collector.config import RankingSettings, Settings
 from collector.domain.models import (
-    SUBCATEGORY_PARENT,
     Category,
     CollectorState,
     Difficulty,
@@ -47,7 +46,7 @@ from collector.summarize.base import (
 )
 from collector.summarize.claude import EVIDENCE_ATTEMPTS, ClaudeSummarizer
 from collector.summarize.mock import MockSummarizer
-from collector.summarize.prompts import PROMPTS
+from collector.summarize.prompts import PROMPTS, V6_SUBCATEGORY_PARENT
 from tests.conftest import TODAY, make_client
 
 RANKING = RankingSettings(star_decay=0.7, per_repository_cap=10, catalog_limit=300)
@@ -382,7 +381,7 @@ def test_prompt_v6_lists_every_subcategory_under_its_category() -> None:
         before = prompt[: prompt.index(line)]
         return max(Category, key=lambda category: before.rfind(f"\n  - {category.value}:"))
 
-    for subcategory, parent in SUBCATEGORY_PARENT.items():
+    for subcategory, parent in V6_SUBCATEGORY_PARENT.items():
         line = f"\n    - {subcategory.value}: "
         assert line in prompt
         assert section_of(line) is parent

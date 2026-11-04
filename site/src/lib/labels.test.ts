@@ -30,9 +30,16 @@ describe('formatLicense', () => {
 });
 
 describe('taxonomy labels', () => {
-  it('names every subcategory that the collector can produce, and nothing else', () => {
-    const fromCollector = Object.values(taxonomy).flat().sort();
-    expect(Object.keys(SUBCATEGORY_LABELS).sort()).toEqual(fromCollector);
+  it('names every subcategory that the collector can produce', () => {
+    const fromCollector = Object.values(taxonomy).flat();
+    const named = Object.keys(SUBCATEGORY_LABELS);
+    expect(fromCollector.filter((subcategory) => !named.includes(subcategory))).toEqual([]);
+  });
+
+  it('keeps names beyond the taxonomy only for subcategories older skills may still carry', () => {
+    const fromCollector: string[] = Object.values(taxonomy).flat();
+    const extra = Object.keys(SUBCATEGORY_LABELS).filter((name) => !fromCollector.includes(name));
+    expect(extra.sort()).toEqual(['audio', 'finance', 'legal']);
   });
 
   it('groups subcategories under the same categories the site knows', () => {

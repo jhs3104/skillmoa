@@ -10,7 +10,14 @@ from pathlib import Path
 from pydantic import BaseModel, ConfigDict
 from pydantic.alias_generators import to_camel
 
-from collector.domain.models import SUBCATEGORY_PARENT, Category, Difficulty, Role, Subcategory
+from collector.domain.models import (
+    LEGACY_SUBCATEGORIES,
+    SUBCATEGORY_PARENT,
+    Category,
+    Difficulty,
+    Role,
+    Subcategory,
+)
 from collector.domain.tree import ScriptPresence
 
 SITE_SCHEMA_VERSION = 1
@@ -71,12 +78,15 @@ def render_schema() -> str:
 
 
 def render_taxonomy() -> str:
-    """대분류마다 세부 분류를 순서대로 담는다. 사이트는 이 파일로 필터 칩을 만든다."""
+    """대분류마다 세부 분류를 순서대로 담는다. 사이트는 이 파일로 필터 칩을 만든다.
+
+    예전 세부 분류는 다시 분류되는 동안만 남는 값이라 칩으로 만들지 않는다.
+    """
     taxonomy = {
         category.value: [
             subcategory.value
             for subcategory, parent in SUBCATEGORY_PARENT.items()
-            if parent is category
+            if parent is category and subcategory not in LEGACY_SUBCATEGORIES
         ]
         for category in Category
     }

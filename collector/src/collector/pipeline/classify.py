@@ -110,11 +110,15 @@ def _record(
     metrics.classified += 1
     if result.subcategory is not summary_record.summary.subcategory:
         metrics.classify_changed += 1
+    if result.excluded is not None:
+        metrics.classify_excluded += 1
+        logger.info("사이트에서 뺄 스킬 %s: %s", key, result.excluded.value)
     context.state.classifications[key] = ClassificationRecord(
         subcategory=result.subcategory,
         taxonomy_version=context.settings.classify.taxonomy_version,
         skill_md_hash=summary_record.skill_md_hash,
         summary_prompt_version=summary_record.prompt_version,
         model=classifier.model,
+        excluded=result.excluded,
     )
     return True

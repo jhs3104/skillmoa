@@ -83,6 +83,10 @@
 [data-cat='productivity'] { --cat: #00855f; }
 [data-cat='research'] { --cat: #fb7185; --cat-ink: #0f1115; }
 [data-cat='security'] { --cat: #9f1239; }
+[data-cat='finance'] { --cat: #1e3a8a; }
+[data-cat='audio'] { --cat: #38bdf8; --cat-ink: #0f1115; }
+[data-cat='legal'] { --cat: #78350f; }
+[data-cat='health-lifestyle'] { --cat: #c4b5fd; --cat-ink: #0f1115; }
 
 *, *::before, *::after { box-sizing: border-box; }
 

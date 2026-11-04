@@ -1,6 +1,6 @@
 """요약 프롬프트. 내용을 바꾸면 새 버전을 추가하고 config.toml의 prompt_version을 올린다."""
 
-from collector.domain.models import SUBCATEGORY_PARENT, Category, Subcategory
+from collector.domain.models import Category, Subcategory
 
 _V1 = """\
 당신은 AI 에이전트 스킬을 한국어로 소개하는 디렉터리의 편집자입니다.
@@ -198,7 +198,73 @@ _V5 = (
     )
 )
 
-# 세부 분류마다 모델이 읽을 설명. 대분류와의 관계는 domain.models.SUBCATEGORY_PARENT가 원본이다.
+# v6 요약과 t1 분류가 보던 분류 목록. 기록에 남은 프롬프트가 바뀌지 않도록 그때 모습 그대로 둔다.
+# 지금 분류는 domain.models.SUBCATEGORY_PARENT가 원본이다 (ADR-0020).
+V6_SUBCATEGORY_PARENT: dict[Subcategory, Category] = {
+    Subcategory.FRONTEND: Category.DEVELOPMENT,
+    Subcategory.BACKEND: Category.DEVELOPMENT,
+    Subcategory.MOBILE: Category.DEVELOPMENT,
+    Subcategory.GIT: Category.DEVELOPMENT,
+    Subcategory.CODE_QUALITY: Category.DEVELOPMENT,
+    Subcategory.DEBUGGING: Category.DEVELOPMENT,
+    Subcategory.DEV_TOOLS: Category.DEVELOPMENT,
+    Subcategory.GAME_DEV: Category.DEVELOPMENT,
+    Subcategory.WEB3: Category.DEVELOPMENT,
+    Subcategory.TEST_WRITING: Category.TESTING,
+    Subcategory.BROWSER_TESTING: Category.TESTING,
+    Subcategory.QA: Category.TESTING,
+    Subcategory.DEPLOYMENT: Category.DEVOPS,
+    Subcategory.INFRASTRUCTURE: Category.DEVOPS,
+    Subcategory.MONITORING: Category.DEVOPS,
+    Subcategory.RELEASE: Category.DEVOPS,
+    Subcategory.DATA_ANALYSIS: Category.DATA,
+    Subcategory.DATABASE: Category.DATA,
+    Subcategory.MACHINE_LEARNING: Category.DATA,
+    Subcategory.VISUALIZATION: Category.DATA,
+    Subcategory.PDF: Category.DOCUMENTS,
+    Subcategory.OFFICE: Category.DOCUMENTS,
+    Subcategory.PRESENTATION: Category.DOCUMENTS,
+    Subcategory.DIAGRAM: Category.DOCUMENTS,
+    Subcategory.UI_UX: Category.DESIGN,
+    Subcategory.VISUAL_DESIGN: Category.DESIGN,
+    Subcategory.IMAGE: Category.DESIGN,
+    Subcategory.VIDEO: Category.DESIGN,
+    Subcategory.ACCESSIBILITY: Category.DESIGN,
+    Subcategory.DRAFTING: Category.WRITING,
+    Subcategory.TRANSLATION: Category.WRITING,
+    Subcategory.EDITING: Category.WRITING,
+    Subcategory.SEO: Category.MARKETING,
+    Subcategory.SOCIAL_MEDIA: Category.MARKETING,
+    Subcategory.ADVERTISING: Category.MARKETING,
+    Subcategory.SALES: Category.MARKETING,
+    Subcategory.ECOMMERCE: Category.MARKETING,
+    Subcategory.COMMUNICATION: Category.PRODUCTIVITY,
+    Subcategory.NOTES_CALENDAR: Category.PRODUCTIVITY,
+    Subcategory.PROJECT_MANAGEMENT: Category.PRODUCTIVITY,
+    Subcategory.AUTOMATION: Category.PRODUCTIVITY,
+    Subcategory.LEARNING: Category.PRODUCTIVITY,
+    Subcategory.WEB_RESEARCH: Category.RESEARCH,
+    Subcategory.ACADEMIC: Category.RESEARCH,
+    Subcategory.MARKET_RESEARCH: Category.RESEARCH,
+    Subcategory.SECURITY_REVIEW: Category.SECURITY,
+    Subcategory.VULNERABILITY: Category.SECURITY,
+    Subcategory.AUTH: Category.SECURITY,
+    Subcategory.SKILL_AUTHORING: Category.AI_AGENTS,
+    Subcategory.MCP: Category.AI_AGENTS,
+    Subcategory.AGENT_OPERATIONS: Category.AI_AGENTS,
+    Subcategory.AI_ENGINEERING: Category.AI_AGENTS,
+    Subcategory.PERSONA: Category.AI_AGENTS,
+    Subcategory.FINANCE: Category.OTHER,
+    Subcategory.LEGAL: Category.OTHER,
+    Subcategory.HEALTH: Category.OTHER,
+    Subcategory.BUSINESS_OPS: Category.OTHER,
+    Subcategory.AUDIO: Category.OTHER,
+    Subcategory.LIFESTYLE: Category.OTHER,
+    Subcategory.MISC: Category.OTHER,
+}
+V6_CATEGORIES: tuple[Category, ...] = tuple(dict.fromkeys(V6_SUBCATEGORY_PARENT.values()))
+
+# 세부 분류마다 모델이 읽을 설명.
 V6_SUBCATEGORY_GUIDE: dict[Subcategory, str] = {
     Subcategory.FRONTEND: "웹 화면, 컴포넌트, 스타일",
     Subcategory.BACKEND: "서버, API, 백엔드 프레임워크",
@@ -274,9 +340,9 @@ def _taxonomy_block() -> str:
         "  사용자가 이 스킬로 끝내는 일을 기준으로 고릅니다. 스킬이 쓰는 도구나 만든 사람이 기준이 아닙니다.",
         "  여러 개가 맞으면 사용자가 가장 먼저 기대하는 결과에 가까운 것을 고릅니다.",
     ]
-    for category in Category:
+    for category in V6_CATEGORIES:
         lines.append(f"  - {category.value}: {V6_CATEGORY_NOTES.get(category, '')}".rstrip())
-        for subcategory, parent in SUBCATEGORY_PARENT.items():
+        for subcategory, parent in V6_SUBCATEGORY_PARENT.items():
             if parent is category:
                 lines.append(f"    - {subcategory.value}: {V6_SUBCATEGORY_GUIDE[subcategory]}")
     return "\n".join(lines) + "\n"

@@ -24,6 +24,10 @@ export const CATEGORY_LABELS: Record<Category, string> = {
   research: '리서치',
   security: '보안',
   'ai-agents': 'AI 에이전트',
+  finance: '금융',
+  audio: '오디오·음악',
+  legal: '법률',
+  'health-lifestyle': '건강·생활',
   other: '기타',
 };
 
@@ -82,13 +86,23 @@ export const SUBCATEGORY_LABELS: Record<Subcategory, string> = {
   'agent-operations': '에이전트 운영',
   'ai-engineering': 'AI 엔지니어링',
   persona: '페르소나',
+  investing: '투자·트레이딩',
+  'financial-analysis': '재무 분석',
+  'accounting-tax': '회계·세무',
+  speech: '음성',
+  music: '음악',
+  sound: '효과음·편집',
+  contracts: '계약·약관',
+  compliance: '규제·준법',
+  'legal-work': '법률 업무',
+  health: '건강·의료',
+  lifestyle: '생활·여행',
+  'business-ops': '비즈니스 운영',
+  misc: '그 밖',
+  // t1까지의 세부 분류. 다시 분류되기 전의 스킬을 표시하려고 남긴다. 필터 칩에는 나오지 않는다.
   finance: '금융·회계',
   legal: '법률',
-  health: '건강·의료',
-  'business-ops': '비즈니스 운영',
   audio: '오디오·음악',
-  lifestyle: '생활·여행',
-  misc: '그 밖',
 };
 
 /** 대분류마다 세부 분류를 collector가 정한 순서대로 담는다. */

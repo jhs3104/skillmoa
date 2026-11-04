@@ -16,7 +16,7 @@ flowchart TD
     tree --> filter["품질 필터<br/>포크, 테스트, 빈 내용, 중복, 중국어·일본어"]
     filter --> rank["순위 계산<br/>ADR-0003"]
     rank --> summarize["Claude 한국어 요약<br/>해시가 바뀐 스킬만, 4개씩 동시에"]
-    summarize --> classify["세부 분류<br/>요약문만 읽음, ADR-0018"]
+    summarize --> classify["세부 분류와 제외 판단<br/>요약문만 읽음, ADR-0018·0020"]
     classify --> state
     state --> export["skills.json export"]
     export --> site["Astro 빌드"]
@@ -48,5 +48,6 @@ flowchart TD
 
 - `skills.json`은 `Repository`와 `Skill`을 정규화해서 담는다. 스킬은 `repository`로 저장소를 참조한다.
 - 요약이 없는 스킬은 내보내지 않는다.
+- `config.toml`의 `[exclude]` 목록과, 분류가 빈 페이지·예제로 판단한 스킬은 내보내지 않는다 (ADR-0020). `keep`에 있으면 판단과 상관없이 내보낸다.
 - `collector/state/summaries.json`의 `summary_redo`는 검수에서 걸린 요약 목록이다. 다음 실행이 먼저 다시 만들고, 그때까지는 기존 요약을 보여 준다. 다시 만들지 못하면 기존 요약을 두고 목록에서 뺀다.
 - 모델을 바꾸면 `skills.schema.json`을 재생성한다. 테스트가 불일치를 잡는다.
