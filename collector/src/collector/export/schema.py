@@ -46,12 +46,18 @@ class SiteToolUpdate(_CamelModel):
 
 
 class SiteNews(_CamelModel):
-    """news.json 계약 (ADR-0022)."""
+    """news.json 계약 (ADR-0022). 스킬 수집 워크플로가 쓴다."""
 
     schema_version: int = 1
     rising_repositories: tuple[SiteRisingRepository, ...] = ()
+
+
+class SiteToolUpdates(_CamelModel):
+    """tool-updates.json 계약 (ADR-0022). 도구 소식 워크플로만 쓴다."""
+
+    schema_version: int = 1
     # 최신 날짜부터. 의미 있는 변경이 없던 날은 싣지 않는다.
-    tool_updates: tuple[SiteToolUpdate, ...] = ()
+    updates: tuple[SiteToolUpdate, ...] = ()
 
 
 class SiteRepository(_CamelModel):

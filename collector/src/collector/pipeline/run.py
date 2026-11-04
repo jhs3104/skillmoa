@@ -8,10 +8,12 @@ from datetime import date
 from enum import StrEnum
 from pathlib import Path
 
+import httpx
+
 from collector.config import Settings
 from collector.domain.tool_news import ToolRelease
 from collector.domain.trends import record_stars
-from collector.export.news import build_news_data
+from collector.export.news import build_news_data, build_tool_updates_data
 from collector.export.samples import write_samples
 from collector.export.site import build_site_data
 from collector.pipeline import collect
@@ -22,6 +24,7 @@ from collector.pipeline.metrics import RunMetrics
 from collector.pipeline.summarize import summarize_skills
 from collector.pipeline.tool_news import update_tool_news
 from collector.sources.github import GitHubClient, RateLimitExceededError
+from collector.sources.tool_releases import fetch_tool_releases
 from collector.store import load_state, save_state, write_json
 from collector.summarize.base import Classifier, Summarizer, ToolNewsWriter
 
@@ -41,6 +44,7 @@ class Paths:
     site_data: Path
     samples: Path
     news_data: Path
+    tool_updates_data: Path
 
     @classmethod
     def production(cls, collector_root: Path) -> "Paths":
@@ -51,6 +55,7 @@ class Paths:
             site_data=collector_root.parent / "site/src/data/skills.json",
             samples=build / "samples",
             news_data=collector_root.parent / "site/src/data/news.json",
+            tool_updates_data=collector_root.parent / "site/src/data/tool-updates.json",
         )
 
     @classmethod
@@ -64,6 +69,7 @@ class Paths:
             site_data=small / "skills.json",
             samples=build / "samples",
             news_data=small / "news.json",
+            tool_updates_data=small / "tool-updates.json",
         )
 
 
@@ -142,9 +148,37 @@ def run_summaries(
 def run_tool_news(
     context: CollectContext, writer: ToolNewsWriter, releases: list[ToolRelease], paths: Paths
 ) -> None:
-    """도구 업데이트를 요약한다 (ADR-0022). 스킬 요약과 따로 상한을 센다."""
+    """도구 업데이트만 요약하고 내보낸다 (ADR-0022). 스킬 수집과 다른 워크플로에서 돈다.
+
+    상태 파일 가운데 tool_updates.json만 바뀌고, 사이트 파일은 tool-updates.json만 쓴다.
+    """
     update_tool_news(context, writer, releases)
     save_state(context.state, paths.state)
+    data = build_tool_updates_data(context.state)
+    write_json(paths.tool_updates_data, data.model_dump(mode="json", by_alias=True))
+
+
+def run_tool_news_only(
+    settings: Settings,
+    github: GitHubClient,
+    feeds: httpx.Client,
+    writer: ToolNewsWriter,
+    paths: Paths,
+    today: date,
+) -> CollectContext:
+    """스킬 수집 없이 도구 소식만 처리한다. 몇 분이면 끝난다."""
+    state = load_state(paths.state)
+    context = CollectContext(
+        state=state,
+        github=github,
+        content=SkillContentStore(github, paths.build / "cache"),
+        settings=settings,
+        today=today,
+        metrics=RunMetrics(mode="tool-news"),
+        checkpoint=lambda: save_state(state, paths.state),
+    )
+    run_tool_news(context, writer, fetch_tool_releases(github, feeds), paths)
+    return context
 
 
 def export_site(context: CollectContext, paths: Paths) -> None:

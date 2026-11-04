@@ -34,6 +34,7 @@ Claude Code / Codex / Cursor 등에서 쓰는 SKILL.md 기반 스킬을 한국�
   - 동적 기능은 Astro 엔드포인트(`src/pages/api/*`, `prerender=false`)로만 만든다.
   - Astro 7.3.x를 쓴다. 7.4 이상은 Node 22.22 이상이 필요하다 (ADR-0001).
 - `.github/workflows/`: collector 3시간마다 실행 → JSON 커밋 → Cloudflare 자동 재배포
+  - `tool-news.yml`: 소식 페이지의 도구 업데이트만 6시간마다 따로 수집한다 (ADR-0022). 스킬 수집과 서로 다른 파일만 커밋한다.
 - `docs/data-flow.md`: 파이프라인 흐름과 파일별 소유자
 - `docs/adr/`: 설계 결정 기록
 

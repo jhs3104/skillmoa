@@ -325,7 +325,6 @@ class DailyUsage(BaseModel):
     day: date | None = None
     summary_calls: int = 0
     classify_calls: int = 0
-    news_calls: int = 0
 
     def roll_over(self, today: date) -> None:
         """날짜가 바뀌면 하루 호출 수를 0부터 다시 센다."""
@@ -333,7 +332,6 @@ class DailyUsage(BaseModel):
             self.day = today
             self.summary_calls = 0
             self.classify_calls = 0
-            self.news_calls = 0
 
 
 class ClassificationRecord(BaseModel):
@@ -373,6 +371,18 @@ class ToolUpdateRecord(BaseModel):
     model: str
 
 
+class ToolNewsUsage(BaseModel):
+    """도구 소식의 하루 호출 수. 스킬 수집과 다른 워크플로가 쓰므로 meta.json과 따로 둔다."""
+
+    day: date | None = None
+    calls: int = 0
+
+    def roll_over(self, today: date) -> None:
+        if self.day != today:
+            self.day = today
+            self.calls = 0
+
+
 class CollectorState(BaseModel):
     """collector/state/에 커밋되는 전체 상태."""
 
@@ -388,5 +398,6 @@ class CollectorState(BaseModel):
     classifications: dict[str, ClassificationRecord] = {}
     # 저장소 키마다 날짜별 스타. 급상승 계산에 쓰고 35일만 보관한다 (ADR-0022).
     star_history: dict[str, dict[date, int]] = {}
-    # 키는 "도구:날짜" (ADR-0022).
+    # 키는 "도구:날짜" (ADR-0022). 도구 소식 워크플로만 고친다.
     tool_updates: dict[str, ToolUpdateRecord] = {}
+    tool_news_usage: ToolNewsUsage = ToolNewsUsage()

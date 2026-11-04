@@ -1,9 +1,19 @@
-"""수집 상태에서 news.json을 만든다 (ADR-0022). 같은 상태면 항상 같은 파일이 나온다."""
+"""소식 페이지 데이터를 만든다 (ADR-0022). 같은 상태면 항상 같은 파일이 나온다.
+
+news.json(급상승)은 스킬 수집이, tool-updates.json(도구 업데이트)은 도구 소식 워크플로가
+쓴다. 두 워크플로가 같은 파일을 고치지 않아야 커밋이 겹쳐도 충돌하지 않는다.
+"""
 
 from collector.domain.identity import repository_key
 from collector.domain.models import CollectorState
 from collector.domain.trends import rising_repositories
-from collector.export.schema import SiteData, SiteNews, SiteRisingRepository, SiteToolUpdate
+from collector.export.schema import (
+    SiteData,
+    SiteNews,
+    SiteRisingRepository,
+    SiteToolUpdate,
+    SiteToolUpdates,
+)
 
 RISING_WINDOW_DAYS = 7
 RISING_LIMIT = 10
@@ -14,10 +24,6 @@ def build_news_data(state: CollectorState, site: SiteData) -> SiteNews:
     on_site = {repository_key(repository.full_name): repository for repository in site.repositories}
     history = {key: snapshots for key, snapshots in state.star_history.items() if key in on_site}
     rising = rising_repositories(history, window_days=RISING_WINDOW_DAYS, limit=RISING_LIMIT)
-    updates = sorted(
-        (record for record in state.tool_updates.values() if record.highlights),
-        key=lambda record: (-record.day.toordinal(), record.tool.value),
-    )
     return SiteNews(
         rising_repositories=tuple(
             SiteRisingRepository(
@@ -27,8 +33,17 @@ def build_news_data(state: CollectorState, site: SiteData) -> SiteNews:
                 window_days=RISING_WINDOW_DAYS,
             )
             for item in rising
-        ),
-        tool_updates=tuple(
+        )
+    )
+
+
+def build_tool_updates_data(state: CollectorState) -> SiteToolUpdates:
+    updates = sorted(
+        (record for record in state.tool_updates.values() if record.highlights),
+        key=lambda record: (-record.day.toordinal(), record.tool.value),
+    )
+    return SiteToolUpdates(
+        updates=tuple(
             SiteToolUpdate(
                 tool=record.tool,
                 date=record.day,
@@ -37,5 +52,5 @@ def build_news_data(state: CollectorState, site: SiteData) -> SiteNews:
                 url=record.url,
             )
             for record in updates
-        ),
+        )
     )

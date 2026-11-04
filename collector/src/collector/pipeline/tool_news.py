@@ -28,7 +28,7 @@ def update_tool_news(
     """원문이나 프롬프트가 바뀐 묶음만, 최근 날짜부터 상한까지 요약한다."""
     state = context.state
     settings = context.settings.news
-    usage = state.usage
+    usage = state.tool_news_usage
     usage.roll_over(context.today)
     groups = group_releases(releases, today=context.today, window_days=settings.window_days)
     pending = [
@@ -38,15 +38,15 @@ def update_tool_news(
             state.tool_updates.get(update_key(tool, day)), group, settings.prompt_version
         )
     ]
-    calls_at_start = usage.news_calls
+    calls_at_start = usage.calls
     for group in pending:
         if (
-            usage.news_calls >= settings.max_calls_per_day
-            or usage.news_calls - calls_at_start >= settings.max_calls_per_run
+            usage.calls >= settings.max_calls_per_day
+            or usage.calls - calls_at_start >= settings.max_calls_per_run
         ):
             logger.warning("업데이트 요약 상한 도달, 나머지는 다음 실행으로")
             break
-        usage.news_calls += 1
+        usage.calls += 1
         request = ToolNewsRequest(tool=group.tool, versions=group.versions, notes=group.notes)
         try:
             result = writer.write(request)

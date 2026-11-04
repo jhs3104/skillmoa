@@ -19,11 +19,10 @@ from collector.pipeline.run import (
     reset_small_run,
     run_collection,
     run_summaries,
-    run_tool_news,
+    run_tool_news_only,
     write_metrics,
 )
 from collector.sources.github import GitHubClient
-from collector.sources.tool_releases import fetch_tool_releases
 from collector.summarize.base import Classifier, Summarizer
 from collector.summarize.classify import ClaudeClassifier
 from collector.summarize.claude import ClaudeSummarizer
@@ -47,6 +46,11 @@ def parse_arguments() -> argparse.Namespace:
     )
     parser.add_argument("--skip-summary", action="store_true", help="수집과 내보내기만 한다")
     parser.add_argument(
+        "--tool-news",
+        action="store_true",
+        help="스킬 수집 없이 도구 업데이트만 가져와 요약한다 (ADR-0022)",
+    )
+    parser.add_argument(
         "--refresh-prompt", action="store_true", help="이전 프롬프트 버전의 요약도 다시 만든다"
     )
     arguments = parser.parse_args()
@@ -54,6 +58,8 @@ def parse_arguments() -> argparse.Namespace:
         parser.error("--mock-summary는 --limit과 함께만 쓸 수 있습니다")
     if arguments.repo_cap is not None and arguments.limit is None:
         parser.error("--repo-cap은 --limit과 함께만 쓸 수 있습니다")
+    if arguments.tool_news and (arguments.skip_summary or arguments.mock_summary):
+        parser.error("--tool-news는 Claude API로 요약하므로 요약을 끄는 옵션과 함께 쓸 수 없습니다")
     return arguments
 
 
@@ -107,6 +113,10 @@ def main() -> int:
         today=datetime.now(UTC).date(),
     )
     try:
+        if arguments.tool_news:
+            writer = ClaudeToolNewsWriter(settings.news)
+            context = run_tool_news_only(settings, github, feeds, writer, paths, options.today)
+            return 0
         context, _ = run_collection(settings, github, paths, options)
         if summarizer is not None:
             run_summaries(
@@ -117,9 +127,6 @@ def main() -> int:
                 classifier=classifier,
                 refresh_prompt=arguments.refresh_prompt,
             )
-        if needs_api_key:
-            releases = fetch_tool_releases(github, feeds)
-            run_tool_news(context, ClaudeToolNewsWriter(settings.news), releases, paths)
         export_site(context, paths)
     finally:
         github.close()

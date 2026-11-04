@@ -313,6 +313,7 @@ def run_twice_paths(tmp_path: Path) -> Paths:
         tmp_path / "skills.json",
         tmp_path / "samples",
         tmp_path / "news.json",
+        tmp_path / "tool-updates.json",
     )
 
 

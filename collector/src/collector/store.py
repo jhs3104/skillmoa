@@ -16,7 +16,8 @@ _FILES = {
     "summaries.json": ("summaries", "summary_failures", "summary_redo"),
     "classifications.json": ("classifications",),
     "star_history.json": ("star_history",),
-    "tool_updates.json": ("tool_updates",),
+    # 도구 소식 워크플로만 고치는 파일. 스킬 수집과 커밋이 겹쳐도 충돌하지 않게 나눈다.
+    "tool_updates.json": ("tool_updates", "tool_news_usage"),
     "meta.json": ("schema_version", "bootstrapped_on", "usage"),
 }
 

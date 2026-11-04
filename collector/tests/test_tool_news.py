@@ -1,12 +1,13 @@
 from collections.abc import Callable
 from datetime import date, timedelta
+from pathlib import Path
 from typing import Any
 
 import httpx
 import pytest
 
 from collector.config import Settings
-from collector.domain.models import ToolUpdateRecord
+from collector.domain.models import CollectorState, ToolUpdateRecord
 from collector.domain.tool_news import (
     Tool,
     ToolRelease,
@@ -14,11 +15,13 @@ from collector.domain.tool_news import (
     needs_tool_summary,
     prune_tool_updates,
 )
-from collector.export.news import build_news_data
+from collector.export.news import build_news_data, build_tool_updates_data
 from collector.export.schema import SiteData, SiteToolUpdate
 from collector.pipeline.collect import CollectContext
+from collector.pipeline.run import Paths, run_tool_news
 from collector.pipeline.tool_news import update_tool_news
 from collector.sources.tool_releases import parse_cursor_feed, parse_github_releases
+from collector.store import save_state
 from collector.summarize.base import SummaryRejectedError, ToolNewsRequest, ToolNewsResult
 from collector.summarize.tool_news import ClaudeToolNewsWriter
 from collector.summarize.tool_news_prompts import TOOL_NEWS_PROMPTS
@@ -211,9 +214,7 @@ def test_pipeline_summarizes_new_groups_once_and_respects_the_cap(
     assert context.metrics.news_summarized == 5
 
 
-def test_news_lists_relevant_updates_newest_first() -> None:
-    from collector.domain.models import CollectorState
-
+def test_tool_updates_list_relevant_days_newest_first() -> None:
     state = CollectorState(
         tool_updates={
             "claude-code:2026-11-03": record(day=date(2026, 11, 3)),
@@ -221,10 +222,41 @@ def test_news_lists_relevant_updates_newest_first() -> None:
             "cursor:2026-11-04": record(tool=Tool.CURSOR, highlights=()),
         }
     )
-    news = build_news_data(state, SiteData())
-    assert [(item.tool, item.date) for item in news.tool_updates] == [
+    data = build_tool_updates_data(state)
+    assert [(item.tool, item.date) for item in data.updates] == [
         (Tool.CODEX, date(2026, 11, 4)),
         (Tool.CLAUDE_CODE, date(2026, 11, 3)),
     ]
-    assert isinstance(news.tool_updates[0], SiteToolUpdate)
-    assert "toolUpdates" in news.model_dump(by_alias=True)
+    assert isinstance(data.updates[0], SiteToolUpdate)
+    assert "toolUpdates" not in build_news_data(state, SiteData()).model_dump(by_alias=True)
+
+
+def test_tool_news_run_touches_only_its_own_files(
+    make_context: Callable[..., CollectContext], tmp_path: Path
+) -> None:
+    """스킬 수집 워크플로와 커밋이 겹쳐도 충돌하지 않으려면 다른 파일을 바꾸면 안 된다."""
+
+    def no_network(request: httpx.Request) -> httpx.Response:
+        raise AssertionError("tool news must not call GitHub here")
+
+    paths = Paths(
+        tmp_path / "state",
+        tmp_path,
+        tmp_path / "skills.json",
+        tmp_path / "samples",
+        tmp_path / "news.json",
+        tmp_path / "tool-updates.json",
+    )
+    context = make_context(make_client(no_network))
+    context.today = TODAY
+    context.state.star_history = {"acme/kit": {TODAY: 3}}
+    save_state(context.state, paths.state)
+    before = {path.name: path.read_bytes() for path in paths.state.iterdir()}
+
+    run_tool_news(context, ScriptedWriter(), [release()], paths)
+
+    after = {path.name: path.read_bytes() for path in paths.state.iterdir()}
+    changed = {name for name in after if after[name] != before.get(name)}
+    assert changed == {"tool_updates.json"}
+    assert (tmp_path / "tool-updates.json").exists()
+    assert not (tmp_path / "news.json").exists()

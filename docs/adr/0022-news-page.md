@@ -27,6 +27,9 @@
 - 스킬 동향 중 새 스킬 수, 늘어난 분야, 눈에 띄는 새 스킬은 사이트가 `skills.json`의 발견일·분류·스타로 계산한다.
 - 스타 급상승은 기록이 있어야 한다. collector가 실행마다 저장소 스타를 `collector/state/star_history.json`에 하루 한 값으로 남기고 35일만 보관한다. 기록의 마지막 날을 기준으로 7일 전 기록이 있는 저장소만 비교해 `site/src/data/news.json`에 상위 10개를 낸다. 사이트에 실린 저장소만 싣는다.
 
+- 도구 업데이트는 스킬 수집과 다른 워크플로(`tool-news.yml`, 6시간마다)에서 `--tool-news`로 처리한다. 스킬 수집은 40~80분 걸리고 정기 실행이 빠지기도 해서, 묶어 두면 소식까지 늦어지거나 멈춘다.
+- 두 워크플로가 같은 파일을 고치지 않게 나눈다. 스킬 수집은 `news.json`(급상승)을, 도구 소식은 `collector/state/tool_updates.json`과 `site/src/data/tool-updates.json`을 쓴다. 도구 소식의 호출 수도 `meta.json`이 아니라 `tool_updates.json`에 센다. 그래서 두 실행이 동시에 끝나도 rebase가 충돌하지 않는다.
+
 ## 단계
 
 1. collector: 스타 기록과 급상승 export. AI를 쓰지 않는다.

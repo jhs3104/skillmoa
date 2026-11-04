@@ -1,0 +1,73 @@
+name: Tool news
+
+# 소식 페이지의 도구 업데이트만 가져와 요약한다 (ADR-0022). 스킬 수집과 따로 돌아
+# 수집이 늦어지거나 실패해도 소식이 멈추지 않는다. 몇 분이면 끝난다.
+# push 트리거를 두지 않는다. 이 워크플로가 만든 커밋이 다시 실행을 부르면 루프가 된다.
+on:
+  schedule:
+    - cron: "47 */6 * * *" # 6시간마다. 도구마다 하루 한 묶음이라 자주 돌 필요가 없다
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+# 스킬 수집과 그룹을 나눈다. 같은 그룹이면 대기 중인 수집 실행이 취소될 수 있다.
+# 두 워크플로는 서로 다른 파일만 커밋하므로 동시에 끝나도 rebase가 충돌하지 않는다.
+concurrency:
+  group: tool-news
+  cancel-in-progress: false
+
+jobs:
+  tool-news:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    defaults:
+      run:
+        working-directory: collector
+    steps:
+      - uses: actions/checkout@v7
+
+      - uses: astral-sh/setup-uv@v10.3.3
+        with:
+          working-directory: collector
+          enable-cache: true
+          cache-dependency-glob: collector/uv.lock
+
+      - name: Install dependencies
+        run: uv sync --locked
+
+      - name: Run tests
+        run: uv run pytest
+
+      - name: Fetch and summarize tool updates
+        timeout-minutes: 20
+        env:
+          GH_SEARCH_TOKEN: ${{ secrets.GH_SEARCH_TOKEN }}
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        run: uv run python -m collector --tool-news
+
+      - name: Report metrics
+        if: always()
+        run: |
+          [ -f build/metrics/latest.json ] || exit 0
+          {
+            echo '### 실행 지표'
+            echo '```json'
+            cat build/metrics/latest.json
+            echo '```'
+          } >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Commit data
+        if: ${{ !cancelled() }}
+        working-directory: .
+        run: |
+          git add collector/state/tool_updates.json site/src/data/tool-updates.json
+          if git diff --cached --quiet; then
+            echo '변경 사항이 없습니다.'
+            exit 0
+          fi
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git commit -m "Update tool news for $(date -u +%F)"
+          git pull --rebase
+          git push

@@ -22,9 +22,7 @@ flowchart TD
     stars --> state
     state --> export["skills.json export"]
     export --> site["Astro 빌드"]
-    releases["도구 릴리스<br/>Claude Code·Codex GitHub Releases, Cursor RSS"] --> toolnews["도구별 하루 요약<br/>Claude, ADR-0022"]
-    toolnews --> state
-    state --> news["news.json export<br/>급상승 저장소, 도구 업데이트"]
+    state --> news["news.json export<br/>급상승 저장소"]
     news --> site
     site --> workers["Cloudflare Workers"]
 ```
@@ -46,6 +44,8 @@ flowchart TD
 | `collector/state/*.json` | collector | collector | O |
 | `site/src/data/skills.json` | collector export | site | O |
 | `site/src/data/news.json` | collector export | site | O |
+| `collector/state/tool_updates.json` | 도구 소식 워크플로 | 도구 소식 워크플로 | O |
+| `site/src/data/tool-updates.json` | 도구 소식 워크플로 | site | O |
 | `site/src/data/skills.schema.json` | `python -m collector.export.schema` | 사람, 테스트 | O |
 | `site/src/data/taxonomy.json` | `python -m collector.export.schema` | site, 테스트 | O |
 | `site/src/data/skills.sample.json` | 사람 | 개발용 site | O |
@@ -58,3 +58,17 @@ flowchart TD
 - `config.toml`의 `[exclude]` 목록과, 분류가 빈 페이지·예제로 판단한 스킬은 내보내지 않는다 (ADR-0020). `keep`에 있으면 판단과 상관없이 내보낸다.
 - `collector/state/summaries.json`의 `summary_redo`는 검수에서 걸린 요약 목록이다. 다음 실행이 먼저 다시 만들고, 그때까지는 기존 요약을 보여 준다. 다시 만들지 못하면 기존 요약을 두고 목록에서 뺀다.
 - 모델을 바꾸면 `skills.schema.json`을 재생성한다. 테스트가 불일치를 잡는다.
+
+## 도구 소식 (ADR-0022)
+
+스킬 수집과 다른 워크플로(`.github/workflows/tool-news.yml`, 6시간마다)가 `python -m collector --tool-news`로 돈다.
+
+```mermaid
+flowchart LR
+    releases["Claude Code·Codex GitHub Releases<br/>Cursor RSS"] --> group["도구·날짜별 묶음<br/>최근 30일"]
+    group --> write["Claude 한국어 1~3줄<br/>원문이 바뀐 묶음만"]
+    write --> state[("collector/state/tool_updates.json")]
+    state --> export["site/src/data/tool-updates.json"]
+```
+
+두 워크플로는 서로 다른 파일만 커밋한다. 스킬 수집은 `tool_updates.json`을 읽기만 하고, 도구 소식은 다른 상태 파일을 바꾸지 않는다. 그래서 동시에 끝나도 rebase가 충돌하지 않는다.
