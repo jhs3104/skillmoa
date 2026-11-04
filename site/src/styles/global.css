@@ -879,11 +879,6 @@ main { flex: 1; }
   .skill-list[data-view='table'] .skill > * { grid-column: auto; }
   .skill-list[data-view='table'] .skill::before { grid-row: auto; align-self: center; font-size: 22px; }
   .skill-list[data-view='table'] .cat-label { justify-self: stretch; min-height: 36px; }
-  .skill-list[data-view='table'] .skill__summary {
-    display: block;
-    white-space: nowrap;
-    text-overflow: ellipsis;
-  }
   .skill-list[data-view='table'] .skill__meta {
     display: grid;
     grid-template-columns: 84px 72px;
