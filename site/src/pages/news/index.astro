@@ -1,0 +1,185 @@
+---
+import AdSlot from '../../components/AdSlot.astro';
+import SkillItem from '../../components/SkillItem.astro';
+import Star from '../../components/Star.astro';
+import Layout from '../../layouts/Layout.astro';
+import newsData from '../../data/news.json';
+import toolUpdatesData from '../../data/tool-updates.json';
+import { freshSkills } from '../../lib/data';
+import { NEW_SKILL_DAYS } from '../../lib/freshness';
+import { CATEGORY_LABELS, formatCount, formatStars } from '../../lib/labels';
+import {
+  countByCategory,
+  countByTool,
+  formatNewsDay,
+  groupByDay,
+  highlightHtml,
+  notableNewSkills,
+  TOOL_LABELS,
+  TOOLS,
+  type RisingRepository,
+  type ToolUpdate,
+} from '../../lib/news';
+
+const updates = toolUpdatesData.updates as ToolUpdate[];
+const days = groupByDay(updates);
+const counts = countByTool(updates);
+const rising = newsData.risingRepositories as RisingRepository[];
+
+const fresh = freshSkills();
+const fields = countByCategory(fresh);
+const notable = notableNewSkills(fresh, 5);
+const today = new Date().toISOString().slice(0, 10);
+
+const description = 'Claude Code, Codex, Cursor의 공식 변경 기록을 한국어로 요약하고, 새로 찾은 스킬과 스타가 많이 늘어난 저장소를 정리합니다.';
+---
+
+<Layout title="소식" description={description}>
+  <div class="news" data-news>
+    <script is:inline>
+      // 공유된 주소의 탭과 에이전트를 첫 화면부터 맞춘다. 모듈 스크립트는 그린 뒤에 돈다 (scripts/news.ts와 같은 규칙).
+      (function (root) {
+        var params = new URLSearchParams(location.search);
+        if (params.get('tab') === 'trends') root.dataset.tab = 'trends';
+        var tool = params.get('tool');
+        if (tool === 'claude-code' || tool === 'codex' || tool === 'cursor') root.dataset.tool = tool;
+      })(document.currentScript.parentElement);
+    </script>
+    <section class="lede">
+      <h1>소식</h1>
+      <p>에이전트의 공식 변경 기록과 스킬모아가 모은 스킬의 변화를 정리합니다.</p>
+    </section>
+
+    <div class="tabs news__tabs" role="tablist" aria-label="소식 종류" data-news-tabs>
+      <button type="button" role="tab" id="news-tab-tools" aria-controls="news-tools" aria-selected="true" data-tab="tools">에이전트 업데이트</button>
+      <button type="button" role="tab" id="news-tab-trends" aria-controls="news-trends" aria-selected="false" tabindex="-1" data-tab="trends">스킬 동향</button>
+    </div>
+    <noscript><style>.news__tabs, .news__filters { display: none !important; } [data-news-panel] { display: block !important; }</style></noscript>
+
+    <section class="news__panel" id="news-tools" role="tabpanel" aria-labelledby="news-tab-tools" data-news-panel="tools">
+      <h2 class="visually-hidden">에이전트 업데이트</h2>
+      <fieldset class="news__filters">
+        <legend class="visually-hidden">에이전트</legend>
+        <div class="chips">
+          <label class="option">
+            <input type="radio" name="tool" value="" checked />
+            <span>전체 <small>{updates.length}</small></span>
+          </label>
+          {TOOLS.map((tool) => (
+            <label class="option">
+              <input type="radio" name="tool" value={tool} />
+              <span>{TOOL_LABELS[tool]} <small>{counts[tool]}</small></span>
+            </label>
+          ))}
+        </div>
+      </fieldset>
+      <p class="news__note">공식 변경 기록에서 스킬과 에이전트를 쓰는 데 의미 있는 변경만 골라 AI가 한국어로 새로 쓴 요약입니다. 전체 내용은 각 원문에서 확인하세요.</p>
+
+      {days.length === 0 ? (
+        <div class="empty">
+          <strong>아직 모은 업데이트가 없습니다</strong>
+          <p>공식 변경 기록을 하루 네 번 확인해 이곳에 정리합니다.</p>
+        </div>
+      ) : (
+        <div class="news-feed">
+          {days.map(({ date, updates: dayUpdates }) => {
+            const label = formatNewsDay(date, today);
+            return (
+              <section class="news-day" data-day aria-labelledby={`day-${date}`}>
+                <h3 class="news-day__date" id={`day-${date}`}>
+                  <time datetime={date}>{label.date}</time> <span>{label.weekday}</span>
+                </h3>
+                {dayUpdates.map((update) => (
+                  <article class="news-entry" data-tool={update.tool}>
+                    <div class="news-entry__head">
+                      <h4>{TOOL_LABELS[update.tool]}</h4>
+                      <p class="news-entry__versions">{update.versions.join(' · ')}</p>
+                    </div>
+                    <div class="news-entry__body">
+                      <ul>
+                        {update.highlights.map((highlight) => <li set:html={highlightHtml(highlight)} />)}
+                      </ul>
+                      <a class="news-entry__source" href={update.url} rel="noopener noreferrer">
+                        {TOOL_LABELS[update.tool]} 원문 변경 기록
+                      </a>
+                    </div>
+                  </article>
+                ))}
+              </section>
+            );
+          })}
+        </div>
+      )}
+    </section>
+
+    <section class="news__panel" id="news-trends" role="tabpanel" aria-labelledby="news-tab-trends" data-news-panel="trends">
+      <h2 class="visually-hidden">스킬 동향</h2>
+
+      <section class="trend">
+        <h3 class="trend__title">최근 {NEW_SKILL_DAYS}일 동안 찾은 새 스킬</h3>
+        {fresh.length === 0 ? (
+          <p class="trend__lead">최근 {NEW_SKILL_DAYS}일 안에 새로 찾은 스킬이 없습니다.</p>
+        ) : (
+          <>
+            <p class="trend__lead"><b>{formatCount(fresh.length)}개</b>를 찾았습니다. 많이 나온 분야부터 보여 드립니다.</p>
+            <ul class="trend__fields chips" aria-label="분야별 새 스킬 수">
+              {fields.map(({ category, count }) => (
+                <li>
+                  <a class="cat-chip" data-cat={category} href={`/new/?category=${category}`}>
+                    {CATEGORY_LABELS[category]} <small>{formatCount(count)}</small>
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </>
+        )}
+      </section>
+
+      {notable.length > 0 && (
+        <section class="trend">
+          <h3 class="trend__title">눈에 띄는 새 스킬</h3>
+          <p class="trend__hint">새 스킬 가운데 대표순이 높은 {notable.length}개입니다.</p>
+          <ol class="skill-list skill-list--plain" data-view="table">
+            {notable.map((skill) => <SkillItem skill={skill} dateKind="found" />)}
+          </ol>
+          <a class="button trend__more" href="/new/">새 스킬 {formatCount(fresh.length)}개 모두 보기</a>
+        </section>
+      )}
+
+      <section class="trend">
+        <h3 class="trend__title">스타가 많이 늘어난 저장소</h3>
+        {rising.length === 0 ? (
+          <p class="trend__lead">
+            저장소 스타를 하루 한 번 기록하고 있습니다. 기록이 7일 쌓이면 일주일 동안 스타가 가장 많이 늘어난 저장소 10개를 이곳에 보여 드립니다.
+          </p>
+        ) : (
+          <>
+            <p class="trend__hint">최근 {rising[0]!.windowDays}일 동안 늘어난 스타 기준입니다.</p>
+            <ol class="rising">
+              <li class="rising__head" aria-hidden="true">
+                <span>{rising[0]!.windowDays}일 동안</span><span>저장소 스타</span>
+              </li>
+              {rising.map((repository, index) => {
+                const [owner, name] = repository.fullName.split('/');
+                return (
+                <li class="rising__row">
+                  <span class="rising__rank">{index + 1}</span>
+                  <a class="rising__name" href={`/?q=${encodeURIComponent(repository.fullName)}`}><span>{owner}/</span><span>{name}</span></a>
+                  <span class="rising__gain"><span class="visually-hidden">{repository.windowDays}일 동안 스타 </span>+{formatCount(repository.starsGained)}</span>
+                  <span class="rising__total"><span class="visually-hidden">전체 스타 </span><Star />{formatStars(repository.stars)}</span>
+                </li>
+                );
+              })}
+            </ol>
+          </>
+        )}
+      </section>
+    </section>
+
+    <AdSlot />
+  </div>
+</Layout>
+
+<script>
+  import '../../scripts/news';
+</script>

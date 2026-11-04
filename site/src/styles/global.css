@@ -819,6 +819,100 @@ main { flex: 1; }
 }
 .option--cat input:focus-visible + span { outline: 3px solid var(--accent); outline-offset: 3px; }
 
+/* 소식 (ADR-0022): 에이전트 업데이트는 날짜별 글, 스킬 동향은 문장과 목록 행 */
+.news { max-width: 880px; padding-bottom: 56px; }
+.news__tabs { margin-bottom: 18px; }
+.news__filters { min-width: 0; margin: 0; padding: 0; border: 0; }
+.news__note { max-width: 68ch; margin-top: 12px; font-size: 13px; line-height: 1.55; color: var(--muted); }
+.news-feed { margin-top: 20px; }
+.news-day { padding-top: 28px; border-top: 1px solid var(--line); }
+.news-day[hidden], .news-entry[hidden] { display: none; }
+.news-day__date { font-size: 22px; font-weight: 800; letter-spacing: -0.02em; font-variant-numeric: tabular-nums; }
+.news-day__date span { margin-left: 4px; font-size: 15px; font-weight: 600; color: var(--muted); }
+.news-entry { display: grid; gap: 6px; padding: 14px 0 18px; }
+.news-entry + .news-entry { border-top: 1px solid var(--line); }
+.news-entry__head { display: flex; flex-wrap: wrap; align-items: baseline; gap: 2px 10px; }
+.news-entry__head h4 { margin: 0; font-size: 17px; font-weight: 700; letter-spacing: -0.01em; }
+.news-entry__versions { margin: 0; font-size: 13px; color: var(--muted); font-variant-numeric: tabular-nums; }
+.news-entry__body { min-width: 0; }
+.news-entry__body ul { display: grid; gap: 6px; max-width: 68ch; margin: 0; padding-left: 1.15em; }
+.news-entry__body li { line-height: 1.65; text-wrap: pretty; }
+.news-entry__body li::marker { color: var(--muted); }
+/* 조사가 떨어져 보이지 않도록 안쪽 여백을 좁히고, 본문보다 무거워 보이지 않게 줄인다. */
+.news-entry__body code {
+  padding: 0.05em 0.2em;
+  background: var(--surface-sunken);
+  border-radius: 4px;
+  font-size: 0.86em;
+  color: var(--ink);
+  overflow-wrap: anywhere;
+}
+.news-entry__source {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--accent);
+  text-decoration: none;
+}
+.news-entry__source:hover { text-decoration: underline; text-underline-offset: 3px; }
+
+.trend { padding: 28px 0 4px; border-top: 1px solid var(--line); }
+.news__panel .trend:first-of-type { padding-top: 6px; border-top: 0; }
+.trend__title { margin-bottom: 8px; font-size: 22px; font-weight: 800; letter-spacing: -0.02em; text-wrap: balance; }
+.trend__lead { max-width: 68ch; text-wrap: pretty; }
+.trend__lead b { font-weight: 800; font-variant-numeric: tabular-nums; }
+.trend__hint { margin-bottom: 4px; font-size: 13px; color: var(--muted); }
+.trend__fields { margin-top: 14px; padding: 0; list-style: none; }
+/* 홈의 색 라벨 필터 칩과 같은 면이다. 고르는 칩이 아니라 새 스킬 목록으로 가는 링크다. */
+.cat-chip {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  padding: 0 14px;
+  background: var(--cat);
+  border-radius: var(--radius-small);
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--cat-ink);
+  text-decoration: none;
+}
+.cat-chip:hover { filter: brightness(0.92); }
+.cat-chip:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; }
+.trend__more { margin-top: 16px; }
+
+.rising { margin-top: 6px; padding: 0; list-style: none; }
+.rising__row {
+  display: grid;
+  grid-template-columns: 30px minmax(0, 1fr) auto auto;
+  align-items: center;
+  gap: 12px;
+  min-height: 52px;
+  border-top: 1px solid var(--line);
+  font-variant-numeric: tabular-nums;
+}
+.rising__rank { font-size: 20px; font-weight: 900; letter-spacing: -0.02em; }
+.rising__name { min-width: 0; font-weight: 700; text-decoration: none; }
+/* 소유자와 저장소 이름 사이에서만 줄을 바꾼다. 한 부분이 칸보다 길 때만 그 안에서 끊는다. */
+.rising__name span { display: inline-block; max-width: 100%; overflow-wrap: anywhere; }
+.rising__name:hover { color: var(--accent); }
+.rising__gain { font-size: 14px; font-weight: 800; }
+.rising__total { display: inline-flex; align-items: center; justify-content: flex-end; gap: 3px; min-width: 64px; font-size: 14px; font-weight: 800; }
+.rising__head { display: none; }
+
+/* 공유된 주소로 들어오면 모듈 스크립트가 돌기 전에도 맞는 패널과 항목만 보인다. */
+.news[data-tab='trends'] [data-news-panel='tools'],
+.news:not([data-tab='trends']) [data-news-panel='trends'] { display: none; }
+.news[data-tab='trends'] .news__tabs [data-tab='tools'] { color: var(--muted); border-bottom-color: transparent; }
+.news[data-tab='trends'] .news__tabs [data-tab='trends'] { color: var(--accent); border-bottom-color: var(--accent); }
+.news[data-tool='claude-code'] .news-entry:not([data-tool='claude-code']),
+.news[data-tool='codex'] .news-entry:not([data-tool='codex']),
+.news[data-tool='cursor'] .news-entry:not([data-tool='cursor']),
+.news[data-tool='claude-code'] .news-day:not(:has([data-tool='claude-code'])),
+.news[data-tool='codex'] .news-day:not(:has([data-tool='codex'])),
+.news[data-tool='cursor'] .news-day:not(:has([data-tool='cursor'])) { display: none; }
+
 .status { min-height: 22px; font-size: 14px; color: var(--muted); scroll-margin-top: 76px; }
 
 .site-footer {
@@ -835,6 +929,25 @@ main { flex: 1; }
 }
 
 @media (min-width: 640px) {
+  .news-entry { grid-template-columns: 168px minmax(0, 1fr); gap: 0 24px; padding: 18px 0 20px; }
+  /* 같은 날 안의 에이전트 사이 선은 본문 열부터 그어 날짜 구분선과 위계를 나눈다. */
+  .news-entry + .news-entry {
+    border-top: 0;
+    background: linear-gradient(var(--line), var(--line)) 192px 0 / calc(100% - 192px) 1px no-repeat;
+  }
+  .rising__head {
+    display: grid;
+    grid-template-columns: 30px minmax(0, 1fr) auto 64px;
+    gap: 12px;
+    padding-bottom: 6px;
+    font-size: 12.5px;
+    font-weight: 600;
+    color: var(--muted);
+  }
+  .rising__head span:first-child { grid-column: 3; }
+  .rising__head span:last-child { text-align: right; }
+  .rising__row { grid-template-columns: 30px minmax(0, 1fr) auto 64px; }
+  .news-entry__head { flex-direction: column; align-items: flex-start; align-self: start; gap: 2px; padding-top: 1px; }
   .site-header__inner { height: 64px; }
   .site-nav { gap: 6px; }
   .site-nav a { padding: 0 14px; font-size: 15px; }

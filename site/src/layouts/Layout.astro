@@ -15,13 +15,18 @@ const { title, description, noindex = false, structuredData } = Astro.props;
 const canonical = new URL(Astro.url.pathname, Astro.site);
 const fullTitle = title === SITE_NAME ? HOME_TITLE : `${title} | ${SITE_NAME}`;
 const shouldHide = noindex || isSampleData;
+// 상세는 스킬 메뉴 아래, 새 스킬 목록은 소식의 스킬 동향에서 들어가므로 소식 메뉴 아래다 (ADR-0022).
+const parentOf: Record<string, (path: string) => boolean> = {
+  '/': (path) => path.startsWith('/skills/'),
+  '/news/': (path) => path === '/new/',
+};
 const currentState = (href: string): 'page' | 'true' | undefined => {
   if (Astro.url.pathname === href) return 'page';
-  return href === '/' && Astro.url.pathname.startsWith('/skills/') ? 'true' : undefined;
+  return parentOf[href]?.(Astro.url.pathname) ? 'true' : undefined;
 };
 const navigation = [
   { href: '/', label: '스킬' },
-  { href: '/new/', label: '새 스킬' },
+  { href: '/news/', label: '소식' },
   { href: '/recommend/', label: '맞춤 추천' },
   { href: '/ask/', label: 'AI 찾기' },
 ];
