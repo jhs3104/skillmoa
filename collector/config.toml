@@ -32,7 +32,8 @@ model = "claude-haiku-5-5"
 prompt_version = "v6"
 effort = "medium"
 max_calls_per_day = 8000
-max_calls_per_run = 1000
+# 예약 실행이 자주 빠져서(첫날 7번 중 3번 실행) 한 번에 더 처리한다. 약 1시간 20분 걸린다.
+max_calls_per_run = 2500
 max_output_tokens = 4000
 max_source_chars = 200000
 timeout_seconds = 60
