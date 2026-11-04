@@ -56,6 +56,13 @@ concurrency = 4
 # 예전 스킬이 옮겨졌다는 안내 페이지만 모아 둔 저장소
 repositories = ["majiayu000/claude-skill-registry"]
 # 뺄 스킬. "owner/repo:path"
-skills = []
+skills = [
+  # Claude Code 사용법 예제 저장소의 견본: 파키스탄·두바이 시각과 날씨, 그 값을 그리는 부품
+  "shanraisshan/claude-code-best-practice:.claude/skills/time-skill/SKILL.md",
+  "shanraisshan/claude-code-best-practice:.claude/skills/weather-fetcher/SKILL.md",
+  "shanraisshan/claude-code-best-practice:.claude/skills/weather-svg-creator/SKILL.md",
+  "shanraisshan/claude-code-best-practice:agent-teams/.claude/skills/time-fetcher/SKILL.md",
+  "shanraisshan/claude-code-best-practice:agent-teams/.claude/skills/time-svg-creator/SKILL.md",
+]
 # 분류 호출이 빼자고 했지만 남길 스킬. "owner/repo:path"
 keep = []
