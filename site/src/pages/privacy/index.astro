@@ -32,7 +32,8 @@ const recipients = [
       ['시기와 방법', '질문을 보낼 때마다 암호화된 연결(HTTPS)로 전송'],
       ['보관 기간', 'Anthropic의 방침에 따름'],
     ],
-    policy: { href: 'https://www.anthropic.com/legal/privacy', label: 'Anthropic 개인정보 처리방침' },
+    contact: 'privacy@anthropic.com',
+    policy: { href: 'https://www.anthropic.com/legal/privacy', label: 'Anthropic 개인정보 처리방침 보기' },
   },
   {
     name: 'Cloudflare, Inc.',
@@ -41,9 +42,10 @@ const recipients = [
       ['보내는 정보', '접속 정보, AI 찾기 질문과 IP 주소의 해시, 하루 이용 횟수'],
       ['목적', '사이트 전송, 보안, AI 찾기 이용 횟수 저장'],
       ['시기와 방법', '페이지를 열 때마다 암호화된 연결(HTTPS)로 전송'],
-      ['보관 기간', '해시는 7일 또는 2일 뒤 삭제, 접속 정보는 Cloudflare의 방침에 따름'],
+      ['보관 기간', '질문 해시는 7일, IP 주소 해시는 2일 뒤 삭제. 접속 정보는 Cloudflare의 방침에 따름'],
     ],
-    policy: { href: 'https://www.cloudflare.com/privacypolicy/', label: 'Cloudflare 개인정보 처리방침' },
+    contact: 'privacyquestions@cloudflare.com',
+    policy: { href: 'https://www.cloudflare.com/privacypolicy/', label: 'Cloudflare 개인정보 처리방침 보기' },
   },
   {
     name: 'Google LLC',
@@ -54,6 +56,7 @@ const recipients = [
       ['시기와 방법', '광고가 있는 페이지를 열 때마다 암호화된 연결(HTTPS)로 전송'],
       ['보관 기간', 'Google의 방침에 따름'],
     ],
+    contact: 'googlekrsupport@google.com',
     policy: {
       href: 'https://policies.google.com/technologies/partner-sites?hl=ko',
       label: 'Google이 파트너 사이트의 정보를 사용하는 방식',
@@ -77,7 +80,7 @@ const recipients = [
             <tr><th scope="col">정보</th><th scope="col">보관</th><th scope="col">보내는 곳</th></tr>
           </thead>
           <tbody>
-            <tr><th scope="row">AI 찾기 질문</th><td>원문은 저장 안 함, 해시 7일</td><td>Anthropic(미국)</td></tr>
+            <tr><th scope="row">AI 찾기 질문</th><td>원문은 저장 안 함, 해시 7일</td><td>Anthropic, Cloudflare(해시)</td></tr>
             <tr><th scope="row">AI 찾기 IP 주소</th><td>해시 2일</td><td>Cloudflare(미국)</td></tr>
             <tr><th scope="row">문의 메일</th><td>처리 후 삭제</td><td>없음</td></tr>
             <tr><th scope="row">접속 정보</th><td>각 업체 방침</td><td>Cloudflare, Google(미국)</td></tr>
@@ -85,6 +88,7 @@ const recipients = [
           </tbody>
         </table>
       </div>
+      <p class="policy__note">해시는 문장이나 IP 주소를 정해진 규칙에 따라 짧은 문자열로 바꾼 값입니다. 같은 값은 늘 같은 문자열이 되어, 원문 없이도 같은 질문인지 알아볼 수 있습니다.</p>
     </section>
 
     <nav class="policy__toc" aria-label="목차">
@@ -98,7 +102,7 @@ const recipients = [
       <dl class="policy__items">
         <div>
           <dt><a href="/ask/">AI 찾기</a>에 적은 질문</dt>
-          <dd>맞는 스킬을 골라 드리려고 처리합니다. AI 찾기는 하고 싶은 일을 문장으로 적으면 AI가 스킬을 골라 주는 기능입니다. 질문 원문은 서버에 저장하지 않고, 같은 질문에 다시 답하려고 질문을 해시로 변환한 값과 추천 결과만 보관합니다.</dd>
+          <dd>맞는 스킬을 골라 드리려고 처리합니다. AI 찾기는 하고 싶은 일을 문장으로 적으면 AI가 스킬을 골라 주는 기능입니다. 적은 문장은 그대로 Anthropic에 전송되므로 이름, 연락처 같은 개인정보는 적지 마세요. 질문 원문은 서버에 저장하지 않고, 같은 질문에 다시 답하려고 질문의 해시와 추천 결과만 보관합니다. 추천 결과의 이유 문장에는 질문 내용이 담길 수 있습니다.</dd>
         </div>
         <div>
           <dt>AI 찾기를 쓸 때의 IP 주소</dt>
@@ -121,7 +125,7 @@ const recipients = [
       <ul>
         <li>질문 해시와 추천 결과: 7일 뒤 자동으로 지워집니다.</li>
         <li>IP 주소 해시와 하루 이용 횟수: 2일 뒤 자동으로 지워집니다.</li>
-        <li>문의 메일: 요청 처리가 끝나면 지체 없이 지웁니다.</li>
+        <li>문의 메일: 요청 처리가 끝나면 받은편지함과 휴지통에서 지체 없이 지웁니다.</li>
       </ul>
       <p>자동 삭제는 저장소에 정해 둔 만료 시간이 지나면 이루어지며, 지운 정보는 되살릴 수 없습니다.</p>
     </section>
@@ -129,14 +133,15 @@ const recipients = [
     <section id="transfer">
       <h2>{heading('transfer')}</h2>
       <p>사이트 운영에 필요한 일을 아래 세 업체에 맡기며(처리 위탁), 세 업체 모두 국외에 있어 정보가 국외로 전송됩니다(국외 이전).</p>
-      {recipients.map(({ name, rows, policy }) => (
+      {recipients.map(({ name, rows, contact, policy }) => (
         <div class="policy__recipient">
           <h3>{name}</h3>
           <dl class="policy__facts">
             {rows.map(([label, value]) => (
               <div><dt>{label}</dt><dd>{value}</dd></div>
             ))}
-            <div><dt>연락처</dt><dd><a href={policy.href} rel="noopener">{policy.label}</a></dd></div>
+            <div><dt>연락처</dt><dd><a href={`mailto:${contact}`}>{contact.split('@')[0]}@<wbr />{contact.split('@')[1]}</a></dd></div>
+            <div><dt>처리방침</dt><dd><a href={policy.href}>{policy.label}</a></dd></div>
           </dl>
         </div>
       ))}
@@ -146,15 +151,15 @@ const recipients = [
 
     <section id="cookies">
       <h2>{heading('cookies')}</h2>
-      <p>{SITE_NAME}는 자체 쿠키를 만들지 않습니다. 대신 브라우저에 아래 두 가지를 저장하며, 이 값은 서버로 보내지 않습니다.</p>
+      <p>{SITE_NAME}가 직접 만드는 쿠키는 없습니다. 다만 호스팅 업체(Cloudflare)가 악성 접속을 막으려고 보안용 쿠키를 둘 수 있습니다. 그 밖에 브라우저에 아래 두 가지를 저장하며, 이 값은 서버로 보내지 않습니다.</p>
       <ul>
         <li>화면 테마(밝게·어둡게) 선택: 브라우저 데이터를 지울 때까지 남습니다.</li>
         <li>AI 찾기의 마지막 질문과 결과: 탭을 닫으면 지워집니다.</li>
       </ul>
       <p>Google을 비롯한 제3자 광고 업체는 쿠키를 사용해 이용자가 이 사이트나 다른 사이트를 방문한 기록을 바탕으로 광고를 보여 줍니다. Google은 광고 쿠키로 이용자의 방문 기록에 맞는 광고를 게재할 수 있습니다.</p>
       <ul>
-        <li><a href="https://adssettings.google.com/" rel="noopener">Google 광고 설정</a>에서 맞춤 광고를 끌 수 있습니다.</li>
-        <li><a href="https://www.aboutads.info/choices/" rel="noopener">aboutads.info</a>에서 다른 광고 업체의 맞춤 광고 쿠키를 끌 수 있습니다.</li>
+        <li><a href="https://adssettings.google.com/">Google 광고 설정</a>에서 맞춤 광고를 끌 수 있습니다.</li>
+        <li><a href="https://www.aboutads.info/choices/">aboutads.info</a>에서 다른 광고 업체의 맞춤 광고 쿠키를 끌 수 있습니다.</li>
         <li>브라우저 설정에서 쿠키를 막을 수도 있습니다. 이 경우에도 사이트는 그대로 쓸 수 있습니다.</li>
       </ul>
     </section>
@@ -179,10 +184,10 @@ const recipients = [
       <p>개인정보 보호책임자는 {SITE_NAME} 운영자이며, <a href={mail}>{CONTACT_EMAIL}</a>으로 연락할 수 있습니다.</p>
       <p>침해 신고나 상담이 필요하면 아래 기관에 문의할 수 있습니다.</p>
       <ul>
-        <li>개인정보침해신고센터: 국번 없이 <a href="tel:118">118</a>, <a href="https://privacy.kisa.or.kr/" rel="noopener">privacy.kisa.or.kr</a></li>
-        <li>개인정보분쟁조정위원회: <a href="tel:1833-6972">1833-6972</a>, <a href="https://www.kopico.go.kr/" rel="noopener">kopico.go.kr</a></li>
-        <li>대검찰청 사이버수사과: 국번 없이 <a href="tel:1301">1301</a>, <a href="https://www.spo.go.kr/" rel="noopener">spo.go.kr</a></li>
-        <li>경찰청 사이버수사국: 국번 없이 <a href="tel:182">182</a>, <a href="https://ecrm.police.go.kr/" rel="noopener">ecrm.police.go.kr</a></li>
+        <li>개인정보침해신고센터: 국번 없이 <a href="tel:118">118</a>, <a href="https://privacy.kisa.or.kr/">privacy.kisa.or.kr</a></li>
+        <li>개인정보분쟁조정위원회: <a href="tel:1833-6972">1833-6972</a>, <a href="https://www.kopico.go.kr/">kopico.go.kr</a></li>
+        <li>대검찰청 사이버수사과: 국번 없이 <a href="tel:1301">1301</a>, <a href="https://www.spo.go.kr/">spo.go.kr</a></li>
+        <li>경찰청 사이버수사국: 국번 없이 <a href="tel:182">182</a>, <a href="https://ecrm.police.go.kr/">ecrm.police.go.kr</a></li>
       </ul>
     </section>
 
