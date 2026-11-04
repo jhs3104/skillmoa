@@ -5,6 +5,8 @@ export const SITE_NAME = '스킬모아';
 export const HOME_TITLE = '스킬모아 | AI 에이전트 스킬 모음';
 /** 저작자의 삭제·수정 요청을 받는 공개 메일. 비어 있으면 푸터에 표시하지 않는다. */
 export const CONTACT_EMAIL: string = 'contact@skillmoa.com';
+/** AdSense 게시자 ID. 페이지와 ads.txt에 그대로 공개되는 값이라 비밀값이 아니다. */
+export const ADSENSE_CLIENT = 'ca-pub-6121162482948608';
 export const STAR_PATH = 'M8 1.2 10.1 5.6l4.8.6-3.5 3.3.9 4.8L8 12l-4.3 2.3.9-4.8L1.1 6.2l4.8-.6Z';
 
 export const CATEGORY_LABELS: Record<Category, string> = {

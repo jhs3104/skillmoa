@@ -2,7 +2,7 @@
 import '../styles/global.css';
 import ThemeToggle from '../components/ThemeToggle.astro';
 import { isSampleData } from '../lib/data';
-import { CONTACT_EMAIL, HOME_TITLE, SITE_NAME } from '../lib/labels';
+import { ADSENSE_CLIENT, CONTACT_EMAIL, HOME_TITLE, SITE_NAME } from '../lib/labels';
 
 interface Props {
   title: string;
@@ -50,6 +50,11 @@ const navigation = [
     <meta property="og:locale" content="ko_KR" />
     <meta name="twitter:card" content="summary" />
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <meta name="google-adsense-account" content={ADSENSE_CLIENT} />
+    {/* 광고 자리(AdSlot)와 별개로, 심사와 자동 광고에 필요한 스크립트는 운영 빌드에만 싣는다. */}
+    {import.meta.env.PROD && (
+      <script is:inline async src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${ADSENSE_CLIENT}`} crossorigin="anonymous"></script>
+    )}
     {structuredData && (
       <script is:inline type="application/ld+json" set:html={JSON.stringify(structuredData).replaceAll('<', '\\u003c')} />
     )}
