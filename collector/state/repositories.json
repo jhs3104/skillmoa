@@ -11,8 +11,8 @@
       "license": "MIT",
       "name": "cate",
       "owner": "0-AI-UG",
-      "pushed_at": "2026-11-04T19:38:22Z",
-      "scanned_pushed_at": "2026-11-04T19:38:22Z",
+      "pushed_at": "2026-11-04T23:35:20Z",
+      "scanned_pushed_at": "2026-11-04T23:35:20Z",
       "sources": [
         "curated"
       ],
@@ -52,7 +52,7 @@
       "sources": [
         "topic:agent-skills"
       ],
-      "stars": 4977
+      "stars": 5010
     },
     "0xnyk/awesome-hermes-agent": {
       "default_branch": "main",
@@ -70,7 +70,7 @@
       "sources": [
         "topic:agent-skills"
       ],
-      "stars": 5958
+      "stars": 5962
     },
     "0xnyk/council-of-high-intelligence": {
       "default_branch": "main",
@@ -124,7 +124,7 @@
       "sources": [
         "topic:claude-code-skills"
       ],
-      "stars": 119
+      "stars": 120
     },
     "0xsline/openchatcut": {
       "default_branch": "main",
@@ -142,7 +142,7 @@
       "sources": [
         "topic:agent-skills"
       ],
-      "stars": 2903
+      "stars": 2907
     },
     "1160054/claude-code-zsh-completion": {
       "default_branch": "main",
@@ -214,7 +214,7 @@
       "sources": [
         "topic:claude-code-skills"
       ],
-      "stars": 99
+      "stars": 100
     },
     "2389-research/landing-page-design": {
       "default_branch": "main",
@@ -232,7 +232,7 @@
       "sources": [
         "topic:claude-code-skills"
       ],
-      "stars": 37
+      "stars": 38
     },
     "23blocks-os/ai-maestro": {
       "default_branch": "main",
@@ -341,7 +341,7 @@
       "sources": [
         "topic:claude-code"
       ],
-      "stars": 5739
+      "stars": 5743
     },
     "777genius/agent-notifications": {
       "default_branch": "main",
@@ -354,8 +354,8 @@
       "license": null,
       "name": "agent-notifications",
       "owner": "777genius",
-      "pushed_at": "2026-11-04T19:46:33Z",
-      "scanned_pushed_at": "2026-11-04T19:46:33Z",
+      "pushed_at": "2026-11-05T01:28:25Z",
+      "scanned_pushed_at": "2026-11-05T01:28:25Z",
       "sources": [
         "curated"
       ],
@@ -372,8 +372,8 @@
       "license": "MIT",
       "name": "DeepPaperNote",
       "owner": "917Dhj",
-      "pushed_at": "2026-11-04T14:21:49Z",
-      "scanned_pushed_at": "2026-11-04T14:21:49Z",
+      "pushed_at": "2026-11-04T20:44:23Z",
+      "scanned_pushed_at": "2026-11-04T20:44:23Z",
       "sources": [
         "topic:agent-skills"
       ],
@@ -395,7 +395,7 @@
       "sources": [
         "curated"
       ],
-      "stars": 120
+      "stars": 126
     },
     "a-pavithraa/springboot-skills-marketplace": {
       "default_branch": "main",
@@ -470,7 +470,7 @@
       "sources": [
         "topic:claude-code-skills"
       ],
-      "stars": 148
+      "stars": 149
     },
     "aaddrick/contrarian": {
       "default_branch": "main",
@@ -506,7 +506,7 @@
       "sources": [
         "curated"
       ],
-      "stars": 627
+      "stars": 629
     },
     "aaravkashyap12/advise-project-approach": {
       "default_branch": "main",
@@ -537,13 +537,13 @@
       "license": "Apache-2.0",
       "name": "aaron-marketing-skills",
       "owner": "aaron-he-zhu",
-      "pushed_at": "2026-11-04T13:40:00Z",
-      "scanned_pushed_at": "2026-11-04T13:40:00Z",
+      "pushed_at": "2026-11-04T23:06:15Z",
+      "scanned_pushed_at": "2026-11-04T23:06:15Z",
       "sources": [
         "curated",
         "topic:agent-skills"
       ],
-      "stars": 3068
+      "stars": 3070
     },
     "aaronjmars/agent-credit": {
       "default_branch": "main",
@@ -652,7 +652,7 @@
         "curated",
         "topic:claude-skills"
       ],
-      "stars": 1642
+      "stars": 1645
     },
     "addyosmani/agent-skills": {
       "default_branch": "main",
@@ -671,7 +671,7 @@
         "topic:agent-skills",
         "topic:claude-code"
       ],
-      "stars": 113245
+      "stars": 113293
     },
     "addyosmani/web-quality-skills": {
       "default_branch": "main",
@@ -690,7 +690,7 @@
         "topic:agent-skills",
         "topic:claude-skills"
       ],
-      "stars": 3037
+      "stars": 3039
     },
     "aden-hive/hive": {
       "default_branch": "main",
@@ -775,12 +775,12 @@
       "license": "MIT",
       "name": "aeon",
       "owner": "aeonfun",
-      "pushed_at": "2026-11-04T19:00:28Z",
-      "scanned_pushed_at": "2026-11-04T19:00:28Z",
+      "pushed_at": "2026-11-04T22:37:58Z",
+      "scanned_pushed_at": "2026-11-04T22:37:58Z",
       "sources": [
         "curated"
       ],
-      "stars": 787
+      "stars": 788
     },
     "aeonfun/soul.md": {
       "default_branch": "main",
@@ -834,7 +834,7 @@
       "sources": [
         "topic:claude-skills"
       ],
-      "stars": 496
+      "stars": 498
     },
     "affaan-m/ecc": {
       "default_branch": "main",
@@ -853,7 +853,7 @@
         "curated",
         "topic:claude-code"
       ],
-      "stars": 297137
+      "stars": 297271
     },
     "agamm/claude-code-owasp": {
       "default_branch": "main",
@@ -920,12 +920,12 @@
       "license": "MIT",
       "name": "agent-of-empires",
       "owner": "agent-of-empires",
-      "pushed_at": "2026-11-04T19:51:44Z",
-      "scanned_pushed_at": "2026-11-04T19:51:44Z",
+      "pushed_at": "2026-11-05T01:20:47Z",
+      "scanned_pushed_at": "2026-11-05T01:20:47Z",
       "sources": [
         "topic:claude-code"
       ],
-      "stars": 3544
+      "stars": 3561
     },
     "agent-sh/agentsys": {
       "default_branch": "main",
@@ -961,7 +961,7 @@
       "sources": [
         "curated"
       ],
-      "stars": 469
+      "stars": 470
     },
     "agentdock/agentdock": {
       "default_branch": "main",
@@ -1033,7 +1033,7 @@
       "sources": [
         "topic:agent-skills"
       ],
-      "stars": 1602
+      "stars": 1603
     },
     "agentplugins/agent-plugins-spec": {
       "default_branch": "main",
@@ -1106,7 +1106,7 @@
         "topic:agent-skills",
         "topic:claude-code"
       ],
-      "stars": 10570
+      "stars": 10572
     },
     "agentscope-ai/openjudge": {
       "default_branch": "main",
@@ -1124,7 +1124,7 @@
       "sources": [
         "topic:agent-skills"
       ],
-      "stars": 1050
+      "stars": 1051
     },
     "agentskills/agentskills": {
       "default_branch": "main",
@@ -1142,7 +1142,7 @@
       "sources": [
         "topic:agent-skills"
       ],
-      "stars": 26939
+      "stars": 26945
     },
     "agentworkforce/relay": {
       "default_branch": "main",
@@ -1155,12 +1155,12 @@
       "license": "Apache-2.0",
       "name": "relay",
       "owner": "AgentWorkforce",
-      "pushed_at": "2026-11-04T18:30:48Z",
-      "scanned_pushed_at": "2026-11-04T18:30:48Z",
+      "pushed_at": "2026-11-04T21:52:53Z",
+      "scanned_pushed_at": "2026-11-04T21:52:53Z",
       "sources": [
         "topic:agent-skills"
       ],
-      "stars": 1091
+      "stars": 1092
     },
     "agiwhitelist/auteur": {
       "default_branch": "main",
@@ -1199,7 +1199,7 @@
         "topic:agent-skills",
         "topic:claude-code"
       ],
-      "stars": 10739
+      "stars": 10749
     },
     "agricidaniel/claude-blog": {
       "default_branch": "main",
@@ -1217,7 +1217,7 @@
       "sources": [
         "topic:agent-skills"
       ],
-      "stars": 2647
+      "stars": 2649
     },
     "agricidaniel/claude-obsidian": {
       "default_branch": "main",
@@ -1237,7 +1237,7 @@
         "topic:agent-skills",
         "topic:claude-code"
       ],
-      "stars": 16164
+      "stars": 16177
     },
     "agricidaniel/claude-seo": {
       "default_branch": "main",
@@ -1256,7 +1256,7 @@
         "curated",
         "topic:claude-code"
       ],
-      "stars": 26603
+      "stars": 26671
     },
     "ahacker-1/cre-agent-skills": {
       "default_branch": "main",
@@ -1346,7 +1346,7 @@
       "sources": [
         "topic:claude-code"
       ],
-      "stars": 69577
+      "stars": 69618
     },
     "ai4s-research/ai4s-skills": {
       "default_branch": "main",
@@ -1401,7 +1401,7 @@
       "sources": [
         "topic:codex-skills"
       ],
-      "stars": 14
+      "stars": 15
     },
     "aipexstudio/aipex": {
       "default_branch": "main",
@@ -1432,12 +1432,12 @@
       "license": "Apache-2.0",
       "name": "open-science",
       "owner": "aipoch",
-      "pushed_at": "2026-11-04T16:34:35Z",
-      "scanned_pushed_at": "2026-11-04T16:34:35Z",
+      "pushed_at": "2026-11-05T01:33:17Z",
+      "scanned_pushed_at": "2026-11-05T01:33:17Z",
       "sources": [
         "topic:agent-skills"
       ],
-      "stars": 5451
+      "stars": 5457
     },
     "airtonlira/boostprompt": {
       "default_branch": "main",
@@ -1468,8 +1468,8 @@
       "license": "MIT",
       "name": "airut",
       "owner": "airutorg",
-      "pushed_at": "2026-11-04T17:38:05Z",
-      "scanned_pushed_at": "2026-11-04T17:38:05Z",
+      "pushed_at": "2026-11-05T00:37:40Z",
+      "scanned_pushed_at": "2026-11-05T00:37:40Z",
       "sources": [
         "curated"
       ],
@@ -1504,8 +1504,8 @@
       "license": null,
       "name": "marketplace",
       "owner": "aiskillstore",
-      "pushed_at": "2026-11-04T17:04:28Z",
-      "scanned_pushed_at": "2026-11-04T17:04:28Z",
+      "pushed_at": "2026-11-05T01:24:06Z",
+      "scanned_pushed_at": "2026-11-05T01:24:06Z",
       "sources": [
         "topic:claude-skills",
         "topic:codex-skills"
@@ -1546,7 +1546,7 @@
       "sources": [
         "topic:agent-skills"
       ],
-      "stars": 1500
+      "stars": 1501
     },
     "akin-ozer/cc-devops-skills": {
       "default_branch": "main",
@@ -1582,7 +1582,7 @@
       "sources": [
         "curated"
       ],
-      "stars": 1585
+      "stars": 1586
     },
     "akseolabs-seo/cinematic-ui": {
       "default_branch": "master",
@@ -1620,7 +1620,7 @@
         "topic:claude-code",
         "topic:claude-skills"
       ],
-      "stars": 28670
+      "stars": 28679
     },
     "alchaincyf/huashu-motion": {
       "default_branch": "main",
@@ -1638,7 +1638,7 @@
       "sources": [
         "topic:agent-skills"
       ],
-      "stars": 2343
+      "stars": 2360
     },
     "alchaincyf/huashu-skills": {
       "default_branch": "master",
@@ -1741,12 +1741,12 @@
       "license": "MIT",
       "name": "awesome-reverse-engineered",
       "owner": "alexgaoth",
-      "pushed_at": "2026-11-04T14:55:31Z",
-      "scanned_pushed_at": "2026-11-04T14:55:31Z",
+      "pushed_at": "2026-11-04T20:56:08Z",
+      "scanned_pushed_at": "2026-11-04T20:56:08Z",
       "sources": [
         "topic:agent-skills"
       ],
-      "stars": 1217
+      "stars": 1220
     },
     "alexgreensh/anidoodle": {
       "default_branch": "main",
@@ -1765,7 +1765,7 @@
         "topic:agent-skills",
         "topic:claude-skills"
       ],
-      "stars": 1314
+      "stars": 1329
     },
     "alexgreensh/attention-span": {
       "default_branch": "main",
@@ -1785,6 +1785,24 @@
       ],
       "stars": 1535
     },
+    "alexyc9381/court-skill": {
+      "default_branch": "main",
+      "description": "Put your idea on trial in front of a jury of 12 Claudes. A free Claude Code skill.",
+      "exclusion": null,
+      "first_seen_at": "2026-11-05",
+      "github_id": 1403507006,
+      "is_archived": false,
+      "is_fork": false,
+      "license": "MIT",
+      "name": "court-skill",
+      "owner": "alexyc9381",
+      "pushed_at": "2026-10-04T00:49:54Z",
+      "scanned_pushed_at": "2026-10-04T00:49:54Z",
+      "sources": [
+        "topic:claude-skills"
+      ],
+      "stars": 267
+    },
     "alibaba/open-code-review": {
       "default_branch": "main",
       "description": "Secure, fast, efficient, battle-tested at Alibaba's scale. Hybrid architecture code review tool: deterministic pipelines + LLM Agent, precise line-level comments, built-in multi-language ruleset (NPE, thread-safety, XSS, SQL injection), OpenAI & Anthropic compatible.",
@@ -1801,7 +1819,7 @@
       "sources": [
         "topic:agent-skills"
       ],
-      "stars": 49425
+      "stars": 49434
     },
     "alibaba/skill-up": {
       "default_branch": "main",
@@ -1837,7 +1855,7 @@
       "sources": [
         "topic:agent-skills"
       ],
-      "stars": 16186
+      "stars": 16187
     },
     "alinaqi/maggy": {
       "default_branch": "main",
@@ -1913,7 +1931,7 @@
         "topic:claude-skills",
         "topic:codex-skills"
       ],
-      "stars": 29290
+      "stars": 29299
     },
     "alisa0808/vibe-creating-skill": {
       "default_branch": "main",
@@ -1980,8 +1998,8 @@
       "license": "MIT",
       "name": "bestax",
       "owner": "allxsmith",
-      "pushed_at": "2026-11-04T13:48:09Z",
-      "scanned_pushed_at": "2026-11-04T13:48:09Z",
+      "pushed_at": "2026-11-04T23:28:14Z",
+      "scanned_pushed_at": "2026-11-04T23:28:14Z",
       "sources": [
         "curated"
       ],
@@ -2003,7 +2021,7 @@
       "sources": [
         "curated"
       ],
-      "stars": 530
+      "stars": 531
     },
     "alookai/alook": {
       "default_branch": "main",
@@ -2016,8 +2034,8 @@
       "license": "Apache-2.0",
       "name": "alook",
       "owner": "alookai",
-      "pushed_at": "2026-11-04T19:47:05Z",
-      "scanned_pushed_at": "2026-11-04T19:47:05Z",
+      "pushed_at": "2026-11-05T01:17:01Z",
+      "scanned_pushed_at": "2026-11-05T01:17:01Z",
       "sources": [
         "topic:claude-code-skills"
       ],
@@ -2112,7 +2130,7 @@
       "sources": [
         "topic:agent-skills"
       ],
-      "stars": 1308
+      "stars": 1309
     },
     "amirkiarafiei/subagent-cli-skills": {
       "default_branch": "main",
@@ -2166,7 +2184,7 @@
       "sources": [
         "topic:agent-skills"
       ],
-      "stars": 2383
+      "stars": 2384
     },
     "amplifthq/openmeld": {
       "default_branch": "main",
@@ -2203,7 +2221,7 @@
         "topic:agent-skills",
         "topic:claude-skills"
       ],
-      "stars": 9150
+      "stars": 9153
     },
     "ancoleman/ai-design-components": {
       "default_branch": "main",
@@ -2293,7 +2311,7 @@
       "sources": [
         "topic:claude-skills"
       ],
-      "stars": 474
+      "stars": 484
     },
     "angular/skills": {
       "default_branch": "main",
@@ -2306,8 +2324,8 @@
       "license": null,
       "name": "skills",
       "owner": "angular",
-      "pushed_at": "2026-11-04T19:02:15Z",
-      "scanned_pushed_at": "2026-11-04T19:02:15Z",
+      "pushed_at": "2026-11-04T21:16:09Z",
+      "scanned_pushed_at": "2026-11-04T21:16:09Z",
       "sources": [
         "curated"
       ],
@@ -2396,8 +2414,8 @@
       "license": "MIT",
       "name": "prd-taskmaster",
       "owner": "anombyte93",
-      "pushed_at": "2026-11-03T10:54:32Z",
-      "scanned_pushed_at": "2026-11-03T10:54:32Z",
+      "pushed_at": "2026-11-04T23:27:54Z",
+      "scanned_pushed_at": "2026-11-04T23:27:54Z",
       "sources": [
         "topic:claude-skills"
       ],
@@ -2437,7 +2455,7 @@
       "sources": [
         "curated"
       ],
-      "stars": 8427
+      "stars": 8428
     },
     "anthropics/claude-code": {
       "default_branch": "main",
@@ -2455,7 +2473,7 @@
       "sources": [
         "curated"
       ],
-      "stars": 154533
+      "stars": 154558
     },
     "anthropics/claude-code-action": {
       "default_branch": "main",
@@ -2473,7 +2491,7 @@
       "sources": [
         "curated"
       ],
-      "stars": 9785
+      "stars": 9787
     },
     "anthropics/claude-code-security-review": {
       "default_branch": "main",
@@ -2491,7 +2509,7 @@
       "sources": [
         "curated"
       ],
-      "stars": 6713
+      "stars": 6716
     },
     "anthropics/claude-cookbooks": {
       "default_branch": "main",
@@ -2509,7 +2527,7 @@
       "sources": [
         "curated"
       ],
-      "stars": 54208
+      "stars": 54226
     },
     "anthropics/claude-plugins-official": {
       "default_branch": "main",
@@ -2522,13 +2540,13 @@
       "license": "Apache-2.0",
       "name": "claude-plugins-official",
       "owner": "anthropics",
-      "pushed_at": "2026-11-04T19:48:31Z",
-      "scanned_pushed_at": "2026-11-04T19:48:31Z",
+      "pushed_at": "2026-11-05T00:55:23Z",
+      "scanned_pushed_at": "2026-11-05T00:55:23Z",
       "sources": [
         "curated",
         "topic:claude-code"
       ],
-      "stars": 46102
+      "stars": 46129
     },
     "anthropics/skills": {
       "default_branch": "main",
@@ -2548,7 +2566,7 @@
         "seed",
         "topic:agent-skills"
       ],
-      "stars": 187372
+      "stars": 187428
     },
     "antonbabenko/agent-plugins": {
       "default_branch": "master",
@@ -2586,7 +2604,7 @@
         "topic:agent-skills",
         "topic:claude-skills"
       ],
-      "stars": 2439
+      "stars": 2441
     },
     "anymorph-ai/claudable": {
       "default_branch": "main",
@@ -2617,8 +2635,8 @@
       "license": null,
       "name": "yume",
       "owner": "aofp",
-      "pushed_at": "2026-11-01T22:40:56Z",
-      "scanned_pushed_at": "2026-11-01T22:40:56Z",
+      "pushed_at": "2026-11-05T00:15:26Z",
+      "scanned_pushed_at": "2026-11-05T00:15:26Z",
       "sources": [
         "topic:claude-code-skills"
       ],
@@ -2676,7 +2694,7 @@
       "sources": [
         "topic:agent-skills"
       ],
-      "stars": 2490
+      "stars": 2491
     },
     "apify/awesome-skills": {
       "default_branch": "main",
@@ -2694,7 +2712,7 @@
       "sources": [
         "curated"
       ],
-      "stars": 290
+      "stars": 291
     },
     "apitube/news-api-skills": {
       "default_branch": "main",
@@ -2730,7 +2748,7 @@
       "sources": [
         "topic:claude-skills"
       ],
-      "stars": 408
+      "stars": 412
     },
     "appeeky/aso-skills": {
       "default_branch": "main",
@@ -2748,7 +2766,7 @@
       "sources": [
         "curated"
       ],
-      "stars": 2259
+      "stars": 2262
     },
     "appleboy/skills": {
       "default_branch": "main",
@@ -2786,7 +2804,7 @@
         "topic:claude-code",
         "topic:claude-skills"
       ],
-      "stars": 4817
+      "stars": 4853
     },
     "ar9av/obsidian-wiki": {
       "default_branch": "main",
@@ -2806,7 +2824,7 @@
         "topic:claude-code",
         "topic:claude-skills"
       ],
-      "stars": 3683
+      "stars": 3685
     },
     "ar9av/paperorchestra": {
       "default_branch": "main",
@@ -2892,8 +2910,8 @@
       "license": null,
       "name": "mcp",
       "owner": "arcmira",
-      "pushed_at": "2026-11-03T19:16:27Z",
-      "scanned_pushed_at": "2026-11-03T19:16:27Z",
+      "pushed_at": "2026-11-04T20:01:25Z",
+      "scanned_pushed_at": "2026-11-04T20:01:25Z",
       "sources": [
         "curated"
       ],
@@ -2915,7 +2933,7 @@
       "sources": [
         "topic:claude-code"
       ],
-      "stars": 3530
+      "stars": 3538
     },
     "ariaxxx-free/job-navigation-skill": {
       "default_branch": "main",
@@ -3006,7 +3024,7 @@
         "topic:agent-skills",
         "topic:claude-skills"
       ],
-      "stars": 1811
+      "stars": 1839
     },
     "ark0n/codeman": {
       "default_branch": "master",
@@ -3019,12 +3037,12 @@
       "license": "MIT",
       "name": "Codeman",
       "owner": "Ark0N",
-      "pushed_at": "2026-11-04T14:34:48Z",
-      "scanned_pushed_at": "2026-11-04T14:34:48Z",
+      "pushed_at": "2026-11-05T01:11:36Z",
+      "scanned_pushed_at": "2026-11-05T01:11:36Z",
       "sources": [
         "topic:claude-skills"
       ],
-      "stars": 827
+      "stars": 828
     },
     "arpitg1304/robotics-agent-skills": {
       "default_branch": "main",
@@ -3042,7 +3060,7 @@
       "sources": [
         "topic:claude-skills"
       ],
-      "stars": 392
+      "stars": 393
     },
     "artemchuikin/youtube-skills": {
       "default_branch": "main",
@@ -3078,7 +3096,7 @@
       "sources": [
         "topic:claude-skills"
       ],
-      "stars": 372
+      "stars": 380
     },
     "arvindrk/extract-design-system": {
       "default_branch": "main",
@@ -3115,7 +3133,7 @@
       "sources": [
         "topic:claude-skills"
       ],
-      "stars": 872
+      "stars": 874
     },
     "asgeirtj/system_prompts_leaks": {
       "default_branch": "main",
@@ -3133,7 +3151,7 @@
       "sources": [
         "topic:claude-code"
       ],
-      "stars": 70766
+      "stars": 70775
     },
     "ash1794/vibe-engineering": {
       "default_branch": "master",
@@ -3200,8 +3218,8 @@
       "license": null,
       "name": "loki-mode",
       "owner": "asklokesh",
-      "pushed_at": "2026-11-03T03:11:18Z",
-      "scanned_pushed_at": "2026-11-03T03:11:18Z",
+      "pushed_at": "2026-11-05T01:35:42Z",
+      "scanned_pushed_at": "2026-11-05T01:35:42Z",
       "sources": [
         "curated"
       ],
@@ -3223,7 +3241,7 @@
       "sources": [
         "curated"
       ],
-      "stars": 610
+      "stars": 611
     },
     "athevon/genjutsu": {
       "default_branch": "main",
@@ -3241,7 +3259,7 @@
       "sources": [
         "topic:claude-skills"
       ],
-      "stars": 745
+      "stars": 746
     },
     "athola/claude-night-market": {
       "default_branch": "master",
@@ -3254,8 +3272,8 @@
       "license": "MIT",
       "name": "claude-night-market",
       "owner": "athola",
-      "pushed_at": "2026-11-04T18:43:11Z",
-      "scanned_pushed_at": "2026-11-04T18:43:11Z",
+      "pushed_at": "2026-11-04T20:18:18Z",
+      "scanned_pushed_at": "2026-11-04T20:18:18Z",
       "sources": [
         "topic:claude-skills"
       ],
@@ -3331,7 +3349,7 @@
       "sources": [
         "topic:agent-skills"
       ],
-      "stars": 2236
+      "stars": 2237
     },
     "augustusw/audio-tldr-skill": {
       "default_branch": "main",
@@ -3422,7 +3440,7 @@
         "curated",
         "topic:claude-code"
       ],
-      "stars": 8428
+      "stars": 8429
     },
     "automazeio/vibeproxy": {
       "default_branch": "main",
@@ -3435,12 +3453,12 @@
       "license": "MIT",
       "name": "vibeproxy",
       "owner": "automazeio",
-      "pushed_at": "2026-11-04T00:16:23Z",
-      "scanned_pushed_at": "2026-11-04T00:16:23Z",
+      "pushed_at": "2026-11-05T00:13:49Z",
+      "scanned_pushed_at": "2026-11-05T00:13:49Z",
       "sources": [
         "topic:claude-code"
       ],
-      "stars": 3404
+      "stars": 3405
     },
     "av/skills": {
       "default_branch": "master",
@@ -3495,7 +3513,7 @@
       "sources": [
         "curated"
       ],
-      "stars": 3825
+      "stars": 3827
     },
     "avdlee/xcode-build-optimization-agent-skill": {
       "default_branch": "main",
@@ -3526,8 +3544,8 @@
       "license": "MIT",
       "name": "great_cto",
       "owner": "avelikiy",
-      "pushed_at": "2026-11-04T19:44:55Z",
-      "scanned_pushed_at": "2026-11-04T19:44:55Z",
+      "pushed_at": "2026-11-04T20:06:23Z",
+      "scanned_pushed_at": "2026-11-04T20:06:23Z",
       "sources": [
         "topic:claude-code-skills"
       ],
@@ -3603,7 +3621,7 @@
       "sources": [
         "topic:claude-code"
       ],
-      "stars": 5610
+      "stars": 5614
     },
     "awrshift/agent-memory-kit": {
       "default_branch": "main",
@@ -3634,12 +3652,12 @@
       "license": "AGPL-3.0",
       "name": "synthadoc",
       "owner": "axoviq-ai",
-      "pushed_at": "2026-11-04T19:54:28Z",
-      "scanned_pushed_at": "2026-11-04T19:54:28Z",
+      "pushed_at": "2026-11-05T01:23:47Z",
+      "scanned_pushed_at": "2026-11-05T01:23:47Z",
       "sources": [
         "topic:agent-skills"
       ],
-      "stars": 1835
+      "stars": 1843
     },
     "axtonliu/smart-illustrator": {
       "default_branch": "main",
@@ -3675,7 +3693,7 @@
       "sources": [
         "topic:claude-skills"
       ],
-      "stars": 60060
+      "stars": 60084
     },
     "ayoubben18/ab-method": {
       "default_branch": "main",
@@ -3742,13 +3760,13 @@
       "license": "Apache-2.0",
       "name": "plannotator",
       "owner": "backnotprop",
-      "pushed_at": "2026-11-04T19:57:16Z",
-      "scanned_pushed_at": "2026-11-04T19:57:16Z",
+      "pushed_at": "2026-11-05T01:35:00Z",
+      "scanned_pushed_at": "2026-11-05T01:35:00Z",
       "sources": [
         "curated",
         "topic:claude-code"
       ],
-      "stars": 9848
+      "stars": 9853
     },
     "backnotprop/pstack": {
       "default_branch": "main",
@@ -3761,14 +3779,14 @@
       "license": "MIT",
       "name": "pstack",
       "owner": "backnotprop",
-      "pushed_at": "2026-11-04T16:16:29Z",
-      "scanned_pushed_at": "2026-11-04T16:16:29Z",
+      "pushed_at": "2026-11-04T22:50:59Z",
+      "scanned_pushed_at": "2026-11-04T22:50:59Z",
       "sources": [
         "topic:agent-skills",
         "topic:claude-code",
         "topic:claude-skills"
       ],
-      "stars": 3564
+      "stars": 3582
     },
     "backstabslash/goccc": {
       "default_branch": "main",
@@ -3822,7 +3840,7 @@
       "sources": [
         "topic:claude-code"
       ],
-      "stars": 4036
+      "stars": 4037
     },
     "bagelhole/devops-security-agent-skills": {
       "default_branch": "main",
@@ -3840,7 +3858,7 @@
       "sources": [
         "topic:agent-skills"
       ],
-      "stars": 1190
+      "stars": 1191
     },
     "baidu-netdisk/bdpan-storage": {
       "default_branch": "main",
@@ -3859,7 +3877,7 @@
         "topic:claude-code-skills",
         "topic:codex-skills"
       ],
-      "stars": 324
+      "stars": 325
     },
     "barnett-studios/cxpak": {
       "default_branch": "main",
@@ -3913,7 +3931,7 @@
       "sources": [
         "topic:claude-code"
       ],
-      "stars": 3501
+      "stars": 3500
     },
     "bayramannakov/claude-reflect": {
       "default_branch": "main",
@@ -3931,7 +3949,7 @@
       "sources": [
         "topic:claude-skills"
       ],
-      "stars": 1918
+      "stars": 1919
     },
     "beamuswayne/simp-skill": {
       "default_branch": "main",
@@ -4003,7 +4021,7 @@
       "sources": [
         "curated"
       ],
-      "stars": 1379
+      "stars": 1378
     },
     "beiming183-cloud/industrial-product-design-gbt": {
       "default_branch": "main",
@@ -4057,7 +4075,7 @@
       "sources": [
         "topic:agent-skills"
       ],
-      "stars": 3503
+      "stars": 3507
     },
     "bergside/typeui": {
       "default_branch": "main",
@@ -4075,7 +4093,7 @@
       "sources": [
         "topic:agent-skills"
       ],
-      "stars": 2202
+      "stars": 2203
     },
     "betabots-llc/callimachus": {
       "default_branch": "main",
@@ -4131,7 +4149,7 @@
         "topic:agent-skills",
         "topic:claude-skills"
       ],
-      "stars": 1386
+      "stars": 1389
     },
     "bhanunamikaze/agentic-seo-skill": {
       "default_branch": "main",
@@ -4223,7 +4241,7 @@
         "curated",
         "topic:claude-skills"
       ],
-      "stars": 1000
+      "stars": 1001
     },
     "bitwize-music-studio/claude-ai-music-skills": {
       "default_branch": "main",
@@ -4236,8 +4254,8 @@
       "license": "CC0-1.0",
       "name": "claude-ai-music-skills",
       "owner": "bitwize-music-studio",
-      "pushed_at": "2026-10-28T21:44:30Z",
-      "scanned_pushed_at": "2026-10-28T21:44:30Z",
+      "pushed_at": "2026-11-04T21:44:58Z",
+      "scanned_pushed_at": "2026-11-04T21:44:58Z",
       "sources": [
         "curated",
         "topic:claude-code-skills",
@@ -4281,7 +4299,7 @@
         "topic:agent-skills",
         "topic:claude-code"
       ],
-      "stars": 64788
+      "stars": 64864
     },
     "bomx/distribb-skill": {
       "default_branch": "main",
@@ -4317,7 +4335,7 @@
       "sources": [
         "topic:claude-skills"
       ],
-      "stars": 1046
+      "stars": 1047
     },
     "boshu2/agentops": {
       "default_branch": "main",
@@ -4330,8 +4348,8 @@
       "license": "Apache-2.0",
       "name": "agentops",
       "owner": "boshu2",
-      "pushed_at": "2026-11-03T12:11:15Z",
-      "scanned_pushed_at": "2026-11-03T12:11:15Z",
+      "pushed_at": "2026-11-04T23:01:18Z",
+      "scanned_pushed_at": "2026-11-04T23:01:18Z",
       "sources": [
         "topic:claude-skills"
       ],
@@ -4371,7 +4389,7 @@
       "sources": [
         "topic:agent-skills"
       ],
-      "stars": 1627
+      "stars": 1629
     },
     "breaking-brake/cc-wf-studio": {
       "default_branch": "main",
@@ -4408,7 +4426,7 @@
       "sources": [
         "topic:claude-code"
       ],
-      "stars": 5488
+      "stars": 5490
     },
     "bretfisher/skills": {
       "default_branch": "main",
@@ -4498,12 +4516,12 @@
       "license": "MIT",
       "name": "browser-harness",
       "owner": "browser-use",
-      "pushed_at": "2026-11-04T05:23:12Z",
-      "scanned_pushed_at": "2026-11-04T05:23:12Z",
+      "pushed_at": "2026-11-05T00:11:36Z",
+      "scanned_pushed_at": "2026-11-05T00:11:36Z",
       "sources": [
         "topic:claude-code"
       ],
-      "stars": 18869
+      "stars": 18871
     },
     "brycewang-stanford/auto-empirical-research-skills": {
       "default_branch": "main",
@@ -4557,7 +4575,7 @@
       "sources": [
         "topic:agent-skills"
       ],
-      "stars": 1695
+      "stars": 1696
     },
     "builderz-labs/mission-control": {
       "default_branch": "main",
@@ -4678,14 +4696,14 @@
       "license": "MIT",
       "name": "career-ops",
       "owner": "career-ops-hq",
-      "pushed_at": "2026-11-04T19:36:39Z",
-      "scanned_pushed_at": "2026-11-04T19:36:39Z",
+      "pushed_at": "2026-11-05T01:33:41Z",
+      "scanned_pushed_at": "2026-11-05T01:33:41Z",
       "sources": [
         "curated",
         "topic:agent-skills",
         "topic:claude-code"
       ],
-      "stars": 80155
+      "stars": 80214
     },
     "caru-ini/stack-diagram": {
       "default_branch": "main",
@@ -4704,7 +4722,7 @@
         "topic:agent-skills",
         "topic:claude-skills"
       ],
-      "stars": 1735
+      "stars": 1756
     },
     "cashfree/agent-skills": {
       "default_branch": "main",
@@ -4735,8 +4753,8 @@
       "license": "MIT",
       "name": "oh-my-cassette",
       "owner": "Cassette-Editor",
-      "pushed_at": "2026-11-01T01:27:15Z",
-      "scanned_pushed_at": "2026-11-01T01:27:15Z",
+      "pushed_at": "2026-11-05T01:26:21Z",
+      "scanned_pushed_at": "2026-11-05T01:26:21Z",
       "sources": [
         "topic:claude-code-skills"
       ],
@@ -4760,26 +4778,7 @@
         "topic:agent-skills",
         "topic:claude-code"
       ],
-      "stars": 64968
-    },
-    "cbrock84/headcount": {
-      "default_branch": "main",
-      "description": "An agent organization structured as a company — 15+ departments, 125+ skills, each independently installable, citing the standards and regulators that settle the question. Runs in Claude Code and ChatGPT.",
-      "exclusion": null,
-      "first_seen_at": "2026-11-02",
-      "github_id": 1349898907,
-      "is_archived": false,
-      "is_fork": false,
-      "license": "MIT",
-      "name": "headcount",
-      "owner": "cbrock84",
-      "pushed_at": "2026-10-18T20:33:57Z",
-      "scanned_pushed_at": "2026-10-18T20:33:57Z",
-      "sources": [
-        "curated",
-        "topic:claude-skills"
-      ],
-      "stars": 2578
+      "stars": 65024
     },
     "ccch1mneyyy/dsh-tui": {
       "default_branch": "main",
@@ -4792,12 +4791,12 @@
       "license": "MIT",
       "name": "dsh-TUI",
       "owner": "ccch1mneyyy",
-      "pushed_at": "2026-11-04T19:38:50Z",
-      "scanned_pushed_at": "2026-11-04T19:38:50Z",
+      "pushed_at": "2026-11-05T01:35:05Z",
+      "scanned_pushed_at": "2026-11-05T01:35:05Z",
       "sources": [
         "topic:claude-code"
       ],
-      "stars": 6882
+      "stars": 6894
     },
     "ccf/agentcairn": {
       "default_branch": "main",
@@ -4851,7 +4850,7 @@
       "sources": [
         "topic:codex-skills"
       ],
-      "stars": 5324
+      "stars": 5325
     },
     "ccusage/ccusage": {
       "default_branch": "main",
@@ -4869,7 +4868,7 @@
       "sources": [
         "curated"
       ],
-      "stars": 19328
+      "stars": 19333
     },
     "cdmx-in/security-review": {
       "default_branch": "main",
@@ -4960,7 +4959,7 @@
       "sources": [
         "curated"
       ],
-      "stars": 3199
+      "stars": 3200
     },
     "chanjing-ai/chan-skills": {
       "default_branch": "main",
@@ -5032,7 +5031,7 @@
       "sources": [
         "topic:claude-skills"
       ],
-      "stars": 551
+      "stars": 556
     },
     "charlieviettq/awesome-agent-skill": {
       "default_branch": "main",
@@ -5081,12 +5080,12 @@
       "license": "MIT",
       "name": "OmniRoute",
       "owner": "cheaper-inference",
-      "pushed_at": "2026-11-04T19:59:15Z",
-      "scanned_pushed_at": "2026-11-04T19:59:15Z",
+      "pushed_at": "2026-11-05T01:36:22Z",
+      "scanned_pushed_at": "2026-11-05T01:36:22Z",
       "sources": [
         "topic:claude-code"
       ],
-      "stars": 84520
+      "stars": 84565
     },
     "checkout-page/ecommerce-skills": {
       "default_branch": "main",
@@ -5153,12 +5152,12 @@
       "license": "AGPL-3.0",
       "name": "cherry-studio",
       "owner": "CherryHQ",
-      "pushed_at": "2026-11-04T19:31:55Z",
-      "scanned_pushed_at": "2026-11-04T19:31:55Z",
+      "pushed_at": "2026-11-05T01:19:30Z",
+      "scanned_pushed_at": "2026-11-05T01:19:30Z",
       "sources": [
         "topic:agent-skills"
       ],
-      "stars": 53257
+      "stars": 53259
     },
     "chiruu12/oss-skills": {
       "default_branch": "main",
@@ -5243,12 +5242,12 @@
       "license": "MIT",
       "name": "kordoc",
       "owner": "chrisryugj",
-      "pushed_at": "2026-11-04T15:30:56Z",
-      "scanned_pushed_at": "2026-11-04T15:30:56Z",
+      "pushed_at": "2026-11-05T01:16:55Z",
+      "scanned_pushed_at": "2026-11-05T01:16:55Z",
       "sources": [
         "curated"
       ],
-      "stars": 2914
+      "stars": 2915
     },
     "chrisvoncsefalvay/claude-d3js-skill": {
       "default_branch": "main",
@@ -5320,7 +5319,7 @@
       "sources": [
         "topic:claude-code"
       ],
-      "stars": 10363
+      "stars": 10364
     },
     "chuspeeism/dashi-taskboard": {
       "default_branch": "main",
@@ -5376,7 +5375,7 @@
       "sources": [
         "topic:agent-skills"
       ],
-      "stars": 2688
+      "stars": 2687
     },
     "citlyze/citlyze-skills": {
       "default_branch": "main",
@@ -5413,7 +5412,7 @@
         "topic:agent-skills",
         "topic:claude-code"
       ],
-      "stars": 21648
+      "stars": 21668
     },
     "claude-world/claude-skill-antivirus": {
       "default_branch": "main",
@@ -5503,7 +5502,7 @@
       "sources": [
         "topic:agent-skills"
       ],
-      "stars": 1422
+      "stars": 1421
     },
     "cloudai-x/threejs-skills": {
       "default_branch": "main",
@@ -5521,7 +5520,7 @@
       "sources": [
         "curated"
       ],
-      "stars": 3980
+      "stars": 3984
     },
     "cloudflare/security-audit-skill": {
       "default_branch": "main",
@@ -5539,7 +5538,7 @@
       "sources": [
         "curated"
       ],
-      "stars": 58969
+      "stars": 59439
     },
     "cmertdalli/polisci-review": {
       "default_branch": "main",
@@ -5575,7 +5574,7 @@
       "sources": [
         "topic:claude-code"
       ],
-      "stars": 11694
+      "stars": 11696
     },
     "code-yeongyu/lazycodex": {
       "default_branch": "main",
@@ -5593,7 +5592,7 @@
       "sources": [
         "topic:claude-code"
       ],
-      "stars": 3874
+      "stars": 3880
     },
     "code-yeongyu/oh-my-openagent": {
       "default_branch": "dev",
@@ -5606,12 +5605,12 @@
       "license": null,
       "name": "oh-my-openagent",
       "owner": "code-yeongyu",
-      "pushed_at": "2026-11-04T19:23:07Z",
-      "scanned_pushed_at": "2026-11-04T19:23:07Z",
+      "pushed_at": "2026-11-05T01:33:24Z",
+      "scanned_pushed_at": "2026-11-05T01:33:24Z",
       "sources": [
         "topic:claude-skills"
       ],
-      "stars": 70707
+      "stars": 70714
     },
     "codeaashu/claude-code": {
       "default_branch": "main",
@@ -5630,7 +5629,7 @@
         "topic:claude-code",
         "topic:claude-skills"
       ],
-      "stars": 3427
+      "stars": 3428
     },
     "codeaholicguy/ai-devkit": {
       "default_branch": "main",
@@ -5702,7 +5701,7 @@
       "sources": [
         "topic:claude-skills"
       ],
-      "stars": 524
+      "stars": 525
     },
     "coffeefuelbump/csv-data-summarizer-claude-skill": {
       "default_branch": "main",
@@ -5733,8 +5732,8 @@
       "license": "MIT",
       "name": "coi",
       "owner": "coipond",
-      "pushed_at": "2026-11-03T16:37:47Z",
-      "scanned_pushed_at": "2026-11-03T16:37:47Z",
+      "pushed_at": "2026-11-04T22:03:30Z",
+      "scanned_pushed_at": "2026-11-04T22:03:30Z",
       "sources": [
         "curated"
       ],
@@ -5756,7 +5755,7 @@
       "sources": [
         "topic:agent-skills"
       ],
-      "stars": 2011
+      "stars": 2012
     },
     "coldteadotai/abide": {
       "default_branch": "master",
@@ -5774,7 +5773,7 @@
       "sources": [
         "topic:claude-code-skills"
       ],
-      "stars": 621
+      "stars": 623
     },
     "coldteadotai/pr-lens": {
       "default_branch": "main",
@@ -5811,7 +5810,7 @@
       "sources": [
         "curated"
       ],
-      "stars": 519
+      "stars": 520
     },
     "compdfkit/compdf-skills": {
       "default_branch": "main",
@@ -5847,7 +5846,7 @@
       "sources": [
         "topic:claude-skills"
       ],
-      "stars": 1978
+      "stars": 1979
     },
     "composio-community/awesome-codex-skills": {
       "default_branch": "master",
@@ -5865,7 +5864,7 @@
       "sources": [
         "topic:codex-skills"
       ],
-      "stars": 17197
+      "stars": 17198
     },
     "composio-community/open-claude-cowork": {
       "default_branch": "master",
@@ -5921,7 +5920,7 @@
         "topic:agent-skills",
         "topic:claude-code"
       ],
-      "stars": 78738
+      "stars": 78755
     },
     "congmnguyen/claude-code-wsl2-setup": {
       "default_branch": "main",
@@ -5970,13 +5969,13 @@
       "license": "MIT",
       "name": "avoid-ai-writing",
       "owner": "conorbronsdon",
-      "pushed_at": "2026-11-04T19:19:03Z",
-      "scanned_pushed_at": "2026-11-04T19:19:03Z",
+      "pushed_at": "2026-11-05T01:18:40Z",
+      "scanned_pushed_at": "2026-11-05T01:18:40Z",
       "sources": [
         "curated",
         "topic:claude-code"
       ],
-      "stars": 5423
+      "stars": 5427
     },
     "conorluddy/ios-simulator-skill": {
       "default_branch": "main",
@@ -6013,7 +6012,7 @@
       "sources": [
         "curated"
       ],
-      "stars": 336
+      "stars": 337
     },
     "cooklang/cooklang-skills": {
       "default_branch": "main",
@@ -6049,7 +6048,7 @@
       "sources": [
         "topic:claude-skills"
       ],
-      "stars": 884
+      "stars": 886
     },
     "coreyhaines31/marketingskills": {
       "default_branch": "main",
@@ -6070,7 +6069,7 @@
         "topic:claude-code",
         "topic:claude-skills"
       ],
-      "stars": 58500
+      "stars": 58533
     },
     "cosmoblk/email-marketing-bible": {
       "default_branch": "main",
@@ -6088,7 +6087,7 @@
       "sources": [
         "curated"
       ],
-      "stars": 361
+      "stars": 364
     },
     "costajohnt/oss-autopilot": {
       "default_branch": "main",
@@ -6119,8 +6118,8 @@
       "license": null,
       "name": "claude-code-docs",
       "owner": "costiash",
-      "pushed_at": "2026-11-04T18:16:34Z",
-      "scanned_pushed_at": "2026-11-04T18:16:34Z",
+      "pushed_at": "2026-11-05T00:20:14Z",
+      "scanned_pushed_at": "2026-11-05T00:20:14Z",
       "sources": [
         "curated",
         "topic:claude-code-skills"
@@ -6336,8 +6335,8 @@
       "license": "Apache-2.0",
       "name": "ctx",
       "owner": "ctxrs",
-      "pushed_at": "2026-11-04T07:51:06Z",
-      "scanned_pushed_at": "2026-11-04T07:51:06Z",
+      "pushed_at": "2026-11-05T00:55:51Z",
+      "scanned_pushed_at": "2026-11-05T00:55:51Z",
       "sources": [
         "topic:agent-skills"
       ],
@@ -6395,7 +6394,7 @@
       "sources": [
         "topic:claude-code-skills"
       ],
-      "stars": 58
+      "stars": 55
     },
     "cyperx84/claude-skills-mental-models": {
       "default_branch": "main",
@@ -6449,7 +6448,7 @@
       "sources": [
         "curated"
       ],
-      "stars": 6588
+      "stars": 6591
     },
     "d1vai/d1v-cli": {
       "default_branch": "main",
@@ -6521,7 +6520,7 @@
       "sources": [
         "curated"
       ],
-      "stars": 4082
+      "stars": 4083
     },
     "dagoste/squadra": {
       "default_branch": "main",
@@ -6540,7 +6539,7 @@
         "topic:agent-skills",
         "topic:claude-skills"
       ],
-      "stars": 1283
+      "stars": 1284
     },
     "dailydotdev/daily": {
       "default_branch": "master",
@@ -6589,8 +6588,8 @@
       "license": null,
       "name": "Claude-Code-Projects-Index",
       "owner": "danielrosehill",
-      "pushed_at": "2026-11-04T12:09:30Z",
-      "scanned_pushed_at": "2026-11-04T12:09:30Z",
+      "pushed_at": "2026-11-04T20:45:26Z",
+      "scanned_pushed_at": "2026-11-04T20:45:26Z",
       "sources": [
         "curated"
       ],
@@ -6607,13 +6606,13 @@
       "license": "MIT",
       "name": "story-skills",
       "owner": "danjdewhurst",
-      "pushed_at": "2026-11-02T00:41:20Z",
-      "scanned_pushed_at": "2026-11-02T00:41:20Z",
+      "pushed_at": "2026-11-04T21:08:23Z",
+      "scanned_pushed_at": "2026-11-04T21:08:23Z",
       "sources": [
         "curated",
         "topic:claude-skills"
       ],
-      "stars": 383
+      "stars": 384
     },
     "dankofly/perfectify": {
       "default_branch": "main",
@@ -6662,8 +6661,8 @@
       "license": "MIT",
       "name": "penthera",
       "owner": "danoszz",
-      "pushed_at": "2026-11-04T16:55:47Z",
-      "scanned_pushed_at": "2026-11-04T16:55:47Z",
+      "pushed_at": "2026-11-04T22:01:00Z",
+      "scanned_pushed_at": "2026-11-04T22:01:00Z",
       "sources": [
         "curated"
       ],
@@ -6752,8 +6751,8 @@
       "license": "MIT",
       "name": "datamodel-code-generator",
       "owner": "datamodel-code-generator",
-      "pushed_at": "2026-11-04T19:40:04Z",
-      "scanned_pushed_at": "2026-11-04T19:40:04Z",
+      "pushed_at": "2026-11-05T00:53:55Z",
+      "scanned_pushed_at": "2026-11-05T00:53:55Z",
       "sources": [
         "topic:agent-skills"
       ],
@@ -6829,7 +6828,7 @@
       "sources": [
         "topic:agent-skills"
       ],
-      "stars": 1562
+      "stars": 1568
     },
     "davepoon/buildwithclaude": {
       "default_branch": "main",
@@ -6848,7 +6847,7 @@
         "topic:claude-code",
         "topic:claude-skills"
       ],
-      "stars": 3723
+      "stars": 3724
     },
     "davila7/claude-code-cli-training": {
       "default_branch": "main",
@@ -6879,12 +6878,12 @@
       "license": "MIT",
       "name": "claude-code-templates",
       "owner": "davila7",
-      "pushed_at": "2026-11-04T19:34:52Z",
-      "scanned_pushed_at": "2026-11-04T19:34:52Z",
+      "pushed_at": "2026-11-04T21:16:35Z",
+      "scanned_pushed_at": "2026-11-04T21:16:35Z",
       "sources": [
         "topic:claude-code"
       ],
-      "stars": 33124
+      "stars": 33128
     },
     "dayuanjiang/next-ai-draw-io": {
       "default_branch": "main",
@@ -6897,12 +6896,12 @@
       "license": "Apache-2.0",
       "name": "next-ai-draw-io",
       "owner": "DayuanJiang",
-      "pushed_at": "2026-11-04T16:43:38Z",
-      "scanned_pushed_at": "2026-11-04T16:43:38Z",
+      "pushed_at": "2026-11-04T23:14:10Z",
+      "scanned_pushed_at": "2026-11-04T23:14:10Z",
       "sources": [
         "topic:claude-code"
       ],
-      "stars": 36683
+      "stars": 36682
     },
     "deanpeters/product-manager-skills": {
       "default_branch": "main",
@@ -6957,7 +6956,7 @@
       "sources": [
         "topic:claude-code"
       ],
-      "stars": 31939
+      "stars": 31946
     },
     "degausai/wonda": {
       "default_branch": "main",
@@ -7047,7 +7046,7 @@
       "sources": [
         "topic:claude-code"
       ],
-      "stars": 3941
+      "stars": 3943
     },
     "dembrandt/dembrandt-skills": {
       "default_branch": "main",
@@ -7066,7 +7065,7 @@
         "curated",
         "topic:claude-code-skills"
       ],
-      "stars": 181
+      "stars": 183
     },
     "denissergeevitch/agents-best-practices": {
       "default_branch": "main",
@@ -7084,7 +7083,7 @@
       "sources": [
         "topic:agent-skills"
       ],
-      "stars": 2411
+      "stars": 2413
     },
     "denissergeevitch/ex-ussr-kinship-research": {
       "default_branch": "main",
@@ -7102,7 +7101,7 @@
       "sources": [
         "topic:agent-skills"
       ],
-      "stars": 1859
+      "stars": 1897
     },
     "denysdovhan/skills": {
       "default_branch": "main",
@@ -7133,12 +7132,12 @@
       "license": "MIT",
       "name": "codebase-memory-mcp",
       "owner": "DeusData",
-      "pushed_at": "2026-11-04T17:11:26Z",
-      "scanned_pushed_at": "2026-11-04T17:11:26Z",
+      "pushed_at": "2026-11-04T23:21:44Z",
+      "scanned_pushed_at": "2026-11-04T23:21:44Z",
       "sources": [
         "topic:claude-code"
       ],
-      "stars": 48113
+      "stars": 48120
     },
     "deusyu/translate-book": {
       "default_branch": "main",
@@ -7156,7 +7155,7 @@
       "sources": [
         "curated"
       ],
-      "stars": 2309
+      "stars": 2318
     },
     "devin-axis/ipollowork": {
       "default_branch": "main",
@@ -7175,7 +7174,7 @@
         "topic:agent-skills",
         "topic:claude-code"
       ],
-      "stars": 7377
+      "stars": 7379
     },
     "devinosolutions/anotifier-for-claude-codex-cursor": {
       "default_branch": "main",
@@ -7303,7 +7302,7 @@
         "topic:agent-skills",
         "topic:claude-code"
       ],
-      "stars": 184428
+      "stars": 184572
     },
     "digidai/product-manager-skills": {
       "default_branch": "main",
@@ -7478,8 +7477,8 @@
       "license": "MIT",
       "name": "vir",
       "owner": "djolex999",
-      "pushed_at": "2026-10-23T01:43:58Z",
-      "scanned_pushed_at": "2026-10-23T01:43:58Z",
+      "pushed_at": "2026-11-04T22:25:57Z",
+      "scanned_pushed_at": "2026-11-04T22:25:57Z",
       "sources": [
         "curated"
       ],
@@ -7537,7 +7536,7 @@
       "sources": [
         "topic:agent-skills"
       ],
-      "stars": 5941
+      "stars": 5950
     },
     "dmoshehun-prog/learn-from-materials": {
       "default_branch": "main",
@@ -7556,7 +7555,7 @@
         "curated",
         "topic:agent-skills"
       ],
-      "stars": 1312
+      "stars": 1314
     },
     "doccker/cc-use-exp": {
       "default_branch": "main",
@@ -7592,7 +7591,7 @@
       "sources": [
         "topic:claude-code"
       ],
-      "stars": 35318
+      "stars": 35430
     },
     "dongshuyan/compass-skills": {
       "default_branch": "master",
@@ -7642,12 +7641,12 @@
       "license": "MIT",
       "name": "skills",
       "owner": "dotnet",
-      "pushed_at": "2026-11-04T19:48:43Z",
-      "scanned_pushed_at": "2026-11-04T19:48:43Z",
+      "pushed_at": "2026-11-05T01:21:28Z",
+      "scanned_pushed_at": "2026-11-05T01:21:28Z",
       "sources": [
         "topic:agent-skills"
       ],
-      "stars": 5826
+      "stars": 5831
     },
     "doublesq97-ui/su-ai-short-drama": {
       "default_branch": "main",
@@ -7678,12 +7677,12 @@
       "license": "MIT",
       "name": "Papermorph",
       "owner": "DozenTwelve",
-      "pushed_at": "2026-11-04T14:45:57Z",
-      "scanned_pushed_at": "2026-11-04T14:45:57Z",
+      "pushed_at": "2026-11-04T23:47:07Z",
+      "scanned_pushed_at": "2026-11-04T23:47:07Z",
       "sources": [
         "topic:claude-skills"
       ],
-      "stars": 1209
+      "stars": 1211
     },
     "dpearson2699/swift-ios-skills": {
       "default_branch": "main",
@@ -7720,7 +7719,7 @@
       "sources": [
         "topic:agent-skills"
       ],
-      "stars": 1184
+      "stars": 1185
     },
     "drayline/rootnode-skills": {
       "default_branch": "main",
@@ -7775,7 +7774,7 @@
         "curated",
         "topic:agent-skills"
       ],
-      "stars": 16117
+      "stars": 16122
     },
     "drivly/auto-dev-skill": {
       "default_branch": "main",
@@ -7806,12 +7805,12 @@
       "license": "MIT",
       "name": "craft",
       "owner": "drobins25",
-      "pushed_at": "2026-11-03T00:43:32Z",
-      "scanned_pushed_at": "2026-11-03T00:43:32Z",
+      "pushed_at": "2026-11-04T21:40:54Z",
+      "scanned_pushed_at": "2026-11-04T21:40:54Z",
       "sources": [
         "topic:claude-code-skills"
       ],
-      "stars": 71
+      "stars": 72
     },
     "drogers0/gh-image": {
       "default_branch": "main",
@@ -7829,7 +7828,7 @@
       "sources": [
         "curated"
       ],
-      "stars": 281
+      "stars": 282
     },
     "dshakes/compass": {
       "default_branch": "main",
@@ -7865,7 +7864,7 @@
       "sources": [
         "topic:agent-skills"
       ],
-      "stars": 2302
+      "stars": 2303
     },
     "dtsola/xiaoyaosearch": {
       "default_branch": "main",
@@ -7902,7 +7901,7 @@
         "topic:agent-skills",
         "topic:claude-skills"
       ],
-      "stars": 1727
+      "stars": 1732
     },
     "duqaxxx/seedeep": {
       "default_branch": "main",
@@ -7938,7 +7937,7 @@
       "sources": [
         "curated"
       ],
-      "stars": 12
+      "stars": 14
     },
     "dvwinck/capybara-toolbox": {
       "default_branch": "base",
@@ -8010,7 +8009,7 @@
       "sources": [
         "topic:agent-skills"
       ],
-      "stars": 1400
+      "stars": 1402
     },
     "eaiconsulting/cowork-skills-library": {
       "default_branch": "main",
@@ -8048,7 +8047,7 @@
         "topic:agent-skills",
         "topic:claude-skills"
       ],
-      "stars": 1706
+      "stars": 1705
     },
     "echo-aloha/asphalt-codex-skills-5": {
       "default_branch": "main",
@@ -8097,8 +8096,8 @@
       "license": "MIT",
       "name": "EchoBird",
       "owner": "edison7009",
-      "pushed_at": "2026-11-04T18:06:17Z",
-      "scanned_pushed_at": "2026-11-04T18:06:17Z",
+      "pushed_at": "2026-11-05T01:28:53Z",
+      "scanned_pushed_at": "2026-11-05T01:28:53Z",
       "sources": [
         "topic:claude-code"
       ],
@@ -8213,7 +8212,7 @@
         "topic:claude-skills",
         "topic:codex-skills"
       ],
-      "stars": 90543
+      "stars": 90620
     },
     "egorfedorov/claude-context-optimizer": {
       "default_branch": "main",
@@ -8262,8 +8261,8 @@
       "license": "Apache-2.0",
       "name": "eigent",
       "owner": "eigent-ai",
-      "pushed_at": "2026-11-03T15:34:20Z",
-      "scanned_pushed_at": "2026-11-03T15:34:20Z",
+      "pushed_at": "2026-11-05T00:19:12Z",
+      "scanned_pushed_at": "2026-11-05T00:19:12Z",
       "sources": [
         "topic:agent-skills"
       ],
@@ -8285,7 +8284,7 @@
       "sources": [
         "topic:claude-skills"
       ],
-      "stars": 706
+      "stars": 712
     },
     "eldermoraes/quarkus-agentic-scaffolding": {
       "default_branch": "main",
@@ -8322,7 +8321,7 @@
         "topic:claude-code",
         "topic:claude-skills"
       ],
-      "stars": 5421
+      "stars": 5427
     },
     "elirantutia/vibeyard": {
       "default_branch": "main",
@@ -8358,7 +8357,7 @@
       "sources": [
         "curated"
       ],
-      "stars": 106
+      "stars": 107
     },
     "emotixco/claude-skills-founder": {
       "default_branch": "main",
@@ -8431,7 +8430,7 @@
         "topic:agent-skills",
         "topic:claude-code"
       ],
-      "stars": 6394
+      "stars": 6398
     },
     "ergrelet/windiff": {
       "default_branch": "master",
@@ -8480,8 +8479,8 @@
       "license": "MIT",
       "name": "Pacer",
       "owner": "EricAndrechek",
-      "pushed_at": "2026-11-04T18:01:26Z",
-      "scanned_pushed_at": "2026-11-04T18:01:26Z",
+      "pushed_at": "2026-11-04T21:48:55Z",
+      "scanned_pushed_at": "2026-11-04T21:48:55Z",
       "sources": [
         "curated"
       ],
@@ -8522,7 +8521,7 @@
       "sources": [
         "topic:claude-skills"
       ],
-      "stars": 602
+      "stars": 605
     },
     "ericyoung-183/alpha-insights": {
       "default_branch": "main",
@@ -8680,13 +8679,13 @@
       "license": "MIT",
       "name": "obsidian-second-brain",
       "owner": "eugeniughelbur",
-      "pushed_at": "2026-11-04T17:07:14Z",
-      "scanned_pushed_at": "2026-11-04T17:07:14Z",
+      "pushed_at": "2026-11-04T22:10:55Z",
+      "scanned_pushed_at": "2026-11-04T22:10:55Z",
       "sources": [
         "topic:agent-skills",
         "topic:claude-code"
       ],
-      "stars": 5152
+      "stars": 5158
     },
     "evalstate/fast-agent": {
       "default_branch": "main",
@@ -8704,7 +8703,7 @@
       "sources": [
         "topic:agent-skills"
       ],
-      "stars": 3960
+      "stars": 3961
     },
     "evanca/flutter-ai-rules": {
       "default_branch": "main",
@@ -8754,12 +8753,12 @@
       "license": "MIT",
       "name": "compound-engineering-plugin",
       "owner": "EveryInc",
-      "pushed_at": "2026-11-04T19:50:55Z",
-      "scanned_pushed_at": "2026-11-04T19:50:55Z",
+      "pushed_at": "2026-11-05T01:31:10Z",
+      "scanned_pushed_at": "2026-11-05T01:31:10Z",
       "sources": [
         "curated"
       ],
-      "stars": 25927
+      "stars": 25929
     },
     "evo-hq/evo": {
       "default_branch": "main",
@@ -8885,7 +8884,7 @@
       "sources": [
         "curated"
       ],
-      "stars": 4047
+      "stars": 4052
     },
     "fabioconcina/claumon": {
       "default_branch": "main",
@@ -8939,7 +8938,7 @@
       "sources": [
         "topic:claude-skills"
       ],
-      "stars": 508
+      "stars": 509
     },
     "failproofai/failproofai": {
       "default_branch": "main",
@@ -8952,12 +8951,12 @@
       "license": null,
       "name": "failproofai",
       "owner": "FailproofAI",
-      "pushed_at": "2026-11-04T18:10:51Z",
-      "scanned_pushed_at": "2026-11-04T18:10:51Z",
+      "pushed_at": "2026-11-04T20:10:41Z",
+      "scanned_pushed_at": "2026-11-04T20:10:41Z",
       "sources": [
         "topic:claude-code"
       ],
-      "stars": 7973
+      "stars": 7979
     },
     "fanzr-arch/numerologist_skills": {
       "default_branch": "main",
@@ -8993,7 +8992,7 @@
       "sources": [
         "topic:claude-code"
       ],
-      "stars": 151812
+      "stars": 151852
     },
     "fatihaydost/brand-identity-skill": {
       "default_branch": "main",
@@ -9006,12 +9005,12 @@
       "license": "MIT",
       "name": "brand-identity-skill",
       "owner": "fatihaydost",
-      "pushed_at": "2026-11-01T18:49:18Z",
-      "scanned_pushed_at": "2026-11-01T18:49:18Z",
+      "pushed_at": "2026-11-04T20:48:37Z",
+      "scanned_pushed_at": "2026-11-04T20:48:37Z",
       "sources": [
         "topic:claude-skills"
       ],
-      "stars": 300
+      "stars": 303
     },
     "faviovazquez/showtime": {
       "default_branch": "main",
@@ -9106,7 +9105,7 @@
     },
     "feder-cr/jobs_applier_ai_agent_aihawk": {
       "default_branch": "main",
-      "description": "Open-source, self-hosted alternative to OpenAI Dots, Grok Bot. Built to be undetectable by anti-bot systems.",
+      "description": "Give it your resume, get the jobs that fit, select them and apply. Runs in your terminal, with a browser you can watch.",
       "exclusion": null,
       "first_seen_at": "2026-11-04",
       "github_id": 837911756,
@@ -9115,12 +9114,12 @@
       "license": "MIT",
       "name": "Jobs_Applier_AI_Agent_AIHawk",
       "owner": "feder-cr",
-      "pushed_at": "2026-11-04T18:15:05Z",
-      "scanned_pushed_at": "2026-11-04T18:15:05Z",
+      "pushed_at": "2026-11-05T01:08:03Z",
+      "scanned_pushed_at": "2026-11-05T01:08:03Z",
       "sources": [
         "topic:agent-skills"
       ],
-      "stars": 32385
+      "stars": 32386
     },
     "feiskyer/claude-code-settings": {
       "default_branch": "main",
@@ -9138,7 +9137,7 @@
       "sources": [
         "topic:claude-skills"
       ],
-      "stars": 1673
+      "stars": 1674
     },
     "feiskyer/codex-settings": {
       "default_branch": "main",
@@ -9228,7 +9227,7 @@
       "sources": [
         "curated"
       ],
-      "stars": 316
+      "stars": 317
     },
     "filtalgo/filtmall-shopping-skill": {
       "default_branch": "main",
@@ -9277,8 +9276,8 @@
       "license": null,
       "name": "cli",
       "owner": "firecrawl",
-      "pushed_at": "2026-11-04T19:38:15Z",
-      "scanned_pushed_at": "2026-11-04T19:38:15Z",
+      "pushed_at": "2026-11-05T01:11:00Z",
+      "scanned_pushed_at": "2026-11-05T01:11:00Z",
       "sources": [
         "curated"
       ],
@@ -9300,7 +9299,7 @@
       "sources": [
         "topic:claude-code-skills"
       ],
-      "stars": 254
+      "stars": 255
     },
     "firecrawl/firecrawl-codex-plugin": {
       "default_branch": "main",
@@ -9336,7 +9335,7 @@
       "sources": [
         "topic:claude-code-skills"
       ],
-      "stars": 145
+      "stars": 146
     },
     "first-fluke/oh-my-agent": {
       "default_branch": "main",
@@ -9349,8 +9348,8 @@
       "license": "MIT",
       "name": "oh-my-agent",
       "owner": "first-fluke",
-      "pushed_at": "2026-11-04T00:43:32Z",
-      "scanned_pushed_at": "2026-11-04T00:43:32Z",
+      "pushed_at": "2026-11-05T00:08:03Z",
+      "scanned_pushed_at": "2026-11-05T00:08:03Z",
       "sources": [
         "curated",
         "topic:agent-skills"
@@ -9427,7 +9426,7 @@
       "sources": [
         "topic:claude-code"
       ],
-      "stars": 6351
+      "stars": 6354
     },
     "floydtang/trade-skills-collection": {
       "default_branch": "main",
@@ -9571,7 +9570,7 @@
       "sources": [
         "topic:agent-skills"
       ],
-      "stars": 3223
+      "stars": 3225
     },
     "foryourhealth111-pixel/vibe-skills": {
       "default_branch": "main",
@@ -9591,7 +9590,7 @@
         "topic:agent-skills",
         "topic:claude-code"
       ],
-      "stars": 3793
+      "stars": 3794
     },
     "foyzulkarim/skills": {
       "default_branch": "master",
@@ -9645,7 +9644,7 @@
       "sources": [
         "topic:agent-skills"
       ],
-      "stars": 2413
+      "stars": 2414
     },
     "frankbria/ralph-claude-code": {
       "default_branch": "main",
@@ -9664,7 +9663,7 @@
         "curated",
         "topic:claude-code"
       ],
-      "stars": 9722
+      "stars": 9721
     },
     "franklinxkk/ai-delivery-spec": {
       "default_branch": "main",
@@ -9749,8 +9748,8 @@
       "license": "MIT",
       "name": "agmsg",
       "owner": "fujibee",
-      "pushed_at": "2026-11-04T15:27:19Z",
-      "scanned_pushed_at": "2026-11-04T15:27:19Z",
+      "pushed_at": "2026-11-05T01:10:35Z",
+      "scanned_pushed_at": "2026-11-05T01:10:35Z",
       "sources": [
         "curated"
       ],
@@ -9785,8 +9784,8 @@
       "license": "MIT",
       "name": "FSB",
       "owner": "fullselfbrowsing",
-      "pushed_at": "2026-11-03T19:38:45Z",
-      "scanned_pushed_at": "2026-11-03T19:38:45Z",
+      "pushed_at": "2026-11-04T20:22:35Z",
+      "scanned_pushed_at": "2026-11-04T20:22:35Z",
       "sources": [
         "curated"
       ],
@@ -9828,7 +9827,7 @@
         "topic:agent-skills",
         "topic:claude-skills"
       ],
-      "stars": 1447
+      "stars": 1448
     },
     "gabelul/stitch-kit": {
       "default_branch": "main",
@@ -9900,7 +9899,7 @@
       "sources": [
         "topic:claude-skills"
       ],
-      "stars": 303
+      "stars": 317
     },
     "galyarderlabs/galyarder-framework": {
       "default_branch": "main",
@@ -9937,7 +9936,7 @@
         "topic:agent-skills",
         "topic:claude-code"
       ],
-      "stars": 6799
+      "stars": 6812
     },
     "ganyuanran/aegis": {
       "default_branch": "main",
@@ -9956,7 +9955,7 @@
         "curated",
         "topic:agent-skills"
       ],
-      "stars": 1416
+      "stars": 1417
     },
     "gapmiss/obsidian-plugin-skill": {
       "default_branch": "main",
@@ -9992,7 +9991,7 @@
       "sources": [
         "curated"
       ],
-      "stars": 949
+      "stars": 950
     },
     "garrytan/gstack": {
       "default_branch": "main",
@@ -10005,12 +10004,12 @@
       "license": "MIT",
       "name": "gstack",
       "owner": "garrytan",
-      "pushed_at": "2026-11-04T19:49:35Z",
-      "scanned_pushed_at": "2026-11-04T19:49:35Z",
+      "pushed_at": "2026-11-05T01:19:56Z",
+      "scanned_pushed_at": "2026-11-05T01:19:56Z",
       "sources": [
         "curated"
       ],
-      "stars": 139237
+      "stars": 139356
     },
     "garyson26/trident-secops-skills": {
       "default_branch": "main",
@@ -10042,12 +10041,12 @@
       "license": "MIT",
       "name": "beads",
       "owner": "gastownhall",
-      "pushed_at": "2026-11-04T19:36:38Z",
-      "scanned_pushed_at": "2026-11-04T19:36:38Z",
+      "pushed_at": "2026-11-04T20:11:05Z",
+      "scanned_pushed_at": "2026-11-04T20:11:05Z",
       "sources": [
         "topic:claude-code"
       ],
-      "stars": 28493
+      "stars": 28499
     },
     "gathin23/cleanyourtv": {
       "default_branch": "main",
@@ -10065,7 +10064,7 @@
       "sources": [
         "topic:claude-code"
       ],
-      "stars": 51935
+      "stars": 52042
     },
     "gaurav-1313/codecall": {
       "default_branch": "main",
@@ -10096,12 +10095,12 @@
       "license": "MIT",
       "name": "tuios",
       "owner": "Gaurav-Gosain",
-      "pushed_at": "2026-11-04T19:57:45Z",
-      "scanned_pushed_at": "2026-11-04T19:57:45Z",
+      "pushed_at": "2026-11-05T01:29:39Z",
+      "scanned_pushed_at": "2026-11-05T01:29:39Z",
       "sources": [
         "topic:claude-code"
       ],
-      "stars": 6346
+      "stars": 6351
     },
     "gauravs19/enterprise-architecture-skill": {
       "default_branch": "main",
@@ -10132,13 +10131,13 @@
       "license": "MIT",
       "name": "iso-24495",
       "owner": "GaZmagik",
-      "pushed_at": "2026-11-04T18:59:31Z",
-      "scanned_pushed_at": "2026-11-04T18:59:31Z",
+      "pushed_at": "2026-11-04T22:02:47Z",
+      "scanned_pushed_at": "2026-11-04T22:02:47Z",
       "sources": [
         "topic:claude-code-skills",
         "topic:codex-skills"
       ],
-      "stars": 205
+      "stars": 204
     },
     "gbessoni/seobuild-onpage": {
       "default_branch": "main",
@@ -10175,7 +10174,7 @@
         "topic:claude-code-skills",
         "topic:claude-skills"
       ],
-      "stars": 488
+      "stars": 489
     },
     "geekjourneyx/awesome-codex-guide": {
       "default_branch": "main",
@@ -10338,7 +10337,7 @@
       "sources": [
         "topic:claude-code"
       ],
-      "stars": 6184
+      "stars": 6186
     },
     "genspark-ai/genoffice": {
       "default_branch": "main",
@@ -10356,7 +10355,7 @@
       "sources": [
         "topic:claude-code"
       ],
-      "stars": 11726
+      "stars": 11738
     },
     "gentleman-programming/gentle-ai": {
       "default_branch": "main",
@@ -10375,7 +10374,7 @@
         "topic:agent-skills",
         "topic:claude-code"
       ],
-      "stars": 8225
+      "stars": 8277
     },
     "gentleman-programming/gentle-shell": {
       "default_branch": "main",
@@ -10388,12 +10387,12 @@
       "license": "MIT",
       "name": "gentle-shell",
       "owner": "Gentleman-Programming",
-      "pushed_at": "2026-11-04T19:56:23Z",
-      "scanned_pushed_at": "2026-11-04T19:56:23Z",
+      "pushed_at": "2026-11-04T23:13:51Z",
+      "scanned_pushed_at": "2026-11-04T23:13:51Z",
       "sources": [
         "topic:agent-skills"
       ],
-      "stars": 1568
+      "stars": 1640
     },
     "geoffreycrofte/luxembourg-accessibility-skillset": {
       "default_branch": "main",
@@ -10460,12 +10459,12 @@
       "license": "MIT",
       "name": "bb",
       "owner": "get-bb",
-      "pushed_at": "2026-11-04T19:57:42Z",
-      "scanned_pushed_at": "2026-11-04T19:57:42Z",
+      "pushed_at": "2026-11-05T01:37:06Z",
+      "scanned_pushed_at": "2026-11-05T01:37:06Z",
       "sources": [
         "topic:claude-code"
       ],
-      "stars": 4879
+      "stars": 4883
     },
     "getaero-io/gtm-eng-skills": {
       "default_branch": "main",
@@ -10478,8 +10477,8 @@
       "license": "MIT",
       "name": "gtm-eng-skills",
       "owner": "getaero-io",
-      "pushed_at": "2026-11-04T15:42:59Z",
-      "scanned_pushed_at": "2026-11-04T15:42:59Z",
+      "pushed_at": "2026-11-05T01:20:24Z",
+      "scanned_pushed_at": "2026-11-05T01:20:24Z",
       "sources": [
         "topic:claude-code-skills"
       ],
@@ -10496,13 +10495,13 @@
       "license": "MIT",
       "name": "codeburn",
       "owner": "getagentseal",
-      "pushed_at": "2026-11-04T19:10:14Z",
-      "scanned_pushed_at": "2026-11-04T19:10:14Z",
+      "pushed_at": "2026-11-05T00:14:57Z",
+      "scanned_pushed_at": "2026-11-05T00:14:57Z",
       "sources": [
         "curated",
         "topic:claude-code"
       ],
-      "stars": 11682
+      "stars": 11688
     },
     "gethrbr/context-tax": {
       "default_branch": "main",
@@ -10533,12 +10532,12 @@
       "license": null,
       "name": "paseo",
       "owner": "getpaseo",
-      "pushed_at": "2026-11-04T15:35:26Z",
-      "scanned_pushed_at": "2026-11-04T15:35:26Z",
+      "pushed_at": "2026-11-05T01:32:31Z",
+      "scanned_pushed_at": "2026-11-05T01:32:31Z",
       "sources": [
         "topic:claude-code"
       ],
-      "stars": 23059
+      "stars": 23092
     },
     "giancarloerra/socraticode": {
       "default_branch": "main",
@@ -10551,8 +10550,8 @@
       "license": "AGPL-3.0",
       "name": "SocratiCode",
       "owner": "giancarloerra",
-      "pushed_at": "2026-11-04T18:12:04Z",
-      "scanned_pushed_at": "2026-11-04T18:12:04Z",
+      "pushed_at": "2026-11-04T22:41:29Z",
+      "scanned_pushed_at": "2026-11-04T22:41:29Z",
       "sources": [
         "topic:claude-code"
       ],
@@ -10623,12 +10622,12 @@
       "license": "MIT",
       "name": "awesome-copilot",
       "owner": "github",
-      "pushed_at": "2026-11-04T05:48:09Z",
-      "scanned_pushed_at": "2026-11-04T05:48:09Z",
+      "pushed_at": "2026-11-04T22:52:27Z",
+      "scanned_pushed_at": "2026-11-04T22:52:27Z",
       "sources": [
         "topic:agent-skills"
       ],
-      "stars": 40795
+      "stars": 40804
     },
     "github/gh-aw": {
       "default_branch": "main",
@@ -10641,8 +10640,8 @@
       "license": "MIT",
       "name": "gh-aw",
       "owner": "github",
-      "pushed_at": "2026-11-04T19:59:09Z",
-      "scanned_pushed_at": "2026-11-04T19:59:09Z",
+      "pushed_at": "2026-11-05T00:51:23Z",
+      "scanned_pushed_at": "2026-11-05T00:51:23Z",
       "sources": [
         "topic:claude-code"
       ],
@@ -10659,12 +10658,12 @@
       "license": null,
       "name": "postiz-agent",
       "owner": "gitroomhq",
-      "pushed_at": "2026-10-30T09:47:39Z",
-      "scanned_pushed_at": "2026-10-30T09:47:39Z",
+      "pushed_at": "2026-11-05T00:48:32Z",
+      "scanned_pushed_at": "2026-11-05T00:48:32Z",
       "sources": [
         "curated"
       ],
-      "stars": 563
+      "stars": 562
     },
     "gitruck/cli": {
       "default_branch": "main",
@@ -10810,7 +10809,7 @@
       "sources": [
         "curated"
       ],
-      "stars": 198
+      "stars": 199
     },
     "golutra/golutra": {
       "default_branch": "master",
@@ -10859,14 +10858,14 @@
       "license": "Apache-2.0",
       "name": "elephant-goldfish-model",
       "owner": "google",
-      "pushed_at": "2026-11-04T19:37:53Z",
-      "scanned_pushed_at": "2026-11-04T19:37:53Z",
+      "pushed_at": "2026-11-04T20:36:04Z",
+      "scanned_pushed_at": "2026-11-04T20:36:04Z",
       "sources": [
         "topic:agent-skills",
         "topic:claude-code",
         "topic:claude-skills"
       ],
-      "stars": 11665
+      "stars": 11820
     },
     "google/skills": {
       "default_branch": "main",
@@ -10879,12 +10878,12 @@
       "license": "Apache-2.0",
       "name": "skills",
       "owner": "google",
-      "pushed_at": "2026-11-04T19:00:06Z",
-      "scanned_pushed_at": "2026-11-04T19:00:06Z",
+      "pushed_at": "2026-11-04T21:46:25Z",
+      "scanned_pushed_at": "2026-11-04T21:46:25Z",
       "sources": [
         "curated"
       ],
-      "stars": 21946
+      "stars": 21994
     },
     "googleworkspace/cli": {
       "default_branch": "main",
@@ -10902,7 +10901,7 @@
       "sources": [
         "topic:agent-skills"
       ],
-      "stars": 32113
+      "stars": 32117
     },
     "gooseworks-ai/goose-skills": {
       "default_branch": "main",
@@ -10941,7 +10940,7 @@
         "topic:claude-skills",
         "topic:codex-skills"
       ],
-      "stars": 7325
+      "stars": 7340
     },
     "gotalab/cc-sdd": {
       "default_branch": "main",
@@ -10960,7 +10959,7 @@
         "topic:agent-skills",
         "topic:claude-code"
       ],
-      "stars": 3752
+      "stars": 3754
     },
     "gowtham012/pinpoint": {
       "default_branch": "main",
@@ -10996,7 +10995,7 @@
       "sources": [
         "topic:claude-code"
       ],
-      "stars": 7077
+      "stars": 7080
     },
     "graphify-labs/graphify": {
       "default_branch": "v8",
@@ -11014,7 +11013,7 @@
       "sources": [
         "topic:claude-code"
       ],
-      "stars": 142339
+      "stars": 142469
     },
     "graykode/abtop": {
       "default_branch": "main",
@@ -11032,7 +11031,7 @@
       "sources": [
         "topic:claude-code"
       ],
-      "stars": 3800
+      "stars": 3801
     },
     "grooverlab/fable": {
       "default_branch": "main",
@@ -11161,7 +11160,7 @@
       "sources": [
         "topic:claude-skills"
       ],
-      "stars": 828
+      "stars": 832
     },
     "hainrixz/skill-vault": {
       "default_branch": "main",
@@ -11233,7 +11232,7 @@
       "sources": [
         "topic:claude-code"
       ],
-      "stars": 3741
+      "stars": 3742
     },
     "hanfang/claude-memory-skill": {
       "default_branch": "main",
@@ -11306,7 +11305,7 @@
       "sources": [
         "topic:agent-skills"
       ],
-      "stars": 1098
+      "stars": 1105
     },
     "hao0321/ai-short-drama": {
       "default_branch": "main",
@@ -11342,7 +11341,7 @@
       "sources": [
         "topic:claude-code"
       ],
-      "stars": 9350
+      "stars": 9357
     },
     "harperreed/dotfiles": {
       "default_branch": "master",
@@ -11378,7 +11377,7 @@
       "sources": [
         "topic:claude-skills"
       ],
-      "stars": 604
+      "stars": 603
     },
     "hartmut-ux/ai-marketing-team": {
       "default_branch": "main",
@@ -11409,12 +11408,12 @@
       "license": "Apache-2.0",
       "name": "awesome-codex-plugins",
       "owner": "hashgraph-online",
-      "pushed_at": "2026-11-04T18:57:56Z",
-      "scanned_pushed_at": "2026-11-04T18:57:56Z",
+      "pushed_at": "2026-11-05T01:25:07Z",
+      "scanned_pushed_at": "2026-11-05T01:25:07Z",
       "sources": [
         "topic:codex-skills"
       ],
-      "stars": 1508
+      "stars": 1509
     },
     "hasuwini77/3d-logo-skill": {
       "default_branch": "main",
@@ -11445,12 +11444,12 @@
       "license": "Apache-2.0",
       "name": "headroom",
       "owner": "headroomlabs-ai",
-      "pushed_at": "2026-11-04T19:25:48Z",
-      "scanned_pushed_at": "2026-11-04T19:25:48Z",
+      "pushed_at": "2026-11-05T00:03:58Z",
+      "scanned_pushed_at": "2026-11-05T00:03:58Z",
       "sources": [
         "topic:claude-code"
       ],
-      "stars": 78845
+      "stars": 78864
     },
     "hedralab/eskill": {
       "default_branch": "main",
@@ -11504,7 +11503,7 @@
       "sources": [
         "topic:agent-skills"
       ],
-      "stars": 1046
+      "stars": 1049
     },
     "heliohq/ship": {
       "default_branch": "main",
@@ -11535,8 +11534,8 @@
       "license": "MIT",
       "name": "core-ai",
       "owner": "helius-labs",
-      "pushed_at": "2026-11-04T18:42:37Z",
-      "scanned_pushed_at": "2026-11-04T18:42:37Z",
+      "pushed_at": "2026-11-04T19:55:21Z",
+      "scanned_pushed_at": "2026-11-04T19:55:21Z",
       "sources": [
         "curated"
       ],
@@ -11558,7 +11557,7 @@
       "sources": [
         "topic:claude-code"
       ],
-      "stars": 48059
+      "stars": 48107
     },
     "hermes-labs-ai/lintlang": {
       "default_branch": "main",
@@ -11612,7 +11611,7 @@
       "sources": [
         "topic:claude-skills"
       ],
-      "stars": 1421
+      "stars": 1422
     },
     "heshamfs/materials-simulation-skills": {
       "default_branch": "main",
@@ -11661,13 +11660,13 @@
       "license": null,
       "name": "awesome-claude-code",
       "owner": "hesreallyhim",
-      "pushed_at": "2026-11-04T18:07:34Z",
-      "scanned_pushed_at": "2026-11-04T18:07:34Z",
+      "pushed_at": "2026-11-05T00:17:20Z",
+      "scanned_pushed_at": "2026-11-05T00:17:20Z",
       "sources": [
         "topic:agent-skills",
         "topic:claude-code"
       ],
-      "stars": 57243
+      "stars": 57269
     },
     "heychengc/vibe-knowledge-film": {
       "default_branch": "main",
@@ -11686,7 +11685,7 @@
         "topic:agent-skills",
         "topic:claude-skills"
       ],
-      "stars": 1032
+      "stars": 1033
     },
     "heychengc/wallstreet-explainer": {
       "default_branch": "main",
@@ -11717,13 +11716,13 @@
       "license": "Apache-2.0",
       "name": "hyperframes",
       "owner": "heygen-com",
-      "pushed_at": "2026-11-04T19:52:01Z",
-      "scanned_pushed_at": "2026-11-04T19:52:01Z",
+      "pushed_at": "2026-11-05T01:34:47Z",
+      "scanned_pushed_at": "2026-11-05T01:34:47Z",
       "sources": [
         "curated",
         "topic:claude-code"
       ],
-      "stars": 78857
+      "stars": 78965
     },
     "heymegabyte/agent-skills": {
       "default_branch": "main",
@@ -11736,8 +11735,8 @@
       "license": null,
       "name": "agent-skills",
       "owner": "heymegabyte",
-      "pushed_at": "2026-11-04T04:17:43Z",
-      "scanned_pushed_at": "2026-11-04T04:17:43Z",
+      "pushed_at": "2026-11-05T01:13:51Z",
+      "scanned_pushed_at": "2026-11-05T01:13:51Z",
       "sources": [
         "topic:codex-skills"
       ],
@@ -11772,8 +11771,8 @@
       "license": null,
       "name": "ai-workspace-archive",
       "owner": "HIDORAKAI002",
-      "pushed_at": "2026-11-04T08:41:00Z",
-      "scanned_pushed_at": "2026-11-04T08:41:00Z",
+      "pushed_at": "2026-11-05T00:13:28Z",
+      "scanned_pushed_at": "2026-11-05T00:13:28Z",
       "sources": [
         "topic:claude-code-skills"
       ],
@@ -11796,7 +11795,7 @@
         "topic:agent-skills",
         "topic:claude-code"
       ],
-      "stars": 3501
+      "stars": 3503
     },
     "hluaguo/learn-faster-kit": {
       "default_branch": "main",
@@ -11833,7 +11832,7 @@
         "curated",
         "topic:claude-skills"
       ],
-      "stars": 1144
+      "stars": 1145
     },
     "hoavdc/codexkit": {
       "default_branch": "main",
@@ -11869,7 +11868,7 @@
       "sources": [
         "topic:claude-code"
       ],
-      "stars": 11446
+      "stars": 11445
     },
     "homarr-labs/dashboard-icons": {
       "default_branch": "main",
@@ -11882,12 +11881,12 @@
       "license": "Apache-2.0",
       "name": "dashboard-icons",
       "owner": "homarr-labs",
-      "pushed_at": "2026-11-04T18:12:50Z",
-      "scanned_pushed_at": "2026-11-04T18:12:50Z",
+      "pushed_at": "2026-11-04T21:07:03Z",
+      "scanned_pushed_at": "2026-11-04T21:07:03Z",
       "sources": [
         "topic:claude-code"
       ],
-      "stars": 9003
+      "stars": 9005
     },
     "honeydew-ai/honeydew-ai-coding-agents-plugins": {
       "default_branch": "main",
@@ -11923,7 +11922,7 @@
       "sources": [
         "topic:claude-skills"
       ],
-      "stars": 766
+      "stars": 769
     },
     "hqhq1025/skill-optimizer": {
       "default_branch": "main",
@@ -11961,7 +11960,7 @@
       "sources": [
         "topic:claude-code"
       ],
-      "stars": 7287
+      "stars": 7289
     },
     "htmlstreamofficial/preline": {
       "default_branch": "main",
@@ -11979,7 +11978,7 @@
       "sources": [
         "topic:agent-skills"
       ],
-      "stars": 6519
+      "stars": 6520
     },
     "huangchihhungleo/claude-real-video": {
       "default_branch": "master",
@@ -11997,7 +11996,7 @@
       "sources": [
         "curated"
       ],
-      "stars": 2281
+      "stars": 2282
     },
     "huangjia2019/claude-code-engineering": {
       "default_branch": "main",
@@ -12105,7 +12104,7 @@
       "sources": [
         "topic:claude-code"
       ],
-      "stars": 12791
+      "stars": 12803
     },
     "huytieu/cog-second-brain": {
       "default_branch": "main",
@@ -12123,7 +12122,7 @@
       "sources": [
         "topic:agent-skills"
       ],
-      "stars": 1339
+      "stars": 1341
     },
     "hyacehila/humanizer-zh-next": {
       "default_branch": "main",
@@ -12208,8 +12207,8 @@
       "license": "MIT",
       "name": "i18next-cli",
       "owner": "i18next",
-      "pushed_at": "2026-11-03T16:21:06Z",
-      "scanned_pushed_at": "2026-11-03T16:21:06Z",
+      "pushed_at": "2026-11-04T20:53:16Z",
+      "scanned_pushed_at": "2026-11-04T20:53:16Z",
       "sources": [
         "curated",
         "topic:codex-skills"
@@ -12232,7 +12231,7 @@
       "sources": [
         "curated"
       ],
-      "stars": 1214
+      "stars": 1219
     },
     "ibelick/ui-skills": {
       "default_branch": "main",
@@ -12250,7 +12249,7 @@
       "sources": [
         "curated"
       ],
-      "stars": 10621
+      "stars": 10633
     },
     "icejyzy0430/open-model-workbench": {
       "default_branch": "main",
@@ -12433,7 +12432,7 @@
       "sources": [
         "topic:claude-code"
       ],
-      "stars": 55366
+      "stars": 55376
     },
     "imerzzhu/ai-novel-writing-skills": {
       "default_branch": "main",
@@ -12469,7 +12468,7 @@
       "sources": [
         "topic:claude-code"
       ],
-      "stars": 20266
+      "stars": 20280
     },
     "imolatte/claude-cli-telegram": {
       "default_branch": "main",
@@ -12541,7 +12540,7 @@
       "sources": [
         "topic:agent-skills"
       ],
-      "stars": 1562
+      "stars": 1563
     },
     "indeliblevivi/codex-worker-routing": {
       "default_branch": "main",
@@ -12700,8 +12699,8 @@
       "license": "GPL-3.0",
       "name": "open-knowledge",
       "owner": "inkeep",
-      "pushed_at": "2026-11-04T14:04:11Z",
-      "scanned_pushed_at": "2026-11-04T14:04:11Z",
+      "pushed_at": "2026-11-04T20:14:21Z",
+      "scanned_pushed_at": "2026-11-04T20:14:21Z",
       "sources": [
         "topic:agent-skills"
       ],
@@ -12736,8 +12735,8 @@
       "license": null,
       "name": "TaskBelay",
       "owner": "Innocent-children",
-      "pushed_at": "2026-11-04T13:56:58Z",
-      "scanned_pushed_at": "2026-11-04T13:56:58Z",
+      "pushed_at": "2026-11-05T00:22:36Z",
+      "scanned_pushed_at": "2026-11-05T00:22:36Z",
       "sources": [
         "topic:codex-skills"
       ],
@@ -12814,7 +12813,7 @@
         "topic:agent-skills",
         "topic:claude-code"
       ],
-      "stars": 7056
+      "stars": 7057
     },
     "iofficeai/aionui": {
       "default_branch": "main",
@@ -12832,7 +12831,7 @@
       "sources": [
         "topic:claude-code"
       ],
-      "stars": 34033
+      "stars": 34038
     },
     "iofficeai/officecli": {
       "default_branch": "main",
@@ -12850,7 +12849,7 @@
       "sources": [
         "topic:claude-code"
       ],
-      "stars": 33044
+      "stars": 33055
     },
     "ipavelm/ultimate-product-discovery-skill": {
       "default_branch": "main",
@@ -12887,7 +12886,7 @@
         "topic:claude-code",
         "topic:claude-skills"
       ],
-      "stars": 6812
+      "stars": 6829
     },
     "isjiamu/gzh-design-skill": {
       "default_branch": "main",
@@ -13014,7 +13013,7 @@
       "sources": [
         "topic:claude-code"
       ],
-      "stars": 4584
+      "stars": 4585
     },
     "iziqing/-disk-cleaner": {
       "default_branch": "main",
@@ -13045,8 +13044,8 @@
       "license": "CC0-1.0",
       "name": "awesome-korean-agent-skills",
       "owner": "J-nowcow",
-      "pushed_at": "2026-11-04T13:42:56Z",
-      "scanned_pushed_at": "2026-11-04T13:42:56Z",
+      "pushed_at": "2026-11-05T00:28:42Z",
+      "scanned_pushed_at": "2026-11-05T00:28:42Z",
       "sources": [
         "topic:claude-code-skills"
       ],
@@ -13088,7 +13087,7 @@
       "sources": [
         "topic:claude-code"
       ],
-      "stars": 6033
+      "stars": 6035
     },
     "jaechang-hits/sciagent-skills": {
       "default_branch": "main",
@@ -13124,7 +13123,7 @@
       "sources": [
         "topic:claude-skills"
       ],
-      "stars": 1249
+      "stars": 1251
     },
     "jakeschincariol/console-skill": {
       "default_branch": "main",
@@ -13142,7 +13141,7 @@
       "sources": [
         "topic:claude-skills"
       ],
-      "stars": 288
+      "stars": 290
     },
     "jakeschincariol/day-trader-skill": {
       "default_branch": "main",
@@ -13160,7 +13159,7 @@
       "sources": [
         "topic:claude-skills"
       ],
-      "stars": 5210
+      "stars": 5312
     },
     "jakeschincariol/founder-skill": {
       "default_branch": "main",
@@ -13178,7 +13177,7 @@
       "sources": [
         "topic:claude-skills"
       ],
-      "stars": 2443
+      "stars": 2454
     },
     "jakeschincariol/linkedin-agent-skill": {
       "default_branch": "main",
@@ -13197,7 +13196,7 @@
         "topic:agent-skills",
         "topic:claude-skills"
       ],
-      "stars": 3192
+      "stars": 3208
     },
     "jakeschincariol/replica-skill": {
       "default_branch": "main",
@@ -13217,7 +13216,7 @@
         "topic:claude-code",
         "topic:claude-skills"
       ],
-      "stars": 7612
+      "stars": 7648
     },
     "jakeschincariol/trader-skill": {
       "default_branch": "main",
@@ -13235,7 +13234,7 @@
       "sources": [
         "topic:claude-skills"
       ],
-      "stars": 1238
+      "stars": 1280
     },
     "jamditis/claude-skills-journalism": {
       "default_branch": "master",
@@ -13253,7 +13252,7 @@
       "sources": [
         "topic:claude-skills"
       ],
-      "stars": 447
+      "stars": 448
     },
     "jangviktor-web/nihaixia": {
       "default_branch": "main",
@@ -13272,7 +13271,7 @@
         "topic:agent-skills",
         "topic:claude-code-skills"
       ],
-      "stars": 3990
+      "stars": 3991
     },
     "jaredrhod/ai-memory-vault": {
       "default_branch": "main",
@@ -13309,7 +13308,7 @@
         "curated",
         "topic:claude-code"
       ],
-      "stars": 29103
+      "stars": 29105
     },
     "jasoncolapietro/suede-creator-skills": {
       "default_branch": "main",
@@ -13322,8 +13321,8 @@
       "license": "MIT",
       "name": "suede-creator-skills",
       "owner": "JasonColapietro",
-      "pushed_at": "2026-11-04T19:06:27Z",
-      "scanned_pushed_at": "2026-11-04T19:06:27Z",
+      "pushed_at": "2026-11-05T01:01:56Z",
+      "scanned_pushed_at": "2026-11-05T01:01:56Z",
       "sources": [
         "curated",
         "topic:claude-code-skills"
@@ -13386,7 +13385,7 @@
     },
     "javis603/token-monitor": {
       "default_branch": "main",
-      "description": "Local-first desktop widget for tracking token usage, costs, limits, and session activity across 48+ AI coding tools—including Claude Code, Codex, Cursor, OpenCode, OpenClaw, and more—with multi-device sync.",
+      "description": "Local-first desktop widget for tracking token usage, costs, limits, and session activity across 49+ AI coding tools—including Claude Code, Codex, Cursor, OpenCode, OpenClaw, and more—with multi-device sync.",
       "exclusion": null,
       "first_seen_at": "2026-11-02",
       "github_id": 1243377527,
@@ -13395,12 +13394,12 @@
       "license": "MIT",
       "name": "token-monitor",
       "owner": "Javis603",
-      "pushed_at": "2026-11-04T19:31:02Z",
-      "scanned_pushed_at": "2026-11-04T19:31:02Z",
+      "pushed_at": "2026-11-05T01:25:36Z",
+      "scanned_pushed_at": "2026-11-05T01:25:36Z",
       "sources": [
         "topic:claude-code"
       ],
-      "stars": 3543
+      "stars": 3544
     },
     "jayantdevkar/claude-code-karma": {
       "default_branch": "main",
@@ -13438,7 +13437,7 @@
         "topic:claude-code-skills",
         "topic:claude-skills"
       ],
-      "stars": 739
+      "stars": 740
     },
     "jcodesmore/ai-website-cloner-template": {
       "default_branch": "master",
@@ -13456,7 +13455,7 @@
       "sources": [
         "topic:claude-code"
       ],
-      "stars": 38608
+      "stars": 38622
     },
     "jeecgboot/jeecgboot": {
       "default_branch": "main",
@@ -13474,7 +13473,7 @@
       "sources": [
         "topic:claude-code"
       ],
-      "stars": 48375
+      "stars": 48376
     },
     "jeecgboot/skills": {
       "default_branch": "main",
@@ -13543,8 +13542,8 @@
       "license": "MIT",
       "name": "agent-guard",
       "owner": "JeongJaeSoon",
-      "pushed_at": "2026-11-04T19:08:16Z",
-      "scanned_pushed_at": "2026-11-04T19:08:16Z",
+      "pushed_at": "2026-11-04T23:05:06Z",
+      "scanned_pushed_at": "2026-11-04T23:05:06Z",
       "sources": [
         "curated"
       ],
@@ -13584,7 +13583,7 @@
       "sources": [
         "topic:agent-skills"
       ],
-      "stars": 2048
+      "stars": 2049
     },
     "jetbrains/thinkrail": {
       "default_branch": "main",
@@ -13602,7 +13601,7 @@
       "sources": [
         "topic:agent-skills"
       ],
-      "stars": 7581
+      "stars": 7603
     },
     "jezweb/claude-skills": {
       "default_branch": "main",
@@ -13638,7 +13637,7 @@
       "sources": [
         "curated"
       ],
-      "stars": 86
+      "stars": 70
     },
     "jherrodthomas/robotics-skills-suite": {
       "default_branch": "main",
@@ -13656,7 +13655,7 @@
       "sources": [
         "topic:claude-skills"
       ],
-      "stars": 252
+      "stars": 253
     },
     "jiahuiqu17/paper-signal": {
       "default_branch": "main",
@@ -13747,7 +13746,7 @@
         "topic:agent-skills",
         "topic:claude-code"
       ],
-      "stars": 6079
+      "stars": 6089
     },
     "jimliu/baoyu-skills": {
       "default_branch": "main",
@@ -13767,7 +13766,7 @@
         "topic:claude-skills",
         "topic:codex-skills"
       ],
-      "stars": 27283
+      "stars": 27285
     },
     "jimmysadek/video-fetcher-to-markdown": {
       "default_branch": "main",
@@ -13804,7 +13803,7 @@
         "topic:claude-code-skills",
         "topic:codex-skills"
       ],
-      "stars": 1054
+      "stars": 1056
     },
     "jnmetacode/agency-agents-zh": {
       "default_branch": "main",
@@ -13822,7 +13821,7 @@
       "sources": [
         "topic:claude-code"
       ],
-      "stars": 21866
+      "stars": 21867
     },
     "jnmetacode/ai-shortfilm-prompts": {
       "default_branch": "main",
@@ -13840,7 +13839,7 @@
       "sources": [
         "topic:claude-skills"
       ],
-      "stars": 515
+      "stars": 516
     },
     "jnmetacode/superpowers-zh": {
       "default_branch": "main",
@@ -13986,7 +13985,7 @@
       "sources": [
         "topic:claude-code"
       ],
-      "stars": 4389
+      "stars": 4392
     },
     "journione-ai/journione-planning-skills": {
       "default_branch": "main",
@@ -14113,7 +14112,7 @@
         "topic:agent-skills",
         "topic:claude-skills"
       ],
-      "stars": 1133
+      "stars": 1136
     },
     "juliusbrussee/caveman": {
       "default_branch": "main",
@@ -14132,7 +14131,7 @@
         "curated",
         "topic:claude-code"
       ],
-      "stars": 117484
+      "stars": 117523
     },
     "juneyaooo/gpt-image2-ppt-skills": {
       "default_branch": "main",
@@ -14171,6 +14170,24 @@
       ],
       "stars": 2226
     },
+    "juneyaooo/rea-video": {
+      "default_branch": "main",
+      "description": "逆向一切视频：实拍口播、桌拍、AI 视频、3D、代码动效、混剪，逐镜拆出画面、花字、剪辑和声音是怎么做的，并给出复刻方案。Reverse-engineer any video, shot by shot.",
+      "exclusion": null,
+      "first_seen_at": "2026-11-05",
+      "github_id": 1438661890,
+      "is_archived": false,
+      "is_fork": false,
+      "license": "Apache-2.0",
+      "name": "rea-video",
+      "owner": "JuneYaooo",
+      "pushed_at": "2026-11-04T15:47:37Z",
+      "scanned_pushed_at": "2026-11-04T15:47:37Z",
+      "sources": [
+        "topic:agent-skills"
+      ],
+      "stars": 1038
+    },
     "juneyaooo/self-media-compliance-review": {
       "default_branch": "main",
       "description": "自媒体视频发布前违规风险审核。检查画面/声音/文字/封面/评论/带货信息/资质/引流，输出 Pass→Blocker 五级风险报告。覆盖抖音/小红书/视频号/B站/快手+千川低质素材。Claude Code、codex、workbuddy、hermes  skill",
@@ -14205,7 +14222,7 @@
       "sources": [
         "topic:claude-code-skills"
       ],
-      "stars": 340
+      "stars": 342
     },
     "juneyaooo/xhs-writer-skill": {
       "default_branch": "main",
@@ -14315,7 +14332,7 @@
         "topic:agent-skills",
         "topic:claude-skills"
       ],
-      "stars": 56101
+      "stars": 56106
     },
     "k-kolomeitsev/data-structure-protocol": {
       "default_branch": "main",
@@ -14371,7 +14388,7 @@
         "topic:agent-skills",
         "topic:claude-skills"
       ],
-      "stars": 5985
+      "stars": 6009
     },
     "kadenmc/work-buddy": {
       "default_branch": "main",
@@ -14408,7 +14425,7 @@
         "topic:agent-skills",
         "topic:claude-skills"
       ],
-      "stars": 1628
+      "stars": 1629
     },
     "kajisho5/ffmpeg-skill": {
       "default_branch": "main",
@@ -14427,7 +14444,7 @@
         "topic:agent-skills",
         "topic:claude-code"
       ],
-      "stars": 4519
+      "stars": 4528
     },
     "kalarislabs/research-agent-skills": {
       "default_branch": "main",
@@ -14445,7 +14462,7 @@
       "sources": [
         "curated"
       ],
-      "stars": 100
+      "stars": 101
     },
     "kaomei/stickman-video-director": {
       "default_branch": "main",
@@ -14463,7 +14480,7 @@
       "sources": [
         "topic:codex-skills"
       ],
-      "stars": 4259
+      "stars": 4279
     },
     "karad/seiro-mcp": {
       "default_branch": "main",
@@ -14512,12 +14529,12 @@
       "license": "CC0-1.0",
       "name": "awesome-claude-code-mods",
       "owner": "karanb192",
-      "pushed_at": "2026-11-04T18:15:08Z",
-      "scanned_pushed_at": "2026-11-04T18:15:08Z",
+      "pushed_at": "2026-11-05T00:35:44Z",
+      "scanned_pushed_at": "2026-11-05T00:35:44Z",
       "sources": [
         "curated"
       ],
-      "stars": 865
+      "stars": 869
     },
     "karanb192/awesome-claude-skills": {
       "default_branch": "main",
@@ -14567,8 +14584,8 @@
       "license": "MIT",
       "name": "croftweaver",
       "owner": "karero",
-      "pushed_at": "2026-11-04T09:43:06Z",
-      "scanned_pushed_at": "2026-11-04T09:43:06Z",
+      "pushed_at": "2026-11-04T23:27:19Z",
+      "scanned_pushed_at": "2026-11-04T23:27:19Z",
       "sources": [
         "curated"
       ],
@@ -14698,7 +14715,7 @@
       "sources": [
         "curated"
       ],
-      "stars": 1911
+      "stars": 1912
     },
     "kensaurus/skills": {
       "default_branch": "main",
@@ -14729,8 +14746,8 @@
       "license": "MIT",
       "name": "agon",
       "owner": "KERNlang",
-      "pushed_at": "2026-11-04T19:50:53Z",
-      "scanned_pushed_at": "2026-11-04T19:50:53Z",
+      "pushed_at": "2026-11-04T21:51:08Z",
+      "scanned_pushed_at": "2026-11-04T21:51:08Z",
       "sources": [
         "topic:codex-skills"
       ],
@@ -14824,7 +14841,7 @@
       "sources": [
         "topic:claude-code-skills"
       ],
-      "stars": 18
+      "stars": 19
     },
     "kgraph57/mckinsey-style-visualization-skill": {
       "default_branch": "main",
@@ -14879,7 +14896,7 @@
       "sources": [
         "curated"
       ],
-      "stars": 3223
+      "stars": 3224
     },
     "khendzel/skills-janitor": {
       "default_branch": "main",
@@ -14952,7 +14969,7 @@
       "sources": [
         "topic:agent-skills"
       ],
-      "stars": 4391
+      "stars": 4393
     },
     "kkkkhazix/khazix-skills": {
       "default_branch": "main",
@@ -14971,7 +14988,7 @@
         "topic:agent-skills",
         "topic:claude-code"
       ],
-      "stars": 21955
+      "stars": 21959
     },
     "kklimuk/docx-cli": {
       "default_branch": "main",
@@ -14984,8 +15001,8 @@
       "license": "MIT",
       "name": "docx-cli",
       "owner": "kklimuk",
-      "pushed_at": "2026-10-31T16:19:38Z",
-      "scanned_pushed_at": "2026-10-31T16:19:38Z",
+      "pushed_at": "2026-11-05T01:01:19Z",
+      "scanned_pushed_at": "2026-11-05T01:01:19Z",
       "sources": [
         "curated"
       ],
@@ -15002,8 +15019,8 @@
       "license": "Apache-2.0",
       "name": "claude-fuer-deutsches-recht",
       "owner": "Klotzkette",
-      "pushed_at": "2026-11-04T17:38:43Z",
-      "scanned_pushed_at": "2026-11-04T17:38:43Z",
+      "pushed_at": "2026-11-04T21:35:58Z",
+      "scanned_pushed_at": "2026-11-04T21:35:58Z",
       "sources": [
         "topic:claude-skills"
       ],
@@ -15079,7 +15096,7 @@
       "sources": [
         "topic:agent-skills"
       ],
-      "stars": 1079
+      "stars": 1081
     },
     "krillinai/opencreator": {
       "default_branch": "master",
@@ -15097,7 +15114,7 @@
       "sources": [
         "topic:agent-skills"
       ],
-      "stars": 14154
+      "stars": 14160
     },
     "krisyangdev/motionboard": {
       "default_branch": "main",
@@ -15133,7 +15150,7 @@
       "sources": [
         "topic:claude-code-skills"
       ],
-      "stars": 71
+      "stars": 72
     },
     "kuangre123/codex-switch": {
       "default_branch": "main",
@@ -15169,7 +15186,7 @@
       "sources": [
         "topic:claude-code"
       ],
-      "stars": 10337
+      "stars": 10338
     },
     "kubesphere/kubesphere": {
       "default_branch": "master",
@@ -15187,7 +15204,7 @@
       "sources": [
         "topic:agent-skills"
       ],
-      "stars": 17077
+      "stars": 17078
     },
     "kuddev/pebrel": {
       "default_branch": "main",
@@ -15272,8 +15289,8 @@
       "license": "MIT",
       "name": "idd-skill",
       "owner": "kurone-kito",
-      "pushed_at": "2026-11-04T19:55:27Z",
-      "scanned_pushed_at": "2026-11-04T19:55:27Z",
+      "pushed_at": "2026-11-05T00:53:10Z",
+      "scanned_pushed_at": "2026-11-05T00:53:10Z",
       "sources": [
         "topic:codex-skills"
       ],
@@ -15295,7 +15312,7 @@
       "sources": [
         "topic:claude-code"
       ],
-      "stars": 14924
+      "stars": 14925
     },
     "kyegomez/swarms": {
       "default_branch": "master",
@@ -15308,12 +15325,12 @@
       "license": "Apache-2.0",
       "name": "swarms",
       "owner": "kyegomez",
-      "pushed_at": "2026-11-04T18:17:59Z",
-      "scanned_pushed_at": "2026-11-04T18:17:59Z",
+      "pushed_at": "2026-11-04T23:08:25Z",
+      "scanned_pushed_at": "2026-11-04T23:08:25Z",
       "sources": [
         "topic:claude-code"
       ],
-      "stars": 7351
+      "stars": 7350
     },
     "kyure-a/agent-skills-nix": {
       "default_branch": "master",
@@ -15331,7 +15348,7 @@
       "sources": [
         "topic:claude-skills"
       ],
-      "stars": 276
+      "stars": 277
     },
     "labzink/cc-probeline": {
       "default_branch": "main",
@@ -15424,7 +15441,7 @@
         "topic:agent-skills",
         "topic:claude-code"
       ],
-      "stars": 6698
+      "stars": 6700
     },
     "larcane97/clausona": {
       "default_branch": "main",
@@ -15462,7 +15479,7 @@
         "topic:claude-code",
         "topic:claude-skills"
       ],
-      "stars": 20299
+      "stars": 20319
     },
     "lawve-ai/awesome-legal-skills": {
       "default_branch": "main",
@@ -15480,7 +15497,7 @@
       "sources": [
         "curated"
       ],
-      "stars": 929
+      "stars": 931
     },
     "lazyisefficient/agentic-os": {
       "default_branch": "main",
@@ -15643,7 +15660,7 @@
         "topic:agent-skills",
         "topic:claude-code"
       ],
-      "stars": 12214
+      "stars": 12290
     },
     "lennney/stop-that-shit": {
       "default_branch": "main",
@@ -15656,13 +15673,13 @@
       "license": "MIT",
       "name": "stop-that-shit",
       "owner": "lennney",
-      "pushed_at": "2026-11-04T01:03:23Z",
-      "scanned_pushed_at": "2026-11-04T01:03:23Z",
+      "pushed_at": "2026-11-05T01:00:43Z",
+      "scanned_pushed_at": "2026-11-05T01:00:43Z",
       "sources": [
         "topic:agent-skills",
         "topic:claude-code"
       ],
-      "stars": 3604
+      "stars": 3612
     },
     "leon-gittech/skill2poster": {
       "default_branch": "main",
@@ -15698,7 +15715,7 @@
       "sources": [
         "topic:claude-skills"
       ],
-      "stars": 991
+      "stars": 995
     },
     "leonxlnx/earshot": {
       "default_branch": "main",
@@ -15716,7 +15733,7 @@
       "sources": [
         "topic:claude-code"
       ],
-      "stars": 3877
+      "stars": 3898
     },
     "leonxlnx/taste-skill": {
       "default_branch": "main",
@@ -15729,14 +15746,14 @@
       "license": "MIT",
       "name": "taste-skill",
       "owner": "Leonxlnx",
-      "pushed_at": "2026-11-04T14:00:52Z",
-      "scanned_pushed_at": "2026-11-04T14:00:52Z",
+      "pushed_at": "2026-11-05T01:12:12Z",
+      "scanned_pushed_at": "2026-11-05T01:12:12Z",
       "sources": [
         "curated",
         "topic:agent-skills",
         "topic:claude-code"
       ],
-      "stars": 109970
+      "stars": 110095
     },
     "leonxlnx/unlazy": {
       "default_branch": "main",
@@ -15754,7 +15771,7 @@
       "sources": [
         "topic:claude-code"
       ],
-      "stars": 4294
+      "stars": 4299
     },
     "leopard627/fire-your-seo-agency": {
       "default_branch": "main",
@@ -15772,7 +15789,7 @@
       "sources": [
         "topic:claude-skills"
       ],
-      "stars": 993
+      "stars": 994
     },
     "leoyeai/agent-master-skills": {
       "default_branch": "main",
@@ -15916,7 +15933,7 @@
       "sources": [
         "topic:claude-code"
       ],
-      "stars": 18209
+      "stars": 18218
     },
     "lijinyang439-arch/dialectical-paper-writing": {
       "default_branch": "main",
@@ -15970,7 +15987,7 @@
       "sources": [
         "topic:claude-skills"
       ],
-      "stars": 328
+      "stars": 329
     },
     "linked-api/linkedin-skills": {
       "default_branch": "main",
@@ -16001,13 +16018,13 @@
       "license": null,
       "name": "best-skills",
       "owner": "LinklyAI",
-      "pushed_at": "2026-11-04T01:02:28Z",
-      "scanned_pushed_at": "2026-11-04T01:02:28Z",
+      "pushed_at": "2026-11-05T01:02:58Z",
+      "scanned_pushed_at": "2026-11-05T01:02:58Z",
       "sources": [
         "topic:claude-skills",
         "topic:codex-skills"
       ],
-      "stars": 740
+      "stars": 743
     },
     "lintsinghua/claude-code-book": {
       "default_branch": "main",
@@ -16061,7 +16078,7 @@
       "sources": [
         "curated"
       ],
-      "stars": 295
+      "stars": 296
     },
     "litreily/codex-skill-eastern-beauty-director": {
       "default_branch": "main",
@@ -16098,7 +16115,7 @@
         "topic:claude-skills",
         "topic:codex-skills"
       ],
-      "stars": 478
+      "stars": 482
     },
     "liustack/modlens": {
       "default_branch": "main",
@@ -16136,7 +16153,7 @@
       "sources": [
         "topic:claude-skills"
       ],
-      "stars": 924
+      "stars": 926
     },
     "livenl/tmux-claude-status-tabs": {
       "default_branch": "main",
@@ -16190,7 +16207,7 @@
       "sources": [
         "topic:claude-code"
       ],
-      "stars": 21861
+      "stars": 21863
     },
     "liyupi/ai-promo-video-maker": {
       "default_branch": "main",
@@ -16208,7 +16225,7 @@
       "sources": [
         "topic:claude-skills"
       ],
-      "stars": 440
+      "stars": 442
     },
     "ljagiello/ctf-skills": {
       "default_branch": "main",
@@ -16228,7 +16245,7 @@
         "topic:claude-code",
         "topic:claude-code-skills"
       ],
-      "stars": 3616
+      "stars": 3617
     },
     "llmquant/awesome-trading-agents": {
       "default_branch": "master",
@@ -16331,8 +16348,8 @@
       "license": "Apache-2.0",
       "name": "loopx",
       "owner": "loopx-project",
-      "pushed_at": "2026-11-04T19:51:11Z",
-      "scanned_pushed_at": "2026-11-04T19:51:11Z",
+      "pushed_at": "2026-11-05T01:12:17Z",
+      "scanned_pushed_at": "2026-11-05T01:12:17Z",
       "sources": [
         "topic:claude-code"
       ],
@@ -16354,7 +16371,7 @@
       "sources": [
         "topic:agent-skills"
       ],
-      "stars": 2782
+      "stars": 2783
     },
     "louis-cfm/coucou": {
       "default_branch": "main",
@@ -16367,12 +16384,12 @@
       "license": "MIT",
       "name": "coucou",
       "owner": "Louis-CFM",
-      "pushed_at": "2026-11-03T16:09:07Z",
-      "scanned_pushed_at": "2026-11-03T16:09:07Z",
+      "pushed_at": "2026-11-04T23:57:01Z",
+      "scanned_pushed_at": "2026-11-04T23:57:01Z",
       "sources": [
         "topic:claude-code"
       ],
-      "stars": 6960
+      "stars": 6965
     },
     "ltczding-gif/ref-downloader": {
       "default_branch": "main",
@@ -16444,7 +16461,7 @@
       "sources": [
         "topic:claude-skills"
       ],
-      "stars": 472
+      "stars": 473
     },
     "lukasniessen/terrashark": {
       "default_branch": "main",
@@ -16556,7 +16573,7 @@
         "curated",
         "topic:claude-code"
       ],
-      "stars": 46500
+      "stars": 46522
     },
     "lxy-hqu/paper-research-mentor": {
       "default_branch": "master",
@@ -16592,7 +16609,7 @@
       "sources": [
         "curated"
       ],
-      "stars": 724
+      "stars": 725
     },
     "maciek-roboblog/claude-code-usage-monitor": {
       "default_branch": "main",
@@ -16666,7 +16683,7 @@
         "topic:claude-skills",
         "topic:codex-skills"
       ],
-      "stars": 2187
+      "stars": 2192
     },
     "maigentic/stratarts": {
       "default_branch": "main",
@@ -16697,8 +16714,8 @@
       "license": "MIT",
       "name": "mailtrap-skills",
       "owner": "mailtrap",
-      "pushed_at": "2026-11-02T08:49:56Z",
-      "scanned_pushed_at": "2026-11-02T08:49:56Z",
+      "pushed_at": "2026-11-04T23:11:49Z",
+      "scanned_pushed_at": "2026-11-04T23:11:49Z",
       "sources": [
         "curated"
       ],
@@ -16752,12 +16769,12 @@
       "license": "Apache-2.0",
       "name": "cindy",
       "owner": "makecindy",
-      "pushed_at": "2026-11-04T19:42:26Z",
-      "scanned_pushed_at": "2026-11-04T19:42:26Z",
+      "pushed_at": "2026-11-05T01:27:02Z",
+      "scanned_pushed_at": "2026-11-05T01:27:02Z",
       "sources": [
         "topic:claude-code"
       ],
-      "stars": 9257
+      "stars": 9273
     },
     "makenotion/claude-code-notion-plugin": {
       "default_branch": "main",
@@ -16770,8 +16787,8 @@
       "license": null,
       "name": "claude-code-notion-plugin",
       "owner": "makenotion",
-      "pushed_at": "2026-11-04T17:48:51Z",
-      "scanned_pushed_at": "2026-11-04T17:48:51Z",
+      "pushed_at": "2026-11-04T22:59:44Z",
+      "scanned_pushed_at": "2026-11-04T22:59:44Z",
       "sources": [
         "curated"
       ],
@@ -16788,8 +16805,8 @@
       "license": "MIT",
       "name": "notion-cookbook",
       "owner": "makenotion",
-      "pushed_at": "2026-11-04T19:42:43Z",
-      "scanned_pushed_at": "2026-11-04T19:42:43Z",
+      "pushed_at": "2026-11-04T22:39:28Z",
+      "scanned_pushed_at": "2026-11-04T22:39:28Z",
       "sources": [
         "curated"
       ],
@@ -16842,12 +16859,12 @@
       "license": null,
       "name": "cmux",
       "owner": "manaflow-ai",
-      "pushed_at": "2026-11-04T19:59:54Z",
-      "scanned_pushed_at": "2026-11-04T19:59:54Z",
+      "pushed_at": "2026-11-05T01:37:06Z",
+      "scanned_pushed_at": "2026-11-05T01:37:06Z",
       "sources": [
         "topic:claude-code"
       ],
-      "stars": 28689
+      "stars": 28695
     },
     "manavmishra/zeroslop": {
       "default_branch": "main",
@@ -16865,7 +16882,7 @@
       "sources": [
         "curated"
       ],
-      "stars": 160
+      "stars": 161
     },
     "marconasi/ai-skills": {
       "default_branch": "main",
@@ -17009,7 +17026,7 @@
       "sources": [
         "topic:claude-skills"
       ],
-      "stars": 545
+      "stars": 546
     },
     "massimodeluisa/recursive-decomposition-skill": {
       "default_branch": "main",
@@ -17047,7 +17064,7 @@
         "topic:agent-skills",
         "topic:codex-skills"
       ],
-      "stars": 1255
+      "stars": 1256
     },
     "matlab/simulink-agentic-toolkit": {
       "default_branch": "main",
@@ -17155,7 +17172,7 @@
       "sources": [
         "curated"
       ],
-      "stars": 313012
+      "stars": 313353
     },
     "max-sixty/worktrunk": {
       "default_branch": "main",
@@ -17173,7 +17190,7 @@
       "sources": [
         "topic:claude-code"
       ],
-      "stars": 10950
+      "stars": 11057
     },
     "maxforai/tokenless": {
       "default_branch": "main",
@@ -17204,12 +17221,12 @@
       "license": "Apache-2.0",
       "name": "bifrost",
       "owner": "maximhq",
-      "pushed_at": "2026-11-04T19:05:32Z",
-      "scanned_pushed_at": "2026-11-04T19:05:32Z",
+      "pushed_at": "2026-11-04T23:47:01Z",
+      "scanned_pushed_at": "2026-11-04T23:47:01Z",
       "sources": [
         "topic:claude-code"
       ],
-      "stars": 9367
+      "stars": 9373
     },
     "maxrave-dev/kotlin-footguns": {
       "default_branch": "main",
@@ -17227,7 +17244,7 @@
       "sources": [
         "topic:agent-skills"
       ],
-      "stars": 1947
+      "stars": 1950
     },
     "maxritter/open-claude-design": {
       "default_branch": "main",
@@ -17258,13 +17275,13 @@
       "license": null,
       "name": "qualitylayer",
       "owner": "maxritter",
-      "pushed_at": "2026-11-04T19:23:20Z",
-      "scanned_pushed_at": "2026-11-04T19:23:20Z",
+      "pushed_at": "2026-11-05T01:08:46Z",
+      "scanned_pushed_at": "2026-11-05T01:08:46Z",
       "sources": [
         "curated",
         "topic:agent-skills"
       ],
-      "stars": 2114
+      "stars": 2116
     },
     "mblode/agent-skills": {
       "default_branch": "main",
@@ -17282,7 +17299,7 @@
       "sources": [
         "curated"
       ],
-      "stars": 181
+      "stars": 183
     },
     "mcollina/skills": {
       "default_branch": "main",
@@ -17313,8 +17330,8 @@
       "license": "MIT",
       "name": "mcp-use",
       "owner": "mcp-use",
-      "pushed_at": "2026-11-02T20:12:29Z",
-      "scanned_pushed_at": "2026-11-02T20:12:29Z",
+      "pushed_at": "2026-11-05T01:27:30Z",
+      "scanned_pushed_at": "2026-11-05T01:27:30Z",
       "sources": [
         "topic:claude-code"
       ],
@@ -17349,8 +17366,8 @@
       "license": "MIT",
       "name": "apexyard",
       "owner": "me2resh",
-      "pushed_at": "2026-11-04T19:45:56Z",
-      "scanned_pushed_at": "2026-11-04T19:45:56Z",
+      "pushed_at": "2026-11-04T21:57:29Z",
+      "scanned_pushed_at": "2026-11-04T21:57:29Z",
       "sources": [
         "topic:claude-code-skills"
       ],
@@ -17444,7 +17461,7 @@
       "sources": [
         "topic:claude-code"
       ],
-      "stars": 17411
+      "stars": 17412
     },
     "memvid/claude-brain": {
       "default_branch": "main",
@@ -17529,13 +17546,13 @@
       "license": "MIT",
       "name": "mirrord",
       "owner": "metalbear-co",
-      "pushed_at": "2026-11-04T18:59:44Z",
-      "scanned_pushed_at": "2026-11-04T18:59:44Z",
+      "pushed_at": "2026-11-05T00:31:02Z",
+      "scanned_pushed_at": "2026-11-05T00:31:02Z",
       "sources": [
         "topic:agent-skills",
         "topic:claude-code"
       ],
-      "stars": 5401
+      "stars": 5402
     },
     "metalbear-co/skills": {
       "default_branch": "main",
@@ -17621,8 +17638,8 @@
       "license": "MIT",
       "name": "mex",
       "owner": "mex-memory",
-      "pushed_at": "2026-11-04T19:53:25Z",
-      "scanned_pushed_at": "2026-11-04T19:53:25Z",
+      "pushed_at": "2026-11-04T20:13:01Z",
+      "scanned_pushed_at": "2026-11-04T20:13:01Z",
       "sources": [
         "topic:agent-skills",
         "topic:claude-code-skills"
@@ -17663,7 +17680,7 @@
       "sources": [
         "topic:claude-skills"
       ],
-      "stars": 407
+      "stars": 409
     },
     "michael-denyer/pstack-claude": {
       "default_branch": "main",
@@ -17686,7 +17703,7 @@
         "topic:claude-skills",
         "topic:codex-skills"
       ],
-      "stars": 3968
+      "stars": 3976
     },
     "michaelshimeles/rstack": {
       "default_branch": "main",
@@ -17704,7 +17721,7 @@
       "sources": [
         "topic:agent-skills"
       ],
-      "stars": 1441
+      "stars": 1442
     },
     "michtio/craftcms-claude-skills": {
       "default_branch": "main",
@@ -17722,7 +17739,7 @@
       "sources": [
         "topic:claude-code-skills"
       ],
-      "stars": 87
+      "stars": 88
     },
     "microck/ordinary-claude-skills": {
       "default_branch": "main",
@@ -17758,7 +17775,7 @@
       "sources": [
         "topic:claude-code"
       ],
-      "stars": 4222
+      "stars": 4226
     },
     "microsoft/azure-skills": {
       "default_branch": "main",
@@ -17789,12 +17806,12 @@
       "license": "MIT",
       "name": "power-platform-skills",
       "owner": "microsoft",
-      "pushed_at": "2026-11-04T19:02:11Z",
-      "scanned_pushed_at": "2026-11-04T19:02:11Z",
+      "pushed_at": "2026-11-04T23:10:23Z",
+      "scanned_pushed_at": "2026-11-04T23:10:23Z",
       "sources": [
         "topic:claude-code-skills"
       ],
-      "stars": 1113
+      "stars": 1114
     },
     "microsoft/skill-recorder": {
       "default_branch": "main",
@@ -17812,7 +17829,7 @@
       "sources": [
         "topic:agent-skills"
       ],
-      "stars": 5682
+      "stars": 5688
     },
     "microsoft/skillopt": {
       "default_branch": "main",
@@ -17825,12 +17842,12 @@
       "license": "MIT",
       "name": "SkillOpt",
       "owner": "microsoft",
-      "pushed_at": "2026-11-04T09:01:31Z",
-      "scanned_pushed_at": "2026-11-04T09:01:31Z",
+      "pushed_at": "2026-11-04T21:12:33Z",
+      "scanned_pushed_at": "2026-11-04T21:12:33Z",
       "sources": [
         "topic:agent-skills"
       ],
-      "stars": 18894
+      "stars": 18895
     },
     "microsoft/skills": {
       "default_branch": "main",
@@ -17861,12 +17878,12 @@
       "license": "Apache-2.0",
       "name": "TokenEconomizer",
       "owner": "microsoft",
-      "pushed_at": "2026-11-03T21:47:20Z",
-      "scanned_pushed_at": "2026-11-03T21:47:20Z",
+      "pushed_at": "2026-11-04T23:00:36Z",
+      "scanned_pushed_at": "2026-11-04T23:00:36Z",
       "sources": [
         "topic:claude-code"
       ],
-      "stars": 4768
+      "stars": 4780
     },
     "mikedemarais/grok-skill": {
       "default_branch": "main",
@@ -17902,7 +17919,7 @@
       "sources": [
         "topic:agent-skills"
       ],
-      "stars": 1379
+      "stars": 1381
     },
     "mikeyobrien/ralph-orchestrator": {
       "default_branch": "main",
@@ -17920,7 +17937,7 @@
       "sources": [
         "curated"
       ],
-      "stars": 3193
+      "stars": 3194
     },
     "mikotokawaii25/local-ai-code-assistant": {
       "default_branch": "main",
@@ -17933,8 +17950,8 @@
       "license": null,
       "name": "local-ai-code-assistant",
       "owner": "MIKOTOKAWAII25",
-      "pushed_at": "2026-11-04T19:15:06Z",
-      "scanned_pushed_at": "2026-11-04T19:15:06Z",
+      "pushed_at": "2026-11-05T00:39:27Z",
+      "scanned_pushed_at": "2026-11-05T00:39:27Z",
       "sources": [
         "topic:claude-code-skills"
       ],
@@ -17969,12 +17986,12 @@
       "license": "Apache-2.0",
       "name": "OpenMausBot",
       "owner": "milind-soni",
-      "pushed_at": "2026-11-04T19:34:00Z",
-      "scanned_pushed_at": "2026-11-04T19:34:00Z",
+      "pushed_at": "2026-11-05T01:32:31Z",
+      "scanned_pushed_at": "2026-11-05T01:32:31Z",
       "sources": [
         "topic:claude-code"
       ],
-      "stars": 11982
+      "stars": 12041
     },
     "minchenlee/c9watch": {
       "default_branch": "main",
@@ -18010,7 +18027,7 @@
       "sources": [
         "topic:claude-skills"
       ],
-      "stars": 295
+      "stars": 297
     },
     "minicoursegenerator/skills-for-course-creators": {
       "default_branch": "master",
@@ -18046,7 +18063,7 @@
       "sources": [
         "topic:claude-skills"
       ],
-      "stars": 535
+      "stars": 537
     },
     "minsight-ai-info/ai-search-hub": {
       "default_branch": "main",
@@ -18064,7 +18081,7 @@
       "sources": [
         "topic:claude-skills"
       ],
-      "stars": 1311
+      "stars": 1313
     },
     "miqdadbadjuber/anti-slop": {
       "default_branch": "main",
@@ -18077,13 +18094,13 @@
       "license": "MIT",
       "name": "anti-slop",
       "owner": "miqdadbadjuber",
-      "pushed_at": "2026-11-01T12:06:35Z",
-      "scanned_pushed_at": "2026-11-01T12:06:35Z",
+      "pushed_at": "2026-11-05T00:24:10Z",
+      "scanned_pushed_at": "2026-11-05T00:24:10Z",
       "sources": [
         "topic:agent-skills",
         "topic:claude-code"
       ],
-      "stars": 8195
+      "stars": 8215
     },
     "mirkobozzetto/arsenal": {
       "default_branch": "main",
@@ -18155,7 +18172,7 @@
       "sources": [
         "topic:agent-skills"
       ],
-      "stars": 1451
+      "stars": 1452
     },
     "mksglu/context-mode": {
       "default_branch": "main",
@@ -18168,12 +18185,12 @@
       "license": null,
       "name": "context-mode",
       "owner": "mksglu",
-      "pushed_at": "2026-11-04T19:39:23Z",
-      "scanned_pushed_at": "2026-11-04T19:39:23Z",
+      "pushed_at": "2026-11-05T01:03:13Z",
+      "scanned_pushed_at": "2026-11-05T01:03:13Z",
       "sources": [
         "topic:claude-code"
       ],
-      "stars": 33464
+      "stars": 33486
     },
     "mliu98/awesome-human-distillation": {
       "default_branch": "main",
@@ -18204,8 +18221,8 @@
       "license": "MIT",
       "name": "nostr-vpn",
       "owner": "mmalmi",
-      "pushed_at": "2026-11-04T19:58:09Z",
-      "scanned_pushed_at": "2026-11-04T19:58:09Z",
+      "pushed_at": "2026-11-05T00:22:36Z",
+      "scanned_pushed_at": "2026-11-05T00:22:36Z",
       "sources": [
         "topic:agent-skills"
       ],
@@ -18263,7 +18280,7 @@
       "sources": [
         "topic:claude-code"
       ],
-      "stars": 10295
+      "stars": 10300
     },
     "modem-dev/ossrules": {
       "default_branch": "main",
@@ -18317,7 +18334,7 @@
       "sources": [
         "topic:claude-skills"
       ],
-      "stars": 357
+      "stars": 358
     },
     "mohamedabdallah-14/unslop": {
       "default_branch": "main",
@@ -18421,8 +18438,8 @@
       "license": "Apache-2.0",
       "name": "mc-agent-toolkit",
       "owner": "monte-carlo-data",
-      "pushed_at": "2026-11-04T19:37:42Z",
-      "scanned_pushed_at": "2026-11-04T19:37:42Z",
+      "pushed_at": "2026-11-04T22:26:49Z",
+      "scanned_pushed_at": "2026-11-04T22:26:49Z",
       "sources": [
         "topic:codex-skills"
       ],
@@ -18463,7 +18480,7 @@
         "topic:agent-skills",
         "topic:claude-skills"
       ],
-      "stars": 1710
+      "stars": 1712
     },
     "morluto/awesome-reverse-engineering": {
       "default_branch": "main",
@@ -18481,7 +18498,7 @@
       "sources": [
         "topic:agent-skills"
       ],
-      "stars": 1835
+      "stars": 1839
     },
     "morluto/generate-social-preview": {
       "default_branch": "main",
@@ -18512,14 +18529,14 @@
       "license": "MIT",
       "name": "rea",
       "owner": "morluto",
-      "pushed_at": "2026-11-04T19:58:42Z",
-      "scanned_pushed_at": "2026-11-04T19:58:42Z",
+      "pushed_at": "2026-11-04T22:50:59Z",
+      "scanned_pushed_at": "2026-11-04T22:50:59Z",
       "sources": [
         "curated",
         "topic:agent-skills",
         "topic:claude-code"
       ],
-      "stars": 430351
+      "stars": 431002
     },
     "motan1337/universal-bypass-for-claude-chatgpt-qwen-deepseek-llm-claude-code-codex": {
       "default_branch": "main",
@@ -18538,7 +18555,7 @@
         "topic:claude-code-skills",
         "topic:codex-skills"
       ],
-      "stars": 20
+      "stars": 22
     },
     "motherduckdb/agent-skills": {
       "default_branch": "main",
@@ -18647,7 +18664,7 @@
       "sources": [
         "curated"
       ],
-      "stars": 883
+      "stars": 884
     },
     "msg91/m91-skill": {
       "default_branch": "main",
@@ -18701,7 +18718,7 @@
       "sources": [
         "curated"
       ],
-      "stars": 40
+      "stars": 41
     },
     "muhammadtalhamt/claude-intercom": {
       "default_branch": "main",
@@ -18738,7 +18755,7 @@
         "curated",
         "topic:claude-code"
       ],
-      "stars": 35571
+      "stars": 35586
     },
     "multica-ai/andrej-karpathy-skills": {
       "default_branch": "main",
@@ -18756,7 +18773,7 @@
       "sources": [
         "curated"
       ],
-      "stars": 229433
+      "stars": 229518
     },
     "muratcankoylan/agent-skills-for-context-engineering": {
       "default_branch": "main",
@@ -18774,7 +18791,7 @@
       "sources": [
         "curated"
       ],
-      "stars": 18297
+      "stars": 18299
     },
     "muratcankoylan/ralph-wiggum-marketer": {
       "default_branch": "main",
@@ -18829,7 +18846,7 @@
         "topic:agent-skills",
         "topic:claude-code"
       ],
-      "stars": 4158
+      "stars": 4157
     },
     "mvanhorn/last30days-skill": {
       "default_branch": "main",
@@ -18848,7 +18865,7 @@
         "curated",
         "topic:claude-code"
       ],
-      "stars": 66599
+      "stars": 66622
     },
     "mvschwarz/openrig": {
       "default_branch": "main",
@@ -18861,14 +18878,14 @@
       "license": "Apache-2.0",
       "name": "openrig",
       "owner": "mvschwarz",
-      "pushed_at": "2026-11-04T20:00:00Z",
-      "scanned_pushed_at": "2026-11-04T20:00:00Z",
+      "pushed_at": "2026-11-05T01:33:05Z",
+      "scanned_pushed_at": "2026-11-05T01:33:05Z",
       "sources": [
         "curated",
         "topic:agent-skills",
         "topic:claude-code"
       ],
-      "stars": 8599
+      "stars": 8614
     },
     "mxyhi/ok-skills": {
       "default_branch": "main",
@@ -18959,7 +18976,7 @@
       "sources": [
         "curated"
       ],
-      "stars": 295
+      "stars": 296
     },
     "nanaism/yomiyasu": {
       "default_branch": "main",
@@ -18997,7 +19014,7 @@
         "topic:agent-skills",
         "topic:claude-code"
       ],
-      "stars": 3638
+      "stars": 3641
     },
     "nancy-517/college-final-exam-ai-skill": {
       "default_branch": "main",
@@ -19033,7 +19050,7 @@
       "sources": [
         "topic:claude-code"
       ],
-      "stars": 15300
+      "stars": 15303
     },
     "nano-muse/nanomuse": {
       "default_branch": "main",
@@ -19046,12 +19063,12 @@
       "license": "GPL-3.0",
       "name": "nanoMuse",
       "owner": "nano-muse",
-      "pushed_at": "2026-11-04T17:02:57Z",
-      "scanned_pushed_at": "2026-11-04T17:02:57Z",
+      "pushed_at": "2026-11-05T01:35:17Z",
+      "scanned_pushed_at": "2026-11-05T01:35:17Z",
       "sources": [
         "topic:agent-skills"
       ],
-      "stars": 3189
+      "stars": 3193
     },
     "nanocoai/nanoclaw": {
       "default_branch": "main",
@@ -19064,13 +19081,13 @@
       "license": "MIT",
       "name": "nanoclaw",
       "owner": "nanocoai",
-      "pushed_at": "2026-11-04T17:52:25Z",
-      "scanned_pushed_at": "2026-11-04T17:52:25Z",
+      "pushed_at": "2026-11-05T00:40:14Z",
+      "scanned_pushed_at": "2026-11-05T00:40:14Z",
       "sources": [
         "topic:claude-code",
         "topic:claude-skills"
       ],
-      "stars": 31083
+      "stars": 31086
     },
     "narratorai-studio/narrator-ai-cli-skill": {
       "default_branch": "main",
@@ -19088,7 +19105,7 @@
       "sources": [
         "topic:agent-skills"
       ],
-      "stars": 3149
+      "stars": 3159
     },
     "nateherkai/scroll-craft": {
       "default_branch": "main",
@@ -19107,7 +19124,7 @@
         "topic:agent-skills",
         "topic:claude-code"
       ],
-      "stars": 4517
+      "stars": 4537
     },
     "natively-ai-assistant/natively-cluely-ai-assistant": {
       "default_branch": "main",
@@ -19125,7 +19142,7 @@
       "sources": [
         "topic:claude-skills"
       ],
-      "stars": 3177
+      "stars": 3179
     },
     "neeeophytee/finding-unknowns-skills": {
       "default_branch": "main",
@@ -19179,7 +19196,7 @@
       "sources": [
         "curated"
       ],
-      "stars": 194
+      "stars": 195
     },
     "netresearch/claude-code-marketplace": {
       "default_branch": "main",
@@ -19211,12 +19228,12 @@
       "license": null,
       "name": "memU",
       "owner": "NevaMind-AI",
-      "pushed_at": "2026-11-04T08:27:01Z",
-      "scanned_pushed_at": "2026-11-04T08:27:01Z",
+      "pushed_at": "2026-11-05T01:16:24Z",
+      "scanned_pushed_at": "2026-11-05T01:16:24Z",
       "sources": [
         "topic:claude-skills"
       ],
-      "stars": 14600
+      "stars": 14601
     },
     "nexscope-ai/amazon-skills": {
       "default_branch": "main",
@@ -19255,7 +19272,7 @@
         "topic:claude-code-skills",
         "topic:claude-skills"
       ],
-      "stars": 1329
+      "stars": 1332
     },
     "nexscope-ai/nexscope-ecommerce-skills": {
       "default_branch": "main",
@@ -19292,7 +19309,7 @@
         "curated",
         "topic:claude-code"
       ],
-      "stars": 145161
+      "stars": 145248
     },
     "nextor2k/hyperfocus": {
       "default_branch": "main",
@@ -19330,7 +19347,7 @@
         "topic:claude-code",
         "topic:claude-skills"
       ],
-      "stars": 9411
+      "stars": 9416
     },
     "nexu-io/open-design": {
       "default_branch": "main",
@@ -19343,12 +19360,12 @@
       "license": "Apache-2.0",
       "name": "open-design",
       "owner": "nexu-io",
-      "pushed_at": "2026-11-04T18:14:47Z",
-      "scanned_pushed_at": "2026-11-04T18:14:47Z",
+      "pushed_at": "2026-11-05T01:10:38Z",
+      "scanned_pushed_at": "2026-11-05T01:10:38Z",
       "sources": [
         "topic:agent-skills"
       ],
-      "stars": 105927
+      "stars": 105958
     },
     "ngmeyer/librarian-mcp": {
       "default_branch": "main",
@@ -19385,7 +19402,7 @@
         "topic:agent-skills",
         "topic:claude-skills"
       ],
-      "stars": 1167
+      "stars": 1177
     },
     "nicedreamzapp/claude-code-local": {
       "default_branch": "main",
@@ -19404,7 +19421,7 @@
         "curated",
         "topic:claude-code"
       ],
-      "stars": 3464
+      "stars": 3467
     },
     "nickelsec/bough": {
       "default_branch": "main",
@@ -19435,12 +19452,12 @@
       "license": "MIT",
       "name": "visual-explainer",
       "owner": "nicobailon",
-      "pushed_at": "2026-11-04T17:08:52Z",
-      "scanned_pushed_at": "2026-11-04T17:08:52Z",
+      "pushed_at": "2026-11-05T00:59:21Z",
+      "scanned_pushed_at": "2026-11-05T00:59:21Z",
       "sources": [
         "curated"
       ],
-      "stars": 10790
+      "stars": 10794
     },
     "nidhinjs/prompt-master": {
       "default_branch": "main",
@@ -19458,7 +19475,7 @@
       "sources": [
         "topic:claude-skills"
       ],
-      "stars": 15495
+      "stars": 15512
     },
     "nimachu/html-design": {
       "default_branch": "main",
@@ -19494,7 +19511,7 @@
       "sources": [
         "curated"
       ],
-      "stars": 2021
+      "stars": 2022
     },
     "ningzimu/codex-ppt-skill": {
       "default_branch": "main",
@@ -19513,7 +19530,7 @@
         "topic:agent-skills",
         "topic:claude-code"
       ],
-      "stars": 7635
+      "stars": 7637
     },
     "nintendadev/unikit-ai": {
       "default_branch": "main",
@@ -19563,13 +19580,13 @@
       "license": null,
       "name": "nocobase",
       "owner": "nocobase",
-      "pushed_at": "2026-11-04T17:03:19Z",
-      "scanned_pushed_at": "2026-11-04T17:03:19Z",
+      "pushed_at": "2026-11-05T01:30:06Z",
+      "scanned_pushed_at": "2026-11-05T01:30:06Z",
       "sources": [
         "topic:agent-skills",
         "topic:claude-code"
       ],
-      "stars": 24837
+      "stars": 24835
     },
     "nocodemrli/mini-program-engineering-skill-suite": {
       "default_branch": "main",
@@ -19763,12 +19780,12 @@
       "license": "MIT",
       "name": "hermes-agent",
       "owner": "NousResearch",
-      "pushed_at": "2026-11-04T19:37:52Z",
-      "scanned_pushed_at": "2026-11-04T19:37:52Z",
+      "pushed_at": "2026-11-05T01:33:21Z",
+      "scanned_pushed_at": "2026-11-05T01:33:21Z",
       "sources": [
         "topic:claude-code"
       ],
-      "stars": 260515
+      "stars": 260571
     },
     "novoads/agent-skills": {
       "default_branch": "main",
@@ -19805,7 +19822,7 @@
         "curated",
         "topic:claude-skills"
       ],
-      "stars": 4112
+      "stars": 4113
     },
     "ns3154/alibaba-java-coding-guidelines-skill": {
       "default_branch": "main",
@@ -19836,8 +19853,8 @@
       "license": "MIT",
       "name": "webperf-snippets",
       "owner": "nucliweb",
-      "pushed_at": "2026-11-04T19:12:44Z",
-      "scanned_pushed_at": "2026-11-04T19:12:44Z",
+      "pushed_at": "2026-11-04T20:38:14Z",
+      "scanned_pushed_at": "2026-11-04T20:38:14Z",
       "sources": [
         "topic:agent-skills"
       ],
@@ -19908,14 +19925,14 @@
       "license": "Apache-2.0",
       "name": "skills",
       "owner": "NVIDIA",
-      "pushed_at": "2026-11-04T19:54:21Z",
-      "scanned_pushed_at": "2026-11-04T19:54:21Z",
+      "pushed_at": "2026-11-05T00:43:06Z",
+      "scanned_pushed_at": "2026-11-05T00:43:06Z",
       "sources": [
         "curated",
         "topic:agent-skills",
         "topic:claude-code"
       ],
-      "stars": 3861
+      "stars": 3864
     },
     "nvidia/skillspector": {
       "default_branch": "main",
@@ -19928,14 +19945,14 @@
       "license": "Apache-2.0",
       "name": "SkillSpector",
       "owner": "NVIDIA",
-      "pushed_at": "2026-11-04T19:15:36Z",
-      "scanned_pushed_at": "2026-11-04T19:15:36Z",
+      "pushed_at": "2026-11-04T22:40:16Z",
+      "scanned_pushed_at": "2026-11-04T22:40:16Z",
       "sources": [
         "curated",
         "topic:agent-skills",
         "topic:claude-code"
       ],
-      "stars": 24341
+      "stars": 24384
     },
     "nwave-ai/nwave": {
       "default_branch": "main",
@@ -19953,7 +19970,7 @@
       "sources": [
         "topic:claude-code-skills"
       ],
-      "stars": 631
+      "stars": 632
     },
     "nyldn/claude-octopus": {
       "default_branch": "main",
@@ -19966,12 +19983,12 @@
       "license": "MIT",
       "name": "claude-octopus",
       "owner": "nyldn",
-      "pushed_at": "2026-11-04T19:32:12Z",
-      "scanned_pushed_at": "2026-11-04T19:32:12Z",
+      "pushed_at": "2026-11-05T01:37:11Z",
+      "scanned_pushed_at": "2026-11-05T01:37:11Z",
       "sources": [
         "topic:claude-code"
       ],
-      "stars": 4373
+      "stars": 4375
     },
     "o4f6bgpac3/concise": {
       "default_branch": "main",
@@ -20007,7 +20024,7 @@
       "sources": [
         "curated"
       ],
-      "stars": 312359
+      "stars": 312460
     },
     "obra/superpowers-lab": {
       "default_branch": "main",
@@ -20134,7 +20151,7 @@
         "topic:agent-skills",
         "topic:claude-skills"
       ],
-      "stars": 1946
+      "stars": 1947
     },
     "oil-oil/draw-ui": {
       "default_branch": "main",
@@ -20188,7 +20205,7 @@
       "sources": [
         "topic:claude-skills"
       ],
-      "stars": 327
+      "stars": 328
     },
     "oil-oil/oil-motion": {
       "default_branch": "main",
@@ -20207,7 +20224,7 @@
         "topic:agent-skills",
         "topic:claude-skills"
       ],
-      "stars": 2784
+      "stars": 2786
     },
     "oil-oil/oil-ui": {
       "default_branch": "main",
@@ -20227,7 +20244,7 @@
         "topic:agent-skills",
         "topic:claude-skills"
       ],
-      "stars": 2748
+      "stars": 2768
     },
     "oldcircle/geo-sleuth": {
       "default_branch": "main",
@@ -20247,7 +20264,7 @@
         "topic:agent-skills",
         "topic:claude-code"
       ],
-      "stars": 5959
+      "stars": 5979
     },
     "olimorris/codecompanion.nvim": {
       "default_branch": "main",
@@ -20265,7 +20282,7 @@
       "sources": [
         "topic:claude-code"
       ],
-      "stars": 6924
+      "stars": 6925
     },
     "oliver-kriska/claude-elixir-phoenix": {
       "default_branch": "main",
@@ -20302,7 +20319,7 @@
       "sources": [
         "curated"
       ],
-      "stars": 233
+      "stars": 234
     },
     "ollygarden/opentelemetry-agent-skills": {
       "default_branch": "main",
@@ -20315,8 +20332,8 @@
       "license": "Apache-2.0",
       "name": "opentelemetry-agent-skills",
       "owner": "ollygarden",
-      "pushed_at": "2026-11-03T09:41:32Z",
-      "scanned_pushed_at": "2026-11-03T09:41:32Z",
+      "pushed_at": "2026-11-04T23:11:17Z",
+      "scanned_pushed_at": "2026-11-04T23:11:17Z",
       "sources": [
         "curated"
       ],
@@ -20333,8 +20350,8 @@
       "license": "MIT",
       "name": "claude-code_rails-upgrade-skill",
       "owner": "ombulabs",
-      "pushed_at": "2026-11-04T18:45:16Z",
-      "scanned_pushed_at": "2026-11-04T18:45:16Z",
+      "pushed_at": "2026-11-04T23:33:12Z",
+      "scanned_pushed_at": "2026-11-04T23:33:12Z",
       "sources": [
         "topic:claude-code-skills"
       ],
@@ -20387,12 +20404,12 @@
       "license": "Apache-2.0",
       "name": "omnigent",
       "owner": "omnigent-ai",
-      "pushed_at": "2026-11-04T19:47:56Z",
-      "scanned_pushed_at": "2026-11-04T19:47:56Z",
+      "pushed_at": "2026-11-05T01:36:34Z",
+      "scanned_pushed_at": "2026-11-05T01:36:34Z",
       "sources": [
         "topic:claude-code"
       ],
-      "stars": 11211
+      "stars": 11216
     },
     "onemoh/html-explainer": {
       "default_branch": "main",
@@ -20448,7 +20465,7 @@
         "curated",
         "topic:claude-skills"
       ],
-      "stars": 413
+      "stars": 414
     },
     "onlook-dev/onlook": {
       "default_branch": "main",
@@ -20520,7 +20537,7 @@
       "sources": [
         "topic:claude-code"
       ],
-      "stars": 3896
+      "stars": 3899
     },
     "ootto-ai/claude-content-skills": {
       "default_branch": "main",
@@ -20538,7 +20555,7 @@
       "sources": [
         "topic:claude-skills"
       ],
-      "stars": 359
+      "stars": 364
     },
     "op7418/codepilot": {
       "default_branch": "main",
@@ -20574,7 +20591,7 @@
       "sources": [
         "topic:claude-code"
       ],
-      "stars": 29283
+      "stars": 29288
     },
     "op7418/guizang-social-card-skill": {
       "default_branch": "main",
@@ -20592,7 +20609,7 @@
       "sources": [
         "topic:claude-code"
       ],
-      "stars": 7974
+      "stars": 7975
     },
     "op7418/nanobanana-ppt-skills": {
       "default_branch": "main",
@@ -20628,7 +20645,7 @@
       "sources": [
         "curated"
       ],
-      "stars": 2283
+      "stars": 2284
     },
     "open-gitagent/opengap": {
       "default_branch": "main",
@@ -20659,12 +20676,12 @@
       "license": "MIT",
       "name": "gsd-core",
       "owner": "open-gsd",
-      "pushed_at": "2026-11-04T19:30:14Z",
-      "scanned_pushed_at": "2026-11-04T19:30:14Z",
+      "pushed_at": "2026-11-05T00:48:28Z",
+      "scanned_pushed_at": "2026-11-05T00:48:28Z",
       "sources": [
         "topic:claude-code"
       ],
-      "stars": 11240
+      "stars": 11250
     },
     "open-multi-agent/open-multi-agent": {
       "default_branch": "main",
@@ -20713,12 +20730,12 @@
       "license": "AGPL-3.0",
       "name": "openaccountants",
       "owner": "openaccountants",
-      "pushed_at": "2026-11-04T19:44:36Z",
-      "scanned_pushed_at": "2026-11-04T19:44:36Z",
+      "pushed_at": "2026-11-04T21:06:57Z",
+      "scanned_pushed_at": "2026-11-04T21:06:57Z",
       "sources": [
         "curated"
       ],
-      "stars": 476
+      "stars": 475
     },
     "openclaw/crabbox": {
       "default_branch": "main",
@@ -20731,8 +20748,8 @@
       "license": "MIT",
       "name": "crabbox",
       "owner": "openclaw",
-      "pushed_at": "2026-11-04T19:28:05Z",
-      "scanned_pushed_at": "2026-11-04T19:28:05Z",
+      "pushed_at": "2026-11-05T01:22:42Z",
+      "scanned_pushed_at": "2026-11-05T01:22:42Z",
       "sources": [
         "topic:agent-skills"
       ],
@@ -20754,7 +20771,7 @@
       "sources": [
         "topic:claude-code"
       ],
-      "stars": 8160
+      "stars": 8161
     },
     "openfilm/openfilm": {
       "default_branch": "main",
@@ -20772,7 +20789,7 @@
       "sources": [
         "topic:claude-code"
       ],
-      "stars": 4648
+      "stars": 4686
     },
     "openosint/openosint": {
       "default_branch": "main",
@@ -20785,8 +20802,8 @@
       "license": "MIT",
       "name": "OpenOSINT",
       "owner": "OpenOSINT",
-      "pushed_at": "2026-11-04T19:24:28Z",
-      "scanned_pushed_at": "2026-11-04T19:24:28Z",
+      "pushed_at": "2026-11-04T20:27:25Z",
+      "scanned_pushed_at": "2026-11-04T20:27:25Z",
       "sources": [
         "topic:agent-skills"
       ],
@@ -20803,13 +20820,13 @@
       "license": "Apache-2.0",
       "name": "openqodex",
       "owner": "openqodex",
-      "pushed_at": "2026-11-01T07:08:15Z",
-      "scanned_pushed_at": "2026-11-01T07:08:15Z",
+      "pushed_at": "2026-11-05T00:16:29Z",
+      "scanned_pushed_at": "2026-11-05T00:16:29Z",
       "sources": [
         "topic:agent-skills",
         "topic:claude-skills"
       ],
-      "stars": 1151
+      "stars": 1171
     },
     "openraiser/nanoresearch": {
       "default_branch": "main",
@@ -20846,7 +20863,7 @@
       "sources": [
         "topic:agent-skills"
       ],
-      "stars": 6018
+      "stars": 6020
     },
     "oprogramadorreal/optimus-claude": {
       "default_branch": "master",
@@ -20918,7 +20935,7 @@
       "sources": [
         "topic:claude-code"
       ],
-      "stars": 31096
+      "stars": 31101
     },
     "orchestra-research/ai-research-skills": {
       "default_branch": "main",
@@ -20938,7 +20955,7 @@
         "topic:claude-code",
         "topic:claude-skills"
       ],
-      "stars": 14267
+      "stars": 14269
     },
     "orchestratorinc/agent-orchestrator": {
       "default_branch": "main",
@@ -20951,12 +20968,12 @@
       "license": "Apache-2.0",
       "name": "agent-orchestrator",
       "owner": "OrchestratorInc",
-      "pushed_at": "2026-11-04T19:57:42Z",
-      "scanned_pushed_at": "2026-11-04T19:57:42Z",
+      "pushed_at": "2026-11-04T22:02:28Z",
+      "scanned_pushed_at": "2026-11-04T22:02:28Z",
       "sources": [
         "topic:claude-code"
       ],
-      "stars": 14086
+      "stars": 14101
     },
     "oribarilan/97": {
       "default_branch": "main",
@@ -21031,7 +21048,7 @@
         "topic:claude-code-skills",
         "topic:claude-skills"
       ],
-      "stars": 27883
+      "stars": 27886
     },
     "othmane-khadri/gtm-engineer-playbook": {
       "default_branch": "main",
@@ -21098,8 +21115,8 @@
       "license": "MIT",
       "name": "swarmstorm",
       "owner": "Ovich",
-      "pushed_at": "2026-11-04T19:57:48Z",
-      "scanned_pushed_at": "2026-11-04T19:57:48Z",
+      "pushed_at": "2026-11-04T22:47:01Z",
+      "scanned_pushed_at": "2026-11-04T22:47:01Z",
       "sources": [
         "curated"
       ],
@@ -21170,12 +21187,12 @@
       "license": "Apache-2.0",
       "name": "atlas",
       "owner": "pacifio",
-      "pushed_at": "2026-11-04T19:57:34Z",
-      "scanned_pushed_at": "2026-11-04T19:57:34Z",
+      "pushed_at": "2026-11-04T23:18:19Z",
+      "scanned_pushed_at": "2026-11-04T23:18:19Z",
       "sources": [
         "topic:claude-code"
       ],
-      "stars": 9564
+      "stars": 9567
     },
     "pale-knight/redteam-skill": {
       "default_branch": "main",
@@ -21230,7 +21247,7 @@
         "curated",
         "topic:claude-code"
       ],
-      "stars": 108767
+      "stars": 108833
     },
     "paodingai/skills": {
       "default_branch": "main",
@@ -21261,14 +21278,14 @@
       "license": "MIT",
       "name": "paperclip",
       "owner": "paperclipai",
-      "pushed_at": "2026-11-04T19:59:31Z",
-      "scanned_pushed_at": "2026-11-04T19:59:31Z",
+      "pushed_at": "2026-11-05T01:32:40Z",
+      "scanned_pushed_at": "2026-11-05T01:32:40Z",
       "sources": [
         "topic:agent-skills",
         "topic:claude-code",
         "topic:claude-skills"
       ],
-      "stars": 111067
+      "stars": 111124
     },
     "paradevai/paradev": {
       "default_branch": "main",
@@ -21281,12 +21298,12 @@
       "license": "MIT",
       "name": "Paradev",
       "owner": "ParadevAI",
-      "pushed_at": "2026-11-04T19:57:02Z",
-      "scanned_pushed_at": "2026-11-04T19:57:02Z",
+      "pushed_at": "2026-11-05T01:25:50Z",
+      "scanned_pushed_at": "2026-11-05T01:25:50Z",
       "sources": [
         "topic:claude-code"
       ],
-      "stars": 15910
+      "stars": 15933
     },
     "paramchoudhary/resumeskills": {
       "default_branch": "main",
@@ -21304,7 +21321,7 @@
       "sources": [
         "curated"
       ],
-      "stars": 3032
+      "stars": 3033
     },
     "parcadei/continuous-claude-v3": {
       "default_branch": "main",
@@ -21342,7 +21359,7 @@
       "sources": [
         "topic:agent-skills"
       ],
-      "stars": 25329
+      "stars": 25330
     },
     "pashov/skills": {
       "default_branch": "main",
@@ -21396,7 +21413,7 @@
       "sources": [
         "topic:agent-skills"
       ],
-      "stars": 4652
+      "stars": 4729
     },
     "patrick-xin/diagram-design-zh": {
       "default_branch": "main",
@@ -21450,7 +21467,7 @@
       "sources": [
         "topic:agent-skills"
       ],
-      "stars": 102621
+      "stars": 102851
     },
     "pchalasani/claude-code-tools": {
       "default_branch": "main",
@@ -21468,7 +21485,7 @@
       "sources": [
         "curated"
       ],
-      "stars": 2030
+      "stars": 2031
     },
     "pedrohcgs/claude-code-my-workflow": {
       "default_branch": "main",
@@ -21481,8 +21498,8 @@
       "license": "MIT",
       "name": "claude-code-my-workflow",
       "owner": "pedrohcgs",
-      "pushed_at": "2026-09-27T22:26:46Z",
-      "scanned_pushed_at": "2026-09-27T22:26:46Z",
+      "pushed_at": "2026-11-04T20:00:57Z",
+      "scanned_pushed_at": "2026-11-04T20:00:57Z",
       "sources": [
         "curated",
         "topic:claude-code-skills"
@@ -21523,7 +21540,7 @@
       "sources": [
         "topic:claude-code"
       ],
-      "stars": 4639
+      "stars": 4640
     },
     "peonping/peon-ping": {
       "default_branch": "main",
@@ -21541,7 +21558,7 @@
       "sources": [
         "topic:claude-code"
       ],
-      "stars": 5106
+      "stars": 5107
     },
     "perso-ai/perso-dubbing-plugin": {
       "default_branch": "main",
@@ -21632,7 +21649,7 @@
         "curated",
         "topic:agent-skills"
       ],
-      "stars": 27690
+      "stars": 27693
     },
     "piebald-ai/claude-code-system-prompts": {
       "default_branch": "main",
@@ -21651,7 +21668,7 @@
         "curated",
         "topic:claude-code"
       ],
-      "stars": 13089
+      "stars": 13090
     },
     "piebald-ai/tweakcc": {
       "default_branch": "main",
@@ -21669,7 +21686,7 @@
       "sources": [
         "curated"
       ],
-      "stars": 2596
+      "stars": 2598
     },
     "pipeshub-ai/pipeshub-ai": {
       "default_branch": "main",
@@ -21682,12 +21699,12 @@
       "license": "Apache-2.0",
       "name": "pipeshub-ai",
       "owner": "pipeshub-ai",
-      "pushed_at": "2026-11-04T19:56:51Z",
-      "scanned_pushed_at": "2026-11-04T19:56:51Z",
+      "pushed_at": "2026-11-05T00:27:32Z",
+      "scanned_pushed_at": "2026-11-05T00:27:32Z",
       "sources": [
         "topic:claude-code"
       ],
-      "stars": 3906
+      "stars": 3917
     },
     "plannotator/effective-html": {
       "default_branch": "main",
@@ -21706,7 +21723,7 @@
         "topic:agent-skills",
         "topic:claude-code"
       ],
-      "stars": 3833
+      "stars": 3847
     },
     "plasma-ai/fractal": {
       "default_branch": "main",
@@ -21778,7 +21795,7 @@
       "sources": [
         "topic:claude-skills"
       ],
-      "stars": 3100
+      "stars": 3101
     },
     "plur-ai/plur": {
       "default_branch": "main",
@@ -21886,7 +21903,7 @@
       "sources": [
         "curated"
       ],
-      "stars": 271
+      "stars": 272
     },
     "prat011/awesome-llm-skills": {
       "default_branch": "master",
@@ -21994,7 +22011,7 @@
       "sources": [
         "curated"
       ],
-      "stars": 1130
+      "stars": 1131
     },
     "proyecto26/sherlock-ai-plugin": {
       "default_branch": "main",
@@ -22116,12 +22133,12 @@
       "license": "MIT",
       "name": "ouroboros",
       "owner": "Q00",
-      "pushed_at": "2026-11-04T19:32:45Z",
-      "scanned_pushed_at": "2026-11-04T19:32:45Z",
+      "pushed_at": "2026-11-05T01:25:55Z",
+      "scanned_pushed_at": "2026-11-05T01:25:55Z",
       "sources": [
         "topic:claude-code"
       ],
-      "stars": 6315
+      "stars": 6317
     },
     "q2522879285-source/im2-image-skills": {
       "default_branch": "main",
@@ -22194,7 +22211,7 @@
         "topic:claude-code",
         "topic:claude-skills"
       ],
-      "stars": 5289
+      "stars": 5301
     },
     "qiuner/birdview": {
       "default_branch": "main",
@@ -22225,12 +22242,12 @@
       "license": "AGPL-3.0",
       "name": "all-api-hub",
       "owner": "qixing-jk",
-      "pushed_at": "2026-11-04T16:15:41Z",
-      "scanned_pushed_at": "2026-11-04T16:15:41Z",
+      "pushed_at": "2026-11-05T01:36:40Z",
+      "scanned_pushed_at": "2026-11-05T01:36:40Z",
       "sources": [
         "topic:claude-code"
       ],
-      "stars": 5045
+      "stars": 5046
     },
     "qubrics/skills": {
       "default_branch": "main",
@@ -22266,7 +22283,7 @@
       "sources": [
         "topic:agent-skills"
       ],
-      "stars": 1856
+      "stars": 1857
     },
     "quiknode-labs/blockchain-skills": {
       "default_branch": "main",
@@ -22520,7 +22537,7 @@
         "topic:agent-skills",
         "topic:claude-skills"
       ],
-      "stars": 1033
+      "stars": 1034
     },
     "ramzesenok/ios-accessibility-audit-skill": {
       "default_branch": "main",
@@ -22569,8 +22586,8 @@
       "license": "MIT",
       "name": "ratel",
       "owner": "ratel-ai",
-      "pushed_at": "2026-11-04T19:57:29Z",
-      "scanned_pushed_at": "2026-11-04T19:57:29Z",
+      "pushed_at": "2026-11-04T21:53:04Z",
+      "scanned_pushed_at": "2026-11-04T21:53:04Z",
       "sources": [
         "topic:claude-skills"
       ],
@@ -22587,8 +22604,8 @@
       "license": null,
       "name": "Rapid-MLX",
       "owner": "raullenchai",
-      "pushed_at": "2026-11-04T19:59:30Z",
-      "scanned_pushed_at": "2026-11-04T19:59:30Z",
+      "pushed_at": "2026-11-05T01:25:00Z",
+      "scanned_pushed_at": "2026-11-05T01:25:00Z",
       "sources": [
         "topic:claude-code"
       ],
@@ -22641,12 +22658,12 @@
       "license": "MIT",
       "name": "reactive-resume",
       "owner": "reactive-resume",
-      "pushed_at": "2026-11-04T19:53:39Z",
-      "scanned_pushed_at": "2026-11-04T19:53:39Z",
+      "pushed_at": "2026-11-04T21:20:46Z",
+      "scanned_pushed_at": "2026-11-04T21:20:46Z",
       "sources": [
         "topic:agent-skills"
       ],
-      "stars": 45335
+      "stars": 45339
     },
     "realiti4/claude-swap": {
       "default_branch": "main",
@@ -22664,7 +22681,7 @@
       "sources": [
         "topic:claude-code"
       ],
-      "stars": 4440
+      "stars": 4446
     },
     "realkimbarrett/advertising-skills": {
       "default_branch": "main",
@@ -22722,7 +22739,7 @@
         "topic:claude-code-skills",
         "topic:claude-skills"
       ],
-      "stars": 3728
+      "stars": 3733
     },
     "redfox-data/redfox-community": {
       "default_branch": "main",
@@ -22776,7 +22793,7 @@
       "sources": [
         "topic:agent-skills"
       ],
-      "stars": 7547
+      "stars": 7548
     },
     "rehan-remade/universal-modder": {
       "default_branch": "main",
@@ -22789,12 +22806,12 @@
       "license": "MIT",
       "name": "universal-modder",
       "owner": "rehan-remade",
-      "pushed_at": "2026-11-04T14:28:28Z",
-      "scanned_pushed_at": "2026-11-04T14:28:28Z",
+      "pushed_at": "2026-11-04T23:38:46Z",
+      "scanned_pushed_at": "2026-11-04T23:38:46Z",
       "sources": [
         "topic:claude-code"
       ],
-      "stars": 9419
+      "stars": 9422
     },
     "reliefeai/browser-relay": {
       "default_branch": "main",
@@ -22867,7 +22884,7 @@
         "curated",
         "topic:agent-skills"
       ],
-      "stars": 1111
+      "stars": 1112
     },
     "resciencelab/opc-skills": {
       "default_branch": "main",
@@ -22936,13 +22953,13 @@
       "license": null,
       "name": "reticle",
       "owner": "reticlehq",
-      "pushed_at": "2026-11-04T19:44:44Z",
-      "scanned_pushed_at": "2026-11-04T19:44:44Z",
+      "pushed_at": "2026-11-04T20:02:14Z",
+      "scanned_pushed_at": "2026-11-04T20:02:14Z",
       "sources": [
         "topic:agent-skills",
         "topic:claude-skills"
       ],
-      "stars": 1310
+      "stars": 1311
     },
     "revfactory/harness": {
       "default_branch": "main",
@@ -22961,7 +22978,7 @@
         "curated",
         "topic:claude-code"
       ],
-      "stars": 9321
+      "stars": 9323
     },
     "rezored/cubicle-crew": {
       "default_branch": "main",
@@ -23033,7 +23050,7 @@
       "sources": [
         "curated"
       ],
-      "stars": 350
+      "stars": 349
     },
     "rkiding/awesome-finance-skills": {
       "default_branch": "main",
@@ -23051,7 +23068,7 @@
       "sources": [
         "topic:agent-skills"
       ],
-      "stars": 3099
+      "stars": 3100
     },
     "rlaope/oh-my-hermes": {
       "default_branch": "main",
@@ -23064,13 +23081,13 @@
       "license": "MIT",
       "name": "oh-my-hermes",
       "owner": "rlaope",
-      "pushed_at": "2026-11-04T18:27:14Z",
-      "scanned_pushed_at": "2026-11-04T18:27:14Z",
+      "pushed_at": "2026-11-05T01:36:32Z",
+      "scanned_pushed_at": "2026-11-05T01:36:32Z",
       "sources": [
         "curated",
         "topic:claude-code"
       ],
-      "stars": 5116
+      "stars": 5121
     },
     "roampal-ai/roampal-core": {
       "default_branch": "main",
@@ -23179,7 +23196,7 @@
         "topic:claude-code-skills",
         "topic:claude-skills"
       ],
-      "stars": 2942
+      "stars": 2943
     },
     "rohitg00/skillkit": {
       "default_branch": "main",
@@ -23283,8 +23300,8 @@
       "license": "Apache-2.0",
       "name": "rootly-mcp-server",
       "owner": "rootlyhq",
-      "pushed_at": "2026-11-04T17:16:30Z",
-      "scanned_pushed_at": "2026-11-04T17:16:30Z",
+      "pushed_at": "2026-11-05T01:22:14Z",
+      "scanned_pushed_at": "2026-11-05T01:22:14Z",
       "sources": [
         "curated"
       ],
@@ -23320,12 +23337,12 @@
       "license": "MIT",
       "name": "CLIProxyAPI",
       "owner": "router-for-me",
-      "pushed_at": "2026-11-04T18:02:53Z",
-      "scanned_pushed_at": "2026-11-04T18:02:53Z",
+      "pushed_at": "2026-11-04T23:22:57Z",
+      "scanned_pushed_at": "2026-11-04T23:22:57Z",
       "sources": [
         "topic:claude-code"
       ],
-      "stars": 57527
+      "stars": 57545
     },
     "rowboatlabs/rowboat": {
       "default_branch": "main",
@@ -23343,7 +23360,7 @@
       "sources": [
         "topic:claude-code"
       ],
-      "stars": 18135
+      "stars": 18136
     },
     "rrezartprebreza/spring-boot-skills": {
       "default_branch": "main",
@@ -23393,12 +23410,12 @@
       "license": "Apache-2.0",
       "name": "rtk",
       "owner": "rtk-ai",
-      "pushed_at": "2026-11-04T18:27:05Z",
-      "scanned_pushed_at": "2026-11-04T18:27:05Z",
+      "pushed_at": "2026-11-05T00:51:27Z",
+      "scanned_pushed_at": "2026-11-05T00:51:27Z",
       "sources": [
         "topic:claude-code"
       ],
-      "stars": 85563
+      "stars": 85573
     },
     "rtur2003/claude-code-promts-skills": {
       "default_branch": "main",
@@ -23429,13 +23446,13 @@
       "license": "AGPL-3.0",
       "name": "clawd-on-desk",
       "owner": "rullerzhou-afk",
-      "pushed_at": "2026-11-04T00:43:33Z",
-      "scanned_pushed_at": "2026-11-04T00:43:33Z",
+      "pushed_at": "2026-11-04T23:29:04Z",
+      "scanned_pushed_at": "2026-11-04T23:29:04Z",
       "sources": [
         "curated",
         "topic:claude-code"
       ],
-      "stars": 6658
+      "stars": 6661
     },
     "runmaestro/maestro": {
       "default_branch": "main",
@@ -23448,12 +23465,12 @@
       "license": "AGPL-3.0",
       "name": "Maestro",
       "owner": "RunMaestro",
-      "pushed_at": "2026-11-04T17:33:43Z",
-      "scanned_pushed_at": "2026-11-04T17:33:43Z",
+      "pushed_at": "2026-11-04T20:33:21Z",
+      "scanned_pushed_at": "2026-11-04T20:33:21Z",
       "sources": [
         "topic:claude-code"
       ],
-      "stars": 3538
+      "stars": 3540
     },
     "ruslanlap/cavemenko": {
       "default_branch": "master",
@@ -23508,7 +23525,7 @@
         "topic:claude-code",
         "topic:claude-skills"
       ],
-      "stars": 8802
+      "stars": 8819
     },
     "s3onghyun/otelcol-doctor": {
       "default_branch": "main",
@@ -23539,8 +23556,8 @@
       "license": "MIT",
       "name": "moo.md",
       "owner": "saadshahd",
-      "pushed_at": "2026-11-04T19:34:25Z",
-      "scanned_pushed_at": "2026-11-04T19:34:25Z",
+      "pushed_at": "2026-11-04T21:57:07Z",
+      "scanned_pushed_at": "2026-11-04T21:57:07Z",
       "sources": [
         "topic:claude-code-skills"
       ],
@@ -23580,7 +23597,7 @@
       "sources": [
         "topic:agent-skills"
       ],
-      "stars": 2313
+      "stars": 2314
     },
     "saleh-alhaddad/itqan-engineering": {
       "default_branch": "main",
@@ -23616,7 +23633,7 @@
       "sources": [
         "curated"
       ],
-      "stars": 521
+      "stars": 522
     },
     "salmanashraf/mobile-ai-agents": {
       "default_branch": "main",
@@ -23653,7 +23670,7 @@
         "topic:agent-skills",
         "topic:claude-code"
       ],
-      "stars": 3784
+      "stars": 3786
     },
     "sametbrr/llm-wiki-manager": {
       "default_branch": "main",
@@ -23725,7 +23742,7 @@
       "sources": [
         "topic:claude-code"
       ],
-      "stars": 3673
+      "stars": 3675
     },
     "sandbaseai/sandbase-skills": {
       "default_branch": "main",
@@ -23921,13 +23938,13 @@
       "license": "MIT",
       "name": "skills",
       "owner": "scenario-labs",
-      "pushed_at": "2026-11-04T18:02:01Z",
-      "scanned_pushed_at": "2026-11-04T18:02:01Z",
+      "pushed_at": "2026-11-05T01:29:55Z",
+      "scanned_pushed_at": "2026-11-05T01:29:55Z",
       "sources": [
         "topic:agent-skills",
         "topic:claude-skills"
       ],
-      "stars": 2323
+      "stars": 2455
     },
     "scrapecreators/social-media-research-skills": {
       "default_branch": "main",
@@ -23948,7 +23965,7 @@
         "topic:claude-code",
         "topic:claude-skills"
       ],
-      "stars": 5553
+      "stars": 5599
     },
     "seakee/cpa-manager-plus": {
       "default_branch": "main",
@@ -23961,8 +23978,8 @@
       "license": "MIT",
       "name": "CPA-Manager-Plus",
       "owner": "seakee",
-      "pushed_at": "2026-11-04T14:48:43Z",
-      "scanned_pushed_at": "2026-11-04T14:48:43Z",
+      "pushed_at": "2026-11-04T23:02:14Z",
+      "scanned_pushed_at": "2026-11-04T23:02:14Z",
       "sources": [
         "topic:claude-code"
       ],
@@ -24057,7 +24074,7 @@
       "sources": [
         "topic:claude-code"
       ],
-      "stars": 3609
+      "stars": 3608
     },
     "seo-skills/seo-audit-skill": {
       "default_branch": "main",
@@ -24075,7 +24092,7 @@
       "sources": [
         "topic:claude-skills"
       ],
-      "stars": 661
+      "stars": 660
     },
     "sequenzia/agent-alchemy": {
       "default_branch": "main",
@@ -24129,7 +24146,7 @@
       "sources": [
         "topic:claude-skills"
       ],
-      "stars": 743
+      "stars": 746
     },
     "sergebulaev/linkedin-skills": {
       "default_branch": "main",
@@ -24150,7 +24167,7 @@
         "topic:claude-code",
         "topic:claude-skills"
       ],
-      "stars": 5587
+      "stars": 5601
     },
     "sergekostenchuk/seo-llm-skill-cluster": {
       "default_branch": "main",
@@ -24404,7 +24421,7 @@
         "curated",
         "topic:claude-code-skills"
       ],
-      "stars": 32
+      "stars": 33
     },
     "shamspias/customizable-gpt-chatbot": {
       "default_branch": "main",
@@ -24459,7 +24476,7 @@
         "topic:claude-code",
         "topic:claude-code-skills"
       ],
-      "stars": 68546
+      "stars": 68555
     },
     "shanraisshan/claude-code-hooks": {
       "default_branch": "main",
@@ -24477,7 +24494,7 @@
       "sources": [
         "topic:claude-code-skills"
       ],
-      "stars": 563
+      "stars": 565
     },
     "shanyin-ai/shanyin-screenwriting-master": {
       "default_branch": "main",
@@ -24514,7 +24531,7 @@
         "curated",
         "topic:claude-code"
       ],
-      "stars": 79882
+      "stars": 79890
     },
     "sheeki03/few-word": {
       "default_branch": "main",
@@ -24601,15 +24618,15 @@
       "license": "MIT",
       "name": "agentic-awesome-skills",
       "owner": "sickn33",
-      "pushed_at": "2026-11-04T09:52:49Z",
-      "scanned_pushed_at": "2026-11-04T09:52:49Z",
+      "pushed_at": "2026-11-05T01:31:31Z",
+      "scanned_pushed_at": "2026-11-05T01:31:31Z",
       "sources": [
         "topic:agent-skills",
         "topic:claude-code",
         "topic:claude-code-skills",
         "topic:codex-skills"
       ],
-      "stars": 49149
+      "stars": 49158
     },
     "sidiangongyuan/codex-skills-library": {
       "default_branch": "main",
@@ -24645,7 +24662,7 @@
       "sources": [
         "topic:codex-skills"
       ],
-      "stars": 117
+      "stars": 118
     },
     "silverstein/minutes": {
       "default_branch": "main",
@@ -24658,12 +24675,12 @@
       "license": "MIT",
       "name": "minutes",
       "owner": "silverstein",
-      "pushed_at": "2026-11-04T18:57:05Z",
-      "scanned_pushed_at": "2026-11-04T18:57:05Z",
+      "pushed_at": "2026-11-04T21:07:58Z",
+      "scanned_pushed_at": "2026-11-04T21:07:58Z",
       "sources": [
         "topic:agent-skills"
       ],
-      "stars": 1588
+      "stars": 1589
     },
     "simbasjungles/free-my-tv": {
       "default_branch": "main",
@@ -24681,7 +24698,7 @@
       "sources": [
         "topic:claude-code"
       ],
-      "stars": 5874
+      "stars": 5887
     },
     "simon-he95/markstream-vue": {
       "default_branch": "main",
@@ -24717,7 +24734,7 @@
       "sources": [
         "topic:claude-code"
       ],
-      "stars": 11495
+      "stars": 11500
     },
     "simonlin1212/vibe-research": {
       "default_branch": "main",
@@ -24735,7 +24752,7 @@
       "sources": [
         "topic:claude-code"
       ],
-      "stars": 3485
+      "stars": 3484
     },
     "simple10/agents-observe": {
       "default_branch": "main",
@@ -24808,7 +24825,7 @@
         "curated",
         "topic:claude-code"
       ],
-      "stars": 13522
+      "stars": 13524
     },
     "siteboon/claudecodeui": {
       "default_branch": "main",
@@ -24827,7 +24844,7 @@
         "curated",
         "topic:claude-code"
       ],
-      "stars": 14435
+      "stars": 14437
     },
     "sixblade325/waterhand-processor-development-skills": {
       "default_branch": "opensource",
@@ -24881,7 +24898,7 @@
       "sources": [
         "curated"
       ],
-      "stars": 1470
+      "stars": 1471
     },
     "skills-lock/skil-lock": {
       "default_branch": "main",
@@ -24930,8 +24947,8 @@
       "license": "MIT",
       "name": "hedgehog",
       "owner": "skyf0xx",
-      "pushed_at": "2026-11-04T13:28:10Z",
-      "scanned_pushed_at": "2026-11-04T13:28:10Z",
+      "pushed_at": "2026-11-04T21:06:22Z",
+      "scanned_pushed_at": "2026-11-04T21:06:22Z",
       "sources": [
         "topic:claude-code-skills"
       ],
@@ -24948,8 +24965,8 @@
       "license": "MIT",
       "name": "cc-tree",
       "owner": "skymanbp",
-      "pushed_at": "2026-10-17T18:55:53Z",
-      "scanned_pushed_at": "2026-10-17T18:55:53Z",
+      "pushed_at": "2026-11-04T22:49:15Z",
+      "scanned_pushed_at": "2026-11-04T22:49:15Z",
       "sources": [
         "curated"
       ],
@@ -24966,8 +24983,8 @@
       "license": null,
       "name": "gryffin-calorai-ventus",
       "owner": "slimeglitch",
-      "pushed_at": "2026-11-04T18:17:42Z",
-      "scanned_pushed_at": "2026-11-04T18:17:42Z",
+      "pushed_at": "2026-11-04T23:59:39Z",
+      "scanned_pushed_at": "2026-11-04T23:59:39Z",
       "sources": [
         "topic:claude-code-skills"
       ],
@@ -24984,13 +25001,13 @@
       "license": "MIT",
       "name": "happy",
       "owner": "slopus",
-      "pushed_at": "2026-11-04T12:56:48Z",
-      "scanned_pushed_at": "2026-11-04T12:56:48Z",
+      "pushed_at": "2026-11-05T01:18:47Z",
+      "scanned_pushed_at": "2026-11-05T01:18:47Z",
       "sources": [
         "curated",
         "topic:claude-code"
       ],
-      "stars": 24485
+      "stars": 24490
     },
     "smashburger-dev/socratic-workshop": {
       "default_branch": "main",
@@ -25081,7 +25098,7 @@
         "curated",
         "topic:claude-code"
       ],
-      "stars": 8732
+      "stars": 8734
     },
     "snailsploit/claude-red": {
       "default_branch": "main",
@@ -25099,7 +25116,7 @@
       "sources": [
         "topic:claude-skills"
       ],
-      "stars": 10355
+      "stars": 10360
     },
     "snakeying/synapse": {
       "default_branch": "main",
@@ -25130,8 +25147,8 @@
       "license": "Apache-2.0",
       "name": "sno-station",
       "owner": "sno-ai",
-      "pushed_at": "2026-11-04T18:49:55Z",
-      "scanned_pushed_at": "2026-11-04T18:49:55Z",
+      "pushed_at": "2026-11-05T00:51:52Z",
+      "scanned_pushed_at": "2026-11-05T00:51:52Z",
       "sources": [
         "topic:claude-code-skills",
         "topic:codex-skills"
@@ -25210,7 +25227,7 @@
       "sources": [
         "curated"
       ],
-      "stars": 196
+      "stars": 197
     },
     "softaworks/agent-toolkit": {
       "default_branch": "main",
@@ -25228,7 +25245,7 @@
       "sources": [
         "topic:agent-skills"
       ],
-      "stars": 2626
+      "stars": 2627
     },
     "soongwan/questionable-hires": {
       "default_branch": "main",
@@ -25300,7 +25317,7 @@
       "sources": [
         "topic:claude-code"
       ],
-      "stars": 4345
+      "stars": 4348
     },
     "specstoryai/getspecstory": {
       "default_branch": "dev",
@@ -25320,7 +25337,7 @@
         "topic:claude-code-skills",
         "topic:codex-skills"
       ],
-      "stars": 1367
+      "stars": 1368
     },
     "spencermarx/open-code-review": {
       "default_branch": "main",
@@ -25374,7 +25391,7 @@
       "sources": [
         "topic:agent-skills"
       ],
-      "stars": 1222
+      "stars": 1216
     },
     "spontaneousai/job-hunt-copilot": {
       "default_branch": "main",
@@ -25441,12 +25458,12 @@
       "license": "MIT",
       "name": "orca",
       "owner": "stablyai",
-      "pushed_at": "2026-11-04T19:58:30Z",
-      "scanned_pushed_at": "2026-11-04T19:58:30Z",
+      "pushed_at": "2026-11-05T01:35:37Z",
+      "scanned_pushed_at": "2026-11-05T01:35:37Z",
       "sources": [
         "topic:claude-code"
       ],
-      "stars": 115325
+      "stars": 115510
     },
     "stacklok/brood-box": {
       "default_branch": "main",
@@ -25554,7 +25571,7 @@
       "sources": [
         "topic:claude-code"
       ],
-      "stars": 22985
+      "stars": 22989
     },
     "sterlingcrispin/claude_slash_commands": {
       "default_branch": "main",
@@ -25608,7 +25625,7 @@
       "sources": [
         "topic:claude-code"
       ],
-      "stars": 4112
+      "stars": 4115
     },
     "stjbrown/agent-knowledge": {
       "default_branch": "main",
@@ -25639,8 +25656,8 @@
       "license": "Apache-2.0",
       "name": "mirage",
       "owner": "strukto-ai",
-      "pushed_at": "2026-11-04T18:55:43Z",
-      "scanned_pushed_at": "2026-11-04T18:55:43Z",
+      "pushed_at": "2026-11-05T00:59:07Z",
+      "scanned_pushed_at": "2026-11-05T00:59:07Z",
       "sources": [
         "topic:claude-code"
       ],
@@ -25662,7 +25679,7 @@
       "sources": [
         "topic:claude-code"
       ],
-      "stars": 5303
+      "stars": 5304
     },
     "subhisec/claude-ai-cyber-security-skills": {
       "default_branch": "main",
@@ -25789,7 +25806,7 @@
       "sources": [
         "curated"
       ],
-      "stars": 23928
+      "stars": 23927
     },
     "supercmohq/supercmo-skills": {
       "default_branch": "main",
@@ -25863,7 +25880,7 @@
       "sources": [
         "topic:claude-skills"
       ],
-      "stars": 1038
+      "stars": 1037
     },
     "suyuan2022/suyuan-skill": {
       "default_branch": "main",
@@ -25881,7 +25898,7 @@
       "sources": [
         "topic:claude-skills"
       ],
-      "stars": 465
+      "stars": 467
     },
     "sverrirsig/claude-control": {
       "default_branch": "main",
@@ -25985,8 +26002,8 @@
       "license": "MIT",
       "name": "browser-debugger-cli",
       "owner": "szymdzum",
-      "pushed_at": "2026-11-04T19:19:57Z",
-      "scanned_pushed_at": "2026-11-04T19:19:57Z",
+      "pushed_at": "2026-11-04T20:08:02Z",
+      "scanned_pushed_at": "2026-11-04T20:08:02Z",
       "sources": [
         "curated"
       ],
@@ -26062,7 +26079,7 @@
       "sources": [
         "topic:agent-skills"
       ],
-      "stars": 1026
+      "stars": 1027
     },
     "taisly/agent": {
       "default_branch": "main",
@@ -26135,7 +26152,7 @@
       "sources": [
         "curated"
       ],
-      "stars": 289
+      "stars": 290
     },
     "tamtom/play-console-cli": {
       "default_branch": "main",
@@ -26155,7 +26172,7 @@
         "topic:claude-skills",
         "topic:codex-skills"
       ],
-      "stars": 288
+      "stars": 289
     },
     "tance-mang/chinese-webnovel-skills": {
       "default_branch": "main",
@@ -26209,7 +26226,7 @@
       "sources": [
         "topic:claude-code"
       ],
-      "stars": 7200
+      "stars": 7201
     },
     "tddworks/claudebar": {
       "default_branch": "main",
@@ -26227,7 +26244,7 @@
       "sources": [
         "curated"
       ],
-      "stars": 1568
+      "stars": 1569
     },
     "tdimino/claude-code-minoan": {
       "default_branch": "main",
@@ -26281,7 +26298,7 @@
       "sources": [
         "topic:claude-code"
       ],
-      "stars": 7131
+      "stars": 7133
     },
     "technomadcode/ai-product-development-toolkit": {
       "default_branch": "main",
@@ -26335,7 +26352,7 @@
       "sources": [
         "topic:agent-skills"
       ],
-      "stars": 1356
+      "stars": 1359
     },
     "tencent/ai-infra-guard": {
       "default_branch": "main",
@@ -26353,7 +26370,7 @@
       "sources": [
         "curated"
       ],
-      "stars": 7377
+      "stars": 7381
     },
     "tencentcloudbase/cloudbase-ai-toolkit": {
       "default_branch": "main",
@@ -26389,7 +26406,7 @@
       "sources": [
         "topic:claude-skills"
       ],
-      "stars": 20095
+      "stars": 20098
     },
     "terminallylazy/tree-ring-memory": {
       "default_branch": "main",
@@ -26445,7 +26462,7 @@
       "sources": [
         "topic:claude-skills"
       ],
-      "stars": 336
+      "stars": 337
     },
     "testdriverai/testdriverai": {
       "default_branch": "main",
@@ -26549,14 +26566,14 @@
       "license": "Apache-2.0",
       "name": "claude-mem",
       "owner": "thedotmack",
-      "pushed_at": "2026-11-04T19:39:11Z",
-      "scanned_pushed_at": "2026-11-04T19:39:11Z",
+      "pushed_at": "2026-11-05T00:48:54Z",
+      "scanned_pushed_at": "2026-11-05T00:48:54Z",
       "sources": [
         "curated",
         "topic:claude-code",
         "topic:claude-skills"
       ],
-      "stars": 112691
+      "stars": 112883
     },
     "thegoat395/codex-skills": {
       "default_branch": "main",
@@ -26731,12 +26748,12 @@
       "license": "AGPL-3.0",
       "name": "hapi",
       "owner": "tiann",
-      "pushed_at": "2026-11-04T10:21:40Z",
-      "scanned_pushed_at": "2026-11-04T10:21:40Z",
+      "pushed_at": "2026-11-04T23:27:45Z",
+      "scanned_pushed_at": "2026-11-04T23:27:45Z",
       "sources": [
         "topic:claude-code"
       ],
-      "stars": 5359
+      "stars": 5361
     },
     "tibsfox/gsd-skill-creator": {
       "default_branch": "main",
@@ -26809,7 +26826,7 @@
         "topic:agent-skills",
         "topic:claude-code"
       ],
-      "stars": 10705
+      "stars": 10710
     },
     "tigerless-labs/cost-xray": {
       "default_branch": "master",
@@ -26935,7 +26952,7 @@
       "sources": [
         "topic:claude-code"
       ],
-      "stars": 32591
+      "stars": 32596
     },
     "titanwings/distilly": {
       "default_branch": "dot-skill",
@@ -26956,7 +26973,7 @@
         "topic:claude-skills",
         "topic:codex-skills"
       ],
-      "stars": 26373
+      "stars": 26374
     },
     "titanwings/ex-skill": {
       "default_branch": "master",
@@ -27011,7 +27028,7 @@
         "curated",
         "topic:agent-skills"
       ],
-      "stars": 1701
+      "stars": 1703
     },
     "tobihagemann/turbo": {
       "default_branch": "main",
@@ -27030,7 +27047,7 @@
         "topic:claude-skills",
         "topic:codex-skills"
       ],
-      "stars": 417
+      "stars": 418
     },
     "toluvictor/canvas-apps-tools": {
       "default_branch": "main",
@@ -27115,8 +27132,8 @@
       "license": "MIT",
       "name": "second-brain-starter-kit",
       "owner": "tonydzi",
-      "pushed_at": "2026-11-04T19:51:53Z",
-      "scanned_pushed_at": "2026-11-04T19:51:53Z",
+      "pushed_at": "2026-11-04T20:08:29Z",
+      "scanned_pushed_at": "2026-11-04T20:08:29Z",
       "sources": [
         "topic:codex-skills"
       ],
@@ -27133,12 +27150,12 @@
       "license": "Apache-2.0",
       "name": "cognee",
       "owner": "topoteretes",
-      "pushed_at": "2026-11-04T19:32:08Z",
-      "scanned_pushed_at": "2026-11-04T19:32:08Z",
+      "pushed_at": "2026-11-04T22:30:14Z",
+      "scanned_pushed_at": "2026-11-04T22:30:14Z",
       "sources": [
         "topic:agent-skills"
       ],
-      "stars": 33063
+      "stars": 33074
     },
     "tourmind-com/tourmind-booking-skills": {
       "default_branch": "main",
@@ -27170,12 +27187,12 @@
       "license": "MIT",
       "name": "Trail-Code",
       "owner": "trailhq",
-      "pushed_at": "2026-11-04T13:27:58Z",
-      "scanned_pushed_at": "2026-11-04T13:27:58Z",
+      "pushed_at": "2026-11-05T00:55:49Z",
+      "scanned_pushed_at": "2026-11-05T00:55:49Z",
       "sources": [
         "topic:claude-code"
       ],
-      "stars": 11085
+      "stars": 11091
     },
     "trailofbits/skills": {
       "default_branch": "main",
@@ -27194,7 +27211,7 @@
         "curated",
         "topic:agent-skills"
       ],
-      "stars": 8007
+      "stars": 8009
     },
     "transcendr/slopware-skills": {
       "default_branch": "main",
@@ -27250,7 +27267,7 @@
         "topic:claude-code",
         "topic:claude-skills"
       ],
-      "stars": 15704
+      "stars": 15706
     },
     "tripleyak/skillforge": {
       "default_branch": "main",
@@ -27286,7 +27303,7 @@
       "sources": [
         "curated"
       ],
-      "stars": 98
+      "stars": 99
     },
     "truongduy2611/app-store-preflight-skills": {
       "default_branch": "main",
@@ -27317,8 +27334,8 @@
       "license": "MIT",
       "name": "courier-skills",
       "owner": "trycourier",
-      "pushed_at": "2026-11-04T19:40:52Z",
-      "scanned_pushed_at": "2026-11-04T19:40:52Z",
+      "pushed_at": "2026-11-04T23:52:43Z",
+      "scanned_pushed_at": "2026-11-04T23:52:43Z",
       "sources": [
         "curated"
       ],
@@ -27379,7 +27396,7 @@
         "topic:claude-code",
         "topic:claude-skills"
       ],
-      "stars": 93419
+      "stars": 93482
     },
     "tuan3w/obsidian-vault-agent": {
       "default_branch": "main",
@@ -27397,7 +27414,7 @@
       "sources": [
         "topic:claude-code-skills"
       ],
-      "stars": 42
+      "stars": 43
     },
     "tubo2333/obsidian-knowledge-brain": {
       "default_branch": "master",
@@ -27451,7 +27468,7 @@
       "sources": [
         "topic:claude-code"
       ],
-      "stars": 3894
+      "stars": 3893
     },
     "tw93/kami": {
       "default_branch": "main",
@@ -27489,7 +27506,7 @@
         "topic:agent-skills",
         "topic:claude-code"
       ],
-      "stars": 7508
+      "stars": 7513
     },
     "tzachbon/smart-ralph": {
       "default_branch": "main",
@@ -27545,7 +27562,7 @@
       "sources": [
         "topic:claude-code"
       ],
-      "stars": 6072
+      "stars": 6073
     },
     "uipath/coder_eval": {
       "default_branch": "main",
@@ -27582,7 +27599,7 @@
       "sources": [
         "curated"
       ],
-      "stars": 894
+      "stars": 897
     },
     "undeadlist/claude-code-agents": {
       "default_branch": "main",
@@ -27619,7 +27636,7 @@
         "topic:agent-skills",
         "topic:claude-skills"
       ],
-      "stars": 1298
+      "stars": 1340
     },
     "underleveledbuilder/awesome-short-drama-skills": {
       "default_branch": "main",
@@ -27638,7 +27655,7 @@
         "topic:agent-skills",
         "topic:claude-skills"
       ],
-      "stars": 1783
+      "stars": 1789
     },
     "upload-post/upload-post-skill": {
       "default_branch": "main",
@@ -27728,7 +27745,7 @@
       "sources": [
         "curated"
       ],
-      "stars": 292
+      "stars": 293
     },
     "uvwt/agentdock": {
       "default_branch": "main",
@@ -27759,8 +27776,8 @@
       "license": "MIT",
       "name": "job-application-agent",
       "owner": "vaibhavarora14",
-      "pushed_at": "2026-11-04T12:45:02Z",
-      "scanned_pushed_at": "2026-11-04T12:45:02Z",
+      "pushed_at": "2026-11-04T21:32:01Z",
+      "scanned_pushed_at": "2026-11-04T21:32:01Z",
       "sources": [
         "curated"
       ],
@@ -27782,7 +27799,7 @@
       "sources": [
         "curated"
       ],
-      "stars": 53
+      "stars": 54
     },
     "vapiai/skills": {
       "default_branch": "main",
@@ -27849,8 +27866,8 @@
       "license": "MIT",
       "name": "skills",
       "owner": "veniceai",
-      "pushed_at": "2026-11-04T00:45:45Z",
-      "scanned_pushed_at": "2026-11-04T00:45:45Z",
+      "pushed_at": "2026-11-04T21:54:54Z",
+      "scanned_pushed_at": "2026-11-04T21:54:54Z",
       "sources": [
         "curated"
       ],
@@ -27908,7 +27925,7 @@
       "sources": [
         "curated"
       ],
-      "stars": 33545
+      "stars": 33549
     },
     "verdikta/verdikta-applications": {
       "default_branch": "main",
@@ -27930,7 +27947,7 @@
     },
     "vibeeval/vibecosystem": {
       "default_branch": "main",
-      "description": "AI software team for Claude Code - 138 agents, 295 skills, 73 hooks. Self-learning, multi-agent swarm, autonomous skill evolution.",
+      "description": "Profile-based coding runtime for Claude Code and Codex. Lean core; opt-in quality, context, memory, orchestration and dashboard.",
       "exclusion": null,
       "first_seen_at": "2026-11-02",
       "github_id": 1181624333,
@@ -27939,8 +27956,8 @@
       "license": "MIT",
       "name": "vibecosystem",
       "owner": "vibeeval",
-      "pushed_at": "2026-08-08T19:58:01Z",
-      "scanned_pushed_at": "2026-08-08T19:58:01Z",
+      "pushed_at": "2026-11-04T22:18:11Z",
+      "scanned_pushed_at": "2026-11-04T22:18:11Z",
       "sources": [
         "topic:claude-skills"
       ],
@@ -28000,7 +28017,7 @@
       "sources": [
         "curated"
       ],
-      "stars": 2215
+      "stars": 2218
     },
     "vimalk78/dictate": {
       "default_branch": "main",
@@ -28036,7 +28053,7 @@
       "sources": [
         "topic:agent-skills"
       ],
-      "stars": 3040
+      "stars": 3045
     },
     "vincentwei1021/video-shotcraft": {
       "default_branch": "main",
@@ -28057,7 +28074,7 @@
         "topic:claude-code-skills",
         "topic:claude-skills"
       ],
-      "stars": 16948
+      "stars": 17005
     },
     "vincentwei1021/video-talkcraft": {
       "default_branch": "main",
@@ -28075,7 +28092,7 @@
       "sources": [
         "topic:agent-skills"
       ],
-      "stars": 2078
+      "stars": 2083
     },
     "virgiliojr94/book-to-skill": {
       "default_branch": "master",
@@ -28093,7 +28110,7 @@
       "sources": [
         "topic:agent-skills"
       ],
-      "stars": 36956
+      "stars": 36970
     },
     "viryazheng/recomby-geo": {
       "default_branch": "main",
@@ -28161,8 +28178,8 @@
       "license": null,
       "name": "Themata-Claude-Scribe",
       "owner": "Vitorlindo201",
-      "pushed_at": "2026-11-04T16:46:06Z",
-      "scanned_pushed_at": "2026-11-04T16:46:06Z",
+      "pushed_at": "2026-11-04T22:21:04Z",
+      "scanned_pushed_at": "2026-11-04T22:21:04Z",
       "sources": [
         "topic:claude-code-skills"
       ],
@@ -28202,7 +28219,7 @@
       "sources": [
         "topic:claude-skills"
       ],
-      "stars": 592
+      "stars": 593
     },
     "vladimir-human/humanizer-ru": {
       "default_branch": "main",
@@ -28297,7 +28314,7 @@
         "topic:claude-skills",
         "topic:codex-skills"
       ],
-      "stars": 36844
+      "stars": 36857
     },
     "voltagent/awesome-claude-design": {
       "default_branch": "main",
@@ -28315,7 +28332,7 @@
       "sources": [
         "topic:claude-code"
       ],
-      "stars": 4327
+      "stars": 4328
     },
     "voltagent/awesome-codex-subagents": {
       "default_branch": "main",
@@ -28352,7 +28369,7 @@
       "sources": [
         "topic:agent-skills"
       ],
-      "stars": 53548
+      "stars": 53556
     },
     "voltagent/official-mcp-servers": {
       "default_branch": "main",
@@ -28370,7 +28387,7 @@
       "sources": [
         "curated"
       ],
-      "stars": 408
+      "stars": 410
     },
     "voltagent/voltagent": {
       "default_branch": "main",
@@ -28388,7 +28405,7 @@
       "sources": [
         "curated"
       ],
-      "stars": 10920
+      "stars": 10919
     },
     "vonterraproject501c3/slushpile": {
       "default_branch": "main",
@@ -28438,12 +28455,12 @@
       "license": "MIT",
       "name": "deja-vu",
       "owner": "vshulcz",
-      "pushed_at": "2026-11-04T19:19:26Z",
-      "scanned_pushed_at": "2026-11-04T19:19:26Z",
+      "pushed_at": "2026-11-04T21:53:54Z",
+      "scanned_pushed_at": "2026-11-04T21:53:54Z",
       "sources": [
         "curated"
       ],
-      "stars": 1401
+      "stars": 1404
     },
     "vulhunt-re/skills": {
       "default_branch": "main",
@@ -28479,7 +28496,7 @@
       "sources": [
         "topic:agent-skills"
       ],
-      "stars": 1037
+      "stars": 1040
     },
     "w95/awesome-claude-corporate-skills": {
       "default_branch": "main",
@@ -28515,7 +28532,7 @@
       "sources": [
         "topic:claude-code"
       ],
-      "stars": 5395
+      "stars": 5398
     },
     "waittim/memorycustodian": {
       "default_branch": "main",
@@ -28590,7 +28607,7 @@
         "topic:claude-code",
         "topic:claude-code-skills"
       ],
-      "stars": 18644
+      "stars": 18653
     },
     "waynesutton/builder-skills": {
       "default_branch": "main",
@@ -28608,7 +28625,7 @@
       "sources": [
         "topic:claude-skills"
       ],
-      "stars": 404
+      "stars": 403
     },
     "wdhwg001/csift": {
       "default_branch": "main",
@@ -28639,12 +28656,12 @@
       "license": "Apache-2.0",
       "name": "router",
       "owner": "weave-os",
-      "pushed_at": "2026-11-04T19:34:44Z",
-      "scanned_pushed_at": "2026-11-04T19:34:44Z",
+      "pushed_at": "2026-11-05T01:23:03Z",
+      "scanned_pushed_at": "2026-11-05T01:23:03Z",
       "sources": [
         "topic:claude-code"
       ],
-      "stars": 5608
+      "stars": 5610
     },
     "wei-shaw/claude-relay-service": {
       "default_branch": "main",
@@ -28657,8 +28674,8 @@
       "license": "MIT",
       "name": "claude-relay-service",
       "owner": "Wei-Shaw",
-      "pushed_at": "2026-11-04T17:13:35Z",
-      "scanned_pushed_at": "2026-11-04T17:13:35Z",
+      "pushed_at": "2026-11-05T01:35:25Z",
+      "scanned_pushed_at": "2026-11-05T01:35:25Z",
       "sources": [
         "topic:claude-code"
       ],
@@ -28675,12 +28692,12 @@
       "license": "LGPL-3.0",
       "name": "sub2api",
       "owner": "Wei-Shaw",
-      "pushed_at": "2026-11-04T14:31:12Z",
-      "scanned_pushed_at": "2026-11-04T14:31:12Z",
+      "pushed_at": "2026-11-05T01:34:43Z",
+      "scanned_pushed_at": "2026-11-05T01:34:43Z",
       "sources": [
         "topic:claude-code"
       ],
-      "stars": 45441
+      "stars": 45444
     },
     "wei18/upkeep": {
       "default_branch": "main",
@@ -28716,7 +28733,7 @@
       "sources": [
         "topic:claude-code-skills"
       ],
-      "stars": 2488
+      "stars": 2491
     },
     "wells1137/media-skills": {
       "default_branch": "main",
@@ -28801,13 +28818,13 @@
       "license": "MIT",
       "name": "ai-research-skills",
       "owner": "WenyuChiou",
-      "pushed_at": "2026-11-04T19:33:43Z",
-      "scanned_pushed_at": "2026-11-04T19:33:43Z",
+      "pushed_at": "2026-11-04T21:59:42Z",
+      "scanned_pushed_at": "2026-11-04T21:59:42Z",
       "sources": [
         "curated",
         "topic:claude-skills"
       ],
-      "stars": 597
+      "stars": 598
     },
     "wenyuchiou/awesome-agentic-ai-zh": {
       "default_branch": "main",
@@ -28826,7 +28843,7 @@
         "topic:claude-code",
         "topic:claude-skills"
       ],
-      "stars": 8520
+      "stars": 8523
     },
     "wenziai/wenzi-xiaohongshu-workflow": {
       "default_branch": "main",
@@ -28865,7 +28882,7 @@
         "topic:claude-code",
         "topic:claude-code-skills"
       ],
-      "stars": 3531
+      "stars": 3550
     },
     "wgwtest/novel-writing": {
       "default_branch": "main",
@@ -28914,12 +28931,12 @@
       "license": "Apache-2.0",
       "name": "remove-ai-watermarks",
       "owner": "wiltodelta",
-      "pushed_at": "2026-11-04T08:44:10Z",
-      "scanned_pushed_at": "2026-11-04T08:44:10Z",
+      "pushed_at": "2026-11-05T01:30:29Z",
+      "scanned_pushed_at": "2026-11-05T01:30:29Z",
       "sources": [
         "curated"
       ],
-      "stars": 6277
+      "stars": 6279
     },
     "windxran/fanqie-radar": {
       "default_branch": "master",
@@ -28973,7 +28990,7 @@
       "sources": [
         "topic:claude-code"
       ],
-      "stars": 22434
+      "stars": 22436
     },
     "wolfe-jam/faf-cli": {
       "default_branch": "main",
@@ -29011,7 +29028,7 @@
         "topic:claude-code-skills",
         "topic:claude-skills"
       ],
-      "stars": 2582
+      "stars": 2584
     },
     "woniu9524/open-web-bridge": {
       "default_branch": "master",
@@ -29123,7 +29140,7 @@
         "topic:claude-code",
         "topic:claude-skills"
       ],
-      "stars": 42197
+      "stars": 42210
     },
     "wshuyi/x-article-publisher-skill": {
       "default_branch": "main",
@@ -29141,7 +29158,7 @@
       "sources": [
         "curated"
       ],
-      "stars": 874
+      "stars": 873
     },
     "wssfk12138/trace-to-practice": {
       "default_branch": "main",
@@ -29177,7 +29194,7 @@
       "sources": [
         "topic:agent-skills"
       ],
-      "stars": 6001
+      "stars": 6000
     },
     "wwresearch/lamport-proof": {
       "default_branch": "main",
@@ -29226,12 +29243,12 @@
       "license": "MIT",
       "name": "xberg",
       "owner": "xberg-io",
-      "pushed_at": "2026-11-04T19:58:17Z",
-      "scanned_pushed_at": "2026-11-04T19:58:17Z",
+      "pushed_at": "2026-11-05T01:20:26Z",
+      "scanned_pushed_at": "2026-11-05T01:20:26Z",
       "sources": [
         "curated"
       ],
-      "stars": 9534
+      "stars": 9537
     },
     "xbtlin/ai-berkshire": {
       "default_branch": "main",
@@ -29249,7 +29266,7 @@
       "sources": [
         "topic:claude-code"
       ],
-      "stars": 17011
+      "stars": 17012
     },
     "xcl2005/academic-paper-writing-skill": {
       "default_branch": "main",
@@ -29280,12 +29297,12 @@
       "license": "Apache-2.0",
       "name": "xerj",
       "owner": "xerj-org",
-      "pushed_at": "2026-11-04T18:31:47Z",
-      "scanned_pushed_at": "2026-11-04T18:31:47Z",
+      "pushed_at": "2026-11-05T01:34:43Z",
+      "scanned_pushed_at": "2026-11-05T01:34:43Z",
       "sources": [
         "topic:claude-code"
       ],
-      "stars": 19071
+      "stars": 19087
     },
     "xianyu110/awesome-openclaw-tutorial": {
       "default_branch": "main",
@@ -29304,7 +29321,7 @@
         "topic:agent-skills",
         "topic:claude-code"
       ],
-      "stars": 4578
+      "stars": 4577
     },
     "xianyu110/ecommerce-video-skills": {
       "default_branch": "main",
@@ -29353,8 +29370,8 @@
       "license": null,
       "name": "math-modeling-skill",
       "owner": "XiaoMaColtAI",
-      "pushed_at": "2026-11-03T21:35:33Z",
-      "scanned_pushed_at": "2026-11-03T21:35:33Z",
+      "pushed_at": "2026-11-04T21:45:07Z",
+      "scanned_pushed_at": "2026-11-04T21:45:07Z",
       "sources": [
         "topic:claude-skills"
       ],
@@ -29556,7 +29573,7 @@
       "sources": [
         "curated"
       ],
-      "stars": 7065
+      "stars": 7066
     },
     "yanhua1010/self-media-content-workflow": {
       "default_branch": "main",
@@ -29574,7 +29591,7 @@
       "sources": [
         "topic:claude-skills"
       ],
-      "stars": 646
+      "stars": 647
     },
     "yanniskiefer/dark-psychology-skills": {
       "default_branch": "main",
@@ -29610,7 +29627,7 @@
       "sources": [
         "topic:claude-code-skills"
       ],
-      "stars": 70
+      "stars": 71
     },
     "yaoapp/yao": {
       "default_branch": "main",
@@ -29629,7 +29646,7 @@
         "topic:agent-skills",
         "topic:claude-code"
       ],
-      "stars": 8264
+      "stars": 8265
     },
     "yaojingang/yao-meta-skill": {
       "default_branch": "main",
@@ -29647,7 +29664,7 @@
       "sources": [
         "topic:agent-skills"
       ],
-      "stars": 2718
+      "stars": 2719
     },
     "ycc-lover/research-starter-skills": {
       "default_branch": "main",
@@ -29665,7 +29682,7 @@
       "sources": [
         "topic:codex-skills"
       ],
-      "stars": 126
+      "stars": 132
     },
     "yeachan-heo/oh-my-claudecode": {
       "default_branch": "main",
@@ -29683,7 +29700,7 @@
       "sources": [
         "topic:claude-code"
       ],
-      "stars": 40577
+      "stars": 40587
     },
     "yetone/magpie": {
       "default_branch": "main",
@@ -29696,12 +29713,12 @@
       "license": "MIT",
       "name": "magpie",
       "owner": "yetone",
-      "pushed_at": "2026-11-04T19:55:02Z",
-      "scanned_pushed_at": "2026-11-04T19:55:02Z",
+      "pushed_at": "2026-11-05T00:27:38Z",
+      "scanned_pushed_at": "2026-11-05T00:27:38Z",
       "sources": [
         "topic:claude-code"
       ],
-      "stars": 29705
+      "stars": 29770
     },
     "yishentu/claudian": {
       "default_branch": "main",
@@ -29737,7 +29754,7 @@
       "sources": [
         "topic:claude-code"
       ],
-      "stars": 11939
+      "stars": 11940
     },
     "ykdojo/claude-code-tips": {
       "default_branch": "main",
@@ -29786,12 +29803,12 @@
       "license": "MIT",
       "name": "llm-router",
       "owner": "ypollak2",
-      "pushed_at": "2026-11-04T18:23:53Z",
-      "scanned_pushed_at": "2026-11-04T18:23:53Z",
+      "pushed_at": "2026-11-05T01:00:17Z",
+      "scanned_pushed_at": "2026-11-05T01:00:17Z",
       "sources": [
         "curated"
       ],
-      "stars": 120
+      "stars": 122
     },
     "ysskrishna/ai-agent-skills": {
       "default_branch": "main",
@@ -29828,7 +29845,7 @@
       "sources": [
         "topic:codex-skills"
       ],
-      "stars": 52210
+      "stars": 52221
     },
     "yuezhiai/jonex": {
       "default_branch": "mian",
@@ -29846,7 +29863,7 @@
       "sources": [
         "topic:agent-skills"
       ],
-      "stars": 1575
+      "stars": 1577
     },
     "yunyoujun/valaxy": {
       "default_branch": "main",
@@ -29883,7 +29900,7 @@
         "topic:claude-skills",
         "topic:codex-skills"
       ],
-      "stars": 424
+      "stars": 425
     },
     "yusufkaraaslan/skill_seekers": {
       "default_branch": "development",
@@ -29902,7 +29919,7 @@
         "curated",
         "topic:claude-skills"
       ],
-      "stars": 15277
+      "stars": 15278
     },
     "yusuke710/manim-skill": {
       "default_branch": "main",
@@ -29956,7 +29973,7 @@
       "sources": [
         "topic:claude-skills"
       ],
-      "stars": 569
+      "stars": 570
     },
     "yvgude/lean-ctx": {
       "default_branch": "main",
@@ -29969,8 +29986,8 @@
       "license": "Apache-2.0",
       "name": "lean-ctx",
       "owner": "yvgude",
-      "pushed_at": "2026-11-04T19:47:20Z",
-      "scanned_pushed_at": "2026-11-04T19:47:20Z",
+      "pushed_at": "2026-11-05T00:11:42Z",
+      "scanned_pushed_at": "2026-11-05T00:11:42Z",
       "sources": [
         "topic:claude-code"
       ],
@@ -30023,8 +30040,8 @@
       "license": "MIT",
       "name": "schliff",
       "owner": "Zandereins",
-      "pushed_at": "2026-11-03T20:21:42Z",
-      "scanned_pushed_at": "2026-11-03T20:21:42Z",
+      "pushed_at": "2026-11-04T20:20:48Z",
+      "scanned_pushed_at": "2026-11-04T20:20:48Z",
       "sources": [
         "curated"
       ],
@@ -30048,7 +30065,7 @@
         "topic:claude-skills",
         "topic:codex-skills"
       ],
-      "stars": 2080
+      "stars": 2079
     },
     "zapier/zapier-mcp": {
       "default_branch": "main",
@@ -30084,7 +30101,7 @@
       "sources": [
         "curated"
       ],
-      "stars": 5767
+      "stars": 5768
     },
     "zarazhangrui/frontend-slides": {
       "default_branch": "main",
@@ -30103,7 +30120,7 @@
         "curated",
         "topic:claude-code"
       ],
-      "stars": 31879
+      "stars": 31892
     },
     "zebbern/claude-code-guide": {
       "default_branch": "main",
@@ -30123,7 +30140,7 @@
         "topic:claude-code",
         "topic:claude-code-skills"
       ],
-      "stars": 4695
+      "stars": 4696
     },
     "zebbern/skills": {
       "default_branch": "main",
@@ -30172,13 +30189,13 @@
       "license": "MIT",
       "name": "terminal-browser",
       "owner": "zenbu-labs",
-      "pushed_at": "2026-11-04T14:01:44Z",
-      "scanned_pushed_at": "2026-11-04T14:01:44Z",
+      "pushed_at": "2026-11-04T22:04:38Z",
+      "scanned_pushed_at": "2026-11-04T22:04:38Z",
       "sources": [
         "topic:claude-code",
         "topic:claude-skills"
       ],
-      "stars": 4439
+      "stars": 4447
     },
     "zenstory-ai/drama-skills": {
       "default_branch": "main",
@@ -30199,7 +30216,7 @@
         "topic:claude-code-skills",
         "topic:claude-skills"
       ],
-      "stars": 3781
+      "stars": 3784
     },
     "zenstory-ai/novel-to-game": {
       "default_branch": "main",
@@ -30288,12 +30305,12 @@
       "license": "MIT",
       "name": "zeron",
       "owner": "zeronsh",
-      "pushed_at": "2026-11-04T19:54:36Z",
-      "scanned_pushed_at": "2026-11-04T19:54:36Z",
+      "pushed_at": "2026-11-05T01:21:48Z",
+      "scanned_pushed_at": "2026-11-05T01:21:48Z",
       "sources": [
         "topic:claude-code"
       ],
-      "stars": 3449
+      "stars": 3451
     },
     "zeropointrepo/youtube-skills": {
       "default_branch": "main",
@@ -30366,7 +30383,7 @@
       "sources": [
         "topic:claude-code"
       ],
-      "stars": 47786
+      "stars": 47790
     },
     "zhukunpenglinyutong/desktop-cc-gui": {
       "default_branch": "main",
@@ -30384,7 +30401,7 @@
       "sources": [
         "topic:claude-code"
       ],
-      "stars": 4569
+      "stars": 4570
     },
     "zhuyansen/awesome-claude-video-skills": {
       "default_branch": "main",
@@ -30403,7 +30420,7 @@
         "topic:agent-skills",
         "topic:claude-skills"
       ],
-      "stars": 1566
+      "stars": 1579
     },
     "zhuyansen/new-term-radar": {
       "default_branch": "main",
@@ -30422,7 +30439,7 @@
         "topic:agent-skills",
         "topic:claude-skills"
       ],
-      "stars": 2099
+      "stars": 2100
     },
     "zhuyansen/wx-favorites-report": {
       "default_branch": "main",
@@ -30476,7 +30493,7 @@
       "sources": [
         "topic:claude-code"
       ],
-      "stars": 12668
+      "stars": 12669
     },
     "zilliztech/mfs": {
       "default_branch": "main",
@@ -30584,7 +30601,7 @@
       "sources": [
         "topic:claude-skills"
       ],
-      "stars": 557
+      "stars": 556
     },
     "zscole/model-hierarchy-skill": {
       "default_branch": "main",
@@ -30620,7 +30637,7 @@
       "sources": [
         "topic:claude-code"
       ],
-      "stars": 7063
+      "stars": 7065
     },
     "zsun79/litreviewskill": {
       "default_branch": "main",
@@ -30638,7 +30655,7 @@
       "sources": [
         "topic:codex-skills"
       ],
-      "stars": 28
+      "stars": 29
     },
     "zwx1127/gdx": {
       "default_branch": "main",
