@@ -2,7 +2,7 @@ import taxonomy from '../data/taxonomy.json';
 import type { Category, Difficulty, Role, Subcategory } from './types';
 
 export const SITE_NAME = '스킬모아';
-export const HOME_TITLE = '스킬모아 | AI 에이전트 스킬 모음';
+export const HOME_TITLE = '스킬모아 | AI 스킬 모음 · Claude Code·Codex·Cursor 에이전트 스킬';
 /** 저작자의 삭제·수정 요청을 받는 공개 메일. 비어 있으면 푸터에 표시하지 않는다. */
 export const CONTACT_EMAIL: string = 'contact@skillmoa.com';
 /** AdSense 게시자 ID. 페이지와 ads.txt에 그대로 공개되는 값이라 비밀값이 아니다. */
