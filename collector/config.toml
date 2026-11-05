@@ -74,6 +74,12 @@ repositories = [
   "Klotzkette/claude-fuer-deutsches-recht",
   "romainsimon/paperasse",
   "mhfed/vn-law-check",
+  # 중국에서만 쓰는 서비스 전용: 위챗 공식 계정, 중국 인터넷 검색, Feishu 문서, 샤오훙슈·위챗 카드, 중국 플랫폼 30일 동향
+  "geekjourneyx/md2wechat-skill",
+  "geekjourneyx/tanso",
+  "leemysw/feishu-docx",
+  "op7418/guizang-social-card-skill",
+  "Jesseovo/last30days-skill-cn",
 ]
 # 뺄 스킬. "owner/repo:path"
 skills = [
@@ -83,6 +89,11 @@ skills = [
   "shanraisshan/claude-code-best-practice:.claude/skills/weather-svg-creator/SKILL.md",
   "shanraisshan/claude-code-best-practice:agent-teams/.claude/skills/time-fetcher/SKILL.md",
   "shanraisshan/claude-code-best-practice:agent-teams/.claude/skills/time-svg-creator/SKILL.md",
+  # 중국에서만 쓰는 서비스 전용: 위안바오 그룹 채팅, Feishu 답변 규칙, Bilibili, 샤오훙슈 카드
+  "nousresearch/hermes-agent:optional-skills/yuanbao/SKILL.md",
+  "op7418/codepilot:资料/feishu-openclaw-plugin/package/skills/feishu-channel-rules/SKILL.md",
+  "imoonkey/openweb:src/sites/bilibili/SKILL.md",
+  "oyorf/quiet-signal:skills/quiet-signal-xhs/SKILL.md",
 ]
 # 분류 호출이 빼자고 했지만 남길 스킬. "owner/repo:path"
 keep = []
