@@ -2,8 +2,8 @@
   "bootstrapped_on": "2026-11-02",
   "schema_version": 1,
   "usage": {
-    "classify_calls": 54,
+    "classify_calls": 129,
     "day": "2026-11-06",
-    "summary_calls": 56
+    "summary_calls": 133
   }
 }
