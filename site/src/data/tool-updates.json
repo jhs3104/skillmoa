@@ -4,6 +4,19 @@
     {
       "date": "2026-11-06",
       "highlights": [
+        "MCP 서버가 도구 호출을 작업으로 실행하면 터미널에서 백그라운드로 바로 넘기고, 끝나면 결과를 Claude에게 알려주도록 추가했습니다.",
+        "`permissions.denyInsteadOfPrompting` 설정을 추가해 권한 확인을 기다려야 하는 도구 호출을 거부하고 턴을 계속 진행하도록 했습니다.",
+        "MCP 서버가 구버전 핸드셰이크를 쓸 때 연결이 실패하거나 빈 결과를 반환하던 문제를 고쳤습니다."
+      ],
+      "tool": "claude-code",
+      "url": "https://github.com/anthropics/claude-code/releases/tag/v2.1.319",
+      "versions": [
+        "2.1.319"
+      ]
+    },
+    {
+      "date": "2026-11-06",
+      "highlights": [
         "`codex agents --no-daemon`로 에이전트 커맨드 센터를 열고, 읽지 않은 작업 결과를 표시하도록 추가했습니다.",
         "`gcp_setup_wizard`를 켜면 Google Cloud Vertex AI를 ADC 또는 자격 증명 파일로 설정할 수 있게 했습니다.",
         "`/experimental`에서 macOS 또는 Windows 시스템 프록시 설정을 선택할 수 있게 했습니다."
@@ -12,6 +25,19 @@
       "url": "https://github.com/openai/codex/releases/tag/rust-v0.167.0",
       "versions": [
         "0.167.0"
+      ]
+    },
+    {
+      "date": "2026-11-06",
+      "highlights": [
+        "에이전트와 실시간 음성 통화로 대화하는 Voice chat을 추가했습니다. Agents Window, IDE, 웹, iOS에서 사용할 수 있습니다.",
+        "에이전트가 작업하는 동안에도 대화를 이어가며 diff 변경 내용 확인, 실행 상태 점검, 이전 메시지 검색을 할 수 있습니다.",
+        "음성 통화 시작 버튼과 iOS의 'Hey Siri, call Cursor' 호출을 추가했으며, 음성 설정에서 Ara, Eve 등 여러 목소리를 고를 수 있습니다."
+      ],
+      "tool": "cursor",
+      "url": "https://cursor.com/changelog/voice-chat",
+      "versions": [
+        "Voice Chat with Agents"
       ]
     },
     {
