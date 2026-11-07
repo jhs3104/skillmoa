@@ -11,15 +11,17 @@ import type { KeyValueStore, Recommender, Suggestion } from './types';
 
 class MemoryStore implements KeyValueStore {
   values = new Map<string, string>();
+  ttls = new Map<string, number>();
   writes = 0;
 
   async get(key: string): Promise<string | null> {
     return this.values.get(key) ?? null;
   }
 
-  async put(key: string, value: string): Promise<void> {
+  async put(key: string, value: string, options: { expirationTtl: number }): Promise<void> {
     this.writes += 1;
     this.values.set(key, value);
+    this.ttls.set(key, options.expirationTtl);
   }
 }
 
@@ -126,6 +128,13 @@ describe('answerQuestion', () => {
     deps.recommender = { recommend: vi.fn().mockRejectedValue(new Error('down')) };
     await expect(answerQuestion('질문', '1.1.1.1', deps)).rejects.toThrow('down');
     expect(store.values.get('total:2026-11-01')).toBe('1');
+  });
+
+  it('keeps the daily total for 90 days so usage can be reviewed later', async () => {
+    await answerQuestion('질문', '1.1.1.1', deps);
+    expect(store.ttls.get('total:2026-11-01')).toBe(90 * 86_400);
+    const clientKey = [...store.ttls.keys()].find((key) => key.startsWith('ip:'));
+    expect(store.ttls.get(clientKey ?? '')).toBe(2 * 86_400);
   });
 
   it('does not store raw client addresses', async () => {

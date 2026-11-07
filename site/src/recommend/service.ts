@@ -12,7 +12,9 @@ export const DAILY_LIMIT_PER_IP = 5;
  */
 export const DAILY_LIMIT_TOTAL = 300;
 
-const COUNTER_TTL_SECONDS = 2 * 86_400;
+const CLIENT_COUNTER_TTL_SECONDS = 2 * 86_400;
+/** 전체 호출 수는 개인 정보가 아니라 이용 추이를 보려고 오래 남긴다. 쓰기 횟수는 늘지 않는다. */
+const TOTAL_COUNTER_TTL_SECONDS = 90 * 86_400;
 const CACHE_TTL_SECONDS = 7 * 86_400;
 
 export type Answer =
@@ -64,8 +66,8 @@ export async function answerQuestion(
   const totalCalls = Number((await store.get(totalKey)) ?? 0);
   if (totalCalls >= DAILY_LIMIT_TOTAL) return { status: 'budget_exhausted' };
 
-  await store.put(clientKey, String(clientCalls + 1), { expirationTtl: COUNTER_TTL_SECONDS });
-  await store.put(totalKey, String(totalCalls + 1), { expirationTtl: COUNTER_TTL_SECONDS });
+  await store.put(clientKey, String(clientCalls + 1), { expirationTtl: CLIENT_COUNTER_TTL_SECONDS });
+  await store.put(totalKey, String(totalCalls + 1), { expirationTtl: TOTAL_COUNTER_TTL_SECONDS });
 
   const suggestions = sanitize(await recommender.recommend(normalized, catalog), catalog);
   if (suggestions.length > 0) {
