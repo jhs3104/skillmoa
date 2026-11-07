@@ -1,5 +1,6 @@
 {
   "bootstrapped_on": "2026-11-02",
+  "last_full_scan_on": null,
   "schema_version": 1,
   "usage": {
     "classify_calls": 80,
