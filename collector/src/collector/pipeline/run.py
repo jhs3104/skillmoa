@@ -11,6 +11,8 @@ from pathlib import Path
 import httpx
 
 from collector.config import Settings
+from collector.domain.models import CollectorState
+from collector.domain.schedule import full_scan_due
 from collector.domain.tool_news import ToolRelease
 from collector.domain.trends import record_stars
 from collector.export.news import build_news_data, build_tool_updates_data
@@ -80,11 +82,23 @@ class RunOptions:
     today: date
 
 
+def choose_mode(settings: Settings, state: CollectorState, options: RunOptions) -> Mode:
+    """모드를 지정하지 않으면 상태로 고른다. --limit 실행은 비싼 전체 탐색을 하지 않는다."""
+    if options.mode:
+        return options.mode
+    if state.bootstrapped_on is None:
+        return Mode.BOOTSTRAP
+    interval = settings.discovery.full_scan_interval_days
+    if options.limit is None and full_scan_due(state.last_full_scan_on, options.today, interval):
+        return Mode.WEEKLY
+    return Mode.DAILY
+
+
 def run_collection(
     settings: Settings, github: GitHubClient, paths: Paths, options: RunOptions
 ) -> tuple[CollectContext, Mode]:
     state = load_state(paths.state)
-    mode = options.mode or (Mode.DAILY if state.bootstrapped_on else Mode.BOOTSTRAP)
+    mode = choose_mode(settings, state, options)
     metrics = RunMetrics(mode=mode)
     context = CollectContext(
         state=state,
@@ -101,7 +115,11 @@ def run_collection(
     try:
         if mode != Mode.BOOTSTRAP:
             collect.refresh_known_repositories(context)
-        found = collect.discover(context, full_scan=mode == Mode.WEEKLY, small=small)
+        full_scan = mode == Mode.WEEKLY
+        found = collect.discover(context, full_scan=full_scan, small=small)
+        # 코드 검색이 끝까지 돌았을 때만 남긴다. 레이트 리밋으로 끊기면 다음 실행이 다시 맡는다.
+        if full_scan and github.authenticated:
+            state.last_full_scan_on = options.today
         collect.register_repositories(context, found)
         collect.scan_repositories(context, target)
     except RateLimitExceededError as error:

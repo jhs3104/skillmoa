@@ -11,6 +11,8 @@ awesome_lists = [
 topics = ["claude-skills", "agent-skills", "claude-code-skills", "claude-code", "codex-skills"]
 search_pages_per_topic = 3
 code_search_max_size = 200000
+# 코드 검색 전체 탐색 간격. 예약 실행이 늦거나 빠져도 이 간격이 지나면 다음 실행이 맡는다.
+full_scan_interval_days = 7
 
 [filter]
 min_body_chars = 200

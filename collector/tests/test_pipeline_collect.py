@@ -1,5 +1,5 @@
 from collections.abc import Callable
-from datetime import UTC, date, datetime
+from datetime import UTC, date, datetime, timedelta
 from pathlib import Path
 
 import httpx
@@ -453,3 +453,51 @@ def test_interrupted_state_round_trips(tmp_path: Path) -> None:
 def test_search_repository_parses_to_domain_model() -> None:
     item = fixture_json("search_topic_claude_skills.json")["items"][0]
     assert isinstance(parse_repository(item), Repository)
+
+
+def seed_state(paths: Paths, state: CollectorState) -> None:
+    save_state(state, paths.state)
+
+
+def test_auto_mode_runs_full_scan_when_never_done(tmp_path: Path, settings: Settings) -> None:
+    paths = run_twice_paths(tmp_path)
+    seed_state(paths, CollectorState(bootstrapped_on=TODAY - timedelta(days=3)))
+    requests: list[str] = []
+    base = fake_github(requests)
+
+    def handler(request: httpx.Request) -> httpx.Response:
+        if request.url.path == "/search/code":
+            requests.append(request.url.path)
+            return httpx.Response(200, json={"total_count": 0, "items": []})
+        return base(request)
+
+    options = RunOptions(mode=None, limit=None, today=TODAY)
+    _, mode = run_collection(settings, make_client(handler), paths, options)
+
+    assert mode == Mode.WEEKLY
+    assert "/search/code" in requests
+    assert load_state(paths.state).last_full_scan_on == TODAY
+
+
+def test_auto_mode_stays_daily_within_interval(tmp_path: Path, settings: Settings) -> None:
+    paths = run_twice_paths(tmp_path)
+    recent = TODAY - timedelta(days=3)
+    seed_state(paths, CollectorState(bootstrapped_on=recent, last_full_scan_on=recent))
+    requests: list[str] = []
+
+    options = RunOptions(mode=None, limit=None, today=TODAY)
+    _, mode = run_collection(settings, make_client(fake_github(requests)), paths, options)
+
+    assert mode == Mode.DAILY
+    assert "/search/code" not in requests
+    assert load_state(paths.state).last_full_scan_on == recent
+
+
+def test_full_scan_without_token_is_not_recorded(tmp_path: Path, settings: Settings) -> None:
+    paths = run_twice_paths(tmp_path)
+    options = RunOptions(mode=Mode.WEEKLY, limit=None, today=TODAY)
+    client = make_client(fake_github([]), token=None)
+
+    run_collection(settings, client, paths, options)
+
+    assert load_state(paths.state).last_full_scan_on is None

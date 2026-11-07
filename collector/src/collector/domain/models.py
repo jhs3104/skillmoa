@@ -388,6 +388,8 @@ class CollectorState(BaseModel):
 
     schema_version: int = STATE_SCHEMA_VERSION
     bootstrapped_on: date | None = None
+    # 코드 검색 전체 탐색을 마친 날. auto 모드가 weekly를 고를 때 쓴다 (ADR-0013).
+    last_full_scan_on: date | None = None
     usage: DailyUsage = DailyUsage()
     repositories: dict[str, RepositoryRecord] = {}
     skills: dict[str, SkillRecord] = {}
