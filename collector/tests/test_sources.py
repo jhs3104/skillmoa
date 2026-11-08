@@ -1,6 +1,9 @@
+import httpx
+import pytest
+
 from collector.sources.code_search import discover_by_size, size_query
 from collector.sources.curated import parse_marketplace, parse_repository_links
-from collector.sources.github import CodeSearchPage
+from collector.sources.github import CodeSearchPage, RateLimitExceededError
 from tests.conftest import FIXTURES
 
 
@@ -36,7 +39,7 @@ def test_code_search_splits_ranges_over_the_result_cap() -> None:
             return CodeSearchPage(1500, [])
         return CodeSearchPage(1, [f"acme/{query[-3:]}"])
 
-    found = discover_by_size(search, 100)
+    found = discover_by_size(search, 100).repositories
     assert size_query(0, 50) in queries
     assert size_query(51, 100) in queries
     assert len(found) == 2
@@ -49,7 +52,7 @@ def test_code_search_reads_every_page_of_a_range() -> None:
         pages.append(page)
         return CodeSearchPage(250, [f"acme/page{page}"])
 
-    assert len(discover_by_size(search, 100)) == 3
+    assert len(discover_by_size(search, 100).repositories) == 3
     assert pages == [1, 2, 3]
 
 
@@ -75,3 +78,49 @@ def test_code_search_skips_empty_trailing_page() -> None:
 
     discover_by_size(search, 100)
     assert pages == [1, 2]
+
+
+def rejected(query: str) -> httpx.HTTPStatusError:
+    request = httpx.Request("GET", f"https://api.github.com/search/code?q={query}")
+    return httpx.HTTPStatusError("422", request=request, response=httpx.Response(422))
+
+
+def test_code_search_skips_a_failing_range_and_keeps_the_rest() -> None:
+    def search(query: str, page: int) -> CodeSearchPage:
+        if query == size_query(0, 100):
+            return CodeSearchPage(1500, [])
+        if query == size_query(0, 50):
+            raise rejected(query)
+        return CodeSearchPage(1, ["acme/kept"])
+
+    scan = discover_by_size(search, 100)
+    assert scan.repositories == {"acme/kept"}
+    assert scan.failed_ranges == 1
+    assert not scan.complete
+
+
+def test_code_search_keeps_results_when_rate_limited() -> None:
+    def search(query: str, page: int) -> CodeSearchPage:
+        if query == size_query(0, 100):
+            return CodeSearchPage(1500, [])
+        if query == size_query(0, 50):
+            raise RateLimitExceededError("wait too long")
+        return CodeSearchPage(1, ["acme/kept"])
+
+    scan = discover_by_size(search, 100)
+    assert scan.repositories == {"acme/kept"}
+    assert scan.stopped_by_rate_limit
+    assert not scan.complete
+
+
+def test_code_search_without_errors_is_complete() -> None:
+    scan = discover_by_size(lambda query, page: CodeSearchPage(1, ["acme/one"]), 100)
+    assert scan.complete
+
+
+@pytest.mark.parametrize("error", [httpx.ConnectError("down")])
+def test_code_search_skips_transport_failures(error: Exception) -> None:
+    def search(query: str, page: int) -> CodeSearchPage:
+        raise error
+
+    assert discover_by_size(search, 100).failed_ranges == 1

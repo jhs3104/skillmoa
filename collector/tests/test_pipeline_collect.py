@@ -501,3 +501,32 @@ def test_full_scan_without_token_is_not_recorded(tmp_path: Path, settings: Setti
     run_collection(settings, client, paths, options)
 
     assert load_state(paths.state).last_full_scan_on is None
+
+
+def test_failed_code_search_keeps_found_repositories_and_retries_next_run(
+    tmp_path: Path, settings: Settings
+) -> None:
+    paths = run_twice_paths(tmp_path)
+    seed_state(paths, CollectorState(bootstrapped_on=TODAY - timedelta(days=3)))
+    base = fake_github([])
+    repository = fixture_json("repo_anthropics_skills.json")
+
+    def handler(request: httpx.Request) -> httpx.Response:
+        if request.url.path == "/search/code":
+            if request.url.params["page"] == "2":
+                return httpx.Response(422, json={"message": "Cannot access beyond 1000"})
+            return httpx.Response(
+                200, json={"total_count": 150, "items": [{"repository": {"full_name": "acme/one"}}]}
+            )
+        if request.url.path == "/repos/acme/one":
+            item = repository | {"id": 7, "name": "one", "owner": {"login": "acme"}}
+            return httpx.Response(200, json=item)
+        return base(request)
+
+    options = RunOptions(mode=None, limit=None, today=TODAY)
+    context, mode = run_collection(settings, make_client(handler), paths, options)
+
+    assert mode == Mode.WEEKLY
+    assert "acme/one" in context.state.repositories
+    assert context.metrics.code_search_failed_ranges == 1
+    assert load_state(paths.state).last_full_scan_on is None

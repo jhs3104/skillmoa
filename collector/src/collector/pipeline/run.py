@@ -117,8 +117,8 @@ def run_collection(
             collect.refresh_known_repositories(context)
         full_scan = mode == Mode.WEEKLY
         found = collect.discover(context, full_scan=full_scan, small=small)
-        # 코드 검색이 끝까지 돌았을 때만 남긴다. 레이트 리밋으로 끊기면 다음 실행이 다시 맡는다.
-        if full_scan and github.authenticated:
+        # 모든 범위를 읽었을 때만 남긴다. 건너뛴 범위가 있으면 다음 실행이 다시 맡는다.
+        if full_scan and metrics.code_search_complete:
             state.last_full_scan_on = options.today
         collect.register_repositories(context, found)
         collect.scan_repositories(context, target)
