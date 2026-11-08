@@ -51,3 +51,27 @@ def test_code_search_reads_every_page_of_a_range() -> None:
 
     assert len(discover_by_size(search, 100)) == 3
     assert pages == [1, 2, 3]
+
+
+def test_code_search_stops_at_the_last_page_github_serves() -> None:
+    """한 크기에 1,000건이 넘게 몰리면 더 나눌 수 없다. 11번째 페이지는 422로 거부된다."""
+    pages: list[int] = []
+
+    def search(query: str, page: int) -> CodeSearchPage:
+        assert page <= 10, "GitHub는 1,000건 뒤의 페이지를 422로 거부한다"
+        pages.append(page)
+        return CodeSearchPage(1500, [f"acme/page{page}"])
+
+    discover_by_size(search, 0)
+    assert pages == list(range(1, 11))
+
+
+def test_code_search_skips_empty_trailing_page() -> None:
+    pages: list[int] = []
+
+    def search(query: str, page: int) -> CodeSearchPage:
+        pages.append(page)
+        return CodeSearchPage(200, [f"acme/page{page}"])
+
+    discover_by_size(search, 100)
+    assert pages == [1, 2]

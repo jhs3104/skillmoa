@@ -4,6 +4,7 @@
 그래서 파일 크기 범위를 나눠가며 각 범위가 1,000건 이하가 되도록 조회한다.
 """
 
+import math
 from collections.abc import Callable
 
 from collector.sources.github import RESULTS_PER_PAGE, SEARCH_RESULT_CAP, CodeSearchPage
@@ -27,7 +28,8 @@ def discover_by_size(search: Search, max_size: int) -> set[str]:
             pending += [(low, middle), (middle + 1, high)]
             continue
         repositories.update(first.repositories)
-        last_page = min(first.total_count, SEARCH_RESULT_CAP) // RESULTS_PER_PAGE + 1
+        # 1,000건 뒤의 페이지를 요청하면 GitHub가 422로 거부한다.
+        last_page = math.ceil(min(first.total_count, SEARCH_RESULT_CAP) / RESULTS_PER_PAGE)
         for page in range(2, last_page + 1):
             repositories.update(search(query, page).repositories)
     return repositories
