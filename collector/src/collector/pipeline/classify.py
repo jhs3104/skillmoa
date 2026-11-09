@@ -43,6 +43,10 @@ def classify_skills(context: CollectContext, classifier: Classifier, keys: list[
         nonlocal position
         if position >= len(pending):
             return None
+        if context.out_of_time():
+            context.metrics.stopped_by_time = True
+            logger.warning("실행 마감, 분류 %d개는 다음 실행으로", len(pending) - position)
+            return None
         if (
             usage.classify_calls >= settings.max_calls_per_day
             or usage.classify_calls - calls_at_start >= settings.max_calls_per_run

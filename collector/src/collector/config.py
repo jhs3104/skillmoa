@@ -100,6 +100,10 @@ class ExcludeSettings(_Section):
     keep: tuple[str, ...] = ()
 
 
+class RunSettings(_Section):
+    max_minutes: int
+
+
 class Settings(_Section):
     discovery: DiscoverySettings
     filter: FilterSettings
@@ -108,6 +112,7 @@ class Settings(_Section):
     summary: SummarySettings
     classify: ClassifySettings
     news: NewsSettings
+    run: RunSettings
     exclude: ExcludeSettings = ExcludeSettings()
 
 

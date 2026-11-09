@@ -1,3 +1,4 @@
+import time
 from collections.abc import Callable
 from datetime import UTC, date, datetime, timedelta
 from pathlib import Path
@@ -590,3 +591,17 @@ def test_unfinished_code_search_resumes_even_within_interval(
     assert mode == Mode.WEEKLY
     assert queries == ["filename:SKILL.md size:0..10"]
     assert load_state(paths.state).code_search_pending == []
+
+
+def test_scan_stops_at_the_run_deadline(tmp_path: Path, settings: Settings) -> None:
+    paths = run_twice_paths(tmp_path)
+    seed_state(paths, CollectorState(bootstrapped_on=TODAY, last_full_scan_on=TODAY))
+    hurried = settings.model_copy(
+        update={"run": settings.run.model_copy(update={"max_minutes": 0})}
+    )
+    options = RunOptions(mode=None, limit=None, today=TODAY)
+
+    context, _ = run_collection(hurried, make_client(fake_github([])), paths, options)
+
+    assert context.metrics.scanned_repositories <= 1
+    assert context.deadline <= time.monotonic()

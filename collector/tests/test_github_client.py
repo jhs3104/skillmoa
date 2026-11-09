@@ -158,3 +158,20 @@ def test_token_is_sent_as_bearer() -> None:
 
     make_client(handler, token="secret").get_repository("a/b")
     assert seen == ["Bearer secret"]
+
+
+def test_rate_limit_wait_past_the_run_deadline_stops_instead() -> None:
+    clock = FakeClock(now=1_000.0)
+    responses = [
+        json_response(
+            {"message": "API rate limit exceeded"},
+            403,
+            x_ratelimit_remaining="0",
+            x_ratelimit_reset="1600",
+        ),
+    ]
+    client = make_client(lambda _: responses.pop(0), clock)
+    client.stop_waiting_after(1_300.0)
+    with pytest.raises(RateLimitExceededError):
+        client.get_repository("a/b")
+    assert sum(clock.sleeps) < 300

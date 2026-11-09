@@ -55,6 +55,10 @@ def summarize_skills(
         # 상한은 보낸 호출 수로 센다. 동시에 보내도 넘지 않는다.
         nonlocal position
         while position < len(pending):
+            if context.out_of_time():
+                context.metrics.stopped_by_time = True
+                logger.warning("실행 마감, 요약 %d개는 다음 실행으로", len(pending) - position)
+                return None
             if (
                 usage.summary_calls >= settings.max_calls_per_day
                 or usage.summary_calls - calls_at_start >= settings.max_calls_per_run

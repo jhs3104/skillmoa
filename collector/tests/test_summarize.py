@@ -722,3 +722,16 @@ def test_tag_vocabularies_match_domain() -> None:
         roles=(Role.DEVELOPER,), use_cases=("x",), difficulty=Difficulty.ADVANCED
     )
     assert tags.difficulty == "advanced"
+
+
+def test_summaries_stop_when_the_run_is_out_of_time(
+    make_context: Callable[..., CollectContext],
+) -> None:
+    context = stocked_context(make_context, 3)
+    context.deadline = 0.0
+    summarizer = ScriptedSummarizer()
+
+    summarize_skills(context, summarizer, list(context.state.skills))
+
+    assert summarizer.calls == []
+    assert context.metrics.stopped_by_time

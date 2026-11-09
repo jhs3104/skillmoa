@@ -335,3 +335,16 @@ def test_legacy_subcategory_is_shown_under_its_new_category() -> None:
     exported = build_site_data(state, RANKING).skills[0]
 
     assert exported.category == Category.FINANCE
+
+
+def test_classification_stops_when_the_run_is_out_of_time(
+    make_context: Callable[..., CollectContext],
+) -> None:
+    context = summarized_context(make_context, 3)
+    context.deadline = 0.0
+    classifier = ScriptedClassifier()
+
+    classify_skills(context, classifier, list(context.state.skills))
+
+    assert classifier.requests == []
+    assert context.metrics.stopped_by_time

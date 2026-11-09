@@ -110,6 +110,9 @@ def run_collection(
         metrics=metrics,
         checkpoint=lambda: save_state(state, paths.state),
     )
+    budget = settings.run.max_minutes * 60
+    context.deadline = time.monotonic() + budget
+    github.stop_waiting_after(time.time() + budget)
     small = options.limit is not None
     target = options.limit or (settings.ranking.catalog_limit if mode == Mode.BOOTSTRAP else None)
 

@@ -1,6 +1,7 @@
 """저장소 발견과 SKILL.md 스캔. 결과는 전부 CollectorState에 누적된다."""
 
 import logging
+import math
 import time
 from collections.abc import Callable
 from dataclasses import dataclass, field
@@ -54,6 +55,11 @@ class CollectContext:
     today: date
     metrics: RunMetrics
     checkpoint: Callable[[], None]
+    # time.monotonic() 기준 실행 마감. 단계마다 이 시각이 지나면 새 작업을 시작하지 않는다.
+    deadline: float = math.inf
+
+    def out_of_time(self) -> bool:
+        return time.monotonic() >= self.deadline
 
 
 def discover(
@@ -90,7 +96,7 @@ def discover(
     elif full_scan:
         state = context.state
         ranges = state.code_search_pending or [(0, settings.code_search_max_size)]
-        deadline = clock() + settings.code_search_minutes * 60
+        deadline = min(clock() + settings.code_search_minutes * 60, context.deadline)
         scan = discover_by_size(context.github.search_code, ranges, lambda: clock() >= deadline)
         for full_name in scan.repositories:
             add(full_name, "code_search")
@@ -217,7 +223,7 @@ def scan_repositories(
 
     if target is not None and _catalog_is_full(context, target):
         return
-    deadline = clock() + context.settings.github.max_scan_minutes * 60
+    deadline = min(clock() + context.settings.github.max_scan_minutes * 60, context.deadline)
     for index, record in enumerate(pending, start=1):
         if index > 1 and clock() >= deadline:
             context.metrics.scan_deferred_repositories = len(pending) - index + 1

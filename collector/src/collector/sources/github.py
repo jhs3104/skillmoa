@@ -1,6 +1,7 @@
 """GitHub REST 클라이언트. 레이트 리밋과 재시도를 이 모듈에서 전부 처리한다."""
 
 import logging
+import math
 import time
 from collections.abc import Callable, Iterator
 from dataclasses import dataclass
@@ -80,6 +81,7 @@ class GitHubClient:
         )
         self.authenticated = bool(token)
         self._max_wait = max_wait_seconds
+        self._wait_deadline = math.inf
         self._sleep = sleep
         self._clock = clock
         search_interval = 60 / (30 if token else 10)
@@ -92,6 +94,10 @@ class GitHubClient:
 
     def close(self) -> None:
         self._http.close()
+
+    def stop_waiting_after(self, deadline: float) -> None:
+        """한도가 이 시각(clock 기준) 뒤에 풀리면 기다리지 않고 RateLimitExceededError를 낸다."""
+        self._wait_deadline = deadline
 
     def get_repository(self, full_name: str) -> Repository | None:
         response = self._get(Resource.CORE, f"{API_URL}/repos/{full_name}")
@@ -187,8 +193,9 @@ class GitHubClient:
         return retrying(checked)
 
     def _await_slot(self, resource: Resource) -> None:
-        wait = self._not_before[resource] - self._clock()
-        if wait > self._max_wait:
+        now = self._clock()
+        wait = self._not_before[resource] - now
+        if wait > self._max_wait or now + wait > self._wait_deadline:
             raise RateLimitExceededError(f"{resource}: {wait:.0f}초 대기 필요")
         if wait > 0:
             logger.info("%s 한도 대기 %.1f초", resource, wait)

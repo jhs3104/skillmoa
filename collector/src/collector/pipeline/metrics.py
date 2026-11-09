@@ -33,6 +33,7 @@ class RunMetrics(BaseModel):
     news_summarized: int = 0
     news_failed: int = 0
     stopped_by_rate_limit: bool = False
+    stopped_by_time: bool = False
     input_tokens: int = 0
     output_tokens: int = 0
     duration_seconds: float = 0.0
