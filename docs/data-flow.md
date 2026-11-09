@@ -5,7 +5,8 @@ flowchart TD
     subgraph sources["발견 소스"]
         curated["큐레이션<br/>anthropics/skills, awesome, marketplace.json"]
         topics["저장소 검색<br/>topic + sort=stars"]
-        code["코드 검색 (주간)<br/>filename:SKILL.md + size 분할"]
+        search["저장소 검색<br/>skill 키워드, 스타 10 이상, 스타 구간 분할 (ADR-0023)"]
+        code["코드 검색 (수동)<br/>filename:SKILL.md + size 분할"]
     end
     state[("collector/state/")]
     sources --> metadata["저장소 메타데이터 정규화"]
@@ -32,7 +33,7 @@ flowchart TD
 | 모드 | 언제 | 발견 범위 |
 |---|---|---|
 | `bootstrap` | 최초 1회 | 큐레이션 + topic 검색, `catalog_limit`을 채우면 중단 |
-| `daily` | 3시간마다 | 알려진 저장소 갱신 + topic 검색 |
+| `daily` | 3시간마다 | topic 검색 + 키워드 저장소 검색 + 검색에 안 잡힌 알려진 저장소 갱신 |
 | `weekly` | 수동 실행만 (`--mode weekly`). `[discovery] auto_full_scan`을 켜면 7일 간격이나 남은 범위가 있을 때 자동으로 고른다 | `daily` + 코드 검색. 실행당 90분씩 나눠 읽는다 |
 
 `--limit N`을 주면 `collector/build/small/`에 격리된 상태로 N개만 처리하고, 샘플을 `collector/build/samples/`에 남긴다. 커밋 대상 파일은 건드리지 않는다.

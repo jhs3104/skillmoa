@@ -118,14 +118,15 @@ def run_collection(
     target = options.limit or (settings.ranking.catalog_limit if mode == Mode.BOOTSTRAP else None)
 
     try:
-        if mode != Mode.BOOTSTRAP:
-            collect.refresh_known_repositories(context)
         full_scan = mode == Mode.WEEKLY
         found = collect.discover(context, full_scan=full_scan, small=small)
         # 남은 범위가 없을 때만 남긴다. 실패해 건너뛴 범위는 다음 주기에 다시 읽는다.
         if full_scan and metrics.code_search_complete:
             state.last_full_scan_on = options.today
-        collect.register_repositories(context, found)
+        fresh = collect.register_repositories(context, found)
+        # 발견이 먼저다. 검색에 잡힌 저장소는 이미 최신이라 갱신 호출을 아낀다.
+        if mode != Mode.BOOTSTRAP:
+            collect.refresh_known_repositories(context, skip=fresh)
         collect.scan_repositories(context, target)
     except RateLimitExceededError as error:
         logger.warning("레이트 리밋으로 수집을 멈춥니다. 다음 실행에서 이어집니다: %s", error)

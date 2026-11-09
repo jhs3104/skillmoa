@@ -56,6 +56,12 @@ class RepositoryTree:
 
 
 @dataclass(frozen=True)
+class RepositorySearchPage:
+    total_count: int
+    repositories: list[Repository]
+
+
+@dataclass(frozen=True)
 class CodeSearchPage:
     total_count: int
     repositories: list[str]
@@ -134,6 +140,17 @@ class GitHubClient:
             yield from (parse_repository(item) for item in items)
             if len(items) < RESULTS_PER_PAGE or page * RESULTS_PER_PAGE >= SEARCH_RESULT_CAP:
                 return
+
+    def search_repository_page(self, query: str, page: int) -> RepositorySearchPage:
+        """스타 내림차순 한 페이지. 저장소 메타데이터가 함께 와서 따로 조회하지 않아도 된다."""
+        params = {"q": query, "sort": "stars", "order": "desc", "per_page": str(RESULTS_PER_PAGE)}
+        response = self._get(
+            Resource.SEARCH, f"{API_URL}/search/repositories", params | {"page": str(page)}
+        )
+        response.raise_for_status()
+        body = response.json()
+        repositories = [parse_repository(item) for item in body["items"]]
+        return RepositorySearchPage(total_count=body["total_count"], repositories=repositories)
 
     def search_code(self, query: str, page: int) -> CodeSearchPage:
         response = self._get(

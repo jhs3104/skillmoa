@@ -8,6 +8,7 @@ from pydantic import BaseModel, Field
 class RunMetrics(BaseModel):
     mode: str
     discovered_repositories: int = 0
+    searched_repositories: int = 0
     code_search_complete: bool = False
     code_search_failed_ranges: int = 0
     code_search_remaining_ranges: int = 0

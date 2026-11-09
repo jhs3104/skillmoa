@@ -10,6 +10,12 @@ awesome_lists = [
 ]
 topics = ["claude-skills", "agent-skills", "claude-code-skills", "claude-code", "codex-skills"]
 search_pages_per_topic = 3
+# 저장소 검색. 스타순으로 하한까지 읽는다. "skill"은 skills도 함께 찾는다.
+# 스타 10개 이상 22,661개를 15.5분에 끝까지 읽었다 (2026-11-09 실측, ADR-0023).
+# 예산을 넘기면 스타가 적은 쪽 끝만 이번 실행에서 빠진다. 위쪽은 매번 다시 읽는다.
+repository_queries = ["skill in:name,description,topics"]
+repository_min_stars = 10
+repository_search_minutes = 30
 code_search_max_size = 200000
 # 코드 검색 전체 탐색 간격. 예약 실행이 늦거나 빠져도 이 간격이 지나면 다음 실행이 맡는다.
 # 예약 실행이 스스로 weekly(코드 검색)를 고를지. GitHub의 SKILL.md는 약 722만 개라

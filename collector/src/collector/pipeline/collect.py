@@ -3,7 +3,7 @@
 import logging
 import math
 import time
-from collections.abc import Callable
+from collections.abc import Callable, Set
 from dataclasses import dataclass, field
 from datetime import date
 
@@ -32,6 +32,7 @@ from collector.pipeline.metrics import RunMetrics
 from collector.sources.code_search import discover_by_size
 from collector.sources.curated import parse_marketplace, parse_repository_links
 from collector.sources.github import GitHubClient
+from collector.sources.repo_search import discover_by_stars
 
 logger = logging.getLogger(__name__)
 
@@ -91,6 +92,19 @@ def discover(
         for repository in context.github.search_repositories(f"topic:{topic}", pages):
             add(repository.full_name, f"topic:{topic}", repository)
 
+    if not small:
+        deadline = min(clock() + settings.repository_search_minutes * 60, context.deadline)
+        for query in settings.repository_queries:
+            search = discover_by_stars(
+                context.github.search_repository_page,
+                query,
+                settings.repository_min_stars,
+                lambda: clock() >= deadline,
+            )
+            for repository in search.repositories.values():
+                add(repository.full_name, "search", repository)
+            context.metrics.searched_repositories += len(search.repositories)
+
     if full_scan and not context.github.authenticated:
         logger.warning("코드 검색은 토큰이 필요해서 건너뜁니다")
     elif full_scan:
@@ -124,11 +138,17 @@ def _curated_repositories(context: CollectContext) -> set[str]:
     return repositories
 
 
-def register_repositories(context: CollectContext, found: dict[str, Discovered]) -> None:
-    """메타데이터가 없는 항목만 조회한다. 재개할 때는 이미 아는 저장소를 건너뛴다."""
+def register_repositories(context: CollectContext, found: dict[str, Discovered]) -> set[str]:
+    """메타데이터가 없는 항목만 조회한다. 재개할 때는 이미 아는 저장소를 건너뛴다.
+
+    이번 실행에서 GitHub의 최신 메타데이터를 받은 저장소 키를 돌려준다.
+    """
+    fresh: set[str] = set()
     for key, entry in sorted(found.items()):
         known = context.state.repositories.get(key)
         repository = entry.repository or known
+        if entry.repository is not None or known is None:
+            fresh.add(key)
         if repository is None:
             try:
                 repository = context.github.get_repository(entry.full_name)
@@ -138,6 +158,7 @@ def register_repositories(context: CollectContext, found: dict[str, Discovered])
                 continue
         if repository is not None:
             upsert_repository(context, repository, entry.sources)
+    return fresh
 
 
 def upsert_repository(
@@ -158,11 +179,15 @@ def upsert_repository(
     return record
 
 
-def refresh_known_repositories(context: CollectContext) -> None:
-    """알려진 저장소의 스타와 pushed_at을 갱신한다. 삭제와 이름 변경도 여기서 처리한다."""
+def refresh_known_repositories(context: CollectContext, skip: Set[str] = frozenset()) -> None:
+    """알려진 저장소의 스타와 pushed_at을 갱신한다. 삭제와 이름 변경도 여기서 처리한다.
+
+    skip은 이번 발견에서 이미 최신 메타데이터를 받은 저장소다. 저장소마다 한 번씩 부르므로
+    수가 늘면 GitHub 한도(시간당 5,000회)를 넘는다. 검색에 잡힌 저장소는 다시 부르지 않는다.
+    """
     state = context.state
     for key, record in sorted(state.repositories.items()):
-        if record.exclusion is not None:
+        if record.exclusion is not None or key in skip:
             continue
         try:
             repository = context.github.get_repository(record.full_name)

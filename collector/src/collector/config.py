@@ -21,6 +21,9 @@ class DiscoverySettings(_Section):
     awesome_lists: tuple[str, ...]
     topics: tuple[str, ...]
     search_pages_per_topic: int
+    repository_queries: tuple[str, ...]
+    repository_min_stars: int
+    repository_search_minutes: int
     code_search_max_size: int
     auto_full_scan: bool
     full_scan_interval_days: int

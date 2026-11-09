@@ -225,7 +225,7 @@ def test_same_repository_from_two_sources_is_one_record(
 
     def handler(request: httpx.Request) -> httpx.Response:
         if request.url.path.startswith("/search"):
-            return httpx.Response(200, json={"items": [item]})
+            return httpx.Response(200, json={"total_count": 1, "items": [item]})
         return httpx.Response(200, json=item)
 
     context = make_context(make_client(handler))
@@ -299,7 +299,7 @@ def fake_github(requests: list[str]) -> Callable:
         if request.url.host == "raw.githubusercontent.com":
             return httpx.Response(200, content=SAMPLE)
         if request.url.path.startswith("/search"):
-            return httpx.Response(200, json={"items": []})
+            return httpx.Response(200, json={"total_count": 0, "items": []})
         if "/git/trees/" in request.url.path:
             return httpx.Response(200, json=tree_body(("skills/a/SKILL.md", SAMPLE_SHA)))
         return httpx.Response(200, json=repository)
@@ -398,7 +398,7 @@ def test_daily_discovers_new_repositories_from_topic_search(
 
     def handler(request: httpx.Request) -> httpx.Response:
         if request.url.path.startswith("/search/repositories"):
-            return httpx.Response(200, json={"items": [newcomer]})
+            return httpx.Response(200, json={"total_count": 1, "items": [newcomer]})
         return base(request)
 
     options = RunOptions(mode=Mode.DAILY, limit=None, today=TODAY)
@@ -637,3 +637,55 @@ def test_auto_mode_stays_daily_when_auto_full_scan_is_off(
 
     assert mode == Mode.DAILY
     assert "/search/code" not in requests
+
+
+def test_refresh_skips_repositories_already_fresh_from_search(make_context: ContextFactory) -> None:
+    requests: list[str] = []
+
+    def handler(request: httpx.Request) -> httpx.Response:
+        requests.append(request.url.path)
+        return httpx.Response(200, json=fixture_json("repo_anthropics_skills.json"))
+
+    context = make_context(make_client(handler))
+    context.state.repositories["anthropics/skills"] = record(
+        "anthropics/skills", stars=1, scanned_pushed_at=PUSHED
+    )
+
+    refresh_known_repositories(context, skip={"anthropics/skills"})
+
+    assert requests == []
+
+
+def test_daily_refreshes_known_repositories_missing_from_search(
+    tmp_path: Path, settings: Settings
+) -> None:
+    paths = run_twice_paths(tmp_path)
+    requests: list[str] = []
+    base = fake_github(requests)
+    item = fixture_json("repo_anthropics_skills.json")
+    other = item | {
+        "id": 99,
+        "name": "other",
+        "full_name": "acme/other",
+        "owner": {"login": "acme"},
+    }
+
+    def handler(request: httpx.Request) -> httpx.Response:
+        if request.url.path == "/search/repositories" and "stars:" in request.url.params["q"]:
+            requests.append("repo-search")
+            return httpx.Response(200, json={"total_count": 1, "items": [other]})
+        return base(request)
+
+    client = make_client(handler)
+    run_collection(
+        settings, client, paths, RunOptions(mode=Mode.BOOTSTRAP, limit=None, today=TODAY)
+    )
+    requests.clear()
+
+    daily = RunOptions(mode=Mode.DAILY, limit=None, today=date(2026, 11, 2))
+    context, _ = run_collection(settings, client, paths, daily)
+
+    assert "repo-search" in requests
+    assert requests.count("/repos/anthropics/skills") == 1
+    assert "/repos/acme/other" not in requests
+    assert "acme/other" in context.state.repositories
