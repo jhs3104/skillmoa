@@ -90,7 +90,8 @@ def choose_mode(settings: Settings, state: CollectorState, options: RunOptions) 
         return Mode.BOOTSTRAP
     interval = settings.discovery.full_scan_interval_days
     due = full_scan_due(state.last_full_scan_on, options.today, interval)
-    if options.limit is None and (state.code_search_pending or due):
+    auto = settings.discovery.auto_full_scan and options.limit is None
+    if auto and (state.code_search_pending or due):
         return Mode.WEEKLY
     return Mode.DAILY
 

@@ -33,7 +33,7 @@ flowchart TD
 |---|---|---|
 | `bootstrap` | 최초 1회 | 큐레이션 + topic 검색, `catalog_limit`을 채우면 중단 |
 | `daily` | 3시간마다 | 알려진 저장소 갱신 + topic 검색 |
-| `weekly` | 마지막 전체 탐색에서 7일이 지났거나, 이어서 읽을 범위(`code_search_pending`)가 남았을 때 | `daily` + 코드 검색 전수 조회. 실행당 90분씩 나눠 읽는다 |
+| `weekly` | 수동 실행만 (`--mode weekly`). `[discovery] auto_full_scan`을 켜면 7일 간격이나 남은 범위가 있을 때 자동으로 고른다 | `daily` + 코드 검색. 실행당 90분씩 나눠 읽는다 |
 
 `--limit N`을 주면 `collector/build/small/`에 격리된 상태로 N개만 처리하고, 샘플을 `collector/build/samples/`에 남긴다. 커밋 대상 파일은 건드리지 않는다.
 

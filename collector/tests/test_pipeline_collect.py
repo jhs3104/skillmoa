@@ -456,11 +456,17 @@ def test_search_repository_parses_to_domain_model() -> None:
     assert isinstance(parse_repository(item), Repository)
 
 
+def with_auto_full_scan(settings: Settings) -> Settings:
+    discovery = settings.discovery.model_copy(update={"auto_full_scan": True})
+    return settings.model_copy(update={"discovery": discovery})
+
+
 def seed_state(paths: Paths, state: CollectorState) -> None:
     save_state(state, paths.state)
 
 
 def test_auto_mode_runs_full_scan_when_never_done(tmp_path: Path, settings: Settings) -> None:
+    settings = with_auto_full_scan(settings)
     paths = run_twice_paths(tmp_path)
     seed_state(paths, CollectorState(bootstrapped_on=TODAY - timedelta(days=3)))
     requests: list[str] = []
@@ -507,6 +513,7 @@ def test_full_scan_without_token_is_not_recorded(tmp_path: Path, settings: Setti
 def test_failed_code_search_range_is_skipped_and_scan_finishes(
     tmp_path: Path, settings: Settings
 ) -> None:
+    settings = with_auto_full_scan(settings)
     paths = run_twice_paths(tmp_path)
     seed_state(paths, CollectorState(bootstrapped_on=TODAY - timedelta(days=3)))
     base = fake_github([])
@@ -534,6 +541,7 @@ def test_failed_code_search_range_is_skipped_and_scan_finishes(
 
 
 def test_code_search_resumes_across_runs(tmp_path: Path, settings: Settings) -> None:
+    settings = with_auto_full_scan(settings)
     paths = run_twice_paths(tmp_path)
     recent = TODAY - timedelta(days=1)
     seed_state(
@@ -569,6 +577,7 @@ def test_code_search_resumes_across_runs(tmp_path: Path, settings: Settings) -> 
 def test_unfinished_code_search_resumes_even_within_interval(
     tmp_path: Path, settings: Settings
 ) -> None:
+    settings = with_auto_full_scan(settings)
     paths = run_twice_paths(tmp_path)
     recent = TODAY - timedelta(days=1)
     state = CollectorState(
@@ -605,3 +614,26 @@ def test_scan_stops_at_the_run_deadline(tmp_path: Path, settings: Settings) -> N
 
     assert context.metrics.scanned_repositories <= 1
     assert context.deadline <= time.monotonic()
+
+
+def test_auto_mode_stays_daily_when_auto_full_scan_is_off(
+    tmp_path: Path, settings: Settings
+) -> None:
+    paths = run_twice_paths(tmp_path)
+    state = CollectorState(
+        bootstrapped_on=TODAY - timedelta(days=30), code_search_pending=[(0, 10)]
+    )
+    seed_state(paths, state)
+    requests: list[str] = []
+    off = settings.discovery.model_copy(update={"auto_full_scan": False})
+
+    options = RunOptions(mode=None, limit=None, today=TODAY)
+    _, mode = run_collection(
+        settings.model_copy(update={"discovery": off}),
+        make_client(fake_github(requests)),
+        paths,
+        options,
+    )
+
+    assert mode == Mode.DAILY
+    assert "/search/code" not in requests

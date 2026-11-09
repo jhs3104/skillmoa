@@ -22,6 +22,7 @@ class DiscoverySettings(_Section):
     topics: tuple[str, ...]
     search_pages_per_topic: int
     code_search_max_size: int
+    auto_full_scan: bool
     full_scan_interval_days: int
     code_search_minutes: int
 
