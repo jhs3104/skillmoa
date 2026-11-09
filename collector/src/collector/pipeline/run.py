@@ -89,7 +89,8 @@ def choose_mode(settings: Settings, state: CollectorState, options: RunOptions) 
     if state.bootstrapped_on is None:
         return Mode.BOOTSTRAP
     interval = settings.discovery.full_scan_interval_days
-    if options.limit is None and full_scan_due(state.last_full_scan_on, options.today, interval):
+    due = full_scan_due(state.last_full_scan_on, options.today, interval)
+    if options.limit is None and (state.code_search_pending or due):
         return Mode.WEEKLY
     return Mode.DAILY
 
@@ -117,7 +118,7 @@ def run_collection(
             collect.refresh_known_repositories(context)
         full_scan = mode == Mode.WEEKLY
         found = collect.discover(context, full_scan=full_scan, small=small)
-        # 모든 범위를 읽었을 때만 남긴다. 건너뛴 범위가 있으면 다음 실행이 다시 맡는다.
+        # 남은 범위가 없을 때만 남긴다. 실패해 건너뛴 범위는 다음 주기에 다시 읽는다.
         if full_scan and metrics.code_search_complete:
             state.last_full_scan_on = options.today
         collect.register_repositories(context, found)

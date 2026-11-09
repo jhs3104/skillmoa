@@ -10,6 +10,7 @@ class RunMetrics(BaseModel):
     discovered_repositories: int = 0
     code_search_complete: bool = False
     code_search_failed_ranges: int = 0
+    code_search_remaining_ranges: int = 0
     refreshed_repositories: int = 0
     scanned_repositories: int = 0
     scan_deferred_repositories: int = 0

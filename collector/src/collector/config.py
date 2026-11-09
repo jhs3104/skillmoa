@@ -23,6 +23,7 @@ class DiscoverySettings(_Section):
     search_pages_per_topic: int
     code_search_max_size: int
     full_scan_interval_days: int
+    code_search_minutes: int
 
 
 class FilterSettings(_Section):

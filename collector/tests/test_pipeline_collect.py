@@ -503,7 +503,7 @@ def test_full_scan_without_token_is_not_recorded(tmp_path: Path, settings: Setti
     assert load_state(paths.state).last_full_scan_on is None
 
 
-def test_failed_code_search_keeps_found_repositories_and_retries_next_run(
+def test_failed_code_search_range_is_skipped_and_scan_finishes(
     tmp_path: Path, settings: Settings
 ) -> None:
     paths = run_twice_paths(tmp_path)
@@ -529,4 +529,64 @@ def test_failed_code_search_keeps_found_repositories_and_retries_next_run(
     assert mode == Mode.WEEKLY
     assert "acme/one" in context.state.repositories
     assert context.metrics.code_search_failed_ranges == 1
-    assert load_state(paths.state).last_full_scan_on is None
+    assert load_state(paths.state).last_full_scan_on == TODAY
+
+
+def test_code_search_resumes_across_runs(tmp_path: Path, settings: Settings) -> None:
+    paths = run_twice_paths(tmp_path)
+    recent = TODAY - timedelta(days=1)
+    seed_state(
+        paths, CollectorState(bootstrapped_on=recent, last_full_scan_on=recent - timedelta(days=7))
+    )
+    base = fake_github([])
+    max_size = settings.discovery.code_search_max_size
+
+    def handler(request: httpx.Request) -> httpx.Response:
+        if request.url.path == "/search/code":
+            whole = request.url.params["q"] == f"filename:SKILL.md size:0..{max_size}"
+            return httpx.Response(200, json={"total_count": 1500 if whole else 0, "items": []})
+        return base(request)
+
+    discovery = settings.discovery.model_copy(update={"code_search_minutes": 0})
+    hurried = settings.model_copy(update={"discovery": discovery})
+    options = RunOptions(mode=None, limit=None, today=TODAY)
+
+    _, first_mode = run_collection(hurried, make_client(handler), paths, options)
+    paused = load_state(paths.state)
+    assert first_mode == Mode.WEEKLY
+    assert len(paused.code_search_pending) == 2
+    assert paused.last_full_scan_on == recent - timedelta(days=7)
+
+    tomorrow = RunOptions(mode=None, limit=None, today=TODAY + timedelta(days=1))
+    _, second_mode = run_collection(settings, make_client(handler), paths, tomorrow)
+    done = load_state(paths.state)
+    assert second_mode == Mode.WEEKLY
+    assert done.code_search_pending == []
+    assert done.last_full_scan_on == TODAY + timedelta(days=1)
+
+
+def test_unfinished_code_search_resumes_even_within_interval(
+    tmp_path: Path, settings: Settings
+) -> None:
+    paths = run_twice_paths(tmp_path)
+    recent = TODAY - timedelta(days=1)
+    state = CollectorState(
+        bootstrapped_on=recent, last_full_scan_on=recent, code_search_pending=[(0, 10)]
+    )
+    seed_state(paths, state)
+
+    base = fake_github([])
+    queries: list[str] = []
+
+    def handler(request: httpx.Request) -> httpx.Response:
+        if request.url.path == "/search/code":
+            queries.append(request.url.params["q"])
+            return httpx.Response(200, json={"total_count": 0, "items": []})
+        return base(request)
+
+    options = RunOptions(mode=None, limit=None, today=TODAY)
+    _, mode = run_collection(settings, make_client(handler), paths, options)
+
+    assert mode == Mode.WEEKLY
+    assert queries == ["filename:SKILL.md size:0..10"]
+    assert load_state(paths.state).code_search_pending == []

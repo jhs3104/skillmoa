@@ -390,6 +390,8 @@ class CollectorState(BaseModel):
     bootstrapped_on: date | None = None
     # 코드 검색 전체 탐색을 마친 날. auto 모드가 weekly를 고를 때 쓴다 (ADR-0013).
     last_full_scan_on: date | None = None
+    # 다음 실행이 이어서 읽을 코드 검색 크기 범위. 비어 있으면 진행 중인 전체 탐색이 없다.
+    code_search_pending: list[tuple[int, int]] = []
     usage: DailyUsage = DailyUsage()
     repositories: dict[str, RepositoryRecord] = {}
     skills: dict[str, SkillRecord] = {}

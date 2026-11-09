@@ -39,7 +39,7 @@ def test_code_search_splits_ranges_over_the_result_cap() -> None:
             return CodeSearchPage(1500, [])
         return CodeSearchPage(1, [f"acme/{query[-3:]}"])
 
-    found = discover_by_size(search, 100).repositories
+    found = discover_by_size(search, [(0, 100)]).repositories
     assert size_query(0, 50) in queries
     assert size_query(51, 100) in queries
     assert len(found) == 2
@@ -52,7 +52,7 @@ def test_code_search_reads_every_page_of_a_range() -> None:
         pages.append(page)
         return CodeSearchPage(250, [f"acme/page{page}"])
 
-    assert len(discover_by_size(search, 100).repositories) == 3
+    assert len(discover_by_size(search, [(0, 100)]).repositories) == 3
     assert pages == [1, 2, 3]
 
 
@@ -65,7 +65,7 @@ def test_code_search_stops_at_the_last_page_github_serves() -> None:
         pages.append(page)
         return CodeSearchPage(1500, [f"acme/page{page}"])
 
-    discover_by_size(search, 0)
+    discover_by_size(search, [(0, 0)])
     assert pages == list(range(1, 11))
 
 
@@ -76,7 +76,7 @@ def test_code_search_skips_empty_trailing_page() -> None:
         pages.append(page)
         return CodeSearchPage(200, [f"acme/page{page}"])
 
-    discover_by_size(search, 100)
+    discover_by_size(search, [(0, 100)])
     assert pages == [1, 2]
 
 
@@ -85,7 +85,7 @@ def rejected(query: str) -> httpx.HTTPStatusError:
     return httpx.HTTPStatusError("422", request=request, response=httpx.Response(422))
 
 
-def test_code_search_skips_a_failing_range_and_keeps_the_rest() -> None:
+def test_code_search_skips_a_failing_range_and_finishes() -> None:
     def search(query: str, page: int) -> CodeSearchPage:
         if query == size_query(0, 100):
             return CodeSearchPage(1500, [])
@@ -93,13 +93,13 @@ def test_code_search_skips_a_failing_range_and_keeps_the_rest() -> None:
             raise rejected(query)
         return CodeSearchPage(1, ["acme/kept"])
 
-    scan = discover_by_size(search, 100)
+    scan = discover_by_size(search, [(0, 100)])
     assert scan.repositories == {"acme/kept"}
     assert scan.failed_ranges == 1
-    assert not scan.complete
+    assert scan.finished
 
 
-def test_code_search_keeps_results_when_rate_limited() -> None:
+def test_code_search_keeps_the_interrupted_range_when_rate_limited() -> None:
     def search(query: str, page: int) -> CodeSearchPage:
         if query == size_query(0, 100):
             return CodeSearchPage(1500, [])
@@ -107,15 +107,33 @@ def test_code_search_keeps_results_when_rate_limited() -> None:
             raise RateLimitExceededError("wait too long")
         return CodeSearchPage(1, ["acme/kept"])
 
-    scan = discover_by_size(search, 100)
+    scan = discover_by_size(search, [(0, 100)])
     assert scan.repositories == {"acme/kept"}
     assert scan.stopped_by_rate_limit
-    assert not scan.complete
+    assert scan.remaining == [(0, 50)]
+    assert not scan.finished
 
 
-def test_code_search_without_errors_is_complete() -> None:
-    scan = discover_by_size(lambda query, page: CodeSearchPage(1, ["acme/one"]), 100)
-    assert scan.complete
+def test_code_search_stops_when_time_runs_out_and_returns_the_rest() -> None:
+    queries: list[str] = []
+
+    def search(query: str, page: int) -> CodeSearchPage:
+        queries.append(query)
+        if query == size_query(0, 100):
+            return CodeSearchPage(1500, [])
+        return CodeSearchPage(1, ["acme/one"])
+
+    scan = discover_by_size(search, [(0, 100)], should_stop=lambda: True)
+    assert queries == [size_query(0, 100)]
+    assert sorted(scan.remaining) == [(0, 50), (51, 100)]
+
+
+def test_code_search_reads_at_least_one_range_per_run() -> None:
+    scan = discover_by_size(
+        lambda query, page: CodeSearchPage(1, ["acme/one"]), [(0, 100)], should_stop=lambda: True
+    )
+    assert scan.repositories == {"acme/one"}
+    assert scan.finished
 
 
 @pytest.mark.parametrize("error", [httpx.ConnectError("down")])
@@ -123,4 +141,4 @@ def test_code_search_skips_transport_failures(error: Exception) -> None:
     def search(query: str, page: int) -> CodeSearchPage:
         raise error
 
-    assert discover_by_size(search, 100).failed_ranges == 1
+    assert discover_by_size(search, [(0, 100)]).failed_ranges == 1

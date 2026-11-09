@@ -13,6 +13,9 @@ search_pages_per_topic = 3
 code_search_max_size = 200000
 # 코드 검색 전체 탐색 간격. 예약 실행이 늦거나 빠져도 이 간격이 지나면 다음 실행이 맡는다.
 full_scan_interval_days = 7
+# 실행당 코드 검색 시간. 다 못 읽은 범위는 다음 실행이 이어서 읽는다.
+# 스캔(max_scan_minutes)과 요약까지 단계 제한 320분 안에 들어가야 한다.
+code_search_minutes = 90
 
 [filter]
 min_body_chars = 200

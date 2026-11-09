@@ -56,7 +56,13 @@ class CollectContext:
     checkpoint: Callable[[], None]
 
 
-def discover(context: CollectContext, *, full_scan: bool, small: bool) -> dict[str, Discovered]:
+def discover(
+    context: CollectContext,
+    *,
+    full_scan: bool,
+    small: bool,
+    clock: Callable[[], float] = time.monotonic,
+) -> dict[str, Discovered]:
     """소스별 저장소를 모은다. 같은 저장소가 여러 소스에 있어도 하나로 합친다."""
     found: dict[str, Discovered] = {}
     settings = context.settings.discovery
@@ -82,11 +88,16 @@ def discover(context: CollectContext, *, full_scan: bool, small: bool) -> dict[s
     if full_scan and not context.github.authenticated:
         logger.warning("코드 검색은 토큰이 필요해서 건너뜁니다")
     elif full_scan:
-        scan = discover_by_size(context.github.search_code, settings.code_search_max_size)
+        state = context.state
+        ranges = state.code_search_pending or [(0, settings.code_search_max_size)]
+        deadline = clock() + settings.code_search_minutes * 60
+        scan = discover_by_size(context.github.search_code, ranges, lambda: clock() >= deadline)
         for full_name in scan.repositories:
             add(full_name, "code_search")
+        state.code_search_pending = scan.remaining
         context.metrics.code_search_failed_ranges = scan.failed_ranges
-        context.metrics.code_search_complete = scan.complete
+        context.metrics.code_search_remaining_ranges = len(scan.remaining)
+        context.metrics.code_search_complete = scan.finished
 
     context.metrics.discovered_repositories = len(found)
     return found
