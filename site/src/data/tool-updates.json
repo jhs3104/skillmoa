@@ -2,6 +2,17 @@
   "schemaVersion": 1,
   "updates": [
     {
+      "date": "2026-11-10",
+      "highlights": [
+        "Vertex에서 global, us, eu 리전의 빠른 모드를 쓸 수 있게 되었으며, Vertex가 거부하면 표준 속도로 자동 전환됩니다."
+      ],
+      "tool": "claude-code",
+      "url": "https://github.com/anthropics/claude-code/releases/tag/v2.1.322",
+      "versions": [
+        "2.1.322"
+      ]
+    },
+    {
       "date": "2026-11-09",
       "highlights": [
         "Claude Fable 5.2(`claude-fable-5-2`)를 추가했고, 기본 Fable 모델이 되었습니다.",

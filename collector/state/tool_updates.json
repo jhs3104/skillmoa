@@ -1,7 +1,7 @@
 {
   "tool_news_usage": {
     "calls": 1,
-    "day": "2026-11-09"
+    "day": "2026-11-10"
   },
   "tool_updates": {
     "claude-code:2026-10-05": {
@@ -355,6 +355,20 @@
       "url": "https://github.com/anthropics/claude-code/releases/tag/v2.1.321",
       "versions": [
         "2.1.321"
+      ]
+    },
+    "claude-code:2026-11-10": {
+      "day": "2026-11-10",
+      "highlights": [
+        "Vertex에서 global, us, eu 리전의 빠른 모드를 쓸 수 있게 되었으며, Vertex가 거부하면 표준 속도로 자동 전환됩니다."
+      ],
+      "model": "claude-haiku-5-5",
+      "prompt_version": "n1",
+      "source_hash": "5513eb75ba2e58745094c0b9474b4776edfaeb76f228a6e66f2bba64b882a52d",
+      "tool": "claude-code",
+      "url": "https://github.com/anthropics/claude-code/releases/tag/v2.1.322",
+      "versions": [
+        "2.1.322"
       ]
     },
     "codex:2026-10-15": {
