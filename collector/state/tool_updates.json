@@ -1,7 +1,7 @@
 {
   "tool_news_usage": {
     "calls": 1,
-    "day": "2026-11-10"
+    "day": "2026-11-11"
   },
   "tool_updates": {
     "claude-code:2026-10-05": {
@@ -449,6 +449,18 @@
       "url": "https://github.com/openai/codex/releases/tag/rust-v0.167.0",
       "versions": [
         "0.167.0"
+      ]
+    },
+    "codex:2026-11-10": {
+      "day": "2026-11-10",
+      "highlights": [],
+      "model": "claude-haiku-5-5",
+      "prompt_version": "n1",
+      "source_hash": "1bd973f8a8b98f427a1024ac7a44e449cda4b9057a20468b2e7f57bc3154b737",
+      "tool": "codex",
+      "url": "https://github.com/openai/codex/releases/tag/rust-v0.167.1",
+      "versions": [
+        "0.167.1"
       ]
     },
     "cursor:2026-10-06": {
