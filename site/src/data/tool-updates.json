@@ -2,6 +2,18 @@
   "schemaVersion": 1,
   "updates": [
     {
+      "date": "2026-11-11",
+      "highlights": [
+        "Google Cloud Vertex AI에서 Codex가 도구 업데이트를 기본으로 점진적으로 전송하도록 바꿨습니다.",
+        "끄려면 config.toml의 [features] 아래에 `incremental_tools_legacy_gcp = false`를 설정하면 됩니다."
+      ],
+      "tool": "codex",
+      "url": "https://github.com/openai/codex/releases/tag/rust-v0.167.2",
+      "versions": [
+        "0.167.2"
+      ]
+    },
+    {
       "date": "2026-11-10",
       "highlights": [
         "Vertex에서 global, us, eu 리전의 빠른 모드를 쓸 수 있게 되었으며, Vertex가 거부하면 표준 속도로 자동 전환됩니다."

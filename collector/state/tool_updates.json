@@ -1,7 +1,7 @@
 {
   "tool_news_usage": {
     "calls": 1,
-    "day": "2026-11-11"
+    "day": "2026-11-12"
   },
   "tool_updates": {
     "claude-code:2026-10-05": {
@@ -461,6 +461,21 @@
       "url": "https://github.com/openai/codex/releases/tag/rust-v0.167.1",
       "versions": [
         "0.167.1"
+      ]
+    },
+    "codex:2026-11-11": {
+      "day": "2026-11-11",
+      "highlights": [
+        "Google Cloud Vertex AI에서 Codex가 도구 업데이트를 기본으로 점진적으로 전송하도록 바꿨습니다.",
+        "끄려면 config.toml의 [features] 아래에 `incremental_tools_legacy_gcp = false`를 설정하면 됩니다."
+      ],
+      "model": "claude-haiku-5-5",
+      "prompt_version": "n1",
+      "source_hash": "7426430e703230524a83055b3f62f011d7b28055a9b9e5a9ec3de901a5452148",
+      "tool": "codex",
+      "url": "https://github.com/openai/codex/releases/tag/rust-v0.167.2",
+      "versions": [
+        "0.167.2"
       ]
     },
     "cursor:2026-10-06": {
