@@ -7659,6 +7659,35 @@
         "use_when": "게임 버그를 고친 뒤 증상은 사라졌지만 이 수정이 진짜 원인을 고친 것인지 확신이 서지 않을 때"
       }
     },
+    "abagames/agentic-gamedev-skills:.agents/skills/arcadifying-mini-games/SKILL.md": {
+      "model": "claude-haiku-5-5",
+      "prompt_version": "v6",
+      "skill_md_hash": "4e942636a35f6300abf825714156fabe09f36e43",
+      "summary": {
+        "accesses_network": false,
+        "account_evidence": null,
+        "category": "development",
+        "code_evidence": null,
+        "network_evidence": null,
+        "requires_external_account": false,
+        "runs_external_code": false,
+        "subcategory": "game-dev",
+        "summary_ko": "이미 동작하는 미니게임에 라운드 구성, READY·클리어·게임오버 연출, 점수 체계(추가 목숨, 라운드 보너스, 이니셜 입력, 상위 점수표)를 더해 아케이드 게임처럼 완성하도록 돕습니다. 라운드 데이터 표, 단계 상태 기계, 연출별 효과음 분리, 데모 모드까지 설계하고 구현 순서와 검증 항목을 함께 정리합니다. 핵심 게임 메커니즘 자체는 바꾸지 않고 빠진 층만 채웁니다.",
+        "tags": {
+          "difficulty": "intermediate",
+          "roles": [
+            "developer"
+          ],
+          "use_cases": [
+            "게임 라운드 구성",
+            "아케이드 점수 시스템",
+            "이름 입력과 랭킹",
+            "데모 모드 구현"
+          ]
+        },
+        "use_when": "동작은 하지만 한 판짜리 느낌이 강한 미니게임에 라운드, 목숨 보너스, 이름 입력과 랭킹을 붙여야 할 때"
+      }
+    },
     "abanoubkhaliil/ak-elementor-studio:SKILL.md": {
       "model": "claude-haiku-5-5",
       "prompt_version": "v6",
@@ -13436,6 +13465,36 @@
         "use_when": "After Effects 프로젝트에서 여러 컴프와 레이어의 이름, 폰트, 표현식을 한꺼번에 바꿔야 할 때"
       }
     },
+    "aedev-tools/kling-3-prompting-skill:skills/kling-3-prompting/SKILL.md": {
+      "model": "claude-haiku-5-5",
+      "prompt_version": "v6",
+      "skill_md_hash": "00db169b203e184a356950dfc3eed2b84b3f4153",
+      "summary": {
+        "accesses_network": false,
+        "account_evidence": null,
+        "category": "ai-agents",
+        "code_evidence": null,
+        "network_evidence": null,
+        "requires_external_account": false,
+        "runs_external_code": false,
+        "subcategory": "persona",
+        "summary_ko": "Kling 3.0 영상 생성 AI에 넣을 프롬프트를 감독처럼 장면 연출 방식으로 써 줍니다. 텍스트나 이미지에서 영상을 만들거나, 여러 컷의 스토리보드, 시작과 끝 프레임 전환 중 원하는 방식을 고르면 장면, 인물, 동작 순서, 카메라 움직임, 조명, 소리를 차례로 물어본 뒤 완성된 프롬프트를 제시합니다. 카메라 움직임과 조명 표현 목록, 대사 작성 규칙, 자주 하는 실수와 고치는 법도 함께 안내합니다.",
+        "tags": {
+          "difficulty": "beginner",
+          "roles": [
+            "designer",
+            "marketer"
+          ],
+          "use_cases": [
+            "AI 영상 프롬프트 작성",
+            "카메라 연출 설계",
+            "스토리보드 구성",
+            "대사 장면 작성"
+          ]
+        },
+        "use_when": "AI 영상 생성 도구에 넣을 장면 프롬프트를 감독처럼 구체적으로 다듬어야 할 때"
+      }
+    },
     "aek15/listing-to-3d:SKILL.md": {
       "model": "claude-haiku-5-5",
       "prompt_version": "v6",
@@ -14983,7 +15042,7 @@
     "agent-sh/computer-use-linux:plugins/computer-use-linux/skills/computer-use-linux/SKILL.md": {
       "model": "claude-haiku-5-5",
       "prompt_version": "v6",
-      "skill_md_hash": "ea01ddaecdafed387dca1784ee5098ac29a5752e",
+      "skill_md_hash": "1eba122d9f3400831917cdfc33f519310cb2c9ad",
       "summary": {
         "accesses_network": true,
         "account_evidence": null,
@@ -14992,8 +15051,8 @@
         "network_evidence": "claude plugin marketplace add agent-sh/computer-use-linux",
         "requires_external_account": false,
         "runs_external_code": true,
-        "subcategory": "mcp",
-        "summary_ko": "Linux 데스크톱의 접근성 트리, 창 목록, 스크린샷을 읽고 클릭, 타이핑, 스크롤 같은 입력을 특정 창이나 요소를 지정해 보내는 에이전트 도구입니다. 작업 전후에 화면 상태를 확인하도록 안내하며, 실행 전에 대상 창과 요소를 확인하는 절차를 따릅니다. 설치는 Pi 네이티브 도구, CLI, MCP 서버 중에서 고를 수 있고 Wayland, X11, GNOME, KDE, Hyprland 등 환경별 설정과 제약이 함께 정리되어 있습니다.",
+        "subcategory": "agent-operations",
+        "summary_ko": "Linux 데스크톱의 접근성 트리, 창 목록, 스크린샷을 읽고 클릭, 스크롤, 문자 입력, 키 입력을 보내 GUI 앱을 조작하게 해 줍니다. 에이전트가 먼저 화면 상태를 확인한 뒤 대상 창이나 요소를 지정해 입력을 보내고, 입력 후 결과를 다시 확인하는 순서로 진행합니다. 사용 전 설정 점검과 권한 설정 절차가 필요합니다.",
         "tags": {
           "difficulty": "advanced",
           "roles": [
@@ -15001,13 +15060,13 @@
             "general"
           ],
           "use_cases": [
-            "Linux 데스크톱 자동화",
-            "GUI 앱 조작",
+            "Linux GUI 앱 조작",
+            "데스크톱 화면 관찰",
             "접근성 트리 조회",
-            "스크린샷 확인"
+            "창 대상 입력"
           ]
         },
-        "use_when": "Linux 데스크톱의 GUI 앱을 에이전트가 직접 조작하고 결과 화면을 확인해야 할 때"
+        "use_when": "Linux 데스크톱에서 실행 중인 GUI 앱의 버튼이나 입력란을 에이전트가 직접 조작해야 할 때"
       }
     },
     "agent-skills-hub/agent-skills-hub:skills/ab-test-setup/SKILL.md": {
@@ -16185,31 +16244,30 @@
     "agenticresourceregistry/agenticresourceregistry:observal_cli/skills/observal-advanced/SKILL.md": {
       "model": "claude-haiku-5-5",
       "prompt_version": "v6",
-      "skill_md_hash": "fcf1fb6e8e40184fdda239fc24237a123ee148ab",
+      "skill_md_hash": "dd8e94723f63f7817a28dd1f89ce183f23794b4f",
       "summary": {
         "accesses_network": true,
-        "account_evidence": "Recovers Observal session ingestion, manages CLI upgrades, downgrades and rollback, and performs explicit local Agent fallback when the server is unavailable.",
+        "account_evidence": null,
         "category": "ai-agents",
-        "code_evidence": "1. Execute commands with a 60 second timeout unless the operation documents a longer wait.",
-        "network_evidence": "Recovers Observal session ingestion, manages CLI upgrades, downgrades and rollback, and performs explicit local Agent fallback when the server is unavailable.",
-        "requires_external_account": true,
+        "code_evidence": "command: observal",
+        "network_evidence": "Recovers Observal session ingestion, manages CLI upgrades, downgrades and rollback",
+        "requires_external_account": false,
         "runs_external_code": true,
         "subcategory": "agent-operations",
-        "summary_ko": "Observal 서버가 연결되지 않거나 CLI 설정이 깨졌을 때 빠진 세션 기록을 다시 전송하고, CLI 버전을 올리거나 내리거나 되돌리는 과정을 안내합니다. 서버를 쓸 수 없을 때는 사용자가 요청한 경우에만 로컬 Agent 파일을 만들며, 그 결과는 로컬 전용이라고 보고합니다. 작업 뒤에는 커서, 대기열, 설치 버전 상태를 확인하고 처리된 세션 수와 남은 경고를 정리해 줍니다.",
+        "summary_ko": "Observal 서버에 전달되지 못한 세션 기록을 다시 맞추고, Observal CLI의 업그레이드·다운그레이드·롤백을 수행하는 스킬입니다. 서버에 연결할 수 없을 때는 사용자가 요청한 경우에 한해 로컬에 에이전트 파일을 만들어 이어서 작업할 수 있습니다. 각 단계에서 커서, 대기열, 설치된 버전과 체크섬을 확인하고, 결과로 발견·대기·건너뜀·실패한 세션 수와 버전 변화, 로컬 파일 경로를 보고합니다.",
         "tags": {
           "difficulty": "advanced",
           "roles": [
-            "developer",
-            "general"
+            "developer"
           ],
           "use_cases": [
-            "세션 기록 재반영",
+            "세션 기록 재처리",
             "CLI 버전 관리",
             "CLI 롤백",
-            "로컬 Agent 파일 생성"
+            "로컬 에이전트 파일 생성"
           ]
         },
-        "use_when": "Observal 서버 연결이 끊긴 동안 놓친 세션 기록을 서버에 다시 반영하거나 CLI 버전을 바꿔야 할 때"
+        "use_when": "Observal 서버 연결이 복구된 뒤 누락된 세션 기록을 다시 전송해야 하거나, CLI 버전을 올리거나 되돌려야 할 때"
       }
     },
     "agenticresourceregistry/agenticresourceregistry:observal_cli/skills/observal-agents/SKILL.md": {
@@ -27292,32 +27350,30 @@
     "airmang/hwpx-plugins:SKILL.md": {
       "model": "claude-haiku-5-5",
       "prompt_version": "v6",
-      "skill_md_hash": "8a10e05914bc071998a9b40966edf237fb3e1d32",
+      "skill_md_hash": "7205b320b378ca28a4740c8e88249d4fbf96c361",
       "summary": {
         "accesses_network": true,
         "account_evidence": null,
         "category": "documents",
-        "code_evidence": "python3 scripts/text_extract.py examples/out/01_created.hwpx",
-        "network_evidence": "uv run --frozen",
+        "code_evidence": "Claude Code 번들은 `uv run --frozen`으로 서버를 띄우므로 `uv`가 없으면 서버가 시작되지 않는다.",
+        "network_evidence": "런타임(`python-hwpx`·`python-hwpx-automation`)은 Codex 관리 런처가 시작 시 점검 간격(기본 24시간)이 지났으면 갱신을 시도한다.",
         "requires_external_account": false,
         "runs_external_code": true,
         "subcategory": "office",
-        "summary_ko": "한글 문서(.hwpx, .hwp)를 읽고 편집하는 스킬입니다. 본문과 표 내용을 추출하고, 플레이스홀더를 치환하거나 양식을 채우며, 줄간격·여백·쪽번호·머리글 같은 서식을 바꿀 수 있습니다. 메일머지로 상장이나 수료증 같은 문서를 여러 부 만들고, 문서 비교나 표 합계 계산도 지원합니다. 편집 결과는 원본과 같은 형식으로 저장되며, 옮기지 못한 내용은 따로 보고합니다.",
+        "summary_ko": "한글 문서(.hwpx·.hwp)의 본문과 표 내용을 읽고 필요한 부분을 고치는 스킬입니다. 플레이스홀더 치환, 줄간격·여백·쪽번호 같은 서식 변경, 그림 교체, 표 합계 계산을 처리하며, 양식에 명단 데이터를 채워 공문이나 수료증을 여러 부 만들거나 두 문서의 차이를 신구대조표로 정리할 수 있습니다.",
         "tags": {
           "difficulty": "intermediate",
           "roles": [
-            "general",
-            "writer"
+            "general"
           ],
           "use_cases": [
             "한글 문서 편집",
             "양식 채우기",
             "메일머지",
-            "문서 비교",
-            "표 합계 계산"
+            "문서 비교"
           ]
         },
-        "use_when": "가정통신문이나 공문의 플레이스홀더를 명단 기준으로 채우고 한글 파일로 저장해야 할 때"
+        "use_when": "공문이나 가정통신문 양식에 명단별 내용을 채워 여러 부를 한꺼번에 만들어야 할 때"
       }
     },
     "airscripts/agentskill:agentskill-skill/SKILL.md": {
@@ -49982,17 +50038,17 @@
     "apify/agent-skills:skills/apify-actor-development/SKILL.md": {
       "model": "claude-haiku-5-5",
       "prompt_version": "v6",
-      "skill_md_hash": "e818e3c2cdb32adade671e00d270b4f1ac3f49e1",
+      "skill_md_hash": "01de54e27303ff95448f2902ddd491db92733182",
       "summary": {
         "accesses_network": true,
-        "account_evidence": "Log in with `apify login`, which offers a browser sign-in or an API token prompt.",
-        "category": "devops",
-        "code_evidence": "apify create <actor-name> -t <template-id> --user-agent apify-agent-skills/apify-actor-development",
-        "network_evidence": "npm install <pkg>",
+        "account_evidence": "apify info     # logged in? prints your username",
+        "category": "development",
+        "code_evidence": "apify --help   # CLI installed?",
+        "network_evidence": "apify actors search \"<query>\" --user-agent apify-agent-skills/apify-actor-development",
         "requires_external_account": true,
         "runs_external_code": true,
-        "subcategory": "deployment",
-        "summary_ko": "Apify 플랫폼에서 돌아가는 Actor를 처음부터 만들거나 기존 코드를 고치고, 입력과 출력 스키마, README까지 갖춘 뒤 로컬 테스트와 배포까지 안내합니다. 크롤링, API 응답, MCP 서버 등 용도에 맞는 템플릿을 고르고, 템플릿 설치와 의존성 추가부터 Apify 로거 사용, 중단 처리 같은 필수 규칙을 따르도록 도와줍니다.",
+        "subcategory": "dev-tools",
+        "summary_ko": "Apify 플랫폼에서 돌아가는 Actor를 처음부터 만들거나 기존 코드를 고치고 디버깅하는 과정을 단계별로 안내합니다. 템플릿 선택, 입력과 출력 스키마 작성, README 작성, 로컬 테스트를 거쳐 사용자 확인 후 배포까지 이어집니다. 크롤링, API 호출, 데이터 처리처럼 한 가지 작업을 맡는 서버리스 프로그램을 만들 때 쓸 수 있습니다.",
         "tags": {
           "difficulty": "intermediate",
           "roles": [
@@ -50001,40 +50057,40 @@
           "use_cases": [
             "Apify Actor 개발",
             "웹 크롤러 제작",
-            "입력·출력 스키마 작성",
+            "입출력 스키마 작성",
             "Actor 배포"
           ]
         },
-        "use_when": "웹사이트 데이터를 주기적으로 수집하는 Apify Actor를 새로 만들어 플랫폼에 배포해야 할 때"
+        "use_when": "크롤링이나 API 호출 결과를 Apify 플랫폼에서 반복 실행되는 Actor로 만들어야 할 때"
       }
     },
     "apify/agent-skills:skills/apify-actorization/SKILL.md": {
       "model": "claude-haiku-5-5",
       "prompt_version": "v6",
-      "skill_md_hash": "7ed66bfabd40195fda89a8ba03c77adf444c9b3a",
+      "skill_md_hash": "6391b406637f0f70673ed13ef5f788508f9218d6",
       "summary": {
         "accesses_network": true,
-        "account_evidence": "If browser login isn't available (headless environment or CI), ensure the `APIFY_TOKEN` environment variable is exported",
+        "account_evidence": "apify info  # Should return your username",
         "category": "development",
-        "code_evidence": "Run `apify init <actor-name> --user-agent apify-agent-skills/apify-actorization` in project root",
-        "network_evidence": "Otherwise, the MCP Server url: `https://mcp.apify.com/?tools=docs`.",
+        "code_evidence": "apify push --user-agent apify-agent-skills/apify-actorization",
+        "network_evidence": "npm install -g apify-cli",
         "requires_external_account": true,
         "runs_external_code": true,
         "subcategory": "dev-tools",
-        "summary_ko": "기존 JavaScript·TypeScript, Python, 또는 CLI 도구로 만든 프로젝트를 Apify 플랫폼에서 돌아가는 Actor로 바꾸는 과정을 안내합니다. 언어에 맞는 SDK 연동, 입력·출력 스키마 설정, Dockerfile과 README 작성, 로컬 테스트와 배포 순서를 단계별로 정리해 줍니다. 크롤링 데이터를 다룰 때 지켜야 할 보안 수칙도 함께 제시합니다.",
+        "summary_ko": "Apify 플랫폼에서 실행되는 Actor 형태로 기존 프로젝트를 옮겨 줍니다. JavaScript·TypeScript, Python, CLI 도구에 맞는 SDK 연결 코드와 Dockerfile을 잡고, 입력과 출력 스키마, Store 등록용 README까지 정리하며 로컬 테스트 흐름을 안내합니다. 이미 있는 코드를 서버리스 실행 단위로 재사용하려는 개발자에게 맞습니다.",
         "tags": {
           "difficulty": "intermediate",
           "roles": [
             "developer"
           ],
           "use_cases": [
-            "Actor 전환",
-            "Apify 배포",
-            "CLI 래핑",
-            "웹 스크래퍼 배포"
+            "Apify Actor 변환",
+            "CLI 도구 래핑",
+            "Crawlee 프로젝트 이전",
+            "Actor README 작성"
           ]
         },
-        "use_when": "기존 스크래퍼나 CLI 도구를 Apify Store에 올려 재사용 가능한 클라우드 프로그램으로 만들어야 할 때"
+        "use_when": "기존 크롤링이나 스크립트 프로젝트를 Apify 플랫폼에서 돌아가는 Actor로 옮겨야 할 때"
       }
     },
     "apify/agent-skills:skills/apify-generate-output-schema/SKILL.md": {
@@ -70908,6 +70964,35 @@
         "use_when": "기존 시스템에 새 기능을 붙이기 전에 잘못된 구조로 굳어질 위험이 있는 작업을 설계해야 할 때"
       }
     },
+    "backnotprop/pstack:skills/arena/SKILL.md": {
+      "model": "claude-haiku-5-5",
+      "prompt_version": "v6",
+      "skill_md_hash": "0c3d6af5c92c0e38e9fe06b1f82e45933099a5c5",
+      "summary": {
+        "accesses_network": false,
+        "account_evidence": null,
+        "category": "ai-agents",
+        "code_evidence": "Spawn all N subagents in one message with `run_in_background: true`, each with the task, the path to the shared grounding, its own output path, and instructions to produce the artifact",
+        "network_evidence": null,
+        "requires_external_account": false,
+        "runs_external_code": true,
+        "subcategory": "agent-operations",
+        "summary_ko": "같은 작업을 여러 모델에게 병렬로 맡겨 후보 결과물을 여러 개 만든 뒤, 채점표로 가장 나은 하나를 기준안으로 고르고 나머지 후보에서 좋은 부분만 옮겨 붙여 하나의 결과물을 만듭니다. 채점 기준은 작업마다 새로 정하고, 교차 심사 모델이 후보를 평가해 선택을 돕습니다. 마지막에는 합쳐진 결과물을 검증하고, 어떤 기준안을 골랐는지와 어떤 부분을 가져왔는지 정리한 노트를 함께 남깁니다.",
+        "tags": {
+          "difficulty": "intermediate",
+          "roles": [
+            "developer",
+            "general"
+          ],
+          "use_cases": [
+            "여러 후보 병렬 생성",
+            "후보 교차 심사",
+            "결과물 비교와 합성"
+          ]
+        },
+        "use_when": "한 번의 시도로는 설계 방향이 굳어 버릴 수 있는 중요한 산출물을 여러 안으로 비교해 가장 좋은 형태를 얻고 싶을 때"
+      }
+    },
     "backnotprop/pstack:skills/automate-me/SKILL.md": {
       "model": "claude-haiku-5-5",
       "prompt_version": "v6",
@@ -71197,31 +71282,30 @@
     "backplaneworks/kistack:skills/export/SKILL.md": {
       "model": "claude-haiku-5-5",
       "prompt_version": "v6",
-      "skill_md_hash": "f14dec40de53a8b3530c3258649d35664f67d0a6",
+      "skill_md_hash": "4c66944959f05c2260cca27a2a553ed4646da542",
       "summary": {
         "accesses_network": false,
         "account_evidence": null,
-        "category": "documents",
-        "code_evidence": "kicad-cli sch erc \\",
+        "category": "development",
+        "code_evidence": "Check which KiCad you have with `kicad-cli version` before the first export.",
         "network_evidence": null,
         "requires_external_account": false,
         "runs_external_code": true,
-        "subcategory": "diagram",
-        "summary_ko": "KiCad 회로도와 PCB 파일에서 ERC·DRC 점검 보고서를 만들고, 제조사 형식에 맞춘 거버, 드릴, 부품 위치, BOM 파일을 순서대로 생성합니다. 명령 순서를 스크립트로 남겨 프로젝트마다 같은 결과를 반복해서 얻을 수 있게 돕습니다. 점검에서 오류가 나오면 내보내기를 멈추고 계속할지 확인합니다.",
+        "subcategory": "dev-tools",
+        "summary_ko": "KiCad 프로젝트에서 ERC와 DRC 검사 보고서를 먼저 만든 뒤, 제조사 형식에 맞는 거버, 드릴, 위치, BOM 파일을 순서대로 생성합니다. JLCPCB와 NextPCB는 위치 파일을 별도 형식으로 바꿔야 하므로 그 변환도 함께 처리합니다. 검사에서 오류가 나오면 진행을 멈추고 계속할지 확인을 요청합니다.",
         "tags": {
           "difficulty": "intermediate",
           "roles": [
-            "developer",
-            "product"
+            "developer"
           ],
           "use_cases": [
-            "KiCad 제조 파일 생성",
-            "ERC·DRC 점검",
-            "JLCPCB 부품 위치 파일 변환",
-            "BOM 내보내기"
+            "PCB 제조 파일 생성",
+            "ERC·DRC 검사",
+            "BOM 추출",
+            "위치 파일 변환"
           ]
         },
-        "use_when": "KiCad 기판 설계를 JLCPCB나 NextPCB에 발주하기 위해 제조용 파일 세트를 한 번에 만들어야 할 때"
+        "use_when": "KiCad 설계를 JLCPCB나 NextPCB에 발주하기 위해 거버, 드릴, 위치, BOM 파일을 준비해야 할 때"
       }
     },
     "backplaneworks/kistack:skills/footprint/SKILL.md": {
@@ -71255,45 +71339,45 @@
     "backplaneworks/kistack:skills/gerbers/SKILL.md": {
       "model": "claude-haiku-5-5",
       "prompt_version": "v6",
-      "skill_md_hash": "f06a3e93c2b981c094130cfd03f0fc64b98b033e",
+      "skill_md_hash": "1e1885f2b93bd5c4e49af4bed6bc8ad635f06312",
       "summary": {
         "accesses_network": true,
         "account_evidence": null,
         "category": "development",
-        "code_evidence": "pygerber gerber convert png source.gbr -o output.png -d 600 -s copper_alpha",
+        "code_evidence": "pygerber gerber convert png source.gbr -o output.png -d 600 -s copper_alpha'''",
         "network_evidence": "uv pip install pygerber",
         "requires_external_account": false,
         "runs_external_code": true,
         "subcategory": "dev-tools",
-        "summary_ko": "KiCad 기판 설계의 Gerber 파일을 레이어별로 만들고 이미지로 펼쳐, 제조 전에 의도하지 않은 쇼트나 비아 겹침, 전체 기판의 제작 가능성을 눈으로 점검할 수 있게 해 줍니다. 기존 Gerber가 없으면 검토용으로 별도 폴더에 새로 생성합니다.",
+        "summary_ko": "KiCad 회로기판 설계에서 레이어별 거버(Gerber) 파일을 만들고 이미지로 렌더링해, 예상치 못한 단락(쇼트)이 있는지, 비아가 서로 겹치지 않는지, 보드가 실제로 제작 가능한 상태인지 확인하게 해 줍니다. 제조 파일을 발주하기 전 마지막으로 살펴볼 점검 단계이며, 거버 파일이 없으면 검토용 별도 폴더에 새로 생성합니다.",
         "tags": {
           "difficulty": "intermediate",
           "roles": [
             "developer"
           ],
           "use_cases": [
-            "PCB 제조 검토",
-            "Gerber 파일 점검",
-            "KiCad 기판 검증"
+            "PCB 제조 파일 검토",
+            "거버 파일 렌더링",
+            "쇼트와 비아 점검"
           ]
         },
-        "use_when": "KiCad 기판 Gerber를 제조사에 보내기 전에 쇼트와 비아 문제를 확인해야 할 때"
+        "use_when": "KiCad 기판 설계를 제작 업체에 보내기 전에 거버 파일에서 쇼트와 비아 겹침을 확인해야 할 때"
       }
     },
     "backplaneworks/kistack:skills/layout-placement/SKILL.md": {
       "model": "claude-haiku-5-5",
       "prompt_version": "v6",
-      "skill_md_hash": "e8876d7c32837b9fa848735fd2dd50f668f0b025",
+      "skill_md_hash": "fe251928f9ef7fc3921e2e41c93e2943adb15799",
       "summary": {
         "accesses_network": true,
         "account_evidence": null,
         "category": "development",
-        "code_evidence": "scripts/run.sh pin_sides.py <board> <IC>",
-        "network_evidence": "The first run makes the scripts' own Python environment from `requirements.txt` (exact versions, Python 3.12",
+        "code_evidence": "Run every script through `scripts/run.sh`, for example",
+        "network_evidence": "installed, else with python3 and pip. It installs nothing elsewhere.",
         "requires_external_account": false,
         "runs_external_code": true,
         "subcategory": "dev-tools",
-        "summary_ko": "KiCad 기판에서 부품을 회로 목적에 맞게 배치하고, IPC 스크립트로 부품을 옮기며 간격과 배선 가능 여부를 측정합니다. 디커플링 캡, 레귤레이터, 수정 발진기, RF 정합 회로의 위치를 잡아 배치 DRC를 통과시키는 것을 돕습니다. 배선이나 회로도 설계는 다루지 않습니다.",
+        "summary_ko": "KiCad 보드에서 회로도에 맞춰 부품 위치를 정하고, 배치 DRC를 통과하면서 모든 패드에 배선이 닿도록 잡아 줍니다. 디커플링 캡, 레귤레이터, 클럭, RF 부품처럼 짧은 연결이 필요한 부품을 먼저 놓고, IC 방향과 부품 간 거리를 측정해 조정하는 과정을 안내합니다. 배선 자체나 회로 설계는 다루지 않습니다.",
         "tags": {
           "difficulty": "advanced",
           "roles": [
@@ -71301,12 +71385,12 @@
           ],
           "use_cases": [
             "PCB 부품 배치",
-            "KiCad 기판 설계",
             "디커플링 캡 배치",
+            "RF 매칭 회로 배치",
             "배치 DRC 점검"
           ]
         },
-        "use_when": "KiCad 기판에서 IC 주변 디커플링 캡과 레귤레이터, RF 정합 부품을 배치하고 배선이 가능한지 확인해야 할 때"
+        "use_when": "회로도 기준으로 KiCad 보드에 IC와 디커플링 부품을 배치해야 하는데 배선이 닿는 위치를 잡기 어ărn 때"
       }
     },
     "backplaneworks/kistack:skills/layout/SKILL.md": {
@@ -71341,45 +71425,45 @@
     "backplaneworks/kistack:skills/panelize/SKILL.md": {
       "model": "claude-haiku-5-5",
       "prompt_version": "v6",
-      "skill_md_hash": "0ea66d67a5c03de254155ace9dbd44b4c7904653",
+      "skill_md_hash": "59e99c9313873c56788a851e92b4765a5dffa953",
       "summary": {
         "accesses_network": true,
         "account_evidence": null,
-        "category": "devops",
+        "category": "development",
         "code_evidence": "kikit panelize -p panelize.json input.kicad_pcb output-panel.kicad_pcb",
         "network_evidence": "- Inspect its actual board files, Edge.Cuts, copper layers, pads and components that may interesect board edges to identify items like castellations, edge connectors, antennas, plated edges, etc.",
         "requires_external_account": false,
         "runs_external_code": true,
-        "subcategory": "deployment",
-        "summary_ko": "KiKit을 사용해 PCB 파일을 여러 장짜리 패널로 배열하는 작업을 돕습니다. 보드의 외곽선과 가장자리에 걸친 부품을 확인해 탭, 간격, 프레임, 공구 구멍, 피듀셜 위치를 정하고, 원본을 건드리지 않은 버전별 패널 파일을 build 폴더에 만듭니다. 생성 후에는 보드 데이터와 렌더링 이미지를 함께 확인해 결과를 점검합니다.",
+        "subcategory": "dev-tools",
+        "summary_ko": "KiCad PCB 보드를 KiKit으로 배열해 제조용 패널 파일을 만들어 줍니다. 보드 가장자리의 캐슬레이션이나 엣지 커넥터를 확인해 탭 방향을 정하고, 그리드 간격과 공구 구멍, 피듀셜 위치를 잡습니다. 결과 패널은 원본을 덮어쓰지 않고 build 폴더에 버전을 붙여 저장한 뒤 렌더링 이미지로 확인합니다.",
         "tags": {
-          "difficulty": "advanced",
+          "difficulty": "intermediate",
           "roles": [
             "developer"
           ],
           "use_cases": [
-            "PCB 패널라이징",
-            "KiCad 파일 처리",
-            "제조용 패널 생성"
+            "PCB 패널라이즈",
+            "제조용 패널 생성",
+            "KiCad 보드 배열"
           ]
         },
-        "use_when": "여러 개의 PCB를 한 장의 패널로 묶어 fabricator에 주문해야 하는데 탭과 프레임 설정을 직접 맞추기 번거로울 때"
+        "use_when": "한 장의 기판을 여러 개 배열한 제조용 패널로 만들어 발주해야 할 때"
       }
     },
     "backplaneworks/kistack:skills/pcb-product-render/SKILL.md": {
       "model": "claude-haiku-5-5",
       "prompt_version": "v6",
-      "skill_md_hash": "22a871d4a2a524834f3efbadd17085353313ce6a",
+      "skill_md_hash": "a6e10a44527ec2ba7b84d88240d542f2c8083f06",
       "summary": {
-        "accesses_network": false,
+        "accesses_network": true,
         "account_evidence": null,
         "category": "design",
-        "code_evidence": "build/product-renders/export_board_3d.sh",
-        "network_evidence": null,
+        "code_evidence": "3. Export with `kicad-cli pcb export step` and `kicad-cli pcb export glb`, using `--force --no-dnp --subst-models`.",
+        "network_evidence": "6. Verify dimensions, output timestamps, and any gallery/server endpoints.",
         "requires_external_account": false,
         "runs_external_code": true,
-        "subcategory": "visual-design",
-        "summary_ko": "KiCad PCB 프로젝트를 STEP과 GLB로 다시 내보낸 뒤 Blender로 제품 사진처럼 보이는 렌더 이미지를 만듭니다. 기판 재질, 카메라 구도, 조명을 맞추고 히어로, 상단, 센서 확대, 뒷면 시점의 PNG를 실제로 확인하는 절차를 따릅니다. 렌더 전에 DRC 보고서를 확인하고 결과물의 시점과 치수도 점검합니다.",
+        "subcategory": "image",
+        "summary_ko": "KiCad으로 설계한 기판을 3D 모델로 내보낸 뒤 Blender에서 실제 제품 사진처럼 보이는 렌더 이미지로 만드는 과정을 돕습니다. 솔더마스크, FR-4, 금 도금 패드 등 소재 질감과 카메라 각도, 무대 배경을 맞추고, 최소 네 가지 시점의 이미지를 만든 뒤 결과를 직접 확인합니다. 설계 검사에서 문제가 나오면 작업을 멈추는 기준도 함께 제시합니다.",
         "tags": {
           "difficulty": "advanced",
           "roles": [
@@ -71387,12 +71471,12 @@
             "designer"
           ],
           "use_cases": [
-            "PCB 제품 렌더",
-            "KiCad 3D 내보내기",
-            "Blender 제품 이미지"
+            "PCB 제품 렌더링",
+            "3D 모델 내보내기",
+            "제품 사진 이미지 만들기"
           ]
         },
-        "use_when": "KiCad 기판을 평면 도면이 아니라 제품 사진 같은 3D 렌더로 보여줘야 할 때"
+        "use_when": "KiCad 기판 설계를 실제 제품 사진처럼 보이는 3D 렌더 이미지로 보여 줘야 할 때"
       }
     },
     "backpropagation6/claude-linkedin-automation:SKILL.md": {
@@ -74005,17 +74089,17 @@
     "basecamp/house-skills:plugins/dev/skills/address-pr-reviews/SKILL.md": {
       "model": "claude-haiku-5-5",
       "prompt_version": "v6",
-      "skill_md_hash": "37c14f0383c20cc13a8fcb05d7bef62a18ae6ef9",
+      "skill_md_hash": "c0d718d58f933040a12cf5e5f6c211d3a3dbaa9e",
       "summary": {
         "accesses_network": true,
-        "account_evidence": null,
+        "account_evidence": "Re-running the script is the convergence probe in §4: `head` against each",
         "category": "development",
         "code_evidence": "\"$SKILL_DIR/scripts/fetch-reviews\" OWNER/REPO PR_NUMBER",
-        "network_evidence": "gh pr comment PR_NUMBER --body-file reply.md",
+        "network_evidence": "One script fetches the PR's reviews, comments and threads, every page of them:",
         "requires_external_account": false,
         "runs_external_code": true,
-        "subcategory": "code-quality",
-        "summary_ko": "PR에 달린 리뷰 코멘트와 봇 지적을 하나씩 검토해 범위 안의 지적은 코드를 고치고 스레드에 답글을 남깁니다. 범위 밖이거나 판단이 필요한 요청은 이유를 적어 사람에게 넘기고, 처리가 끝난 스레드는 정리한 뒤 남은 결정 사항을 요약 댓글로 정리합니다.",
+        "subcategory": "git",
+        "summary_ko": "PR에 달린 리뷰 코멘트를 읽고, 범위 안의 지적은 코드를 고친 뒤 스레드에 답하고 해결 표시까지 진행합니다. 범위 밖이거나 판단이 필요한 항목은 사람에게 넘기고, 반영한 내용과 보류 항목을 PR 요약 코멘트로 정리합니다. 외부 사용자의 글은 읽지 않으며, 리뷰가 끝났는지도 헤드 커밋 기준으로 확인합니다.",
         "tags": {
           "difficulty": "intermediate",
           "roles": [
@@ -74027,7 +74111,7 @@
             "코드 리뷰 반영"
           ]
         },
-        "use_when": "PR에 쌓인 리뷰 코멘트와 봇 지적을 한꺼번에 반영하고 남은 스레드를 정리해야 할 때"
+        "use_when": "팀원과 봇이 남긴 PR 리뷰 코멘트를 하나씩 처리하고 답글과 해결 표시까지 마쳐야 할 때"
       }
     },
     "baseinfinity/claude-sdlc-harness:skills/conduct/SKILL.md": {
@@ -80197,6 +80281,35 @@
           ]
         },
         "use_when": "오늘이나 다음 몇 시간 동안 내 일정과 겹치는 약속이 있는지 macOS 캘린더에서 확인하고 싶을 때"
+      }
+    },
+    "bil0000/hill-climb:skills/hill-climb/SKILL.md": {
+      "model": "claude-haiku-5-5",
+      "prompt_version": "v6",
+      "skill_md_hash": "7a0411a2a7ce0912a63f5b2ab899bfa320c81d9b",
+      "summary": {
+        "accesses_network": true,
+        "account_evidence": null,
+        "category": "development",
+        "code_evidence": "python3 \"$CLIMB\" list; python3 \"$CLIMB\" kits \"<two or three goal words>\"",
+        "network_evidence": "after a review, including PR review, change the code: run the check and",
+        "requires_external_account": false,
+        "runs_external_code": true,
+        "subcategory": "dev-tools",
+        "summary_ko": "목표를 명령 하나로 점수화할 수 있으면 작은 변경을 반복하면서 점수가 오른 변경은 남기고 떨어진 변경은 되돌립니다. 성능 개선, 버그 수정, 코드 감사처럼 숫자로 셀 수 있는 목표를 여러 저장소에 걸쳐 진행할 수 있습니다. 진행 상태와 기록은 디스크에 남아 중단 뒤에도 이어서 할 수 있고, 점수를 매기는 검사는 잠가 두어 테스트를 약화시켜 통과하는 일을 막습니다. 최종 보고서에는 측정된 수치를 담습니다.",
+        "tags": {
+          "difficulty": "intermediate",
+          "roles": [
+            "developer"
+          ],
+          "use_cases": [
+            "성능 개선",
+            "버그 수정 루프",
+            "코드 감사",
+            "여러 저장소 동시 작업"
+          ]
+        },
+        "use_when": "기존 테스트 실패나 느린 빌드처럼 명령으로 점수를 낼 수 있는 목표를 여러 번 작게 고쳐 끝내야 할 때"
       }
     },
     "billy-enrizky/openbrowser-ai:plugin/skills/accessibility-audit/SKILL.md": {
@@ -94342,31 +94455,31 @@
     "byenzyme/enzyme-skill:SKILL.md": {
       "model": "claude-haiku-5-5",
       "prompt_version": "v6",
-      "skill_md_hash": "0673bdc4fb30427c4438b4580db50de86214edeb",
+      "skill_md_hash": "591900c7aab4c6106c244746ef3ac60c2adcb45d",
       "summary": {
         "accesses_network": true,
         "account_evidence": null,
         "category": "productivity",
-        "code_evidence": "enzyme refresh --quiet",
-        "network_evidence": "Install enzyme (curl)",
+        "code_evidence": "Prerequisite: check the installed binary first with `enzyme --version`.",
+        "network_evidence": "Explain whether the effective path needs network access before setup proceeds.",
         "requires_external_account": false,
         "runs_external_code": true,
         "subcategory": "notes-calendar",
-        "summary_ko": "Obsidian이나 마크다운 노트 폴더를 이미 쓰고 있다면, 메모를 한 번 읽어 어떤 결정이 있었고 무엇이 바뀌었고 무엇이 열려 있는지 지도로 정리해 줍니다. 이후에는 단어 일치가 아니라 개념으로 노트를 찾아, 사용자가 실제로 쓴 문장을 근거로 답하도록 돕습니다. 새로 쓴 메모는 다시 색인해 검색에 반영합니다.",
+        "summary_ko": "Enzyme은 Obsidian이나 마크다운으로 쌓아 둔 노트를 키워드가 아니라 개념과 표현의 의미로 찾아 주는 도구입니다. 에이전트가 노트에서 자주 돌아오는 주제와 생각이 바뀐 흐름을 먼저 살핀 뒤, 여러 표현으로 검색해 실제로 기록된 문장을 근거로 답하도록 돕습니다. 새로 쓴 메모도 색인을 갱신해 다음 검색에 포함할 수 있습니다.",
         "tags": {
           "difficulty": "intermediate",
           "roles": [
-            "general",
-            "researcher"
+            "researcher",
+            "writer"
           ],
           "use_cases": [
-            "개인 메모 검색",
-            "지식 관리",
-            "의사결정 기록 찾기",
-            "옵시디언 노트 활용"
+            "개인 노트 검색",
+            "노트 기반 맥락 회상",
+            "생각 변화 추적",
+            "노트 연결 탐색"
           ]
         },
-        "use_when": "흩어진 마크다운 메모에서 내가 전에 결정하거나 바꾼 생각을 근거와 함께 다시 찾아야 할 때"
+        "use_when": "쌓아 둔 옵시디언 노트에서 예전에 내가 무엇을 결정했고 생각이 어떻게 바뀌었는지 근거 문장과 함께 찾아야 할 때"
       }
     },
     "byreal-git/byreal-agent-skills:skills/byreal-cli/SKILL.md": {
@@ -97285,17 +97398,17 @@
     "cap-go/capgo-skills:skills/capacitor-accessibility/SKILL.md": {
       "model": "claude-haiku-5-5",
       "prompt_version": "v6",
-      "skill_md_hash": "8c49318c1ba7292a6dd4ef59741af57ef3cfe708",
+      "skill_md_hash": "c5d6c6460bcf670db7b0e52db0876d8b222218ef",
       "summary": {
         "accesses_network": true,
         "account_evidence": null,
-        "category": "design",
-        "code_evidence": "- Reset after testing: `adb shell settings put system font_scale 1.0`, `xcrun simctl ui booted content_size large`.",
-        "network_evidence": "2. **Automated pass** on the web build: run axe (`@axe-core/playwright` in tests, or `npx @axe-core/cli@latest http://localhost:5173`) and fix violations first (names, roles, contrast, labels).",
+        "category": "development",
+        "code_evidence": "adb shell settings put system font_scale 2.0",
+        "network_evidence": "npx @axe-core/cli@latest http://localhost:5173",
         "requires_external_account": false,
         "runs_external_code": true,
-        "subcategory": "accessibility",
-        "summary_ko": "Capacitor 앱의 화면이 VoiceOver와 TalkBack에서 읽히고 조작되도록 점검하고 고치는 방법을 정리합니다. iOS 큰 글씨와 Android 글꼴 크기가 WebView 텍스트에 반영되도록 맞추고, SPA 화면 전환 공지, 네이티브 지도와 카메라 뷰 접근, 터치 영역, 움직임 줄이기 대응을 다룹니다. 화면별로 WCAG 2.2 기준과 심각도를 붙여 보고하는 흐름입니다.",
+        "subcategory": "frontend",
+        "summary_ko": "Capacitor로 만든 앱을 VoiceOver, TalkBack, 큰 글자 설정, 스위치 제어, 고대비 환경에서도 쓸 수 있도록 점검하고 고치는 방법을 안내합니다. iOS 큰 글자가 WebView 글자에 반영되지 않는 문제, Android 글자 크기에 따른 레이아웃 깨짐, 화면 전환이 음성으로 전달되지 않는 문제, 지도나 카메라 같은 네이티브 화면에 접근하지 못하는 문제를 다룹니다. 자동 검사와 기기 검사를 거쳐 화면별로 WCAG 2.2 기준에 따른 문제와 수정안을 정리합니다.",
         "tags": {
           "difficulty": "intermediate",
           "roles": [
@@ -97303,19 +97416,19 @@
             "designer"
           ],
           "use_cases": [
-            "접근성 점검",
-            "VoiceOver·TalkBack 대응",
-            "큰 글씨 대응",
+            "모바일 접근성 점검",
+            "VoiceOver 대응",
+            "큰 글자 대응",
             "WCAG 2.2 점검"
           ]
         },
-        "use_when": "Capacitor 앱이 VoiceOver나 TalkBack에서 제대로 읽히지 않거나 큰 글씨 설정에서 텍스트와 레이아웃이 깨질 때"
+        "use_when": "Capacitor 앱의 화면이 VoiceOver나 TalkBack에서 제대로 읽히지 않거나 큰 글자 설정에서 레이아웃이 깨질 때"
       }
     },
     "cap-go/capgo-skills:skills/capacitor-app-intents/SKILL.md": {
       "model": "claude-haiku-5-5",
       "prompt_version": "v6",
-      "skill_md_hash": "d2d412de399fc5855e8cf8d9c1663933bff6d451",
+      "skill_md_hash": "9f74fef7fe4d8b9e7dff245e37f4d306f0f8c05b",
       "summary": {
         "accesses_network": true,
         "account_evidence": null,
@@ -97325,49 +97438,51 @@
         "requires_external_account": false,
         "runs_external_code": true,
         "subcategory": "mobile",
-        "summary_ko": "Capacitor 앱의 기능을 Siri, 단축어, Spotlight, 액션 버튼, 위젯과 컨트롤에서 실행할 수 있도록 iOS 네이티브 App Intents를 추가하고 웹 레이어와 연결합니다. 앱을 여는 인텐트는 유니버설 링크나 로컬 플러그인으로 웹 화면의 올바른 경로에 도달하게 하고, 백그라운드 인텐트는 네이티브 작업만 처리합니다. iOS 15와 16 배포 대상에 맞춘 버전 분기도 함께 다룹니다.",
+        "summary_ko": "Capacitor 앱의 기능을 Siri, 단축어, Spotlight, 액션 버튼, 위젯과 컨트롤에서 실행할 수 있도록 네이티브 Swift App Intents를 iOS 프로젝트에 추가하고, 열린 화면을 웹 레이어 라우트와 연결합니다. 앱을 여는 인텐트는 유니버설 링크나 로컬 플러그인으로 웹 뷰의 경로를 맞추고, 백그라운드 인텐트는 네이티브 작업만 처리합니다. iOS 15와 16 배포 대상에 맞춘 가용성 처리도 함께 다룹니다.",
         "tags": {
           "difficulty": "advanced",
           "roles": [
             "developer"
           ],
           "use_cases": [
-            "Siri 단축어 연동",
-            "App Intents 추가",
-            "iOS 위젯 컨트롤 연결",
-            "Capacitor 네이티브 브리지"
+            "Siri 단축어 연결",
+            "App Intents 구현",
+            "iOS 위젯 컨트롤",
+            "Capacitor 네이티브 연동"
           ]
         },
-        "use_when": "Capacitor 앱의 특정 기능을 Siri나 단축어에서 바로 실행하게 하고 싶은데 앱을 열면 웹 화면이 해당 페이지로 이동하지 않을 때"
+        "use_when": "Capacitor 앱에서 Siri 문구나 단축어 액션을 추가했는데 인텐트로 앱을 열면 웹 화면이 해당 경로로 이동하지 않을 때"
       }
     },
     "cap-go/capgo-skills:skills/capacitor-app-store/SKILL.md": {
       "model": "claude-haiku-5-5",
       "prompt_version": "v6",
-      "skill_md_hash": "c58b7e6006761ca4613d568754b54bf407b0f32d",
+      "skill_md_hash": "e243d9a6991ba9c0c1c85fbf080b91d6b9db1dd4",
       "summary": {
-        "accesses_network": false,
+        "accesses_network": true,
         "account_evidence": "- The user is preparing a first release or an update to App Store Connect or Google Play Console.",
         "category": "devops",
         "code_evidence": "4. Build web assets and sync: `npm run build && npx cap sync`.",
-        "network_evidence": null,
+        "network_evidence": "4. Build web assets and sync: `npm run build && npx cap sync`.",
         "requires_external_account": true,
         "runs_external_code": true,
-        "subcategory": "release",
-        "summary_ko": "Capacitor 앱을 Apple App Store와 Google Play에 출시할 때 필요한 준비를 한 흐름으로 정리합니다. 버전과 빌드 번호 설정, 서명과 업로드 파일 준비, TestFlight와 Play 테스트 트랙 운영, 아이콘과 스크린샷, 개인정보 양식, 단계적 출시까지 다룹니다. 업로드가 실패했을 때 ITMS 오류나 Play 버전 코드 오류별 해결 방법도 찾아볼 수 있습니다.",
+        "subcategory": "deployment",
+        "summary_ko": "Capacitor로 만든 앱을 Apple App Store와 Google Play에 제출하기까지의 준비 과정을 안내합니다. iOS와 Android의 버전 및 빌드 번호를 맞추고, 서명과 업로드, TestFlight와 Play 테스트 트랙, 아이콘·스크린샷·개인정보 양식을 순서대로 정리합니다. 업로드 오류 메시지별 해결 방법과 단계별 배포 옵션도 함께 다룹니다.",
         "tags": {
           "difficulty": "intermediate",
           "roles": [
-            "developer"
+            "developer",
+            "product"
           ],
           "use_cases": [
-            "앱스토어 제출",
-            "Google Play 출시",
-            "버전 번호 관리",
-            "업로드 오류 해결"
+            "앱 스토어 제출",
+            "Play 스토어 배포",
+            "빌드 번호 관리",
+            "업로드 오류 해결",
+            "스토어 등록 정보 준비"
           ]
         },
-        "use_when": "Capacitor로 만든 앱을 App Store Connect나 Google Play Console에 처음 올리거나 업데이트를 제출해야 할 때"
+        "use_when": "Capacitor 앱의 새 버전을 App Store Connect와 Google Play Console에 올려 심사나 테스트 트랙으로 넘겨야 할 때"
       }
     },
     "cap-go/capgo-skills:skills/capacitor-app-upgrade-v4-to-v5/SKILL.md": {
@@ -108649,31 +108764,32 @@
     "chrisryugj/kordoc:plugins/kordoc/skills/kordoc/SKILL.md": {
       "model": "claude-haiku-5-5",
       "prompt_version": "v6",
-      "skill_md_hash": "f405e8d3ba85201c7de5caf122d57e094732975d",
+      "skill_md_hash": "48aa13ac1a153b1cdd3b2981b69f74bffb2adf0c",
       "summary": {
         "accesses_network": true,
         "account_evidence": null,
         "category": "documents",
-        "code_evidence": "npx -y kordoc@4.24.65 <command> ...",
-        "network_evidence": "첫 호출만 패키지 다운로드로 느리고 이후는 캐시.",
+        "code_evidence": "npx -y kordoc@4.24.66 <command> ...",
+        "network_evidence": "npx -y kordoc@4.24.66 <command> ...",
         "requires_external_account": false,
         "runs_external_code": true,
         "subcategory": "office",
-        "summary_ko": "kordoc은 한글(HWP·HWPX)과 PDF, DOCX, XLSX 문서를 Markdown으로 읽고, Markdown 원고를 공문서 형식의 HWPX로 만드는 스킬입니다. 서식의 빈칸을 채우거나 기존 한글 문서의 글을 고쳐도 글꼴과 표 모양을 유지하며, 두 문서의 차이를 신구대조표로 비교하고 결과 파일의 구조 검증과 미리보기도 할 수 있습니다.",
+        "summary_ko": "한글(HWP·HWPX)과 PDF, DOCX, 엑셀 문서를 마크다운으로 읽어 내용을 꺼내 줍니다. 마크다운으로 쓴 초안은 기안문, 보고서, 계획서 같은 공문서 양식의 HWPX 파일로 만들 수 있습니다. 서식의 빈칸에 값을 채우거나, 기존 한글 문서의 글을 서식을 유지한 채 고칠 수 있습니다. 두 문서의 문단 차이를 비교하고, 결과 파일의 구조를 검증하며, 조판 미리보기를 만들 수도 있습니다.",
         "tags": {
           "difficulty": "intermediate",
           "roles": [
-            "writer"
+            "writer",
+            "general"
           ],
           "use_cases": [
             "HWP 문서 읽기",
             "공문서 생성",
-            "서식 채우기",
+            "서식 자동 채우기",
             "문서 비교",
             "HWPX 검증"
           ]
         },
-        "use_when": "기관 공문서 양식을 채우거나 기존 한글 문서를 고쳐서 HWPX 파일로 다시 내야 할 때"
+        "use_when": "관공서에서 받은 한글 서식에 값을 채우거나 보고서 초안을 공문서 양식으로 바꿔야 할 때"
       }
     },
     "christian-katzmann/app-it:plugins/app-it-static/skills/app-it-static/SKILL.md": {
@@ -119384,6 +119500,36 @@
         "use_when": "사진 한 장으로 의자나 주전자 같은 물건을 마인크래프트 블록 모델로 만들고 싶을 때"
       }
     },
+    "codepawl/viz3d:plugins/make-pixel-splats/skills/make-pixel-splats/SKILL.md": {
+      "model": "claude-haiku-5-5",
+      "prompt_version": "v6",
+      "skill_md_hash": "7ca726d8a6a647dc61aa0e9c7f0e0217d3fd1933",
+      "summary": {
+        "accesses_network": true,
+        "account_evidence": null,
+        "category": "design",
+        "code_evidence": "Copy `{{SKILL_DIR}}/scripts/` to `{{WORK_DIR}}/pixel-splats/` and run `npm install` there.",
+        "network_evidence": "It installs\n   `@codepawlhq/67js`, which brings `playwright-core`.",
+        "requires_external_account": false,
+        "runs_external_code": true,
+        "subcategory": "image",
+        "summary_ko": "SDF로 만든 도형을 복셀 단위의 둥근 가우시안 스플랫으로 채워 3D 모델 없이 픽셀 아트 장면을 만듭니다. 그림자와 빛을 색에 미리 넣고, 후처리로 글로우, 안개, 제한된 팔레트, 디더를 적용한 뒤 최근접 확대로 마무리합니다. 으스스한 중세 장면, 섬 장면, 정지 이미지와 24초 영상 렌더링 설정이 함께 들어 있어 장면을 바꿔 가며 쓸 수 있습니다.",
+        "tags": {
+          "difficulty": "advanced",
+          "roles": [
+            "designer",
+            "developer"
+          ],
+          "use_cases": [
+            "픽셀 아트 장면 제작",
+            "스플랫 3D 장면",
+            "정지 이미지 렌더링",
+            "짧은 애니메이션 영상"
+          ]
+        },
+        "use_when": "3D 모델 없이 코드로 으스스한 성당 절벽이나 마녀 늪 같은 픽셀 아트 장면을 만들고 싶을 때"
+      }
+    },
     "codepawl/viz3d:plugins/visualize-in-3d/skills/visualize-in-3d/SKILL.md": {
       "model": "claude-haiku-5-5",
       "prompt_version": "v6",
@@ -124373,6 +124519,37 @@
         "use_when": "Confluent Cloud 컴퓨트 풀에서 돌릴 Flink SQL 문장이 오류 없이 동작하는지 실행 전에 확인해야 할 때"
       }
     },
+    "confluentinc/agent-skills:skills/confluent-cloud-provider-integration/SKILL.md": {
+      "model": "claude-haiku-5-5",
+      "prompt_version": "v6",
+      "skill_md_hash": "bd08d76fa649e6021f7ec0e3ea1c863ce8aa6a85",
+      "summary": {
+        "accesses_network": true,
+        "account_evidence": "Requires the Confluent CLI (`confluent`) logged in to Confluent Cloud, and a Confluent Cloud user with the OrganizationAdmin or EnvironmentAdmin role.",
+        "category": "devops",
+        "code_evidence": "confluent provider-integration create|list|describe|delete",
+        "network_evidence": "POST https://api.confluent.cloud/pim/v1/integrations",
+        "requires_external_account": true,
+        "runs_external_code": true,
+        "subcategory": "infrastructure",
+        "summary_ko": "커넥터나 Tableflow가 AWS, Azure, Google Cloud 리소스에 접근할 때 장기 액세스 키 대신 단기 가정 신원을 쓰도록 Confluent Cloud 프로바이더 통합을 만들고 검증하는 단계를 안내합니다. 클라우드 쪽 역할이나 서비스 주체를 준비하고 Confluent 쪽 값을 주고받아 신뢰 관계를 맞추며, 진행 상태를 로컬 파일에 저장해 중간에 멈춰도 이어서 할 수 있게 합니다. 통합이 만들어지고 검증되면 작업이 끝나며, 커넥터 설정은 다루지 않습니다.",
+        "tags": {
+          "difficulty": "advanced",
+          "roles": [
+            "developer",
+            "data"
+          ],
+          "use_cases": [
+            "프로바이더 통합 설정",
+            "Confluent 커넥터 인증",
+            "AWS IAM 역할 연동",
+            "Azure 서비스 주체 연동",
+            "GCP 서비스 계정 연동"
+          ]
+        },
+        "use_when": "S3 싱크 커넥터가 액세스 키 없이 버킷에 접근하도록 AWS IAM 역할 기반 프로바이더 통합을 새로 만들어야 할 때"
+      }
+    },
     "confluentinc/agent-skills:skills/confluent-skill-creator/SKILL.md": {
       "model": "claude-haiku-5-5",
       "prompt_version": "v6",
@@ -126540,30 +126717,29 @@
     "coreyhaines31/makerskills:skills/decide/SKILL.md": {
       "model": "claude-haiku-5-5",
       "prompt_version": "v6",
-      "skill_md_hash": "38fbe3ab7bd437da966656308c09446a51455b54",
+      "skill_md_hash": "94687da5cc655da16e56003d475c555ab960354c",
       "summary": {
-        "accesses_network": false,
+        "accesses_network": true,
         "account_evidence": null,
         "category": "productivity",
-        "code_evidence": "Read `references/questions.md` for the full set (the 37signals 38 + house additions, e.g. Q39 opportunity cost) and category mapping.",
-        "network_evidence": null,
+        "code_evidence": null,
+        "network_evidence": "- *\"Push to Notion as a decision card?\"*",
         "requires_external_account": false,
         "runs_external_code": false,
         "subcategory": "project-management",
-        "summary_ko": "결정해야 할 일을 질문 6~8개로 좁혀 차례로 따져 보고, 결론이나 보류 판단을 내리도록 돕습니다. 판단 근거와 다시 점검할 날짜를 기록해 두어 나중에 그 선택이 맞았는지 확인할 수 있습니다. 질문에 두루뭉술하게 답하면 구체적인 사실이나 기준을 다시 물어 답을 명확히 합니다.",
+        "summary_ko": "결정할 일을 말하면 그 상황에 맞는 질문 6~8개를 골라 하나씩 물어보고, 결론을 내리거나 판단을 보류하도록 돕습니다. 결정 이유, 버린 대안, 감수할 단점을 정리해 남기고, 나중에 결과를 확인할 날짜와 확인할 항목도 함께 적어 둡니다. 결정을 기록해 두면 과거의 판단을 나중에 찾아 비교할 수 있습니다.",
         "tags": {
           "difficulty": "beginner",
           "roles": [
-            "general",
             "product"
           ],
           "use_cases": [
             "의사결정 정리",
             "결정 기록",
-            "go/no-go 판단"
+            "재검토 일정 설정"
           ]
         },
-        "use_when": "여러 선택지 사이에서 고민하며 근거를 정리하고 나중에 결과를 되돌아보고 싶을 때"
+        "use_when": "가격 인상이나 채용처럼 되돌리기 어려운 결정을 앞두고 판단 근거를 정리하고 싶을 때"
       }
     },
     "coreyhaines31/makerskills:skills/deep-research/SKILL.md": {
@@ -126780,17 +126956,17 @@
     "coreyhaines31/marketingskills:skills/ads/SKILL.md": {
       "model": "claude-haiku-5-5",
       "prompt_version": "v6",
-      "skill_md_hash": "6b74024e464727d792a29eeab5d4f9ae43f6028a",
+      "skill_md_hash": "99b4bf102d4339355d0d4d06741a3abf2568237f",
       "summary": {
         "accesses_network": true,
-        "account_evidence": "Meta Ads MCP (official, start read-only)",
+        "account_evidence": "| **Google Ads** | Search intent, high-intent traffic | ✓ | [google-ads.md](https://github.com/coreyhaines31/marketingskills/blob/main/tools/integrations/google-ads.md) |",
         "category": "marketing",
         "code_evidence": null,
-        "network_evidence": "For implementation, see the [tools registry](https://github.com/coreyhaines31/marketingskills/blob/main/tools/REGISTRY.md).",
+        "network_evidence": "For implementation, see the [tools registry](https://github.com/coreyhaines31/marketingskills/blob/main/tools/REGISTRY.md). Key advertising platforms:",
         "requires_external_account": false,
         "runs_external_code": false,
         "subcategory": "advertising",
-        "summary_ko": "Google, Meta, LinkedIn의 유료 광고를 계획하고 운영하거나 개선하는 방법을 안내합니다. 광고 가치 판단, 채널과 예산 배분, CPA 상승 원인, 캠페인 중단이나 유지 결정을 다루며, 결론은 사실, 가설, 부족한 데이터로 나누어 정리합니다. 확인할 수 없는 입력은 추정하지 않고 MISSING으로 표시합니다. 광고 문구는 ad-creative, 픽셀과 CAPI는 conversion-tracking, 랜딩 페이지는 cro 스킬을 참고합니다.",
+        "summary_ko": "Google, Meta, LinkedIn 유료 광고의 계획, 운영, 개선을 돕습니다. 광고 채널과 예산 배분, CPA가 오른 이유, 캠페인 유지나 중단 같은 판단을 사실, 가설, 부족한 데이터로 나누어 정리해 줍니다. 입력이 없는 항목은 추정하지 않고 MISSING으로 표시합니다. 광고 문구는 ad-creative, 픽셀은 conversion-tracking, 랜딩 페이지는 cro 스킬을 참고하도록 안내합니다.",
         "tags": {
           "difficulty": "intermediate",
           "roles": [
@@ -126800,11 +126976,11 @@
           "use_cases": [
             "유료 광고 운영",
             "광고 예산 배분",
-            "CPA 원인 분석",
-            "캠페인 중단 판단"
+            "CPA 분석",
+            "캠페인 유지·중단 판단"
           ]
         },
-        "use_when": "광고비를 어디에 얼마나 나눌지 정하거나, CPA가 갑자기 올라 원인을 찾거나, 성과가 낮은 캠페인을 멈출지 판단해야 할 때"
+        "use_when": "광고비 대비 성과가 떨어져 CPA가 오른 이유를 찾고 캠페인을 유지할지 중단할지 정해야 할 때"
       }
     },
     "coreyhaines31/marketingskills:skills/ai-seo/SKILL.md": {
@@ -134142,17 +134318,17 @@
     "dailydotdev/daily:skills/daily.dev/SKILL.md": {
       "model": "claude-haiku-5-5",
       "prompt_version": "v6",
-      "skill_md_hash": "5b37bb79a494af5d4212269441f1f1acf5d0b753",
+      "skill_md_hash": "c69e434e6a62b63b8d9dcb87d5ecfaf73032171e",
       "summary": {
         "accesses_network": true,
-        "account_evidence": "1. **Create a token** at https://daily.dev/settings/api - every account can create one, no subscription needed",
+        "account_evidence": "Create a token at https://daily.dev/settings/api - every account can create one, no subscription needed",
         "category": "research",
-        "code_evidence": "export DAILY_DEV_TOKEN=$(security find-generic-password -a \"$USER\" -s \"daily-dev-api\" -w 2>/dev/null)",
+        "code_evidence": "curl -s https://api.daily.dev/public/v1/docs/json | jq '.paths[\"/feeds/foryou\"].get'",
         "network_evidence": "curl -s https://api.daily.dev/public/v1/docs/json | jq '.paths[\"/feeds/foryou\"].get'",
         "requires_external_account": true,
         "runs_external_code": true,
         "subcategory": "web-research",
-        "summary_ko": "daily.dev에서 개발자 기사를 찾아 최신 기술 정보를 확인할 수 있게 해 줍니다. 키워드, 태그, 출처별로 커뮤니티 반응이 검증된 글을 골라 보여 주며, 필요하면 글을 북마크에 모아 두거나 개인화 피드를 조정할 수 있습니다. 모델의 학습 시점 이후에 나온 기술 내용을 확인할 때 쓰기 좋습니다.",
+        "summary_ko": "daily.dev에서 개발자 커뮤니티가 많이 읽고 반응한 최신 기술 글을 찾아 줍니다. 키워드와 태그로 검색하거나 개인화 피드, 인기글, 토론이 활발한 글 목록을 받아 주제별로 살펴볼 수 있어서, 모델의 학습 시점 이후 기술 동향을 확인하는 데 도움이 됩니다. 찾은 글은 북마크 목록에 모아 두고 나중에 다시 볼 수 있습니다.",
         "tags": {
           "difficulty": "intermediate",
           "roles": [
@@ -134160,13 +134336,12 @@
             "researcher"
           ],
           "use_cases": [
-            "개발 기사 탐색",
+            "최신 기술 글 찾기",
             "기술 동향 조사",
-            "최신 자료 검색",
-            "북마크 정리"
+            "개발자 피드 큐레이션"
           ]
         },
-        "use_when": "특정 기술의 최근 변화나 새로 나온 글을 찾아 답변에 반영해야 할 때"
+        "use_when": "최신 기술 동향이나 특정 라이브러리의 최근 글을 개발자 커뮤니티 반응과 함께 찾아야 할 때"
       }
     },
     "daishuge/pcb-skill:skills/pcb/SKILL.md": {
@@ -146179,7 +146354,7 @@
     "denissergeevitch/ex-ussr-kinship-research:SKILL.md": {
       "model": "claude-haiku-5-5",
       "prompt_version": "v6",
-      "skill_md_hash": "47b4a21a26cb0942145c70ab9f8b6cdcaa9f02cf",
+      "skill_md_hash": "65726129c4ff8615c6e346050f8c3f9236c2c06d",
       "summary": {
         "accesses_network": true,
         "account_evidence": null,
@@ -146189,7 +146364,7 @@
         "requires_external_account": false,
         "runs_external_code": true,
         "subcategory": "web-research",
-        "summary_ko": "옛 소련권과 러시아 제국 시기의 교회 기록부, 호적, 군 기록, 이주·탄압 기록을 근거로 가족 관계를 조사합니다. 기록 원본과 해석을 나누어 정리하고, 동명이인은 구별 근거가 확인될 때까지 따로 다루며, 결론은 근거의 강도에 따라 표시합니다. 최종 결과는 출처가 연결된 HTML 보고서로 정리됩니다.",
+        "summary_ko": "구소련 지역과 러시아 제국의 교회 기록, 호적, 군 기록, 이주와 탄압 관련 문서를 찾아 가계의 혈연 관계를 따라갑니다. 동명이인은 날짜, 장소, 가족 구성으로 나누어 구분하고, 각 주장마다 출처와 확실성 수준을 붙입니다. 마지막에는 근거 사슬과 미확정 부분을 담은 HTML 보고서를 만듭니다.",
         "tags": {
           "difficulty": "intermediate",
           "roles": [
@@ -146197,13 +146372,13 @@
             "general"
           ],
           "use_cases": [
-            "가계 조사",
-            "고문서 판독",
-            "동명이인 구분",
-            "족보 작성"
+            "족보 조사",
+            "교회 기록 열람",
+            "가계 관계 확인",
+            "동명이인 구분"
           ]
         },
-        "use_when": "옛 소련권이나 러시아 제국 시기 조상의 교회 기록, 호적, 군 기록을 찾아 가계를 확인하고 싶을 때"
+        "use_when": "조부모 세대 이름만 남은 집안의 옛 기록을 찾아 가계 관계를 확인하고 싶을 때"
       }
     },
     "denissergeevitch/game-sensitivity-coach:SKILL.md": {
@@ -147015,17 +147190,17 @@
     "devallibus/shiplog:skills/shiplog/SKILL.md": {
       "model": "claude-haiku-5-5",
       "prompt_version": "v6",
-      "skill_md_hash": "8adcac7e5173806459c76c19ab690ead72e04361",
+      "skill_md_hash": "01128aac2fbad198a17a84d39e29ae10def9360b",
       "summary": {
         "accesses_network": true,
         "account_evidence": null,
         "category": "productivity",
-        "code_evidence": "git checkout -b issue/999-rate-limit-headers origin/<default-branch>",
-        "network_evidence": "git fetch origin <default-branch>",
+        "code_evidence": "| Commit | [commit.md](commit.md) |",
+        "network_evidence": "Use GitHub issues, PRs, and links; no separate memory service is required.",
         "requires_external_account": false,
         "runs_external_code": true,
         "subcategory": "project-management",
-        "summary_ko": "브레인스토밍한 내용을 GitHub 이슈로 정리하고, 이슈마다 브랜치, 커밋, PR을 같은 흐름으로 묶어 작업 과정이 남도록 돕습니다. 각 결정과 발견 사항이 이슈 댓글과 PR 타임라인에 기록되어, 나중에 이슈 번호로 「왜 이렇게 했는지」를 다시 찾을 수 있습니다. 리뷰 기록과 머지 전 확인 조건도 함께 남깁니다.",
+        "summary_ko": "프로젝트 논의와 결정을 발언 순서대로 보존하고, 다음 작업자가 목표, 제약, 미결 질문, 다음 할 일을 짧게 파악할 수 있도록 현재 요약을 유지합니다. 과거 논의를 되짚어야 할 때는 기록을 검색해 답하고, 작업을 재개하기 전에는 실제 브랜치와 변경 사항을 확인해 요약과 맞춥니다. 수행하지 않은 검증은 밝히고, 근거가 있는 범위만 완료로 닫습니다.",
         "tags": {
           "difficulty": "intermediate",
           "roles": [
@@ -147033,13 +147208,13 @@
             "product"
           ],
           "use_cases": [
-            "이슈 관리",
-            "PR 타임라인 작성",
-            "결정 기록",
-            "코드 리뷰 기록"
+            "프로젝트 논의 기록",
+            "작업 인수인계",
+            "과거 결정 검색",
+            "이슈 요약 관리"
           ]
         },
-        "use_when": "브레인스토밍한 설계를 이슈로 등록하고 그 이슈가 PR로 머지될 때까지 기록을 추적해야 할 때"
+        "use_when": "여러 세션에 걸쳐 이어지는 작업에서 지난 논의와 결정을 다시 찾아야 할 때"
       }
     },
     "devbrother2024/skills:advisor-strategy/SKILL.md": {
@@ -173722,6 +173897,35 @@
         "use_when": "게시물, 영상 제목, SEO 콘텐츠 변경이 실제 성과를 올렸는지 분석 데이터로 확인하고 싶을 때"
       }
     },
+    "ericosiu/ai-marketing-skills:commenter-talent-scan/SKILL.md": {
+      "model": "claude-haiku-5-5",
+      "prompt_version": "v6",
+      "skill_md_hash": "13c428875cc67133dc2c246f6251c9d0f6eac429",
+      "summary": {
+        "accesses_network": true,
+        "account_evidence": "An Apify account (the `apify/instagram-scraper` actor) for bulk comment and profile enrichment.",
+        "category": "marketing",
+        "code_evidence": "npx, npm install, pip install, curl, git clone, gh가 보이면 code와 network를 둘 다 검토합니다.",
+        "network_evidence": "Run the same actor with `resultsType: \"details\"` and one profile URL per username.",
+        "requires_external_account": true,
+        "runs_external_code": true,
+        "subcategory": "sales",
+        "summary_ko": "공개 채용 게시물에 달린 지원 댓글 작성자들을 모아 프로필 정보와 프로필 사진을 수집하고, 역할 경력 깊이, 채용 대상 여부, 직급, 주력 전문 분야를 기준으로 순위를 매긴 연락 후보 목록을 만들어 줍니다. 프로필 소개글에 적힌 내용은 주장으로만 표시하고, 적혀 있지 않은 전문 분야는 추정하지 않고 '소개글에 명시되지 않음'으로 남깁니다. 평가 기준을 통과한 분류기만 사용하며, 결과는 요약과 CSV 목록으로 정리됩니다.",
+        "tags": {
+          "difficulty": "intermediate",
+          "roles": [
+            "marketer",
+            "product"
+          ],
+          "use_cases": [
+            "채용 후보 발굴",
+            "댓글 지원자 정리",
+            "아웃리치 대상 선별"
+          ]
+        },
+        "use_when": "채용 게시물 댓글에 지원자가 몰렸는데 연락할 만한 사람을 빠르게 골라내야 할 때"
+      }
+    },
     "ericosiu/ai-marketing-skills:content-eval/SKILL.md": {
       "model": "claude-haiku-5-5",
       "prompt_version": "v6",
@@ -188529,17 +188733,17 @@
     "first-fluke/oh-my-agent:skills/oma-architecture/SKILL.md": {
       "model": "claude-haiku-5-5",
       "prompt_version": "v6",
-      "skill_md_hash": "6f8c14d3495b38a0969b949f9fe0a81aec4dd6fe",
+      "skill_md_hash": "1ff52b8396f9c23b26f3c9a3eb3f0ffcf32d8832",
       "summary": {
         "accesses_network": false,
         "account_evidence": null,
         "category": "development",
-        "code_evidence": "Use the configured code-intelligence provider for structure, symbols, references, and integration points.",
-        "network_evidence": "Optional stakeholder-agent consultation only when cross-cutting enough to justify cost",
+        "code_evidence": null,
+        "network_evidence": null,
         "requires_external_account": false,
-        "runs_external_code": true,
+        "runs_external_code": false,
         "subcategory": "dev-tools",
-        "summary_ko": "시스템 경계와 구조 선택의 장단점을 비교해 아키텍처 결정을 정리합니다. 문제를 진단하고 두 가지 이상의 설계안을 견주어 추천안을 고르며, 가정·위험·검증 단계를 함께 적은 결정 기록(ADR)이나 분석 문서를 만듭니다. 구조가 바뀌는 결정에는 Mermaid 구성도도 포함하며, 기존 결정과의 관계를 확인해 대체 관계를 명시합니다. 소스 코드를 직접 고치지는 않습니다.",
+        "summary_ko": "시스템 경계와 아키텍처 선택지를 비교해 추천안을 정리하는 스킬입니다. 현재 구조와 제약을 살펴보고 여러 대안의 장단점, 위험, 검증 단계를 나열한 뒤 하나를 권고합니다. 결정이 확정되면 ADR 형식의 기록으로 남기며, 구조가 바뀌는 경우에는 Mermaid 다이어그램을 함께 만듭니다. API 버전과 폐기 전략을 정하거나 기존 시스템을 단계적으로 옮기는 계획도 다룹니다.",
         "tags": {
           "difficulty": "advanced",
           "roles": [
@@ -188550,10 +188754,10 @@
             "아키텍처 결정",
             "설계 리뷰",
             "ADR 작성",
-            "API 버전 전략"
+            "API 버전 관리"
           ]
         },
-        "use_when": "모듈이나 서비스 경계를 나누거나 기술 구조를 고르면서 장단점을 문서로 남겨야 할 때"
+        "use_when": "모듈이나 서비스 경계를 나누어야 하는데 어떤 구조가 맞을지 판단이 서지 않을 때"
       }
     },
     "first-fluke/oh-my-agent:skills/oma-backend/SKILL.md": {
@@ -215122,7 +215326,7 @@
     "google/elephant-goldfish-model:distributions/claude/skills/egm-bootstrap/SKILL.md": {
       "model": "claude-haiku-5-5",
       "prompt_version": "v6",
-      "skill_md_hash": "3baa07e353213db1e26915e3942ef4cb45fb5713",
+      "skill_md_hash": "3e988c9ec9a310c40701c27c8e577fd1956a792d",
       "summary": {
         "accesses_network": true,
         "account_evidence": null,
@@ -215132,19 +215336,19 @@
         "requires_external_account": false,
         "runs_external_code": true,
         "subcategory": "misc",
-        "summary_ko": "저장소 디렉터리마다 README.md를 만들거나 기존 파일을 고쳐, 각 폴더의 공개 인터페이스, 불변 조건, 부작용을 정리한 계약 문서로 맞춥니다. 소스 코드를 읽어 실제 심볼만 적고, 하위 폴더 문서를 상위 색인으로 묶어 저장소 전체를 한눈에 볼 수 있게 합니다. 기존에 사람이 쓴 설명은 보존하며, 검증 명령과 하위 문서 링크도 채워 넣습니다.",
+        "summary_ko": "저장소 디렉터리마다 README.md를 만들거나 고쳐서, 각 폴더의 공개 인터페이스, 불변 조건, 부작용을 정리한 계약 문서를 채워 줍니다. 코드 파일이 있는 폴더는 구성요소 문서로, 하위 폴더를 묶는 상위 폴더는 색인 문서로 작성하며, 기존 사람이 쓴 설명은 보존합니다. 작업 마지막에는 생성한 문서를 다시 읽어 실제 코드 심볼과 링크가 맞는지 검증합니다.",
         "tags": {
           "difficulty": "intermediate",
           "roles": [
             "developer"
           ],
           "use_cases": [
-            "README 생성",
-            "모듈 인터페이스 문서화",
-            "저장소 문서 정비"
+            "README 작성",
+            "코드 문서화",
+            "인터페이스 계약 정리"
           ]
         },
-        "use_when": "여러 폴더로 나뉜 저장소에 모듈별 인터페이스 문서를 한꺼번에 만들거나 정비해야 할 때"
+        "use_when": "코드 저장소의 하위 폴더마다 인터페이스와 역할을 적은 README 문서가 필요할 때"
       }
     },
     "google/elephant-goldfish-model:distributions/claude/skills/egm-brainstorm/SKILL.md": {
@@ -228386,6 +228590,36 @@
         "use_when": "Godot 프로젝트에 새 캐릭터, 레벨, 메뉴를 추가하거나 Godot 3 코드를 4.x로 옮겨야 할 때"
       }
     },
+    "haydenschmitty/floorplan:skills/floorplan/SKILL.md": {
+      "model": "claude-haiku-5-5",
+      "prompt_version": "v6",
+      "skill_md_hash": "62e92944765ea0fdc283fb992ca88f97ba2cd1c3",
+      "summary": {
+        "accesses_network": false,
+        "account_evidence": null,
+        "category": "development",
+        "code_evidence": "Bash(node ${CLAUDE_SKILL_DIR}/scripts/build.mjs *)",
+        "network_evidence": "The map makes no outside requests: the build inlines the layout engine (ELK) and fonts from",
+        "requires_external_account": false,
+        "runs_external_code": true,
+        "subcategory": "dev-tools",
+        "summary_ko": "앱 코드베이스를 한눈에 보는 인터랙티브 지도를 만들어 줍니다. 하위 시스템, 모듈, 파일, HTTP 경로마다 사람이 읽을 수 있는 이름과 한 줄 설명이 붙고, 프론트엔드와 백엔드가 어떻게 주고받는지 연결선으로 보여 줍니다. 확대 수준을 바꿔 가며 구조를 살필 수 있고, 코드가 바뀌면 바뀐 부분만 다시 반영해 지도를 갱신합니다. 아직 코드가 없을 때는 기획 문서를 바탕으로 같은 형식의 설계도를 그릴 수 있습니다.",
+        "tags": {
+          "difficulty": "intermediate",
+          "roles": [
+            "developer",
+            "product"
+          ],
+          "use_cases": [
+            "코드베이스 구조 시각화",
+            "온보딩 문서화",
+            "프론트엔드-백엔드 연결 파악",
+            "설계 블루프린트 작성"
+          ]
+        },
+        "use_when": "처음 맡은 앱의 프론트엔드와 백엔드가 어떻게 연결되어 있는지 한눈에 파악해야 할 때"
+      }
+    },
     "hazat/pi-config:skills/commit/SKILL.md": {
       "model": "claude-haiku-5-5",
       "prompt_version": "v6",
@@ -237319,35 +237553,6 @@
         "use_when": "게임에 들어갈 캐릭터, 소품, 아이콘 같은 그림과 3D 모델, 효과음이 필요할 때"
       }
     },
-    "htmlstreamofficial/preline:skills/preline-mcp/SKILL.md": {
-      "model": "claude-haiku-5-5",
-      "prompt_version": "v6",
-      "skill_md_hash": "5bfe88b6a220506da86b31a17d44c804753837d1",
-      "summary": {
-        "accesses_network": true,
-        "account_evidence": null,
-        "category": "development",
-        "code_evidence": "Add, integrate, or build Preline UI components and blocks into HTML files via the Preline MCP server.",
-        "network_evidence": "The server exposes 6 tools that return integration-ready HTML, CSS, and JS.",
-        "requires_external_account": false,
-        "runs_external_code": false,
-        "subcategory": "frontend",
-        "summary_ko": "Preline UI의 컴포넌트와 블록을 HTML 파일에 맞춰 넣어 주는 스킬입니다. 원하는 섹션이나 카테고리를 고르면 해당 항목을 찾아 HTML, CSS, JS를 받아 대상 파일의 head와 body 적절한 위치에 배치하고, 텍스트만 바꿔 완성합니다. 여러 요소로 이루어진 화면은 바깥 구조부터 차례로 조립합니다. 다른 제품이나 플러그인과 무관하게 Preline 전용입니다.",
-        "tags": {
-          "difficulty": "intermediate",
-          "roles": [
-            "developer",
-            "designer"
-          ],
-          "use_cases": [
-            "UI 컴포넌트 추가",
-            "페이지 섹션 만들기",
-            "Preline 블록 적용"
-          ]
-        },
-        "use_when": "Tailwind 기반 HTML 페이지에 Preline 아코디언이나 가격표 같은 UI 컴포넌트를 추가해야 할 때"
-      }
-    },
     "htmlstreamofficial/preline:skills/theme-generator/SKILL.md": {
       "model": "claude-haiku-5-5",
       "prompt_version": "v6",
@@ -244563,30 +244768,30 @@
     "iblai/vibe:skills/agents/iblai-api-agent-chat/SKILL.md": {
       "model": "claude-haiku-5-5",
       "prompt_version": "v6",
-      "skill_md_hash": "e2c097d4aa8b1d4c3f9244a64df9d0c726202dcd",
+      "skill_md_hash": "d1138c2317b2a09685c0910e3c8beebf3e6d363a",
       "summary": {
         "accesses_network": true,
-        "account_evidence": "--header \"Authorization: Api-Token $IBLAI_API_KEY\" \\",
+        "account_evidence": "- **`IBLAI_API_KEY`** — your Platform API Token (from `.env`; run `/iblai-api-login`",
         "category": "ai-agents",
         "code_evidence": "claude mcp add iblai-api-agent-chat \\",
-        "network_evidence": "--transport http https://asgi.data.iblai.app/mcp/agent-chat/ \\",
+        "network_evidence": "--transport http \"https://asgi.data.iblai.app/mcp/agent-chat/$MENTOR\" \\",
         "requires_external_account": true,
         "runs_external_code": true,
-        "subcategory": "mcp",
-        "summary_ko": "배포된 ibl.ai 에이전트와 실시간으로 대화할 수 있도록 호스팅된 MCP 서버를 프로젝트에 연결해 줍니다. 한 번 설정하면 어시스턴트가 서버의 채팅 도구로 메시지를 보내고 에이전트의 응답을 받습니다. 연결 하나는 에이전트 하나에 대응하며, 여러 에이전트와 대화하려면 항목을 나눠 추가합니다.",
+        "subcategory": "agent-operations",
+        "summary_ko": "ibl.ai에 배포된 에이전트와 실시간으로 대화할 수 있도록 프로젝트의 연결 설정을 한 번에 잡아 줍니다. 대화할 에이전트를 고르면 그 에이전트의 지침, 도구, 학습 문서가 반영된 답변을 어시스턴트 안에서 주고받을 수 있습니다. 이어지는 질문은 앞선 대화의 세션을 이어받아 이전 맥락을 유지합니다.",
         "tags": {
           "difficulty": "intermediate",
           "roles": [
             "developer",
-            "product"
+            "general"
           ],
           "use_cases": [
             "에이전트 대화 연결",
-            "MCP 서버 설정",
-            "에이전트 호출"
+            "배포 에이전트 질의",
+            "MCP 서버 설정"
           ]
         },
-        "use_when": "배포된 에이전트에게 질문을 던지고 대화 응답을 받고 싶을 때"
+        "use_when": "배포된 에이전트에게 직접 질문하고 답변을 받아 보고 싶을 때"
       }
     },
     "iblai/vibe:skills/agents/iblai-api-agent-create/SKILL.md": {
@@ -258937,17 +259142,17 @@
     "jacob-bd/gemini-notebook-mcp-cli:src/notebooklm_tools/data/SKILL.md": {
       "model": "claude-haiku-5-5",
       "prompt_version": "v6",
-      "skill_md_hash": "b178cfa6bbdfa837f86959d0ae446632ef7c1617",
+      "skill_md_hash": "53019f1e9d8bf63177837636fff2cc23743f5003",
       "summary": {
         "accesses_network": true,
         "account_evidence": "nlm login                           # Launch browser, extract cookies (primary method)",
         "category": "productivity",
-        "code_evidence": "nlm usage               # Check rolling and weekly plan usage and reset times",
+        "code_evidence": "nlm --help              # List all commands",
         "network_evidence": "nlm source add <nb-id> --url \"https://...\"           # Web page",
         "requires_external_account": true,
         "runs_external_code": true,
         "subcategory": "notes-calendar",
-        "summary_ko": "Gemini Notebook(NotebookLM)의 노트북 생성, 소스 추가, 질의응답을 nlm 명령이나 MCP 도구로 처리하도록 안내합니다. 팟캐스트, 보고서, 퀴즈, 마인드맵 같은 산출물을 만들고 진행 상태를 확인해 내려받는 흐름을 단계별로 알려 줍니다.",
+        "summary_ko": "Gemini Notebook(구 NotebookLM)의 nlm 명령과 MCP 도구로 노트북을 만들고, 웹·YouTube·텍스트·Google Drive 자료를 추가한 뒤 팟캐스트, 보고서, 퀴즈, 슬라이드 같은 결과물을 생성하는 방법을 안내합니다. 자료에 대한 질문 답변, 새 자료 찾기 리서치, 생성 진행 상황 확인과 다운로드까지 이어서 다룹니다.",
         "tags": {
           "difficulty": "intermediate",
           "roles": [
@@ -258955,13 +259160,14 @@
             "writer"
           ],
           "use_cases": [
-            "노트북 자료 질의",
+            "노트북 자료 정리",
             "팟캐스트 생성",
-            "학습 자료 제작",
-            "자료 조사"
+            "자료 기반 질의응답",
+            "리서치 자료 수집",
+            "슬라이드와 보고서 생성"
           ]
         },
-        "use_when": "여러 자료를 모아 둔 노트북에서 팟캐스트나 보고서를 만들거나 자료에 대해 질문하고 답을 받아야 할 때"
+        "use_when": "여러 웹페이지와 문서를 모아 팟캐스트나 학습용 퀴즈로 바꿔야 할 때"
       }
     },
     "jacob-bd/the-openclaw-optimizer:openclaw-optimizer/SKILL.md": {
@@ -262381,6 +262587,35 @@
           ]
         },
         "use_when": "투자자가 데이터룸을 요청했는데 어떤 자료가 빠지고 오래됐는지 확인해야 할 때"
+      }
+    },
+    "jakeschincariol/seed-skill:seed-deck/SKILL.md": {
+      "model": "claude-haiku-5-5",
+      "prompt_version": "v6",
+      "skill_md_hash": "005b6cfb3919eebcbb1c0618f82a2bd799a0f1e9",
+      "summary": {
+        "accesses_network": false,
+        "account_evidence": null,
+        "category": "documents",
+        "code_evidence": "python3 \"${CLAUDE_SKILL_DIR}/deck.py\" build",
+        "network_evidence": null,
+        "requires_external_account": false,
+        "runs_external_code": true,
+        "subcategory": "presentation",
+        "summary_ko": "사업계획 파일을 읽어 투자자가 기대하는 순서의 10장짜리 피치덱을 한 개의 HTML 파일로 만들어 줍니다. 각 슬라이드의 수치는 경쟁사, 시장, 재무 모델 파일에서 가져오며, 슬라이드당 단어 수와 자금 사용 계획이 조달액과 맞는지 점검해 줍니다. 완성된 덱은 화살표 키로 발표하고 슬라이드별 PDF로 인쇄할 수 있습니다.",
+        "tags": {
+          "difficulty": "intermediate",
+          "roles": [
+            "general"
+          ],
+          "use_cases": [
+            "피치덱 제작",
+            "투자자 발표 자료",
+            "슬라이드 단어 수 점검",
+            "자금 사용 계획 검증"
+          ]
+        },
+        "use_when": "사업계획을 투자자에게 보낼 10장짜리 발표 자료로 바꾸고 싶을 때"
       }
     },
     "jakeschincariol/trader-skill:trader-alerts/SKILL.md": {
@@ -272509,46 +272744,45 @@
     "jimliu/baoyu-design:chatgpt-plugins/baoyu-canvas/skills/claude-design/SKILL.md": {
       "model": "claude-haiku-5-5",
       "prompt_version": "v6",
-      "skill_md_hash": "06a343b82ad182435ef129eb3054599a05d4f686",
+      "skill_md_hash": "f192773163977c181e15536b618f777d4539a780",
       "summary": {
         "accesses_network": true,
         "account_evidence": null,
         "category": "design",
-        "code_evidence": "`node <this skill's folder>/scripts/artifact.mjs <command>` (Node 20+; `artifact.mjs` in these pages), which prints JSON",
+        "code_evidence": "`comment-resolve <root> <id>` closes one (`--reopen` opens it again).",
         "network_evidence": "a Google Fonts `css2` `<link>` in `<helmet>` and step 3's urls; icons: a mounted system's, by name, else inline",
         "requires_external_account": false,
         "runs_external_code": true,
         "subcategory": "visual-design",
-        "summary_ko": "여러 장의 시안을 하나의 캔버스에 아트보드로 나란히 배치해 포스터, 소셜 게시물, 앱 화면 같은 디자인을 만듭니다. 만든 뒤에는 편집기에서 아트보드를 한눈에 보고 문구를 직접 고치며, 색이나 간격 같은 조절 값도 바꿀 수 있습니다. 지정한 브랜드나 디자인 시스템이 있으면 색과 서체를 맞춰 작업합니다.",
+        "summary_ko": "claude-design 스킬은 claude.ai의 Design(캔버스) 형식으로 여러 아트보드 디자인을 만들고 고쳐 줍니다. 결과물은 아트보드들을 나란히 보고 문구와 조정 항목을 직접 바꿀 수 있는 캔버스 편집기에서 열립니다. 기존 캔버스 폴더가 있으면 그 파일을 읽어 필요한 부분만 수정합니다.",
         "tags": {
           "difficulty": "intermediate",
           "roles": [
             "designer"
           ],
           "use_cases": [
-            "포스터 디자인",
-            "앱 화면 목업",
-            "디자인 시안 수정",
-            "브랜드 디자인 적용"
+            "디자인 캔버스",
+            "아트보드 제작",
+            "포스터 시안"
           ]
         },
-        "use_when": "브랜드 색과 서체를 맞춘 메뉴 포스터를 편집 가능한 아트보드 여러 장으로 만들어야 할 때"
+        "use_when": "여러 아트보드를 나란히 놓고 문구와 조정값을 직접 고칠 수 있는 디자인 캔버스가 필요할 때"
       }
     },
-    "jimliu/baoyu-design:chatgpt-plugins/baoyu-dashboard/skills/claude-dashboard/SKILL.md": {
+    "jimliu/baoyu-design:chatgpt-plugins/baoyu-data/skills/claude-data/SKILL.md": {
       "model": "claude-haiku-5-5",
       "prompt_version": "v6",
-      "skill_md_hash": "22aed1d669d7dbea09d65d259a9234033adfa2a8",
+      "skill_md_hash": "569ba8cf4577d9e06a63d194696af3d8cc167f3c",
       "summary": {
         "accesses_network": true,
         "account_evidence": null,
-        "category": "documents",
-        "code_evidence": "node $A write-db <root> <batch.json | ->",
-        "network_evidence": "node $A open <root> [--port n] [--lan]",
+        "category": "data",
+        "code_evidence": "Then run `open <root>` (it starts the editor in the background and",
+        "network_evidence": "otherwise gather it with your own tools (a database or API you can query, a published source you can cite)",
         "requires_external_account": false,
         "runs_external_code": true,
-        "subcategory": "office",
-        "summary_ko": "주어진 CSV, TSV, JSON 데이터나 직접 모은 수치를 바탕으로 차트, 숫자, 표를 담은 로컬 대시보드 페이지를 만듭니다. 각 숫자가 어느 데이터셋에서 왔는지 보여 주는 출처 패널이 함께 붙고, 나중에 데이터를 다시 받아 갱신하거나 페이지를 고칠 수 있습니다. 페이지는 컴퓨터에서 편집기로 열어 보고 필요하면 같은 망의 다른 사람과 공유하며, 댓글로 수정 요청을 받을 수도 있습니다.",
+        "subcategory": "visualization",
+        "summary_ko": "CSV, TSV, JSON 같은 데이터 파일을 바탕으로 차트, 숫자, 표가 담긴 대시보드 페이지를 만들어 줍니다. 각 숫자가 어느 자료에서 왔는지 출처 패널에 함께 보여 주며, 데이터를 새 파일로 바꾸면 페이지에 반영됩니다. 페이지에 남긴 댓글을 보고 수정할 수 있습니다.",
         "tags": {
           "difficulty": "intermediate",
           "roles": [
@@ -272562,7 +272796,7 @@
             "정기 보고서"
           ]
         },
-        "use_when": "여러 달의 매출 데이터를 차트와 KPI 카드가 있는 실시간 보고 페이지로 묶어 매주 갱신해야 할 때"
+        "use_when": "매달 받는 판매 CSV를 KPI 카드와 추이 차트가 있는 대시보드로 정리해 팀과 공유해야 할 때"
       }
     },
     "jimliu/baoyu-design:chatgpt-plugins/baoyu-dataviz/skills/dataviz/SKILL.md": {
@@ -303921,7 +304155,7 @@
     "laravel/agent-skills:laravel-cloud/skills/deploying-to-cloud/SKILL.md": {
       "model": "claude-haiku-5-5",
       "prompt_version": "v6",
-      "skill_md_hash": "5af4aac87d4f80cc01ed5b340b9a26e6f560f1e1",
+      "skill_md_hash": "87acee153f4c94e8f2bcebe304f0b4fe31db8ed2",
       "summary": {
         "accesses_network": true,
         "account_evidence": "`cloud auth` opens a browser. If a browser is unavailable, set `LARAVEL_CLOUD_TOKEN` in the environment.",
@@ -303931,20 +304165,20 @@
         "requires_external_account": true,
         "runs_external_code": true,
         "subcategory": "deployment",
-        "summary_ko": "Laravel Cloud에 Laravel 앱을 배포하고 환경, 데이터베이스, 캐시, 오브젝트 스토리지, 큐, 도메인, 시크릿 같은 인프라를 cloud CLI로 만들고 관리하도록 돕습니다. 배포 전에 대상 앱과 환경을 확인하고, 배포 후에는 진행 상황을 끝까지 모니터링하며 실패하면 로그를 읽어 원인을 알려 줍니다. 사용량과 청구 금액을 조회하는 방법도 함께 다룹니다.",
+        "summary_ko": "Laravel Cloud에 라라벨 앱을 배포하고 환경, 데이터베이스, 캐시, 오브젝트 스토리지, 큐, 도메인, 시크릿 같은 인프라를 cloud CLI로 관리하도록 돕습니다. 배포 후에는 진행 상황을 확인하고 실패 시 로그를 읽어 원인을 보여 줍니다. 사용량과 청구 내역을 조회하는 데도 쓸 수 있습니다. 파괴적인 작업은 실행 전에 사용자의 확인을 받습니다.",
         "tags": {
           "difficulty": "intermediate",
           "roles": [
             "developer"
           ],
           "use_cases": [
-            "Laravel 앱 배포",
-            "Laravel Cloud 인프라 관리",
-            "배포 상태 모니터링",
-            "클라우드 사용량 조회"
+            "Laravel Cloud 배포",
+            "클라우드 인프라 관리",
+            "배포 로그 확인",
+            "사용량 조회"
           ]
         },
-        "use_when": "Laravel 앱을 Laravel Cloud에 처음 올리거나 기존 환경에 새 배포를 내보내야 할 때"
+        "use_when": "라라벨 앱을 Laravel Cloud에 처음 배포하거나 운영 환경의 데이터베이스와 큐를 새로 만들어야 할 때"
       }
     },
     "laravel/agent-skills:laravel-nightwatch/skills/configure-nightwatch/SKILL.md": {
@@ -309865,6 +310099,35 @@
           ]
         },
         "use_when": "회사 소개 사이트 첫 화면에 쓸 포스터풍 메인 이미지를 여러 안으로 만들어 비교해야 할 때"
+      }
+    },
+    "lemonface0309/charles-skills:skills/charles-arcade-motion/SKILL.md": {
+      "model": "claude-haiku-5-5",
+      "prompt_version": "v6",
+      "skill_md_hash": "3780563da4cb1ba74b822de7008f6b8b37bd5e44",
+      "summary": {
+        "accesses_network": true,
+        "account_evidence": "`FAL_KEY` in the repo's `.env` (`tools/fal.py` finds it).",
+        "category": "design",
+        "code_evidence": "Render `out/part_<start>_<W>x<H>.mp4` (`part_012.4_1280x630.mp4`); for a set of sizes, run the render line it printed for each size",
+        "network_evidence": "Generate every scene plate, character, prop and missing pose (`reference/art.md` has the exact prompt blocks and commands; check `cast/props` first).",
+        "requires_external_account": true,
+        "runs_external_code": true,
+        "subcategory": "video",
+        "summary_ko": "음성 해설의 각 단어를 레트로 픽셀아트 게임 같은 모션그래픽으로 옮겨 줍니다. 픽셀 마스코트와 주제에 맞춘 캐릭터가 말하는 내용을 연기하고, 앱 화면과 실제 페이지, 로고, 사진은 말이 나오는 순간에 맞춰 나타납니다. 숫자 카운터, 차트, 도장 같은 표시도 해당 단어에 맞춰 등장하며, 결과는 HyperFrames로 렌더링된 영상 파일입니다.",
+        "tags": {
+          "difficulty": "advanced",
+          "roles": [
+            "designer",
+            "marketer"
+          ],
+          "use_cases": [
+            "픽셀아트 모션그래픽",
+            "영상 인트로·카드 제작",
+            "음성 맞춤 애니메이션"
+          ]
+        },
+        "use_when": "영상 편집 중 특정 구간을 픽셀 게임 스타일의 카드나 전체 화면 모션그래픽으로 바꿔야 할 때"
       }
     },
     "len5ky/seatback-cinema:plugins/seatback-cinema/skills/inflight-movie-picker-web/SKILL.md": {
@@ -322547,6 +322810,36 @@
           ]
         },
         "use_when": "투자자에게 제출할 피치덱의 TAM/SAM/SOM 수치가 실제 근거가 있는지 외부 자료로 검증해야 할 때"
+      }
+    },
+    "looplj/axonhub:.agents/skills/claude-dashboard/SKILL.md": {
+      "model": "claude-haiku-5-5",
+      "prompt_version": "v6",
+      "skill_md_hash": "22aed1d669d7dbea09d65d259a9234033adfa2a8",
+      "summary": {
+        "accesses_network": true,
+        "account_evidence": null,
+        "category": "data",
+        "code_evidence": "| `node $A write-db <root> <batch.json \\| ->` | Writes documents: `set`, `update`, `delete`. All or nothing. |",
+        "network_evidence": "otherwise gather it with your own tools (a database or API you can query,",
+        "requires_external_account": false,
+        "runs_external_code": true,
+        "subcategory": "visualization",
+        "summary_ko": "데이터 파일이나 직접 모은 자료를 바탕으로 차트, 수치, 표가 들어간 대시보드 페이지를 만듭니다. 각 숫자가 어느 데이터셋에서 왔는지 출처 패널에서 확인할 수 있고, 새 데이터가 생기면 같은 페이지를 갱신합니다. 요청한 차트와 필터를 구현하고, 완성된 페이지 주소와 데이터 폴더를 함께 전달합니다.",
+        "tags": {
+          "difficulty": "intermediate",
+          "roles": [
+            "data",
+            "product"
+          ],
+          "use_cases": [
+            "대시보드 제작",
+            "KPI 추적",
+            "데이터 시각화",
+            "정기 리포트"
+          ]
+        },
+        "use_when": "매달 받는 매출 CSV를 지표 카드와 추이 차트가 있는 대시보드로 정리해 팀에 공유해야 할 때"
       }
     },
     "looplj/axonhub:.agents/skills/claude-design/SKILL.md": {
@@ -339058,6 +339351,36 @@
           ]
         },
         "use_when": "MATLAB에서 만든 오래된 신경망 학습 스크립트를 최신 trainnet 기반 코드로 옮기거나 느린 딥러닝 코드를 개선해야 할 때"
+      }
+    },
+    "matlab/simulink-agentic-toolkit:skills-catalog/aerospace/simulink-compose-multi-vehicle-system/SKILL.md": {
+      "model": "claude-haiku-5-5",
+      "prompt_version": "v6",
+      "skill_md_hash": "da792c25f0e444ba37f0d0bec731e94ebad4b6e9",
+      "summary": {
+        "accesses_network": true,
+        "account_evidence": null,
+        "category": "development",
+        "code_evidence": "| Compile | `evaluate_matlab_code`: `mdl([],[],[],'compile'); mdl([],[],[],'term')` | After wiring buses |",
+        "network_evidence": "Run these checks through the MCP tools after you build or change a model.",
+        "requires_external_account": false,
+        "runs_external_code": true,
+        "subcategory": "dev-tools",
+        "summary_ko": "Simulink와 Aerospace Blockset으로 여러 비행체가 하나의 장면에서 움직이는 다중 비행체 시뮬레이션을 구성합니다. 기체마다 운동 모델을 두고 비행 경로를 생성해 연결하며, 편대나 탐색 같은 임무의 조정 로직을 Stateflow로 넣습니다. 프레임 일치와 임무 의도 점검을 거쳐 결과가 맞는지 확인하도록 안내합니다.",
+        "tags": {
+          "difficulty": "advanced",
+          "roles": [
+            "developer",
+            "researcher"
+          ],
+          "use_cases": [
+            "다중 비행체 시뮬레이션",
+            "비행 경로 생성",
+            "편대 비행 시나리오",
+            "탐색 경로 설계"
+          ]
+        },
+        "use_when": "여러 대의 항공기나 선박이 한 시뮬레이션 장면에서 편대 비행, 광역 탐색, 순찰 임무를 함께 수행하는 모델을 만들어야 할 때"
       }
     },
     "matlab/simulink-agentic-toolkit:skills-catalog/code-generation/simulink-author-classic-autosar-swc/SKILL.md": {
@@ -357284,31 +357607,29 @@
     "milind-soni/openmausbot:skills/publish-to-netlify/SKILL.md": {
       "model": "claude-haiku-5-5",
       "prompt_version": "v6",
-      "skill_md_hash": "09ac677a4e3292b8d0a7d3ca1466f7a05ba947cb",
+      "skill_md_hash": "e5a3f3a6b2a04d266684dec7ca18ff99409e3bc2",
       "summary": {
         "accesses_network": true,
-        "account_evidence": "Call `request_credential` with label `Netlify personal access token`, delivery `file`, and a reason such as:",
+        "account_evidence": null,
         "category": "devops",
         "code_evidence": "node \"<root>/deploy.mjs\" --dir <output folder> --token-file <the secret file's path> \\",
-        "network_evidence": "`deploy.mjs` sits next to this guide, in the folder named by this skill's `root`. It needs Node 18 or later and",
-        "requires_external_account": true,
+        "network_evidence": "Only files Netlify does not already hold are uploaded (`uploaded`; `alreadyOnNetlify` counts the rest).",
+        "requires_external_account": false,
         "runs_external_code": true,
         "subcategory": "deployment",
-        "summary_ko": "Netlify 계정에 웹사이트나 웹 앱을 공개 링크로 올리고, 이후 수정할 때 같은 링크를 유지하도록 갱신합니다. 정적 페이지는 배포 스크립트로 올리며, 함수나 데이터베이스가 필요한 경우 Netlify 명령줄 도구를 쓰는 절차도 안내합니다. 링크는 누구나 열 수 있으므로 공개 전에 내용을 확인하도록 안내합니다.",
+        "summary_ko": "Netlify에 만든 사이트나 웹 앱을 공개 링크로 올리고, 이후 수정한 내용을 같은 링크에 다시 반영해 줍니다. 페이지 하나나 간단한 보고서에는 맞지 않으며, 폼 저장이나 데이터베이스, 서버 기능이 필요하면 Netlify 명령줄 도구로 붙이는 절차를 안내합니다. 올리기 전에 공개되는 내용을 먼저 보여 주고 승인을 받은 뒤 진행합니다.",
         "tags": {
           "difficulty": "intermediate",
           "roles": [
-            "developer",
-            "general"
+            "developer"
           ],
           "use_cases": [
             "웹사이트 배포",
-            "웹 앱 호스팅",
-            "공개 링크 발행",
-            "Netlify 배포"
+            "웹 앱 공개 링크 발급",
+            "정적 사이트 업데이트"
           ]
         },
-        "use_when": "외부 사람들에게 보여 줄 사이트나 웹 앱을 같은 주소를 유지하며 계속 고쳐 배포해야 할 때"
+        "use_when": "만든 웹사이트나 웹 앱을 다른 사람에게 링크로 보여 주고, 이후 수정해도 같은 링크를 유지해야 할 때"
       }
     },
     "milind-soni/openmausbot:skills/social-posts/SKILL.md": {
@@ -368020,47 +368341,47 @@
     "monte-carlo-data/mc-agent-toolkit:skills/analyze-root-cause/SKILL.md": {
       "model": "claude-haiku-5-5",
       "prompt_version": "v6",
-      "skill_md_hash": "036f7d223cf23515480103265ae73446b4c98b34",
+      "skill_md_hash": "373d3814aeea559b017e734f1ff77ee60f0843a8",
       "summary": {
         "accesses_network": true,
-        "account_evidence": "Required: Monte Carlo MCP server (`integrations.getmontecarlo.com/mcp`) must be configured and authenticated.",
-        "category": "data",
-        "code_evidence": "Run the Troubleshooting Agent",
-        "network_evidence": "Always call Monte Carlo MCP tools through this plugin's",
+        "account_evidence": "**Required:** Monte Carlo MCP server (`integrations.getmontecarlo.com/mcp`) must be configured and authenticated.",
+        "category": "devops",
+        "code_evidence": null,
+        "network_evidence": "**Required:** Monte Carlo MCP server (`integrations.getmontecarlo.com/mcp`) must be configured and authenticated.",
         "requires_external_account": true,
         "runs_external_code": false,
-        "subcategory": "database",
-        "summary_ko": "Monte Carlo 관측 데이터를 바탕으로 신선도 지연, 행 수 변동, 스키마 변경, ETL 실패 등 데이터 장애의 원인을 단계별로 추적합니다. 알림과 영향 범위를 확인하고, 업스트림 계보와 최근 쿼리·코드 변경을 살펴본 뒤 근본 원인, 근거, 영향, 권장 조치, 재발 방지 방법을 정리해 보여 줍니다. 데이터베이스 연결이 있으면 실제 데이터를 조회해 값을 비교할 수 있습니다.",
+        "subcategory": "monitoring",
+        "summary_ko": "Monte Carlo 관측 데이터를 바탕으로 신선도 지연, 행 수 변동, 스키마 변경, ETL 실패 같은 데이터 장애의 원인을 단계적으로 찾아 줍니다. 장애 알림과 업스트림 계보를 따라가며 최근 쿼리 변경과 파이프라인 이력을 대조하고, 근거가 된 도구 결과를 연결해 원인, 영향 범위, 권장 조치, 재발 방지 모니터링을 정리합니다.",
         "tags": {
           "difficulty": "intermediate",
           "roles": [
-            "data",
-            "developer"
+            "developer",
+            "data"
           ],
           "use_cases": [
             "데이터 장애 원인 분석",
-            "데이터 품질 이슈 조사",
-            "ETL 실패 추적",
-            "데이터 계보 추적"
+            "데이터 신선도 점검",
+            "ETL 실패 조사",
+            "스키마 변경 추적"
           ]
         },
-        "use_when": "대시보드 수치가 어제와 다르게 나와 Monte Carlo 알림이 가리키는 테이블의 원인을 찾아야 할 때"
+        "use_when": "데이터 테이블이 제때 갱신되지 않거나 행 수가 갑자기 줄어서 Monte Carlo 알림의 원인을 찾아야 할 때"
       }
     },
     "monte-carlo-data/mc-agent-toolkit:skills/asset-health/SKILL.md": {
       "model": "claude-haiku-5-5",
       "prompt_version": "v6",
-      "skill_md_hash": "0f5167dd13f8506f5f866ffb3c4b6e3a419427e1",
+      "skill_md_hash": "d7ccdfebdf9d672063c3306233f01b3186b7c9b5",
       "summary": {
         "accesses_network": true,
-        "account_evidence": "Always call Monte Carlo MCP tools through this plugin's",
+        "account_evidence": "If the session also has a",
         "category": "data",
         "code_evidence": "Always call Monte Carlo MCP tools through this plugin's",
         "network_evidence": "Always call Monte Carlo MCP tools through this plugin's",
         "requires_external_account": true,
         "runs_external_code": true,
         "subcategory": "data-analysis",
-        "summary_ko": "Monte Carlo 관측 플랫폼에서 데이터 테이블의 상태를 점검해 최근 갱신 시점, 활성 알림, 모니터링 현황, 상위 소스의 건강 상태를 한 번에 정리해 줍니다. 결과는 정상, 주의, 문제 중 하나의 상태 판정과 함께 원인 추정과 권장 조치로 이어집니다.",
+        "summary_ko": "Monte Carlo 관측 플랫폼에서 특정 데이터 테이블의 상태를 점검해 최근 갱신 여부, 활성 알림, 모니터링 현황, 상위 소스의 건강 상태를 한 번에 정리해 줍니다. 결과는 정상, 주의, 이상 세 단계 상태와 함께 원인으로 보이는 상위 소스와 확인이 필요한 항목을 권장 조치로 제시합니다.",
         "tags": {
           "difficulty": "intermediate",
           "roles": [
@@ -368074,23 +368395,23 @@
             "상위 소스 장애 추적"
           ]
         },
-        "use_when": "특정 테이블이 최신 상태인지, 알림이 쌓였는지 확인해야 할 때"
+        "use_when": "데이터 테이블이 최근에 갱신되었는지, 알림이나 장애가 걸려 있는지 장애 대응 전에 빠르게 확인해야 할 때"
       }
     },
     "monte-carlo-data/mc-agent-toolkit:skills/automated-triage/SKILL.md": {
       "model": "claude-haiku-5-5",
       "prompt_version": "v6",
-      "skill_md_hash": "3905340f98f8ee506746373c9227f90b70c047c3",
+      "skill_md_hash": "d7670149a71e916ee8e39b7bdf35479c6c0de5b7",
       "summary": {
         "accesses_network": true,
-        "account_evidence": "Verify that `get_alerts`, `alert_assessment`, and `run_troubleshooting_agent` are accessible.",
+        "account_evidence": "check that the Monte Carlo MCP server is configured and authenticated, then stop.",
         "category": "devops",
         "code_evidence": null,
-        "network_evidence": "> **Monte Carlo tool routing (required):** Always call Monte Carlo MCP tools through this plugin's",
+        "network_evidence": "All tools are available via the `monte-carlo-mcp` MCP server.",
         "requires_external_account": true,
         "runs_external_code": false,
         "subcategory": "monitoring",
-        "summary_ko": "몬테카를로(Monte Carlo) 알림을 대화형으로 점검하거나, 예약 실행이 가능한 자동 분류 워크플로로 설계하도록 돕습니다. 최근 알림을 가져와 발생 가능성과 영향도를 점수화하고, 중요도가 높은 알림에는 근본 원인 분석을 진행해 결과를 정리합니다. 처음에는 조치를 추천만 하는 방식으로 동작을 검증한 뒤 실제 상태 변경을 적용하는 순서로 진행합니다.",
+        "summary_ko": "Monte Carlo 데이터 알림을 점수화하고 근본 원인을 조사해 분류하는 스킬입니다. 알림을 가져와 발생 가능성과 영향도를 함께 평가하고, 중요도가 높은 알림만 깊이 파고들어 어떤 조치가 맞는지 정리해 줍니다. 지금 알림을 직접 살펴보거나, 권장 사항만 남기는 방식으로 자동 분류 워크플로를 단계별로 다듬어 주기적으로 돌릴 수 있습니다.",
         "tags": {
           "difficulty": "intermediate",
           "roles": [
@@ -368098,12 +368419,12 @@
             "developer"
           ],
           "use_cases": [
-            "알림 분류",
-            "데이터 장애 대응",
-            "알림 일괄 점검"
+            "데이터 알림 분류",
+            "장애 초기 대응",
+            "알림 자동 분류 워크플로"
           ]
         },
-        "use_when": "몬테카를로에서 쌓인 데이터 알림을 한꺼번에 분류하고 우선순위를 정해야 할 때"
+        "use_when": "Monte Carlo 알림이 한꺼번에 쌓여 어떤 것부터 봐야 할지 정하고, 반복되는 알림 분류를 자동화하려 할 때"
       }
     },
     "monte-carlo-data/mc-agent-toolkit:skills/connection-auth-rules/SKILL.md": {
@@ -374219,30 +374540,32 @@
     "mvanhorn/last30days-skill:skills/last30days/SKILL.md": {
       "model": "claude-haiku-5-5",
       "prompt_version": "v6",
-      "skill_md_hash": "e24c6929c563a8b0dc789932a5c9919f19e355ff",
+      "skill_md_hash": "a8683f77323798624d66c5981df59079b7aeb467",
       "summary": {
         "accesses_network": true,
         "account_evidence": null,
         "category": "research",
         "code_evidence": "Run the installed Python engine for research; WebSearch supplements do not replace it.",
-        "network_evidence": "- Sends search queries to ScrapeCreators API (`api.scrapecreators.com`) for TikTok and Instagram search.",
+        "network_evidence": "Fetches public Reddit thread data from `reddit.com` for engagement metrics",
         "requires_external_account": false,
         "runs_external_code": true,
         "subcategory": "web-research",
-        "summary_ko": "최근 30일 동안 특정 주제를 사람들이 어떻게 이야기하는지 여러 커뮤니티와 플랫폼의 게시글, 댓글, 참여 지표를 모아 흐름을 정리해 줍니다. 자주 나온 의견과 대표 발언을 근거 링크와 함께 묶어 보여 주며, 자료가 부족한 출처는 그 사실을 밝히고 확인된 내용만 전합니다.",
+        "summary_ko": "지정한 주제를 두고 최근 30일 동안 사람들이 실제로 어떤 이야기를 나눴는지 커뮤니티 글과 반응을 모아 정리해 줍니다. 레딧, X, 유튜브 등에서 많이 언급되고 호응을 얻은 내용을 골라 핵심 흐름과 대표적인 의견을 근거 링크와 함께 보여 줍니다. 특정 인물을 조사하면 그 사람의 최근 발언과 주변 반응도 함께 살펴봅니다.",
         "tags": {
           "difficulty": "intermediate",
           "roles": [
             "researcher",
-            "marketer"
+            "marketer",
+            "product"
           ],
           "use_cases": [
-            "여론 조사",
-            "트렌드 분석",
-            "커뮤니티 반응 확인"
+            "커뮤니티 여론 조사",
+            "최근 이슈 분석",
+            "트렌드 파악",
+            "제품 반응 조사"
           ]
         },
-        "use_when": "특정 제품이나 사건에 대해 최근 한 달간 사용자들이 실제로 어떻게 반응하는지 확인해야 할 때"
+        "use_when": "특정 제품이나 인물에 대한 최근 커뮤니티 반응을 빠르게 파악해 보고서로 정리해야 할 때"
       }
     },
     "mverab/metaclaw:.agents/skills/metaclaw-setup-architect/SKILL.md": {
@@ -389269,92 +389592,6 @@
         "use_when": "NocoBase 앱을 소스에서 운영 서버로 옮기거나 기존 데이터를 유지한 채 업데이트해야 할 때"
       }
     },
-    "nocobase/nocobase:packages/app/app-skills/skills/nocobase-multi-app-deployment/SKILL.md": {
-      "model": "claude-haiku-5-5",
-      "prompt_version": "v6",
-      "skill_md_hash": "5a2100a456011f30e0a7286a17b597b920235971",
-      "summary": {
-        "accesses_network": true,
-        "account_evidence": "The multi-app, identity-provider and platform-sso plugins are commercial. Confirm compatible installed versions, a commercial license and package-download access;",
-        "category": "development",
-        "code_evidence": "Build each App independently; verify its separate dist production dependency installation succeeds, and run an extracted artifact outside the source workspace.",
-        "network_evidence": "Discover live endpoints from the authenticated API document, not guessed routes.",
-        "requires_external_account": true,
-        "runs_external_code": true,
-        "subcategory": "dev-tools",
-        "summary_ko": "NocoBase 3 멀티 앱 플랫폼을 구성하고 배포하는 절차를 안내합니다. 메인 앱과 하위 앱을 각각 독립적으로 빌드하고, 배포 아티팩트를 추출해 실제 환경에서 실행되는지 확인하며, 기존 데이터와 설정을 유지한 채 선택한 앱만 업그레이드하고 복구하는 흐름을 다룹니다. 실행 전에는 계획과 승인을 확인하고, 쓰기 작업 뒤에는 결과를 다시 읽어 실제 상태와 대조합니다.",
-        "tags": {
-          "difficulty": "advanced",
-          "roles": [
-            "developer"
-          ],
-          "use_cases": [
-            "멀티 앱 배포",
-            "NocoBase 운영",
-            "선택적 업그레이드",
-            "백업 복구"
-          ]
-        },
-        "use_when": "여러 하위 앱을 가진 NocoBase 플랫폼을 운영 서버에 배포하거나 특정 앱만 골라 업그레이드하고 백업에서 복구해야 할 때"
-      }
-    },
-    "nocobase/nocobase:packages/app/app-skills/skills/nocobase-multi-app-development/SKILL.md": {
-      "model": "claude-haiku-5-5",
-      "prompt_version": "v6",
-      "skill_md_hash": "f75c2f0ef9fae01851f012e41a7a4148df630839",
-      "summary": {
-        "accesses_network": true,
-        "account_evidence": "The multi-app, identity-provider and platform-sso plugins are commercial. Confirm compatible installed versions, a commercial license and package-download access;",
-        "category": "development",
-        "code_evidence": "Install once at the root; configure and synchronize Skills for root Main and each child.",
-        "network_evidence": "Confirm compatible installed versions, a commercial license and package-download access;",
-        "requires_external_account": true,
-        "runs_external_code": true,
-        "subcategory": "backend",
-        "summary_ko": "NocoBase 3 기반 멀티 앱 플랫폼을 새로 만들거나, 메인 앱과 하위 앱을 각각 독립된 코드·데이터·로그인·배포 경계로 나눠 개발하고 연결하는 절차를 안내합니다. 기존에 데이터가 쌓인 설치본은 덮어쓰지 않고 마이그레이션 쪽으로 넘기며, 쓰기 전에 대상과 상태를 확인하도록 되어 있습니다. 상용 플러그인 라이선스와 신뢰할 수 있는 HTTPS 환경이 있어야 통합 단계까지 진행할 수 있습니다.",
-        "tags": {
-          "difficulty": "advanced",
-          "roles": [
-            "developer"
-          ],
-          "use_cases": [
-            "멀티 앱 플랫폼 구축",
-            "NocoBase 하위 앱 개발",
-            "메인·하위 앱 SSO 연동"
-          ]
-        },
-        "use_when": "빈 워크스페이스에 NocoBase 멀티 앱 플랫폼을 처음 세우고 독립 하위 앱을 메인 앱과 연결해야 할 때"
-      }
-    },
-    "nocobase/nocobase:packages/app/app-skills/skills/nocobase-multi-app-migration/SKILL.md": {
-      "model": "claude-haiku-5-5",
-      "prompt_version": "v6",
-      "skill_md_hash": "d4830e52a31d2b9d7350dab1c17ca37101eb4345",
-      "summary": {
-        "accesses_network": true,
-        "account_evidence": "The multi-app, identity-provider and platform-sso plugins are commercial; a commercial license and package-download access are required before integration.",
-        "category": "development",
-        "code_evidence": "Run the approved step, commands and scripts: `npx`, `npm install`, `pip install`, `curl`, `git clone`, `gh`",
-        "network_evidence": "Install packages, download files or fetch remote resources such as CDN assets; approved commands include `curl` and `git clone`",
-        "requires_external_account": true,
-        "runs_external_code": true,
-        "subcategory": "backend",
-        "summary_ko": "기존 NocoBase 3 애플리케이션을 멀티 앱 구성으로 옮길 때 사용자, 권한, 업무 데이터를 보존하면서 점검하고 이전 계획을 세우는 절차입니다. 외부 등록, Host 관리형 이전, 제자리 통합 중 경로를 사용자가 고르게 한 뒤, 백업과 리허설, 승인된 단계별 전환과 복구 기준을 안내합니다. 라우트 선택과 실제 변경 전에는 명시적 승인을 받으며, 결과는 읽기 확인과 데이터 비교로 검증합니다.",
-        "tags": {
-          "difficulty": "advanced",
-          "roles": [
-            "developer",
-            "product"
-          ],
-          "use_cases": [
-            "NocoBase 앱 마이그레이션",
-            "멀티 앱 구성 이전",
-            "사용자 및 권한 보존"
-          ]
-        },
-        "use_when": "기존 NocoBase 3 앱을 멀티 앱 구성으로 옮기면서 사용자와 업무 데이터를 유지해야 할 때"
-      }
-    },
     "nocobase/nocobase:packages/examples/app-plugin-cli-example/skills/nocobase-app-plugin-cli-example/SKILL.md": {
       "model": "claude-haiku-5-5",
       "prompt_version": "v6",
@@ -389529,17 +389766,17 @@
     "nocobase/nocobase:skills/nocobase-create-app/SKILL.md": {
       "model": "claude-haiku-5-5",
       "prompt_version": "v6",
-      "skill_md_hash": "c19a71c6e777ea42918519046ec09ae94ed8872a",
+      "skill_md_hash": "ac1098100cbd231b20a8e36d565e7b29923ab18f",
       "summary": {
         "accesses_network": true,
         "account_evidence": null,
         "category": "development",
-        "code_evidence": "The last of the `nextCommands`, `pnpm dev`, does not exit. Run it in the background and wait for the URL it prints:",
-        "network_evidence": "npm view @nocobase/app-template-multi-portal@beta version --registry=https://pkg-v3.nocobase.com/",
+        "code_evidence": "(cd <parent-directory> && PNPM_CONFIG_MINIMUM_RELEASE_AGE=0 npm_config_registry=https://registry.npmjs.org pnpm create @nocobase/app@beta <name> --template-tag=beta --json)",
+        "network_evidence": "pnpm create @nocobase/app@beta <name> --template-tag=beta --json",
         "requires_external_account": false,
         "runs_external_code": true,
         "subcategory": "dev-tools",
-        "summary_ko": "NocoBase 3 개발용 프로젝트를 새 폴더에 만들고 데이터베이스 설정까지 마쳐, 로컬에서 바로 개발을 이어갈 수 있는 상태로 준비해 줍니다. 완성 뒤에는 생성된 애플리케이션의 AGENTS.md와 스킬 안내를 따라 기능을 만들도록 넘겨주며, 운영 서버 배포는 다루지 않습니다.",
+        "summary_ko": "NocoBase 3 프로젝트를 로컬에 새로 만들고 데이터베이스 설정과 실행까지 마쳐 개발을 바로 시작할 수 있게 합니다. 기본 템플릿을 기준으로 디렉터리를 만들고 설정을 점검한 뒤 개발 서버를 띄우며, 이후 개발 방법은 생성된 프로젝트의 AGENTS.md와 스킬 안내를 따르도록 넘깁니다. 운영 서버 배포는 다루지 않습니다.",
         "tags": {
           "difficulty": "intermediate",
           "roles": [
@@ -389548,10 +389785,10 @@
           "use_cases": [
             "NocoBase 프로젝트 생성",
             "로컬 개발 환경 구성",
-            "애플리케이션 설정"
+            "개발 서버 실행"
           ]
         },
-        "use_when": "운영 서버가 아니라 로컬에서 NocoBase 3 애플리케이션을 새로 만들어 개발을 시작하려고 할 때"
+        "use_when": "NocoBase로 로컬 개발 환경을 처음 만들어 실행해 보고 싶은데 작업 폴더에 NocoBase 프로젝트가 아직 없을 때"
       }
     },
     "nocobase/skills:skills/nocobase-acl-manage/SKILL.md": {
@@ -394385,6 +394622,34 @@
           ]
         },
         "use_when": "Odoo에 있는 고객과 제품으로 견적서를 채팅으로 만들어야 할 때"
+      }
+    },
+    "nullptr-dzf/dsh-academic-research-skills:commands/ars-3w/SKILL.md": {
+      "model": "claude-haiku-5-5",
+      "prompt_version": "v6",
+      "skill_md_hash": "9bfbbaea6c9d697b039b38d25cf4fb342d64d713",
+      "summary": {
+        "accesses_network": false,
+        "account_evidence": null,
+        "category": "research",
+        "code_evidence": null,
+        "network_evidence": null,
+        "requires_external_account": false,
+        "runs_external_code": false,
+        "subcategory": "academic",
+        "summary_ko": "ARS deep-research의 three-way-scan 모드를 불러와 논문들을 WHY(왜 연구했는지), HOW(어떻게 연구했는지), WHAT(무엇을 밝혔는지) 세 축으로 나란히 비교합니다. 결과로 추린 논문 목록과 함께 공통된 연구 동기, 방법의 차이, 가장 강한 결과, 남은 연구 공백을 정리한 종합 요약을 받습니다. 전체 문헌을 빠짐없이 훑는 작업보다 가볍게 비교하고 싶을 때 맞습니다.",
+        "tags": {
+          "difficulty": "beginner",
+          "roles": [
+            "researcher"
+          ],
+          "use_cases": [
+            "논문 비교",
+            "선행연구 정리",
+            "연구 공백 파악"
+          ]
+        },
+        "use_when": "여러 논문의 연구 동기, 방법, 결과를 한눈에 비교해 연구 공백을 찾아야 할 때"
       }
     },
     "numen-tech/slopornot:claude-skills/agentic-humanizer/SKILL.md": {
@@ -421494,35 +421759,6 @@
         "use_when": "React와 Tailwind로 만든 화면의 컴포넌트를 기존 디자인 체계에 맞춰 다듬거나 새로 손보고 싶을 때"
       }
     },
-    "parallel-web/parallel-agent-skills:skills/choose-your-parallel-api/SKILL.md": {
-      "model": "claude-haiku-5-5",
-      "prompt_version": "v6",
-      "skill_md_hash": "449e917aca827ba3bb1f1632ac540f189635c8e5",
-      "summary": {
-        "accesses_network": true,
-        "account_evidence": "`PARALLEL_API_KEY` is the connection secret, server side.",
-        "category": "ai-agents",
-        "code_evidence": "Choose once, while writing the integration — not on every request.",
-        "network_evidence": "POST /v1/search                          # find pages",
-        "requires_external_account": true,
-        "runs_external_code": false,
-        "subcategory": "agent-operations",
-        "summary_ko": "웹에서 최신 정보를 찾아 읽을 때 Parallel의 Search, Extract, Responses, Task 중 무엇을 쓸지와 검색 모드, 추론 강도, 처리 단계를 어떻게 정할지 안내합니다. 검색으로 페이지를 찾고 필요한 페이지만 전문을 읽는 순서, 비용과 지연 시간 계산, 상위 단계 사용 전 확인 절차를 설명하며, 선택 결과를 바탕으로 요청 본문과 연동 코드를 작성하는 데 도움을 줍니다.",
-        "tags": {
-          "difficulty": "intermediate",
-          "roles": [
-            "developer"
-          ],
-          "use_cases": [
-            "웹 검색 API 선택",
-            "검색 모드 설정",
-            "비용과 지연 시간 계산",
-            "웹 페이지 본문 추출"
-          ]
-        },
-        "use_when": "웹 자료를 근거로 답하는 앱을 만들면서 검색, 본문 추출, 조사 보고서 중 어떤 API와 설정을 쓸지 정해야 할 때"
-      }
-    },
     "parallel-web/parallel-agent-skills:skills/migrate-to-parallel/SKILL.md": {
       "model": "claude-haiku-5-5",
       "prompt_version": "v6",
@@ -421554,17 +421790,17 @@
     "parallel-web/parallel-agent-skills:skills/parallel-api/SKILL.md": {
       "model": "claude-haiku-5-5",
       "prompt_version": "v6",
-      "skill_md_hash": "3e76e85a774cdbd415955bfe23931feaf8e43aae",
+      "skill_md_hash": "3e9832203914b8bb2e1a1073b460aed2e0c3aaad",
       "summary": {
         "accesses_network": true,
-        "account_evidence": "Sign in or sign up at https://platform.parallel.ai and create a key.",
+        "account_evidence": "Parallel needs an API key:",
         "category": "development",
-        "code_evidence": "client.search(",
-        "network_evidence": "search = client.search(",
+        "code_evidence": "client = Parallel()  # reads PARALLEL_API_KEY",
+        "network_evidence": "POST /v1/search",
         "requires_external_account": true,
         "runs_external_code": true,
         "subcategory": "backend",
-        "summary_ko": "Parallel의 웹 검색, 페이지 추출, 출처가 붙은 답변, 리서치, 웹 모니터링 API를 앱이나 에이전트에 붙이는 코드를 작성하고 점검하도록 돕습니다. 용도에 맞는 API와 검색 모드를 고르고, 키 설정부터 요청 한 번이 성공하는 것까지 확인하며, 검색 결과의 오류와 경고 응답을 읽는 방법도 안내합니다.",
+        "summary_ko": "Parallel의 검색, 추출, 답변, 리서치, 판단, 모니터링 API를 앱이나 에이전트에 붙이는 방법을 안내합니다. 목적에 맞는 API와 검색 모드를 고르고, 키 설정부터 첫 요청 확인까지 최소한의 연동 코드를 작성하도록 돕습니다. 기존 검색 서비스를 Parallel로 바꾸는 절차도 포함합니다.",
         "tags": {
           "difficulty": "intermediate",
           "roles": [
@@ -421572,12 +421808,12 @@
           ],
           "use_cases": [
             "웹 검색 API 연동",
-            "페이지 추출",
-            "출처 인용 답변",
-            "웹 모니터링 설정"
+            "출처 있는 답변 생성",
+            "Parallel API 설정",
+            "검색 제공자 교체"
           ]
         },
-        "use_when": "기존 검색 API를 Parallel로 바꾸거나 앱에 웹 검색과 출처 인용 답변을 새로 붙여야 할 때"
+        "use_when": "앱에 웹 검색이나 출처 있는 답변을 넣으려는데 Parallel API를 어떻게 연결할지 정해야 할 때"
       }
     },
     "parallel-web/parallel-agent-skills:skills/parallel-cli-setup/SKILL.md": {
@@ -421608,6 +421844,37 @@
           ]
         },
         "use_when": "Parallel 검색과 추출 기능을 에이전트에서 처음 쓰려고 CLI 설치와 로그인을 한 번에 끝내야 할 때"
+      }
+    },
+    "parallel-web/parallel-agent-skills:skills/parallel-data-enrichment/SKILL.md": {
+      "model": "claude-haiku-5-5",
+      "prompt_version": "v6",
+      "skill_md_hash": "35664c2a484f56c68eaedd44b4e501d0dac570ed",
+      "summary": {
+        "accesses_network": true,
+        "account_evidence": "Requires parallel-cli and internet access.",
+        "category": "data",
+        "code_evidence": "parallel-cli enrich run --data '[{\"company\": \"Google\"}, {\"company\": \"Microsoft\"}]' --intent \"CEO name and founding year\" --target \"output.csv\" --no-wait --json",
+        "network_evidence": "Bulk data enrichment. Adds web-sourced fields (CEO names, funding, contact info) to lists of companies, people, or products.",
+        "requires_external_account": true,
+        "runs_external_code": true,
+        "subcategory": "data-analysis",
+        "summary_ko": "회사, 사람, 제품 목록에 CEO 이름, 투자 유치 내역, 연락처 같은 웹에서 찾은 정보를 열로 채워 넣습니다. CSV 파일이나 직접 입력한 데이터를 받아 처리하며, 행 수와 요청 항목에 따라 몇 분이 걸릴 수 있습니다. 작업은 서버에서 진행되고 모니터링 주소를 받아 나중에 결과를 확인할 수 있습니다. 완료 후에는 성공과 실패 행 수를 나눠 보여 주고, 결과를 JSON 파일로 저장하며 CSV로도 변환할 수 있습니다.",
+        "tags": {
+          "difficulty": "intermediate",
+          "roles": [
+            "data",
+            "marketer",
+            "researcher"
+          ],
+          "use_cases": [
+            "데이터 보강",
+            "기업 정보 수집",
+            "CSV 확장",
+            "연락처 수집"
+          ]
+        },
+        "use_when": "고객 명단 수백 개 회사의 CEO 이름과 최근 투자 정보를 CSV에 채워 넣어야 할 때"
       }
     },
     "paramchoudhary/resumeskills:skills/academic-cv-builder/SKILL.md": {
@@ -423655,6 +423922,35 @@
           ]
         },
         "use_when": "채팅 위젯이나 영상 플레이어처럼 자주 쓰이지 않는 무거운 기능을 페이지 첫 로딩에서 빼고 싶을 때"
+      }
+    },
+    "paul-nameless/tg:tg/resources/skill/SKILL.md": {
+      "model": "claude-haiku-5-5",
+      "prompt_version": "v6",
+      "skill_md_hash": "1c5ba77b8492a6d4c3ec548a2042430730bc1246",
+      "summary": {
+        "accesses_network": true,
+        "account_evidence": "- Exit 3 means not logged in: ask the user to run `tg login` in their terminal. Never try to log in yourself.",
+        "category": "productivity",
+        "code_evidence": "`tg <command>` prints compact text and exits. Add `--json` for JSON. Run `tg <command> --help` for all flags.",
+        "network_evidence": "- `tg download CHAT MSG_ID [--out DIR]`: download a message file, prints its path.",
+        "requires_external_account": true,
+        "runs_external_code": true,
+        "subcategory": "communication",
+        "summary_ko": "Telegram의 안 읽은 메시지를 채팅별 최신순으로 먼저 정리해 보여 주고, 특정 대화 내역이나 메시지 검색 결과를 이어서 찾아 줍니다. 파일 메시지는 내려받아 저장 경로를 알려 줍니다. 메시지 보내기와 읽음 처리는 사용자가 요청했을 때만 하며, 보내기 전에는 내용을 확인받습니다.",
+        "tags": {
+          "difficulty": "intermediate",
+          "roles": [
+            "general"
+          ],
+          "use_cases": [
+            "텔레그램 안 읽은 메시지 확인",
+            "텔레그램 대화 검색",
+            "텔레그램 파일 내려받기",
+            "텔레그램 답장 보내기"
+          ]
+        },
+        "use_when": "텔레그램에서 안 읽은 메시지를 확인하거나 특정 사람이 보낸 내용을 찾아 답장해야 할 때"
       }
     },
     "paulinevos/claude-stuff:plugins/amp-workflow/skills/amp-cli/SKILL.md": {
@@ -425735,30 +426031,30 @@
     "pedrojaques99/visant-skills-public:site-reels/SKILL.md": {
       "model": "claude-haiku-5-5",
       "prompt_version": "v6",
-      "skill_md_hash": "7f3e21d4e8e8d1da2028a06187ce8ff26992aa17",
+      "skill_md_hash": "6c4f57f449d40765ee7b109f364269176b1742a7",
       "summary": {
         "accesses_network": true,
-        "account_evidence": "2. `use_figma` (skills `figma-use` + `figma-use-slides`): `createSlideRow(idx)` before the final",
+        "account_evidence": null,
         "category": "design",
         "code_evidence": "OUT=\"<output folder>/Videos\" node scripts/record.mjs scenes.mjs [scene ...]",
         "network_evidence": "mkdir <proj>-reels && cd <proj>-reels && npm init -y && npm i puppeteer-core puppeteer-screen-recorder",
-        "requires_external_account": true,
+        "requires_external_account": false,
         "runs_external_code": true,
         "subcategory": "video",
-        "summary_ko": "로컬에서 실행한 사이트의 WebGL, 3D, 스크롤 장면을 장면별로 녹화해 1920×1080 MP4 파일로 만들어 줍니다. 녹화한 영상은 Figma 슬라이드에 넣을 수 있도록 커버 이미지와 함께 준비하며, 로고 공개와 제품 화면을 엮은 브랜드 쇼릴을 Remotion이나 HyperFrames로 만드는 방법도 안내합니다. 완성된 영상은 프레임 수와 용량을 확인하는 점검 절차를 거칩니다.",
+        "summary_ko": "로컬에서 실행 중인 사이트의 WebGL, 3D, 스크롤 장면을 정해 둔 순서대로 녹화해 1920×1080 MP4 파일로 만들어 줍니다. 완성된 영상은 Figma 슬라이드 작업에 넣을 수 있도록 정리되고, 로고 등장과 브랜딩 장면을 엮은 브랜드 쇼릴이나 제품 쇼릴도 Remotion이나 HyperFrames로 만들 수 있습니다. 녹화 뒤에는 빈 장면과 끊기는 프레임을 점검하는 절차가 함께 안내됩니다.",
         "tags": {
-          "difficulty": "advanced",
+          "difficulty": "intermediate",
           "roles": [
             "designer",
             "marketer"
           ],
           "use_cases": [
             "사이트 영상 녹화",
-            "브랜드 쇼릴 제작",
-            "Figma 슬라이드 영상 삽입"
+            "발표 자료 영상",
+            "브랜드 쇼릴 제작"
           ]
         },
-        "use_when": "홈페이지나 앱의 인상적인 3D 장면을 발표 자료에 넣을 영상으로 뽑아야 할 때"
+        "use_when": "사이트의 3D 장면을 영상으로 남겨 발표 자료에 넣거나 제품 쇼릴을 만들어야 할 때"
       }
     },
     "pedrojaques99/visant-skills-public:visant-copy/SKILL.md": {
@@ -425794,17 +426090,17 @@
     "pedrojaques99/visant-skills-public:visant-design/SKILL.md": {
       "model": "claude-haiku-5-5",
       "prompt_version": "v6",
-      "skill_md_hash": "4360504666a7c8d41f8cafbb7ea385ed13e46e1a",
+      "skill_md_hash": "e85ff6d538e011342d82965d06e46e0bddef9bc2",
       "summary": {
         "accesses_network": true,
         "account_evidence": null,
         "category": "design",
         "code_evidence": "node <skill-dir>/scripts/check.mjs <ui paths> --url <running app>",
-        "network_evidence": "node <skill-dir>/scripts/check.mjs <ui paths> --url <running app>",
+        "network_evidence": "Before writing a component, check the repo's primitives, then [@visant/ui](https://ui.visantlabs.com/llms.txt).",
         "requires_external_account": false,
         "runs_external_code": true,
         "subcategory": "ui-ux",
-        "summary_ko": "AI가 만든 듯한 UI 흔적을 걷어내고, 화면마다 달성해야 할 목표에 맞춰 다시 설계하는 작업을 진행합니다. 스크린샷과 실제 화면을 직접 확인하며 요소를 줄이고 고친 뒤, 전후 비교와 변경 이유를 보고합니다. 자동 점검 결과를 그대로 믿지 않고 여러 너비에서 결과를 확인하도록 안내합니다.",
+        "summary_ko": "Visant 스킬 묶음의 UI/UX 작업 스킬입니다. AI가 만든 듯한 티가 나는 화면을 정리하거나, 화면이 달성해야 할 목표에 맞춰 다시 설계합니다. 브랜드 방향은 소유자와 한 번 맞춘 뒤 작업하고, 완성된 화면을 실제로 확인해 전후 비교를 보여 줍니다. 여러 화면의 조작 방식이 서로 어긋날 때는 공통 패턴을 먼저 정하도록 돕습니다.",
         "tags": {
           "difficulty": "intermediate",
           "roles": [
@@ -425814,27 +426110,27 @@
           "use_cases": [
             "UI 개선",
             "UX 재설계",
-            "AI 흔적 제거",
-            "화면 점검"
+            "AI 느낌 제거",
+            "화면 디자인 검증"
           ]
         },
-        "use_when": "AI가 만든 것처럼 보이는 화면을 고쳐야 하거나 결제·가입 같은 주요 화면을 목표 기준으로 다시 설계해야 할 때"
+        "use_when": "AI 티가 나는 화면을 정리하거나 기존 화면의 UI/UX를 목표에 맞게 전면 개선해야 할 때"
       }
     },
     "pedrojaques99/visant-skills-public:visant-frontend/SKILL.md": {
       "model": "claude-haiku-5-5",
       "prompt_version": "v6",
-      "skill_md_hash": "6e360532ed4cfa74d9d6abf1d85e40ee960ced05",
+      "skill_md_hash": "0bd773c12e321c98c58f631b3458a6df60f9b4fc",
       "summary": {
         "accesses_network": true,
         "account_evidence": null,
         "category": "design",
-        "code_evidence": "node $K --init-report AUDIT.md <target>",
-        "network_evidence": "primitive (`npx shadcn@latest add …` or the Radix package); never hand-roll",
+        "code_evidence": "Run the design detector before opening the screen.",
+        "network_evidence": "- **Feedback**: when the work is delivered, ask once per session, in one line, what helped and what was missing; it goes to https://ui.visantlabs.com/skills#feedback",
         "requires_external_account": false,
         "runs_external_code": true,
         "subcategory": "ui-ux",
-        "summary_ko": "화면이 무엇을 바꾸려는지 먼저 정하고, 그 근거가 있는 UI 결정만 남기도록 도와주는 프론트엔드 설계 도구입니다. 먼저 화면을 전환율, 업무 처리, 신뢰 가운데 어느 역할인지 표로 나눈 뒤 구성 요소를 고치고, 사용자가 쓰는 화면의 중복과 장식을 줄이는 방향으로 검토합니다. 결과물로 화면별 분류표와 점검 기준이 남습니다.",
+        "summary_ko": "프론트엔드 화면을 손볼 때 각 디자인 결정이 어떤 비즈니스 변수(전환, 처리량, 유지율 등)를 움직이는지 먼저 정하도록 돕습니다. 화면을 획득, 작업, 신뢰 중 어느 성격인지 표로 분류한 뒤 그에 맞는 규칙으로 재디자인이나 비평을 진행하며, 근거 없는 장식 요소는 덜어내는 방향을 안내합니다. 기존 디자인 시스템 부품을 재사용하는 절차와 반응형 너비 측정 같은 검증 항목도 함께 다룹니다.",
         "tags": {
           "difficulty": "intermediate",
           "roles": [
@@ -425842,13 +426138,13 @@
             "developer"
           ],
           "use_cases": [
-            "화면 리디자인",
+            "화면 재디자인",
             "UI 비평",
             "시각 위계 정리",
             "빈 상태 설계"
           ]
         },
-        "use_when": "기존 관리자 화면이 어디서 무엇을 줄여야 하는지 모르겠고, 화면별 역할을 표로 정리한 뒤 리디자인하고 싶을 때"
+        "use_when": "관리 화면이나 랜딩 페이지가 어수선하고 무엇을 먼저 고쳐야 할지 정해야 할 때"
       }
     },
     "pedronauck/skills:skills/curated/agent-browser/SKILL.md": {
@@ -434938,17 +435234,17 @@
     "pqthangv/autointernshipclaude:internship-application/SKILL.md": {
       "model": "claude-haiku-5-5",
       "prompt_version": "v6",
-      "skill_md_hash": "81d1d8b3d803ec1fc6c35d0d41985a98c9854bf4",
+      "skill_md_hash": "9b7187f952b9311a4300503dd83e03262fee6e7f",
       "summary": {
         "accesses_network": true,
         "account_evidence": null,
-        "category": "other",
+        "category": "productivity",
         "code_evidence": "python scripts/find_internships.py --folder \"<job-search folder>\" [filters] --append",
-        "network_evidence": "If the download fails, read the repo page's table in the browser.",
+        "network_evidence": "It adds open postings from the SimplifyJobs list (github.com/SimplifyJobs/Summer2027-Internships)",
         "requires_external_account": false,
         "runs_external_code": true,
-        "subcategory": "business-ops",
-        "summary_ko": "공고 목록에서 조건에 맞는 인턴십을 찾아 대기열에 올리고, 공고마다 한 페이지짜리 맞춤 이력서를 만든 뒤 지원서 양식을 채웁니다. 입력한 내용은 공고별 기록으로 남기고, 지원 현황은 추적표에 한 줄씩 정리합니다. 자격이 맞지 않는 공고는 이유와 함께 걸러냅니다.",
+        "subcategory": "automation",
+        "summary_ko": "인턴십 공고 링크를 받으면 공고 내용을 정리하고, 이력서를 그 공고에 맞춰 한 페이지로 다듬어 줍니다. 지원서 양식의 항목은 저장해 둔 프로필 답변으로 채우고, 입력한 내용은 기록으로 남기며 추적 표에도 한 줄을 추가합니다. 조건에 맞는 인턴 공고를 모아 대기열로 관리하는 일도 돕습니다.",
         "tags": {
           "difficulty": "intermediate",
           "roles": [
@@ -434957,11 +435253,11 @@
           "use_cases": [
             "인턴십 지원",
             "이력서 맞춤화",
-            "지원서 작성",
-            "지원 현황 관리"
+            "지원서 양식 작성",
+            "지원 기록 관리"
           ]
         },
-        "use_when": "여러 인턴십 공고에 맞춰 이력서를 한 장으로 바꾸고 지원서를 채워야 할 때"
+        "use_when": "채용 공고 링크를 받아 맞춤 이력서를 만들고 지원서 양식을 채워야 할 때"
       }
     },
     "pqthangv/autointernshipclaude:internship-tracker/SKILL.md": {
@@ -440525,32 +440821,31 @@
     "pycodebr/heditor:skills/heditor/SKILL.md": {
       "model": "claude-haiku-5-5",
       "prompt_version": "v6",
-      "skill_md_hash": "82f4cfcbaa8afa4a4707c862fcaee9e179387362",
+      "skill_md_hash": "11b0c3e83377b58c1d8289960047398c9cbce5b6",
       "summary": {
         "accesses_network": true,
         "account_evidence": null,
-        "category": "documents",
-        "code_evidence": "bash <skill_dir>/scripts/setup.sh          # installs ffmpeg/node/python deps if missing, venv, Chrome, fonts, music, SFX, models",
-        "network_evidence": "bash <skill_dir>/scripts/setup.sh          # installs ffmpeg/node/python deps if missing, venv, Chrome, fonts, music, SFX, models",
+        "category": "design",
+        "code_evidence": "bash <skill_dir>/scripts/setup.sh",
+        "network_evidence": "- Re-running setup is safe. `--no-audio` skips the Mixkit library; `--whisper small,medium` pre-downloads ASR models.",
         "requires_external_account": false,
         "runs_external_code": true,
-        "subcategory": "presentation",
-        "summary_ko": "말하는 영상을 받아 침묵을 줄이고 단어 단위 자막, 모션 그래픽, 효과음과 음악을 입혀 세로 숏폼이나 긴 호흡의 영상으로 만들어 주는 편집 도구입니다. 여러 스타일 중 하나를 골라 편집하며, 같은 틀을 반복하지 않고 영상마다 맞춤 구성을 짭니다. 완성 후 렌더링과 품질 점검까지 거쳐 MP4 파일을 전달합니다.",
+        "subcategory": "video",
+        "summary_ko": "말하는 장면이 담긴 영상을 세로형 릴스·숏츠나 긴 영상 형식으로 편집합니다. 긴 침묵을 줄이고 단어 단위로 맞춘 자막, 말의 내용에 맞춘 그래픽과 효과음, 음악을 더해 하나의 스타일로 완성합니다.",
         "tags": {
-          "difficulty": "advanced",
+          "difficulty": "intermediate",
           "roles": [
             "marketer",
-            "writer",
-            "general"
+            "designer"
           ],
           "use_cases": [
-            "숏폼 영상 편집",
-            "자막 입히기",
-            "강의 영상 편집",
-            "유튜브 영상 제작"
+            "영상 편집",
+            "숏폼 제작",
+            "자막 제작",
+            "유튜브 영상 편집"
           ]
         },
-        "use_when": "강의나 발표 녹화본을 세로 릴스 영상으로 빠르게 바꿔야 할 때"
+        "use_when": "강의나 팟캐스트 녹화본을 세로형 릴스로 바꿔 짧은 홍보 영상을 만들어야 할 때"
       }
     },
     "pydantic/skills:skills/building-pydantic-ai-agents/SKILL.md": {
@@ -448097,30 +448392,30 @@
     "randalschwartz/dart-sdk-skills:skills/dart-sdk-changelog/SKILL.md": {
       "model": "claude-haiku-5-5",
       "prompt_version": "v6",
-      "skill_md_hash": "943af09e8930b83f53e98a0aedab3bc399ac2727",
+      "skill_md_hash": "719814e44750e59c263dffd3588bcea35641d211",
       "summary": {
         "accesses_network": false,
         "account_evidence": null,
         "category": "development",
-        "code_evidence": null,
-        "network_evidence": "Based on the official [Dart SDK CHANGELOG](https://github.com/dart-lang/sdk/blob/main/CHANGELOG.md).",
+        "code_evidence": "Use this skill whenever authoring or refactoring Dart code, inspecting pubspec.yaml sdk constraints,",
+        "network_evidence": "Authoritative guide for Dart SDK language specifications, syntax availability,",
         "requires_external_account": false,
         "runs_external_code": false,
         "subcategory": "dev-tools",
-        "summary_ko": "Dart SDK의 언어 기능, 라이브러리 API, 버전별 변경점을 정리한 참고 가이드입니다. 코드에 쓴 문법이 pubspec.yaml의 최소 SDK 버전에서 지원되는지 확인하고, 버전별 신기능과 기존 코드를 최신 Dart 3.x 문법으로 옮기는 방법을 알려 줍니다. 실행 과정에서 예제 코드를 만들거나 검증 명령을 실행하도록 안내하지는 않습니다.",
+        "summary_ko": "Dart SDK의 언어 기능, 문법 도입 버전, 최소 SDK 제약(minSdk)을 Dart 1.x부터 3.x까지 정리해 알려 줍니다. 원하는 문법이나 API가 프로젝트의 pubspec.yaml에서 어떤 sdk 하한을 요구하는지 확인하고, 버전별 변경점을 찾아 볼 수 있습니다. 레거시 코드의 널 안전성 전환과 매크로, augmentation, 실험 기능 플래그 사용법도 함께 다룹니다.",
         "tags": {
           "difficulty": "intermediate",
           "roles": [
             "developer"
           ],
           "use_cases": [
-            "Dart 버전 확인",
-            "최소 SDK 설정",
-            "Dart 3 문법 마이그레이션",
-            "레거시 코드 현대화"
+            "Dart SDK 버전 확인",
+            "최소 SDK 제약 설정",
+            "레거시 Dart 코드 현대화",
+            "Dart 버전별 변경점 조회"
           ]
         },
-        "use_when": "pubspec.yaml의 sdk 제약을 정하거나 Dart 3.13 생성자 문법을 쓰기 전에 대상 최소 SDK 버전을 확인해야 할 때"
+        "use_when": "프로젝트에 primary constructor나 패턴 매칭을 써도 되는지 pubspec.yaml의 sdk 하한과 대조해야 할 때"
       }
     },
     "randroids-dojo/godot-claude-skills:skills/godot/SKILL.md": {
@@ -449609,6 +449904,34 @@
           ]
         },
         "use_when": "신약 임상시험의 검정력이나 제1종 오류율을 시뮬레이션으로 점검하고, QC 검토가 가능한 보고서가 필요할 때"
+      }
+    },
+    "rconsortium/pharma-skills:dose-response/SKILL.md": {
+      "model": "claude-haiku-5-5",
+      "prompt_version": "v6",
+      "skill_md_hash": "e5d29302dd2496dbfd6eb95b6961e1d11d2141a6",
+      "summary": {
+        "accesses_network": false,
+        "account_evidence": null,
+        "category": "data",
+        "code_evidence": null,
+        "network_evidence": null,
+        "requires_external_account": false,
+        "runs_external_code": false,
+        "subcategory": "data-analysis",
+        "summary_ko": "임상시험 제출 문서인 SAP, ADRG, define.xml에서 분석 사양을 확인해 용량-반응 공분산분석(ANCOVA)과 분산분석(ANOVA)용 R 코드를 만들어 줍니다. 매핑된 엔드포인트와 ADRG 지침 표, 사용한 코드 패턴, 자체 점검표를 담은 검증 보고서를 함께 제공해 공식 자료와 대조할 수 있게 합니다.",
+        "tags": {
+          "difficulty": "advanced",
+          "roles": [
+            "data"
+          ],
+          "use_cases": [
+            "용량-반응 분석",
+            "ANCOVA 코드 작성",
+            "임상시험 통계 분석"
+          ]
+        },
+        "use_when": "임상시험 제출용으로 연속형 투여량 변수에 따른 용량-반응 분석과 용량군 간 쌍별 비교 코드가 필요할 때"
       }
     },
     "rconsortium/pharma-skills:group-sequential-design/SKILL.md": {
@@ -451277,17 +451600,17 @@
     "realzillionx/inspireskill:SKILL.md": {
       "model": "claude-haiku-5-5",
       "prompt_version": "v6",
-      "skill_md_hash": "caa29787dbe129186f7b97c59d19e03d7a01d71d",
+      "skill_md_hash": "398b29f89fa0533a7765b3a0493bd2c427d91b9d",
       "summary": {
         "accesses_network": true,
-        "account_evidence": "An account is a logged-in identity. Run `inspire login --account NAME` to create a missing account and authorize it",
-        "category": "other",
-        "code_evidence": "Always treat `inspire --help`, `inspire <group> --help`, and `inspire <group> <subcommand> --help` as the source of truth",
-        "network_evidence": "Notebook automation still uses Playwright, but OAuth and SMS login do not require Chromium; Feishu QR login does.",
+        "account_evidence": "`inspire account use <name>` sets the persistent default account.",
+        "category": "devops",
+        "code_evidence": "3. Check `--help` for the exact command syntax and flags.",
+        "network_evidence": "4. Query live state for account, workspace, project, compute group, quota, image, and resource availability.",
         "requires_external_account": true,
         "runs_external_code": true,
-        "subcategory": "misc",
-        "summary_ko": "Inspire 컴퓨팅 플랫폼을 inspire CLI로 다룰 때 쓰는 스킬입니다. 워크스페이스, 프로젝트, 자원 그룹, 쿼터, 이미지를 명시해 노트북, GPU 작업, HPC, Ray, 서빙 같은 워크로드를 실행하고, 이벤트와 로그로 진행을 확인한 뒤 끝나면 정리하는 흐름을 안내합니다. 프로젝트별 경로와 자산 정보는 INSPIRE.md에 기록해 여러 작업이 공유할 수 있게 합니다.",
+        "subcategory": "infrastructure",
+        "summary_ko": "Inspire 컴퓨팅 플랫폼에서 노트북, GPU 학습 작업, HPC, Ray, 모델 서빙을 띄우고 관리하는 절차를 정리해 줍니다. 워크스페이스, 프로젝트, 자원 그룹, 이미지, 공유 경로를 확인해 작업 조건을 맞춘 뒤, 이벤트와 로그, 메트릭으로 진행 상황을 살피고 끝난 리소스를 정리하는 순서로 안내합니다. 반복해서 쓰는 경로나 모델 같은 자산은 INSPIRE.md에 기록해 세션 간에 이어 쓸 수 있게 합니다.",
         "tags": {
           "difficulty": "advanced",
           "roles": [
@@ -451295,13 +451618,14 @@
             "data"
           ],
           "use_cases": [
-            "GPU 작업 실행",
-            "노트북 환경 구성",
-            "분산 학습 배포",
-            "플랫폼 자원 관리"
+            "GPU 학습 작업",
+            "노트북 개발 환경",
+            "모델 서빙",
+            "작업 모니터링",
+            "자원 정리"
           ]
         },
-        "use_when": "Inspire 플랫폼에서 GPU 학습 작업이나 노트북을 띄우고 결과를 확인한 뒤 자원을 정리해야 할 때"
+        "use_when": "Inspire 플랫폼에서 GPU 학습이나 모델 서빙을 올려 두고 진행 상황을 확인하고 정리해야 할 때"
       }
     },
     "realzyzhang/paper-reader-heilmeier:SKILL.md": {
@@ -453357,7 +453681,7 @@
     "remotion-dev/skills:skills/remotion-best-practices/SKILL.md": {
       "model": "claude-haiku-5-5",
       "prompt_version": "v6",
-      "skill_md_hash": "6ba9dfc6b839938d5efa3a4fad5fc3273fdac5e7",
+      "skill_md_hash": "19c831fd7a434bb5e89b7b5890356b6637b1cb21",
       "summary": {
         "accesses_network": true,
         "account_evidence": null,
@@ -453367,7 +453691,7 @@
         "requires_external_account": false,
         "runs_external_code": true,
         "subcategory": "agent-operations",
-        "summary_ko": "Remotion으로 영상을 만들 때 어떤 하위 스킬을 불러야 할지 안내하는 라우터입니다. 새 영상이나 프로젝트 설정, 지도 애니메이션, 자막, 인터랙티브 편집, 렌더링, 문서 조회, 라이선스, 업그레이드 등 작업 종류에 맞는 참고 문서를 연결해 줍니다. 영상 미리보기는 Studio로 먼저 열고, 명시적으로 요청할 때만 렌더링하도록 안내합니다.",
+        "summary_ko": "Remotion 프로젝트에서 영상을 만들 때 참고할 여러 스킬로 안내하는 라우터입니다. 새 영상이나 프로젝트를 시작할 때, 지도 애니메이션, 자막, 상호작용, 라이선스, 문서 조회처럼 작업 종류에 맞는 참조 문서를 골라 불러오도록 정리해 줍니다. 미리보기를 먼저 열고 사용자가 명시적으로 요청할 때만 렌더링하도록 안내하며, 사용자가 직접 바꾼 코드는 덮어쓰지 않도록 지시합니다.",
         "tags": {
           "difficulty": "intermediate",
           "roles": [
@@ -453378,26 +453702,27 @@
             "Remotion 영상 제작",
             "영상 미리보기 실행",
             "Remotion 문서 찾기",
-            "Remotion 자막 작업"
+            "자막 생성",
+            "지도 애니메이션"
           ]
         },
-        "use_when": "Remotion으로 새 영상을 만들거나 수정하는데 어떤 Remotion 참고 문서를 봐야 할지 모를 때"
+        "use_when": "Remotion으로 영상을 처음 만들거나 자막, 지도, 렌더링 등 어떤 Remotion 작업부터 시작할지 막막할 때"
       }
     },
     "remotion-dev/skills:skills/remotion-captions/SKILL.md": {
       "model": "claude-haiku-5-5",
       "prompt_version": "v6",
-      "skill_md_hash": "79e2325b1dfec55a64baf5913001f97405bd4dc4",
+      "skill_md_hash": "8dc933d3981597db35c2d064bc35569921009317",
       "summary": {
         "accesses_network": false,
         "account_evidence": null,
-        "category": "design",
-        "code_evidence": "If not already done, open the Remotion Studio, unless instructed otherwise.",
-        "network_evidence": null,
+        "category": "documents",
+        "code_evidence": "After you're done, load this skill: Remotion Best Practices (`remotion-best-practices` skill)",
+        "network_evidence": "The captions must use the [`Caption`](https://www.remotion.dev/docs/captions/caption.md) type which is the following:",
         "requires_external_account": false,
-        "runs_external_code": true,
-        "subcategory": "video",
-        "summary_ko": "Remotion 프로젝트에서 영상이나 오디오의 음성을 자막 데이터로 바꾸고, 그 자막을 화면에 표시하거나 애니메이션으로 연출하는 방법을 안내합니다. 기존 SRT 자막 파일을 같은 형식으로 가져와 쓰는 절차도 함께 다룹니다. 모든 자막은 시작과 종료 시간을 밀리초로 담은 Caption 타입의 JSON으로 관리합니다.",
+        "runs_external_code": false,
+        "subcategory": "presentation",
+        "summary_ko": "Remotion 영상에 자막을 넣는 작업을 도와줍니다. 영상이나 오디오를 전사해 자막 JSON을 만들거나, 기존 .srt 파일을 가져와 같은 형식으로 바꾼 뒤 화면에 표시하고 애니메이션을 입힐 수 있습니다. 자막은 시작·종료 시간이 담긴 Caption 타입의 JSON으로 다루며, 세부 방법은 전사, 표시, SRT 가져오기 문서에 나뉘어 있습니다. 작업 후에는 Remotion Studio를 열어 결과를 확인합니다.",
         "tags": {
           "difficulty": "intermediate",
           "roles": [
@@ -453406,27 +453731,28 @@
           ],
           "use_cases": [
             "영상 자막 생성",
-            "자막 표시 애니메이션",
-            "SRT 자막 가져오기"
+            "SRT 자막 가져오기",
+            "자막 애니메이션",
+            "Remotion 영상 제작"
           ]
         },
-        "use_when": "음성이 담긴 영상에 자막을 달고 Remotion으로 만든 영상 안에 자막 표시와 애니메이션을 넣어야 할 때"
+        "use_when": "Remotion으로 만든 영상에 자동 전사한 자막이나 기존 SRT 자막을 넣고 화면에 애니메이션으로 보여 줘야 할 때"
       }
     },
     "remotion-dev/skills:skills/remotion-create/SKILL.md": {
       "model": "claude-haiku-5-5",
       "prompt_version": "v6",
-      "skill_md_hash": "430266e5a104917cc8d715c5d1567fdd5aed9f29",
+      "skill_md_hash": "b87d5bbf98cd8f97d12fda8a932551f85ae7dc7e",
       "summary": {
         "accesses_network": true,
         "account_evidence": null,
-        "category": "development",
+        "category": "design",
         "code_evidence": "npx create-video@latest --yes --blank --no-tailwind .",
         "network_evidence": "npx create-video@latest --yes --blank --no-tailwind .",
         "requires_external_account": false,
         "runs_external_code": true,
-        "subcategory": "frontend",
-        "summary_ko": "Remotion으로 새 영상 프로젝트를 만들고 첫 컴포지션을 구성하는 절차를 안내합니다. 빈 폴더나 기존 폴더 상태를 확인해 프로젝트를 세팅하고, 작업 중 Remotion Studio 미리보기를 띄워 변경 사항을 바로 확인하게 합니다. 여러 클립을 다루는 영상이나 여러 장면으로 이어지는 영상에 맞춰 구성 방법을 달리 안내합니다.",
+        "subcategory": "video",
+        "summary_ko": "Remotion으로 새 영상 프로젝트를 세우고 첫 컴포지션을 만들고 싶을 때, 빈 폴더나 기존 폴더에 프로젝트를 준비한 뒤 Remotion Studio 미리보기를 띄워 두고 화면을 작성하는 흐름을 안내합니다. 레이아웃과 텍스트 크기 기준을 따르며, 여러 장면이나 타임라인 클립이 있는 영상이면 그에 맞는 가이드로 이어집니다.",
         "tags": {
           "difficulty": "intermediate",
           "roles": [
@@ -453434,28 +453760,28 @@
             "designer"
           ],
           "use_cases": [
-            "영상 프로젝트 생성",
-            "Remotion 컴포지션 작성",
-            "React 기반 영상 제작"
+            "Remotion 영상 프로젝트 생성",
+            "React 기반 영상 제작",
+            "모션 그래픽 제작"
           ]
         },
-        "use_when": "React 코드로 프로그래밍 방식의 영상을 처음 만들어야 하는데 Remotion 프로젝트를 어떻게 시작할지 모를 때"
+        "use_when": "React로 짧은 영상이나 모션 그래픽을 처음 만들려고 프로젝트와 컴포지션을 새로 세워야 할 때"
       }
     },
     "remotion-dev/skills:skills/remotion-docs/SKILL.md": {
       "model": "claude-haiku-5-5",
       "prompt_version": "v6",
-      "skill_md_hash": "f9f07633859a7514b0f126348d46028541841c8b",
+      "skill_md_hash": "566a850a9979024993f65c5e1396b0f043a0c188",
       "summary": {
         "accesses_network": true,
         "account_evidence": null,
         "category": "development",
-        "code_evidence": "npx 실행이나 스크립트 실행 명령은 없음",
+        "code_evidence": "Append `.md` to any Remotion docs URL to retrieve its Markdown source (saves tokens):",
         "network_evidence": "POST https://plsduol1ca-dsn.algolia.net/1/indexes/*/queries?x-algolia-api-key=3e42dbd4f895fe93ff5cf40d860c4a85&x-algolia-application-id=PLSDUOL1CA",
         "requires_external_account": false,
         "runs_external_code": false,
         "subcategory": "dev-tools",
-        "summary_ko": "Remotion 공식 문서를 검색해서 필요한 API나 개념의 최신 설명을 찾아 읽게 해 줍니다. 검색으로 관련 문서 페이지를 고른 뒤 페이지를 마크다운으로 가져와, 외워서 쓰던 정보 대신 현재 문서를 기준으로 코드를 작성하도록 돕습니다.",
+        "summary_ko": "Remotion 공식 문서를 검색해 가장 관련 있는 페이지를 찾고, 해당 페이지를 마크다운으로 읽어 최신 API 기준으로 구현할 수 있게 도와줍니다. 기억에 의존하지 않고 현재 문서를 근거로 작업하려는 개발자에게 맞습니다. Remotion과 무관한 작업이라면 다른 스킬을 쓰는 편이 낫습니다.",
         "tags": {
           "difficulty": "intermediate",
           "roles": [
@@ -453463,17 +453789,17 @@
           ],
           "use_cases": [
             "Remotion 문서 검색",
-            "API 사용법 확인",
-            "영상 코드 작성"
+            "영상 코드 구현 참고",
+            "API 사용법 확인"
           ]
         },
-        "use_when": "Remotion 코드를 짜는데 특정 API의 현재 사용법이나 옵션을 정확히 확인해야 할 때"
+        "use_when": "Remotion 컴포넌트나 API를 쓰는데 최신 공식 문서 내용을 확인해야 할 때"
       }
     },
     "remotion-dev/skills:skills/remotion-interactivity/SKILL.md": {
       "model": "claude-haiku-5-5",
       "prompt_version": "v6",
-      "skill_md_hash": "6a910da4176e97bff169ecc5c66e8d8bbaab6d80",
+      "skill_md_hash": "ae1329d6596485923343951c5a0a2520023b4933",
       "summary": {
         "accesses_network": true,
         "account_evidence": null,
@@ -453482,28 +453808,26 @@
         "network_evidence": "bunx remotion add @remotion/paths",
         "requires_external_account": false,
         "runs_external_code": true,
-        "subcategory": "frontend",
-        "summary_ko": "Remotion 영상의 JSX 요소를 Studio 타임라인에서 독립적으로 선택, 이동, 자르기, 스타일 변경할 수 있도록 코드 구조를 잡는 방법을 안내합니다. 요소마다 이름을 붙이고, CSS 속성과 interpolate 애니메이션 값을 인라인으로 유지하며, 편집할 값은 스키마 필드로 노출합니다. 텍스트, SVG 경로, 컴포지션 설정까지 편집 가능한 항목으로 정리할 때 참고할 수 있습니다.",
+        "subcategory": "dev-tools",
+        "summary_ko": "Remotion 컴포지션을 짤 때 레이어, 타이밍, 스타일을 Remotion Studio에서 개별로 선택하고 조정할 수 있도록 JSX 구조를 잡아 줍니다. 고정 텍스트와 색 같은 값은 각 요소에 인라인으로 두고, 외부 데이터나 프레임마다 계산되는 부분은 Studio에서 편집되지 않는다는 점을 사용자에게 알리도록 안내합니다. 새 장면을 쓰거나 기존 마크업을 고칠 때 편집 단위와 트랙을 나누는 기준도 함께 제시합니다.",
         "tags": {
           "difficulty": "intermediate",
           "roles": [
-            "developer",
-            "designer"
+            "developer"
           ],
           "use_cases": [
-            "Remotion 인터랙티브 편집",
-            "타임라인 구조화",
-            "애니메이션 작성",
-            "SVG 경로 편집"
+            "Remotion 컴포지션 작성",
+            "Studio 편집 구조 설계",
+            "영상 레이어 구성"
           ]
         },
-        "use_when": "Remotion 영상의 장면을 만들거나 고칠 때 Studio에서 요소별로 옮기고 값을 조정할 수 있게 코드 구조를 잡아야 할 때"
+        "use_when": "Remotion으로 새 영상 장면을 쓰거나 기존 컴포지션의 레이어를 Studio에서 편집하기 쉽게 다시 짜야 할 때"
       }
     },
     "remotion-dev/skills:skills/remotion-license/SKILL.md": {
       "model": "claude-haiku-5-5",
       "prompt_version": "v6",
-      "skill_md_hash": "af63ba10458f36bd53367a728b6c30a9995f3d18",
+      "skill_md_hash": "8eeac1607492b006e5342fa7a4ccb6ecca9472c1",
       "summary": {
         "accesses_network": true,
         "account_evidence": null,
@@ -453513,25 +453837,25 @@
         "requires_external_account": false,
         "runs_external_code": false,
         "subcategory": "legal",
-        "summary_ko": "Remotion의 라이선스 조건, 자주 묻는 질문, 이용약관을 찾아 읽고 질문에 맞는 내용을 정리해 줍니다. 라이선스 구매 페이지도 함께 안내해 주어, 사용 전에 라이선스 관련 내용을 확인하려는 사용자에게 도움이 됩니다.",
+        "summary_ko": "Remotion의 라이선스 조건, 자주 묻는 질문, 이용 약관을 찾아 질문에 맞는 내용을 안내하는 스킬입니다. 라이선스 구매가 필요한 경우 가격 안내와 구매 페이지 경로도 함께 알려 줍니다. 상업적 사용이나 팀 규모에 따른 조건을 공식 문서 기준으로 확인하고 싶을 때 도움이 됩니다.",
         "tags": {
           "difficulty": "beginner",
           "roles": [
-            "product"
+            "general"
           ],
           "use_cases": [
             "라이선스 확인",
-            "이용약관 확인",
-            "라이선스 구매 안내"
+            "이용 약관 검토",
+            "구매 조건 확인"
           ]
         },
-        "use_when": "Remotion을 회사나 상업 프로젝트에 쓰기 전에 라이선스 적용 여부와 구매 방법을 확인하고 싶을 때"
+        "use_when": "Remotion을 회사 업무나 상업 프로젝트에 써도 되는지 라이선스 조건을 확인해야 할 때"
       }
     },
     "remotion-dev/skills:skills/remotion-maps/SKILL.md": {
       "model": "claude-haiku-5-5",
       "prompt_version": "v6",
-      "skill_md_hash": "301d52a7dbceaf2f95bca152b474c15cc7b3e94f",
+      "skill_md_hash": "5a27936045cf3400e1665f09bec3e72fde340909",
       "summary": {
         "accesses_network": false,
         "account_evidence": null,
@@ -453541,37 +453865,36 @@
         "requires_external_account": false,
         "runs_external_code": false,
         "subcategory": "video",
-        "summary_ko": "Remotion으로 지도 애니메이션 영상을 만들 때, 원하는 장면에 맞는 지도 방식을 하나 골라 그 방식의 안내서를 따라 작업하도록 돕습니다. 위성 사진 위에 움직임을 얹는 방식, Mapbox·MapLibre·MapTiler 기반 지도, CesiumJS로 지형 위를 비행하는 장면 중에서 고를 수 있습니다. 국경이나 강 위에 주석과 라벨을 그려 넣는 장면도 다룹니다.",
+        "summary_ko": "Remotion으로 지도 애니메이션 영상을 만들 때, 장면에 맞는 지도 기법을 하나 골라 그 기법의 사용법을 따라가도록 안내합니다. 위성 사진을 올려 움직이는 정적 지도, Mapbox, MapLibre, MapTiler, CesiumJS 중에서 고를 수 있으며, 지형 위를 비행하는 장면이나 국경과 강, 지명에 주석을 덧붙이는 장면 등 목적에 따라 나뉩니다.",
         "tags": {
           "difficulty": "intermediate",
           "roles": [
-            "designer",
-            "developer"
+            "developer",
+            "designer"
           ],
           "use_cases": [
-            "지도 애니메이션",
-            "영상 제작",
-            "지형 비행 장면",
-            "국경·강 주석 표시"
+            "지도 애니메이션 영상",
+            "지도 위 주석",
+            "3D 지형 비행 영상"
           ]
         },
-        "use_when": "지도 위에서 카메라가 도시나 강, 산맥을 따라 움직이는 영상을 Remotion으로 만들어야 할 때"
+        "use_when": "Remotion 영상에 지도 위 이동이나 지명 주석 장면을 넣어야 하는데 어떤 지도 기법을 써야 할지 정해야 할 때"
       }
     },
     "remotion-dev/skills:skills/remotion-markup/SKILL.md": {
       "model": "claude-haiku-5-5",
       "prompt_version": "v6",
-      "skill_md_hash": "694482770a90b52823c50715f3766f60001a2ed3",
+      "skill_md_hash": "e6d67020508a8d1b592fcd70535e74b890ddd8fb",
       "summary": {
         "accesses_network": true,
         "account_evidence": null,
-        "category": "design",
+        "category": "development",
         "code_evidence": "npx remotion add @remotion/media",
         "network_evidence": "npx remotion add @remotion/media",
         "requires_external_account": false,
         "runs_external_code": true,
-        "subcategory": "video",
-        "summary_ko": "Remotion으로 React 코드를 영상 장면으로 만들 때 애니메이션, 미디어 배치, 시각 효과를 구현하는 기준을 정리합니다. useCurrentFrame과 interpolate로 프레임에 따라 값이 바뀌는 스타일을 짜고, 그 값을 Studio에서 수정할 수 있도록 JSX 안에 둡니다. 비디오, 오디오, 이미지, 폰트를 다루는 방법과 내장 효과를 적용하는 방법도 함께 안내합니다.",
+        "subcategory": "dev-tools",
+        "summary_ko": "Remotion 프로젝트에서 React 마크업으로 영상 구성 요소를 작성할 때 참고할 모범 사례를 정리한 안내서입니다. 프레임 기반 애니메이션, 인라인 보간 값, 미디어 컴포넌트 사용법, 효과 적용 방법 등을 어떤 파일을 읽을지 안내하는 형태로 알려 줍니다. 이 안내를 따르면 Studio에서 편집하기 쉬운 타이밍과 스타일을 가진 컴포넌트를 만들 수 있습니다.",
         "tags": {
           "difficulty": "intermediate",
           "roles": [
@@ -453580,18 +453903,17 @@
           ],
           "use_cases": [
             "Remotion 영상 제작",
-            "모션 그래픽",
-            "프레임 애니메이션",
-            "영상 시각 효과"
+            "React 영상 컴포넌트 작성",
+            "프레임 기반 애니메이션"
           ]
         },
-        "use_when": "Remotion으로 React 컴포넌트에 프레임 기반 애니메이션이나 영상 효과를 넣어 Studio에서 편집 가능한 영상을 만들어야 할 때"
+        "use_when": "Remotion으로 만든 영상의 React 컴포넌트에서 애니메이션, 미디어, 효과를 어떻게 구성할지 정해야 할 때"
       }
     },
     "remotion-dev/skills:skills/remotion-multimedia/SKILL.md": {
       "model": "claude-haiku-5-5",
       "prompt_version": "v6",
-      "skill_md_hash": "11a3df427e04eda71764a0ea874a02a15c6d412b",
+      "skill_md_hash": "85fda8f67ae3c78396d71cd9fdd38f87ab2fb758",
       "summary": {
         "accesses_network": true,
         "account_evidence": null,
@@ -453601,7 +453923,7 @@
         "requires_external_account": false,
         "runs_external_code": false,
         "subcategory": "dev-tools",
-        "summary_ko": "Remotion 스킬 저장소의 이 스킬은 브라우저에서 오디오와 비디오를 다루는 Mediabunny 라이브러리로 미디어 파일 정보를 읽는 방법을 정리합니다. 오디오 파일의 길이를 초 단위로 구하고, 비디오 파일의 가로·세로 크기와 재생 길이를 확인하는 방법을 안내합니다. 전체 기능은 Mediabunny 개요 페이지에서 참고하도록 연결해 둡니다.",
+        "summary_ko": "Mediabunny 라이브러리로 브라우저에서 오디오 파일의 길이(초), 영상 파일의 가로·세로 크기, 영상 파일의 길이(초)를 구하는 방법을 정리한 스킬입니다. 필요한 값마다 별도 참고 문서를 따라 얻을 수 있도록 구성되어 있습니다. 미디어 파일을 다루는 코드를 짤 때 메타데이터를 확인하는 데 쓸 수 있습니다.",
         "tags": {
           "difficulty": "intermediate",
           "roles": [
@@ -453609,27 +453931,27 @@
           ],
           "use_cases": [
             "오디오 길이 확인",
-            "비디오 크기 확인",
-            "비디오 길이 확인"
+            "영상 크기 확인",
+            "영상 길이 확인"
           ]
         },
-        "use_when": "브라우저에서 다루는 영상이나 음성 파일의 길이와 해상도를 코드로 알아내야 할 때"
+        "use_when": "브라우저에서 돌아가는 앱에 올린 영상이나 오디오의 길이와 해상도를 코드로 읽어야 할 때"
       }
     },
     "remotion-dev/skills:skills/remotion-render/SKILL.md": {
       "model": "claude-haiku-5-5",
       "prompt_version": "v6",
-      "skill_md_hash": "f3527a3477b08df2596aee8fc51f9d1b81ef73da",
+      "skill_md_hash": "d0bbce303808cf8b0aa8cdfd1dcd10c3011f9e52",
       "summary": {
         "accesses_network": true,
         "account_evidence": null,
         "category": "development",
-        "code_evidence": "npx remotion render",
+        "code_evidence": "npx remotion render [composition-id] out/video.mp4 --props='{\"title\": \"Hello\"}'",
         "network_evidence": "Let Remotion download or update it as needed.",
         "requires_external_account": false,
         "runs_external_code": true,
         "subcategory": "dev-tools",
-        "summary_ko": "Remotion 프로젝트의 영상 컴포지션을 MP4 같은 동영상 파일로 내보내고, 정지 이미지나 여러 프레임을 PNG 등으로 뽑아낼 수 있게 안내합니다. 렌더링에 쓸 브라우저 설정과 명령 사용법을 따라 진행하며, 투명 배경 영상이 필요하면 별도 문서를 참고하도록 연결합니다.",
+        "summary_ko": "Remotion 컴포지션을 MP4 같은 영상 파일이나 특정 프레임 이미지로 내보내는 방법을 안내합니다. 입력 props를 JSON으로 넘기는 방식, 정지 이미지 추출, 여러 프레임을 한 번에 PNG로 저장하는 과정과 출력 파일 이름 규칙을 다룹니다. 투명 배경 영상은 별도 문서로 연결됩니다.",
         "tags": {
           "difficulty": "intermediate",
           "roles": [
@@ -453638,8 +453960,7 @@
           "use_cases": [
             "영상 렌더링",
             "정지 이미지 추출",
-            "투명 배경 영상",
-            "Remotion 영상 내보내기"
+            "Remotion props 전달"
           ]
         },
         "use_when": "Remotion으로 만든 영상을 파일로 내보내거나 특정 장면을 이미지로 뽑아야 할 때"
@@ -469019,7 +469340,7 @@
     "saadshahd/moo.md:.claude/skills/moo-authoring/SKILL.md": {
       "model": "claude-haiku-5-5",
       "prompt_version": "v6",
-      "skill_md_hash": "7f23fb3722b8001e08b498300d5dbc725994d238",
+      "skill_md_hash": "1a1e530f30b2e84b4056819af496aac1073403c9",
       "summary": {
         "accesses_network": false,
         "account_evidence": null,
@@ -469029,47 +469350,19 @@
         "requires_external_account": false,
         "runs_external_code": false,
         "subcategory": "skill-authoring",
-        "summary_ko": "이 저장소에 새 스킬, 훅, 런타임 파일을 추가하거나 고칠 때 어떤 단위로 만들지 정하고 작성 규칙을 따르도록 돕는 내부 지침입니다. 데이터는 런타임 파일로, 항상 실행돼야 하는 동작은 훅으로 나누는 기준과 스킬 간 호출, 사용자에게 되묻는 조건, 훅 구현 방식을 정리해 줍니다. 저장소 밖으로 배포되지 않는 내부 전용 문서입니다.",
+        "summary_ko": "Claude Code 저장소 안에서 새 스킬, 훅, 런타임 파일을 추가하거나 고칠 때 따를 설계 원칙을 정리한 문서입니다. 기능을 스킬, 훅, 런타임 파일 중 어느 단위로 만들지 고르는 기준과, 스킬 본문과 사용자 질문 방식, 훅의 동작 규칙을 안내합니다. 이 저장소의 내부 스킬이며 외부 배포용이 아닙니다.",
         "tags": {
           "difficulty": "advanced",
           "roles": [
             "developer"
           ],
           "use_cases": [
-            "스킬 작성",
-            "훅 설계",
-            "저장소 내부 규칙"
+            "스킬 설계",
+            "훅 작성",
+            "에이전트 기능 구성"
           ]
         },
-        "use_when": "moo 저장소에 새 스킬이나 훅을 추가하면서 이 기능을 스킬로 만들지 훅으로 만들지 판단해야 할 때"
-      }
-    },
-    "saadshahd/moo.md:factory/skills/setup/SKILL.md": {
-      "model": "claude-haiku-5-5",
-      "prompt_version": "v6",
-      "skill_md_hash": "b0abd47a79f0f3b1574dba0190eeca9610fec1d8",
-      "summary": {
-        "accesses_network": true,
-        "account_evidence": null,
-        "category": "ai-agents",
-        "code_evidence": "- `gh repo edit --enable-auto-merge`, unless `pr.draft` is true",
-        "network_evidence": "`gh repo view --json isInOrganization` says who creates it:",
-        "requires_external_account": false,
-        "runs_external_code": true,
-        "subcategory": "agent-operations",
-        "summary_ko": "moo.md 팩토리를 현재 저장소에 설정합니다. 브랜치 보호와 필수 상태 검사, 도구 설치 여부를 먼저 확인하고, GitHub 로그인 방식과 규칙 파일, 라벨, 자동 병합을 차례로 정리합니다. 준비가 끝나면 워커를 등록해 저장소를 계속 감시하게 하고, 무엇을 썼고 어떤 확인이 남았는지 알려 줍니다.",
-        "tags": {
-          "difficulty": "advanced",
-          "roles": [
-            "developer"
-          ],
-          "use_cases": [
-            "에이전트 워커 설정",
-            "PR 자동 병합 구성",
-            "GitHub 규칙 파일 작성"
-          ]
-        },
-        "use_when": "이슈를 에이전트가 처리하고 PR을 여는 자동화 워커를 내 저장소에 처음 붙이려 할 때"
+        "use_when": "이 저장소에 새 스킬이나 훅을 추가하려고 기능을 어떤 단위로 만들지 정해야 할 때"
       }
     },
     "saadshahd/moo.md:hold/skills/grasp/SKILL.md": {
@@ -495355,6 +495648,35 @@
         "use_when": "고객이나 임원에게 보낼 후속 연락 메일을 상황과 말투에 맞게 써야 할 때"
       }
     },
+    "skthewimp/karthik-data-visualization-skill:chart-annotations/claude/SKILL.md": {
+      "model": "claude-haiku-5-5",
+      "prompt_version": "v6",
+      "skill_md_hash": "17beca13a4f7550179b157d77d154bc9ce793384",
+      "summary": {
+        "accesses_network": true,
+        "account_evidence": null,
+        "category": "documents",
+        "code_evidence": "mutate(lbl = paste0(\"Rajasthan: \", sum(top$state == \"Rajasthan\"),",
+        "network_evidence": "7. Place by proximity, with coordinates derived from the data; add a connector only if proximity fails.",
+        "requires_external_account": false,
+        "runs_external_code": true,
+        "subcategory": "presentation",
+        "summary_ko": "차트 위에 어떤 지점을 표시할지 고르고, 여러 후보의 우선순위를 정한 뒤, 짧은 라벨 문구와 위치를 잡아 주는 스킬입니다. 제목이 말하는 주장과 같은 근거를 가리키도록 표시를 맞추고, 라벨의 수치는 데이터에서 계산해 넣도록 안내합니다. 마지막에는 실제 이미지를 내보내 잘림과 겹침을 확인하라고 요구합니다.",
+        "tags": {
+          "difficulty": "intermediate",
+          "roles": [
+            "data",
+            "designer"
+          ],
+          "use_cases": [
+            "차트 주석 달기",
+            "데이터 시각화 라벨링",
+            "차트 주석 위치 잡기"
+          ]
+        },
+        "use_when": "차트에서 독자가 봐야 할 지점이 드러나지 않아 어떤 값에 주석을 달아야 할지 정해야 할 때"
+      }
+    },
     "skvdhshuk-blip/hao-code:.haocode/skills/commit/SKILL.md": {
       "model": "claude-haiku-5-5",
       "prompt_version": "v6",
@@ -497518,30 +497840,30 @@
     "slopus/happy:.agents/skills/release/SKILL.md": {
       "model": "claude-haiku-5-5",
       "prompt_version": "v6",
-      "skill_md_hash": "1141bbb466ba89910e9fd1fd68a5a1efd979aa2f",
+      "skill_md_hash": "d91d086f88a2c7d8a1640f98c9e33c0788e493c5",
       "summary": {
         "accesses_network": true,
-        "account_evidence": "npm 계정이나 토큰 없이 GitHub 워크플로의 npm trusted publishing으로 배포합니다",
+        "account_evidence": "Happy 저장소의 npm 배포는 GitHub 워크플로와 npm 신뢰 게시 설정을 통해 이루어지며, 사용자가 별도로 준비해야 하는 외부 계정이나 API 키는 명시되어 있지 않습니다.",
         "category": "devops",
-        "code_evidence": "git checkout main",
+        "code_evidence": "gh workflow run release-happy-cli.yml --repo slopus/happy --ref main \\",
         "network_evidence": "git fetch origin main",
         "requires_external_account": false,
         "runs_external_code": true,
         "subcategory": "release",
-        "summary_ko": "Happy 모노레포에서 CLI, 모바일 앱, 서버, 문서 중 원하는 구성 요소의 릴리스를 단계별로 안내합니다. 릴리스 전 로컬 main이 origin/main과 같은지 확인하고, CLI는 버전 설정과 빌드, 단위 테스트를 거쳐 승인된 GitHub 워크플로로 배포합니다. 모바일과 서버, 문서 릴리스 절차와 릴리스 노트 작성 기준도 함께 정리합니다.",
+        "summary_ko": "Happy 모노레포의 CLI, 모바일, 서버, 문서 중 원하는 구성 요소를 골라 릴리스 절차를 단계별로 안내합니다. 릴리스 전 main 상태를 확인하고, 버전 설정과 빌드, 단위 테스트를 거쳐 배포 워크플로를 실행하도록 도와줍니다. 릴리스 노트 작성 기준과 배포 후 검증 항목도 함께 정리합니다.",
         "tags": {
           "difficulty": "advanced",
           "roles": [
             "developer"
           ],
           "use_cases": [
-            "릴리스 배포",
-            "CLI 배포",
-            "버전 관리",
+            "버전 릴리스",
+            "npm 배포",
+            "모바일 빌드 배포",
             "릴리스 노트 작성"
           ]
         },
-        "use_when": "Happy CLI나 모바일 앱을 새 버전으로 배포하기 전에 버전과 채널, 릴리스 노트를 확인해야 할 때"
+        "use_when": "Happy 저장소에서 CLI나 모바일 앱, 서버를 새 버전으로 배포하기 전에 절차와 확인 사항을 빠짐없이 점검해야 할 때"
       }
     },
     "slopus/happy:.agents/skills/sessions/SKILL.md": {
@@ -502248,30 +502570,29 @@
     "solanabr/ai-kit:.claude/skills/SKILL.md": {
       "model": "claude-haiku-5-5",
       "prompt_version": "v6",
-      "skill_md_hash": "901c1d0edfd0eed4edb25b737ccd379b5bdc2a4d",
+      "skill_md_hash": "0c60c3e0ae06b9320127801f2f47578c4bd580a2",
       "summary": {
         "accesses_network": true,
         "account_evidence": null,
         "category": "development",
-        "code_evidence": "Pinned by the kit, installed on demand. `bash .claude/bin/skills.sh list` shows what this project has.",
-        "network_evidence": "Pinned by the kit, installed on demand. `bash .claude/bin/skills.sh list` shows what this project has.",
+        "code_evidence": "| Fuzzing a program with Trident (harness API, invariants) | [solana-fuzz](ext/solana-fuzz/solana-fuzz/SKILL.md) from [belumume](ext/solana-fuzz/); run it as `trident fuzz run fuzz_0 --with-exit-code`",
+        "network_evidence": "- [safe-ai-skill](https://github.com/solanabr/safe-ai-skill), core (the `safe-ai-skill@stbr` plugin): hooks gate mainnet, value-moving and authority actions and secret reads. At session start it pins ",
         "requires_external_account": false,
         "runs_external_code": true,
         "subcategory": "dev-tools",
-        "summary_ko": "솔라나 프로그램, 클라이언트, 테스트, 배포 작업을 시작할 때 어떤 참고 문서를 먼저 열어야 하는지 안내하는 허브입니다. 작업 종류별 표를 따라가면 Anchor, 토큰 확장, 보안 점검 같은 분야의 핵심 문서로 바로 이어집니다. 필요한 외부 스킬 묶음은 그때그때 골라 쓸 수 있습니다.",
+        "summary_ko": "Solana 개발 작업을 맡기면 프로그램, 클라이언트, 토큰, 보안, 배포, 데이터, 게임 등 주제별로 먼저 읽을 참조 문서를 찾아 연결해 주는 라우팅 허브입니다. 각 작업에 맞는 상세 스킬과 설치 명령을 안내하며, 실제 내용은 연결된 하위 스킬과 문서에서 가져옵니다.",
         "tags": {
-          "difficulty": "intermediate",
+          "difficulty": "advanced",
           "roles": [
             "developer"
           ],
           "use_cases": [
-            "솔라나 프로그램 개발",
-            "솔라나 클라이언트 구현",
-            "솔라나 보안 점검",
-            "솔라나 도구 찾기"
+            "Solana 개발 참조 찾기",
+            "스킬 라우팅",
+            "Solana 프로그램 개발"
           ]
         },
-        "use_when": "솔라나 프로그램이나 클라이언트를 만들며 어떤 문서와 스킬을 먼저 읽어야 할지 찾아야 할 때"
+        "use_when": "Solana 프로그램이나 dApp을 만들면서 어떤 참조 문서와 스킬을 먼저 읽어야 할지 모를 때"
       }
     },
     "solanabr/ai-kit:.claude/skills/skill-packs/SKILL.md": {
@@ -509640,17 +509961,17 @@
     "starslingdev/skills:skills/ci-secure/SKILL.md": {
       "model": "claude-haiku-5-5",
       "prompt_version": "v6",
-      "skill_md_hash": "8d3e62aa26b898a695c77bc7e3d058359ead66f5",
+      "skill_md_hash": "adbe0d36b41be5ba46fefe14f4ab0b8bfd637844",
       "summary": {
         "accesses_network": true,
         "account_evidence": null,
         "category": "security",
-        "code_evidence": "python3 -c 'import json,sys; print(json.load(open(sys.argv[1])).get(\"gh_checks\",{}).get(\"P14.11\",\"\"))' \"$FINDINGS\"",
+        "code_evidence": "scripts/run.py --root \"$ROOT\"",
         "network_evidence": "gh is optional, used for the network-gated impostor-SHA check (P14.11",
         "requires_external_account": false,
         "runs_external_code": true,
         "subcategory": "security-review",
-        "summary_ko": "ci-secure는 GitHub Actions 워크플로를 훑어 CI/CD의 치명적인 공격 경로 10가지를 점검하고, 각 발견 사항마다 공격자가 무엇을 할 수 있는지 쉬운 말로 보여 줍니다. 발견된 항목 중 고를 것을 물으면 항목별 하위 에이전트가 수정 작업을 맡으며, 커밋이나 PR은 요청하기 전까지 만들지 않습니다. 포괄적인 감사가 아니라 핵심 공격 체인만 점검한다는 점을 보고서마다 밝힙니다.",
+        "summary_ko": "GitHub Actions 워크플로를 훑어 외부 공격자가 CI를 장악할 수 있는 핵심 경로 10가지를 점검합니다. 발견된 항목마다 공격자가 무엇을 할 수 있는지 평이한 말로 설명하고, 고를 항목은 subagent가 수정하도록 진행합니다. 전체 보안 감사가 아니라 핵심 공격 체인만 확인하며, 결과 보고서는 임시 위치에 만든 뒤 사용자가 저장을 고를 때만 프로젝트에 씁니다.",
         "tags": {
           "difficulty": "intermediate",
           "roles": [
@@ -509662,7 +509983,7 @@
             "워크플로 취약점 수정"
           ]
         },
-        "use_when": "GitHub Actions 워크플로에 템플릿 주입이나 포크 PR 권한 상승 같은 보안 위험이 있는지 확인하고 싶을 때"
+        "use_when": "GitHub Actions 워크플로의 보안 위험을 점검하고 치명적인 취약점을 고쳐야 할 때"
       }
     },
     "starslingdev/skills:skills/ci-speedup/SKILL.md": {
@@ -511873,30 +512194,30 @@
     "stochasticresult/codex-cto-agent-team:skills/cto-agent-team/SKILL.md": {
       "model": "claude-haiku-5-5",
       "prompt_version": "v6",
-      "skill_md_hash": "19838d8a8483bb2f05a1aa476547eacd68876193",
+      "skill_md_hash": "0fc61ea50f81e15974ac9439d187d3f3d48cde00",
       "summary": {
-        "accesses_network": true,
+        "accesses_network": false,
         "account_evidence": null,
         "category": "ai-agents",
-        "code_evidence": "Coordinate a reusable CTO, product manager, and engineering team when a user requests this organizational workflow or its ongoing operation.",
-        "network_evidence": "Use the core `ponytail` skill from [DietrichGebert/ponytail](https://github.com/DietrichGebert/ponytail) for coding, fixes, refactoring, dependency choices, and code review by any team role.",
+        "code_evidence": "Use its configurable local selector for an authorized task.",
+        "network_evidence": null,
         "requires_external_account": false,
-        "runs_external_code": false,
+        "runs_external_code": true,
         "subcategory": "agent-operations",
-        "summary_ko": "사용자가 요청한 개발 작업을 CTO, 제품 관리자, 엔지니어로 구성된 팀이 나누어 맡고 진행 상황을 공유 문서로 정리하는 조율 절차를 제공합니다. 작업마다 산출물과 완료 기준을 정하고 독립된 작업은 병렬로 배정하며, 완료된 결과는 확인 후 보고합니다. 팀 역할 정의와 작업 상태 관리 방식을 함께 안내합니다.",
+        "summary_ko": "CTO 한 명, PM 다섯 명, PM마다 엔지니어 열 명으로 구성된 팀을 꾸려 작업을 나누고 진행을 관리하는 스킬입니다. CTO는 작업을 배정하고 팀 사이의 의존 관계를 조정하며, 각 PM은 자기 팀의 작업 범위를 정하고 결과를 검토합니다. 엔지니어는 배정받은 일을 맡아 공유 문서에 결과와 근거를 남기므로, 여러 요청을 나눠 처리해도 진행 상황을 한곳에서 파악할 수 있습니다.",
         "tags": {
           "difficulty": "advanced",
           "roles": [
-            "developer",
-            "product"
+            "product",
+            "developer"
           ],
           "use_cases": [
             "에이전트 팀 운영",
-            "작업 분배와 추적",
-            "공유 문서 기반 진행 관리"
+            "작업 배정과 진행 관리",
+            "공유 문서 기반 협업"
           ]
         },
-        "use_when": "여러 명의 역할로 나뉜 에이전트 팀에게 개발 과제를 나누어 맡기고 진행 상황을 추적해야 할 때"
+        "use_when": "여러 역할이 나눠 맡는 큰 개발 프로젝트를 CTO, PM, 엔지니어 조직처럼 반복해서 운영하고 싶을 때"
       }
     },
     "stolinski/s-stack:skills/agentbuilder/SKILL.md": {
@@ -559070,6 +559391,36 @@
         "use_when": "이력서와 온라인 프로필의 종합 점수를 확인하고 무엇부터 고칠지 정해야 할 때"
       }
     },
+    "vets-who-code/ai-era-job-kit:skills/github-scorer/SKILL.md": {
+      "model": "claude-haiku-5-5",
+      "prompt_version": "v6",
+      "skill_md_hash": "3fd461cc81ae897478f90b0104ba55b14b11c129",
+      "summary": {
+        "accesses_network": true,
+        "account_evidence": null,
+        "category": "productivity",
+        "code_evidence": "python3 $KIT/scripts/github_score.py --user <handle> --repos <pinned,repos> --market resume-score.json --portfolio <repo>/portfolio.json --json github-score.json --md github-score.md",
+        "network_evidence": "python3 $KIT/scripts/github_score.py --user <handle> --repos <pinned,repos> --market resume-score.json --portfolio <repo>/portfolio.json --json github-score.json --md github-score.md",
+        "requires_external_account": false,
+        "runs_external_code": true,
+        "subcategory": "project-management",
+        "summary_ko": "GitHub 공개 프로필과 지정한 고정 저장소를 점검해 점수와 우선 수정 목록 여섯 가지를 만들어 줍니다. 프로필 README, 저장소 README, 데모 링크, 테스트와 CI, 라이선스와 토픽 같은 항목을 확인하고, 고정 저장소가 이력서의 핵심 기술을 실제로 보여 주는지도 판단합니다. 결과는 JSON과 마크다운 파일로 저장되며, 수정할 파일과 방향을 받아 직접 커밋과 푸시를 진행합니다.",
+        "tags": {
+          "difficulty": "intermediate",
+          "roles": [
+            "developer",
+            "general"
+          ],
+          "use_cases": [
+            "GitHub 프로필 점검",
+            "고정 저장소 선정",
+            "저장소 README 작성",
+            "채용 대비 GitHub 정리"
+          ]
+        },
+        "use_when": "이력서를 보완한 뒤 채용 담당자가 볼 GitHub 고정 저장소와 프로필을 정리해야 할 때"
+      }
+    },
     "vgrichina/re-skill:SKILL.md": {
       "model": "claude-haiku-5-5",
       "prompt_version": "v6",
@@ -560297,17 +560648,17 @@
     "victorrentea/human-review:skills/human-review/SKILL.md": {
       "model": "claude-haiku-5-5",
       "prompt_version": "v6",
-      "skill_md_hash": "5d302379dc5533ff46d19c5d352c9a1ae6b1f8a8",
+      "skill_md_hash": "c2947ecd9e5b1b6d3a3cc36fd3dd94a011c91569",
       "summary": {
         "accesses_network": true,
         "account_evidence": null,
         "category": "productivity",
-        "code_evidence": "scripts/run-review.py --base \"$BASE\"     # Steps 1–5, end to end; prints the URL last",
+        "code_evidence": "${SKILL}/scripts/run-review.py --base \"$BASE\"     # Steps 1–5, end to end; prints the URL last",
         "network_evidence": "gh pr checkout <n>",
         "requires_external_account": false,
         "runs_external_code": true,
         "subcategory": "project-management",
-        "summary_ko": "이 저장소에서 코딩 에이전트가 남긴 review-points.md 기록을 바탕으로, 수정·보류·가정한 항목과 다이어그램 변화, 테스트 대응표, 기능 영상 등을 묶은 리뷰 안내 페이지(.human-review/review.html)를 만듭니다. 검토를 새로 수행하지 않고 이미 끝난 리뷰의 기록을 사람이 읽기 쉬운 탭형 페이지로 정리합니다. 스크립트가 근거 자료를 생성하고, 모델은 레이아웃과 요약 문장, 테스트 대응 확인에만 쓰입니다.",
+        "summary_ko": "커밋된 review-points.md와 브랜치 변경 사항을 바탕으로 변경 세트의 검토 보고서 .human-review/review.html을 조립합니다. 에이전트가 수정한 내용, 거절한 지적, 가정한 사항을 탭별로 정리하고, 다이어그램 변화, 코드 시티, 기능 영상, 복잡도 증분, REST 계약 차이를 함께 보여 줍니다. 새로운 리뷰를 수행하지 않고 기존 기록을 페이지로 옮깁니다.",
         "tags": {
           "difficulty": "advanced",
           "roles": [
@@ -560315,13 +560666,12 @@
             "product"
           ],
           "use_cases": [
-            "코드 리뷰 안내 페이지",
-            "PR 검토 자료 정리",
-            "테스트 대응 확인",
-            "리뷰 기록 시각화"
+            "코드 리뷰 보고서",
+            "PR 검토 자료",
+            "변경 사항 정리"
           ]
         },
-        "use_when": "코딩 에이전트가 수정한 PR을 사람이 검토하기 전에 무엇을 고쳤고 무엇을 보류·가정했는지 한 페이지로 확인해야 할 때"
+        "use_when": "코딩 에이전트가 남긴 리뷰 기록을 PR 검토용 HTML 보고서로 정리해 사람에게 전달해야 할 때"
       }
     },
     "victorsenatorbear59/r12-vincenthopf-my-claude-code-security:SKILL.md": {
@@ -570466,57 +570816,56 @@
     "weave-os/router:install/codex-skills/fm/SKILL.md": {
       "model": "claude-haiku-5-5",
       "prompt_version": "v6",
-      "skill_md_hash": "de2eb96548ff58844559f60ba05dba4504fd22b3",
+      "skill_md_hash": "7e3ece4671a5e473cd7d76910d3e58c4ae49786c",
       "summary": {
         "accesses_network": false,
-        "account_evidence": "Weave Router",
+        "account_evidence": null,
         "category": "ai-agents",
-        "code_evidence": "run this skill's `scripts/emit.sh` using the",
+        "code_evidence": "When the user invokes `$fm <model-id>`, run this skill's `scripts/emit.sh` using the",
         "network_evidence": null,
         "requires_external_account": false,
         "runs_external_code": true,
         "subcategory": "agent-operations",
-        "summary_ko": "Weave Router를 쓰는 Codex 세션의 모델을 지정한 모델로 고정해 주는 fm 스킬입니다. 사용자가 $fm 뒤에 모델 ID를 붙이면 함께 배포된 스크립트를 실행해 세션 모델을 바꾸고, 라우터의 응답을 그대로 보고합니다.",
+        "summary_ko": "Weave Router를 사용하는 Codex에서 현재 세션이 쓸 모델을 지정하는 단축 스킬입니다. $fm 뒤에 모델 ID를 붙이면 이 세션이 해당 모델로 고정되고, 이후 작업이 그 모델로 이어집니다. force-model의 별칭이며, 라우터가 설정 결과를 직접 안내하므로 사용자가 따로 확인 응답을 받을 필요는 없습니다.",
         "tags": {
           "difficulty": "intermediate",
           "roles": [
             "developer"
           ],
           "use_cases": [
-            "세션 모델 고정",
-            "모델 전환",
-            "Weave Router 설정"
+            "모델 고정",
+            "세션 설정"
           ]
         },
-        "use_when": "Codex 세션의 모델을 특정 모델로 고정하고 싶을 때"
+        "use_when": "Codex 세션에서 특정 모델로 고정해 이후 작업을 그 모델로 진행하고 싶을 때"
       }
     },
     "weave-os/router:install/codex-skills/force-model/SKILL.md": {
       "model": "claude-haiku-5-5",
       "prompt_version": "v6",
-      "skill_md_hash": "268b9cf66a895ce1f5cca945b1962c94094afbae",
+      "skill_md_hash": "5de6eefb0bcf7d5c04b4e0801c2ebac54701a261",
       "summary": {
         "accesses_network": false,
-        "account_evidence": null,
+        "account_evidence": "Weave Router",
         "category": "ai-agents",
-        "code_evidence": "When the user invokes `$force-model <model-id>` (or `$fm`), run this skill's `scripts/emit.sh` using the",
+        "code_evidence": "scripts/emit.sh",
         "network_evidence": null,
         "requires_external_account": false,
         "runs_external_code": true,
         "subcategory": "agent-operations",
-        "summary_ko": "Weave Router를 쓰는 Codex 세션을 사용자가 지정한 모델 ID로 고정하는 스킬입니다. $force-model 또는 $fm 뒤에 모델 ID를 적으면 현재 세션이 그 모델로 이어서 진행되고, 라우터가 돌려준 응답을 보고합니다. 사용자 메시지나 슬래시 명령을 따로 보내지 않고 세션의 모델을 바꿀 수 있습니다.",
+        "summary_ko": "Weave Router를 쓰는 환경에서 현재 Codex 세션이 사용할 모델을 지정한 모델로 고정해 줍니다. 사용자가 모델 ID를 붙여 호출하면 함께 배포된 스크립트가 실행되고, 라우터가 세션을 고정한 뒤 현재 턴을 이어갑니다.",
         "tags": {
           "difficulty": "intermediate",
           "roles": [
             "developer"
           ],
           "use_cases": [
-            "세션 모델 고정",
-            "모델 전환",
-            "Codex 설정"
+            "모델 고정",
+            "세션 설정",
+            "Codex 모델 전환"
           ]
         },
-        "use_when": "Codex 세션에서 특정 모델로 고정한 뒤 이어서 작업을 진행하고 싶을 때"
+        "use_when": "여러 모델을 오가다가 이번 Codex 세션을 특정 모델 하나로 계속 유지하고 싶을 때"
       }
     },
     "weave-os/router:install/codex-skills/force-parent/SKILL.md": {
@@ -572188,6 +572537,34 @@
           ]
         },
         "use_when": "프로젝트가 커져 쓰지 않는 코드와 의존성이 쌓였을 때 무엇을 덜어낼지 목록으로 확인하고 싶을 때"
+      }
+    },
+    "wenaixi/dsh-ponytail:skills/ponytail-debt/SKILL.md": {
+      "model": "claude-haiku-5-5",
+      "prompt_version": "v6",
+      "skill_md_hash": "ecbc0ca8161b25ced3b4f728398c2ec33988a777",
+      "summary": {
+        "accesses_network": false,
+        "account_evidence": null,
+        "category": "development",
+        "code_evidence": "`grep -rnE '(#|//) ?ponytail:' .`  (add other comment prefixes if your stack uses them)",
+        "network_evidence": null,
+        "requires_external_account": false,
+        "runs_external_code": true,
+        "subcategory": "code-quality",
+        "summary_ko": "코드베이스에 남긴 ponytail: 주석을 모아 미뤄 둔 단순화 목록으로 정리해 줍니다. 각 항목마다 한계선과 다시 볼 조건을 함께 보여 주고, 다시 볼 조건이 없는 항목은 따로 표시해 방치되기 쉬운 부채를 드러냅니다. 파일을 수정하지 않는 일회성 보고서이며, 원하면 결과를 파일로 저장할 수 있습니다.",
+        "tags": {
+          "difficulty": "beginner",
+          "roles": [
+            "developer"
+          ],
+          "use_cases": [
+            "기술 부채 점검",
+            "코드 주석 정리",
+            "미뤄 둔 작업 목록화"
+          ]
+        },
+        "use_when": "ponytail로 미뤄 둔 임시 처리들이 방치되지 않았는지 한눈에 확인하고 싶을 때"
       }
     },
     "wendylabsinc/claude-skills:database-driver-design/SKILL.md": {
@@ -576983,31 +577360,30 @@
     "wolverin0/claude-skills:skills/battle-test/SKILL.md": {
       "model": "claude-haiku-5-5",
       "prompt_version": "v6",
-      "skill_md_hash": "4df03add766cae957ac907990b4a36e466973eca",
+      "skill_md_hash": "aa3b3bd7d0318926a5456c06ffb791d5dbfb0de5",
       "summary": {
         "accesses_network": true,
         "account_evidence": null,
-        "category": "ai-agents",
-        "code_evidence": "Stage 0 reconciles a code scan and runtime crawl into `validation.config.json`",
-        "network_evidence": "Stages 2 and 4 drive a **real browser against a running app**.",
+        "category": "testing",
+        "code_evidence": "`/battle-test [project-path-or-name]` runs the full quality loop end-to-end and produces one",
+        "network_evidence": "/battle-test --push-main     # explicitly authorize integration after all gates pass",
         "requires_external_account": false,
         "runs_external_code": true,
-        "subcategory": "agent-operations",
-        "summary_ko": "프로젝트를 감사하고 실제 브라우저로 화면, 역할, 보안, 시각 회귀를 검증한 뒤, 격리된 작업 공간에서 수정하고 다시 검증해 하나의 HTML 보고서로 정리합니다. 단계마다 체크포인트를 남기며, 검증이 모두 통과하기 전에는 배포 가능 판정을 내리지 않습니다.",
+        "subcategory": "qa",
+        "summary_ko": "프로젝트의 코드를 진단하고, 화면 동작을 실제로 확인한 뒤, 발견된 문제를 고쳐 다시 검증하여 하나의 보고서로 정리합니다. 역할별 권한, 보안, 화면 변화까지 점검하며, 모든 검증이 통과하고 증거가 현재 빌드와 일치할 때만 프로덕션 준비 완료 판정을 내립니다.",
         "tags": {
           "difficulty": "advanced",
           "roles": [
-            "developer",
-            "product"
+            "developer"
           ],
           "use_cases": [
-            "프로젝트 감사",
-            "브라우저 E2E 검증",
-            "배포 전 점검",
-            "회귀 테스트"
+            "프로덕션 준비 점검",
+            "E2E 화면 검증",
+            "보안 및 권한 점검",
+            "코드 수정과 재검증"
           ]
         },
-        "use_when": "배포 전 웹 프로젝트가 실제 운영에 나갈 준비가 되었는지 여러 역할과 화면을 포함해 종합적으로 증명해야 할 때"
+        "use_when": "배포 전 프로젝트의 품질을 진단부터 재검증까지 한 번에 점검해 프로덕션 준비 여부를 확인해야 할 때"
       }
     },
     "wondelai/skills:37signals-way/SKILL.md": {
@@ -587756,30 +588132,30 @@
     "yarahq/yara-rule-skill:yara-rule-skill/SKILL.md": {
       "model": "claude-haiku-5-5",
       "prompt_version": "v6",
-      "skill_md_hash": "6d0de8586d6d5e7ae579343b740f54503414b923",
+      "skill_md_hash": "2d7a05797ce6ce02cd374c5931e3a2ad2d1aec46",
       "summary": {
-        "accesses_network": false,
+        "accesses_network": true,
         "account_evidence": null,
         "category": "security",
         "code_evidence": "python scripts/validate_rule.py rule.yar",
-        "network_evidence": null,
+        "network_evidence": "Run `pip install -r scripts/requirements.txt` first if the import fails.",
         "requires_external_account": false,
         "runs_external_code": true,
         "subcategory": "security-review",
-        "summary_ko": "YARA 룰을 새로 작성하거나 기존 룰을 검토해 품질과 성능 문제를 짚어 줍니다. 이름 규칙, 메타데이터, 문자열 구성, 조건 순서를 점검하고 개선 의견은 주석으로 제시합니다. 새 룰은 컴파일 검증을 거친 뒤 전달합니다.",
+        "summary_ko": "악성코드나 해킹 도구를 탐지하는 YARA 룰을 새로 작성하거나, 기존 룰을 검토하고 느린 룰과 오탐이 많은 룰을 개선하도록 돕습니다. 룰 이름과 메타데이터 형식을 맞추고, 문자열과 조건문 순서를 정리하며, 검증 스크립트로 컴파일 여부를 확인하는 순서로 진행합니다. 검토 결과는 문제 ID와 심각도가 붙은 표와 최소한만 고친 룰로 제시됩니다.",
         "tags": {
           "difficulty": "advanced",
           "roles": [
-            "researcher",
-            "developer"
+            "developer",
+            "researcher"
           ],
           "use_cases": [
             "YARA 룰 작성",
             "YARA 룰 검토",
-            "탐지 룰 성능 최적화"
+            "악성코드 탐지 룰 최적화"
           ]
         },
-        "use_when": "악성코드 탐지용 YARA 룰을 새로 만들거나 기존 룰의 이름, 문자열, 조건을 점검해야 할 때"
+        "use_when": "악성코드 샘플에서 YARA 룰을 만들어야 하거나, 기존 룰이 컴파일되지 않고 느리거나 오탐을 낼 때"
       }
     },
     "yaroslavle/seo-content-writer-claude-skill:SKILL.md": {
@@ -606623,6 +606999,36 @@
         "use_when": "모바일 로그인 화면이나 랜딩 페이지 시안을 OpenPencil 캔버스에 빠르게 옮겨 그려야 할 때"
       }
     },
+    "zstvns/design-skills:skills/art-direction/SKILL.md": {
+      "model": "claude-haiku-5-5",
+      "prompt_version": "v6",
+      "skill_md_hash": "16bb245069d1d9f3c806e1fb35381b6ef7935cf7",
+      "summary": {
+        "accesses_network": true,
+        "account_evidence": null,
+        "category": "design",
+        "code_evidence": "Implement it once in code: an ImageMagick or `sharp` script for files, an SVG filter or CSS for the web.",
+        "network_evidence": "Find real reference images on the web that fit the mood",
+        "requires_external_account": false,
+        "runs_external_code": true,
+        "subcategory": "visual-design",
+        "summary_ko": "브랜드의 감정 목표와 레퍼런스를 바탕으로 사진, 일러스트, 아이콘, 패턴과 질감의 스타일 명세를 세워 주는 스킬입니다. 웹에서 실제 참고 이미지를 찾아 보여 주고, 명세를 검증하는 테스트 시트를 만든 뒤 생성하거나 무료 스톡을 같은 톤으로 보정합니다. 결과물은 승인된 이미지 라이브러리와 기록으로 정리됩니다.",
+        "tags": {
+          "difficulty": "intermediate",
+          "roles": [
+            "designer",
+            "marketer"
+          ],
+          "use_cases": [
+            "브랜드 이미지 스타일",
+            "사진 톤 정의",
+            "일러스트 스타일 테스트",
+            "아이콘 세트 설계"
+          ]
+        },
+        "use_when": "브랜드 웹사이트와 자료에 쓸 이미지의 사진 톤과 일러스트 스타일을 한 가지로 맞춰야 할 때"
+      }
+    },
     "zstvns/design-skills:skills/brand-strategy/SKILL.md": {
       "model": "claude-haiku-5-5",
       "prompt_version": "v6",
@@ -610224,11 +610630,6 @@
       "reason": "schema: 1 errors",
       "skill_md_hash": "d618a4a9e1835472cfb55ded7144233ccf9c6c02"
     },
-    "backnotprop/pstack:skills/arena/SKILL.md": {
-      "prompt_version": "v6",
-      "reason": "schema: 1 errors",
-      "skill_md_hash": "e4aaa2dbf833b2a2632ddc2ba19062e6282721da"
-    },
     "baldiga/hebrew-writer:SKILL.md": {
       "prompt_version": "v6",
       "reason": "source too long",
@@ -611744,11 +612145,6 @@
       "reason": "reassurance in prose",
       "skill_md_hash": "cd958b6e7e1eccddecedb8ad12565088fa09442e"
     },
-    "mvanhorn/last30days-skill:skills/last30days/SKILL.md": {
-      "prompt_version": "v6",
-      "reason": "copied from source",
-      "skill_md_hash": "36e8e8ae1845fe485e54a588ccb0f5f70def229e"
-    },
     "n-tongxue/norman-skill:norman-paper-reading/SKILL.md": {
       "prompt_version": "v6",
       "reason": "reassurance in prose",
@@ -611823,6 +612219,11 @@
       "prompt_version": "v6",
       "reason": "stop_reason: max_tokens",
       "skill_md_hash": "a7f4291ca65e346b10977a642c84bd513200d910"
+    },
+    "nocobase/nocobase:packages/app/app-skills/skills/nocobase-app-development/SKILL.md": {
+      "prompt_version": "v6",
+      "reason": "stop_reason: max_tokens",
+      "skill_md_hash": "762ef4801eabcedfc1ae3d203071ca227a853f19"
     },
     "noique/cross-border-ecommerce-skills:outbound-prospecting/linkedin-prospecting/SKILL.md": {
       "prompt_version": "v6",
