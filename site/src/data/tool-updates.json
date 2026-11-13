@@ -4,14 +4,15 @@
     {
       "date": "2026-11-13",
       "highlights": [
-        "`features.tui_workspace`를 켜면 메인 대화 옆에 사이드 대화를 나란히 볼 수 있고, 구분선으로 크기를 조절하거나 `leader z`로 포커스된 창을 확대할 수 있습니다.",
-        "Sessions → Model providers에서 모델 제공자를 둘러보고 새 대화의 기본 제공자를 고를 수 있습니다.",
-        "열린 대화와 다시 불러온 대화가 기본 제공자를 바꾼 뒤에도 저장된 모델 제공자를 그대로 사용하도록 고쳤습니다."
+        "`features.tui_workspace`를 켜면 메인 채팅 옆에 사이드 대화 창을 띄워 두 화면을 함께 볼 수 있습니다.",
+        "Sessions → Model providers에서 모델 제공자를 둘러보고 새 채팅의 기본값으로 고를 수 있습니다.",
+        "이미지 생성에서 `features.image_generation_animation`을 켜면 애니메이션 GIF를 만들거나 편집할 수 있습니다."
       ],
       "tool": "codex",
-      "url": "https://github.com/openai/codex/releases/tag/rust-v0.168.0",
+      "url": "https://github.com/openai/codex/releases/tag/rust-v0.169.0",
       "versions": [
-        "0.168.0"
+        "0.168.0",
+        "0.169.0"
       ]
     },
     {
