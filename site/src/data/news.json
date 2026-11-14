@@ -2,62 +2,62 @@
   "risingRepositories": [
     {
       "fullName": "morluto/rea",
-      "stars": 457313,
-      "starsGained": 19868,
+      "stars": 457722,
+      "starsGained": 16919,
       "windowDays": 7
     },
     {
       "fullName": "cloudflare/security-audit-skill",
-      "stars": 71787,
-      "starsGained": 8217,
+      "stars": 71942,
+      "starsGained": 6387,
       "windowDays": 7
     },
     {
       "fullName": "mattpocock/skills",
-      "stars": 323720,
-      "starsGained": 7214,
-      "windowDays": 7
-    },
-    {
-      "fullName": "milind-soni/OpenMausBot",
-      "stars": 22123,
-      "starsGained": 7123,
+      "stars": 323845,
+      "starsGained": 6243,
       "windowDays": 7
     },
     {
       "fullName": "stablyai/orca",
-      "stars": 124308,
-      "starsGained": 6635,
+      "stars": 124413,
+      "starsGained": 5878,
       "windowDays": 7
     },
     {
       "fullName": "anthropics/skills",
-      "stars": 194085,
-      "starsGained": 5972,
+      "stars": 194151,
+      "starsGained": 5447,
+      "windowDays": 7
+    },
+    {
+      "fullName": "milind-soni/OpenMausBot",
+      "stars": 22209,
+      "starsGained": 5328,
       "windowDays": 7
     },
     {
       "fullName": "google/elephant-goldfish-model",
-      "stars": 18538,
-      "starsGained": 5543,
+      "stars": 18633,
+      "starsGained": 4858,
       "windowDays": 7
     },
     {
       "fullName": "pbakaus/impeccable",
-      "stars": 109481,
-      "starsGained": 4813,
+      "stars": 109628,
+      "starsGained": 4169,
       "windowDays": 7
     },
     {
       "fullName": "DietrichGebert/ponytail",
-      "stars": 190286,
-      "starsGained": 4517,
+      "stars": 190377,
+      "starsGained": 4028,
       "windowDays": 7
     },
     {
-      "fullName": "affaan-m/ECC",
-      "stars": 302385,
-      "starsGained": 3928,
+      "fullName": "Leonxlnx/taste-skill",
+      "stars": 115065,
+      "starsGained": 3448,
       "windowDays": 7
     }
   ],
