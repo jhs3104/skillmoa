@@ -1,7 +1,7 @@
 {
   "tool_news_usage": {
-    "calls": 3,
-    "day": "2026-11-13"
+    "calls": 1,
+    "day": "2026-11-14"
   },
   "tool_updates": {
     "claude-code:2026-10-05": {
@@ -385,6 +385,22 @@
       "url": "https://github.com/anthropics/claude-code/releases/tag/v2.1.323",
       "versions": [
         "2.1.323"
+      ]
+    },
+    "claude-code:2026-11-13": {
+      "day": "2026-11-13",
+      "highlights": [
+        "Claude Code 2.1.325에서 `/rewind` 또는 `/clear`로 정책 차단 요청을 이어가는 방법을 오류 아래에 안내하도록 개선했습니다.",
+        "서브에이전트가 출력 토큰 한도에서 잘린 경우 답변 끝부분만 돌려주지 않고 더 간결하게 전체 답변을 다시 요청하도록 개선했습니다.",
+        "`/resume`에서 드라이브 문자 대소문자나 슬래시가 다르게 기록된 Windows 세션이 누락되거나 거부되던 문제를 고쳤습니다."
+      ],
+      "model": "claude-haiku-5-5",
+      "prompt_version": "n1",
+      "source_hash": "8a31bdb94a1f1bf798a39b1d952cb5c5046d8e62d5defb1002863f299dddb66c",
+      "tool": "claude-code",
+      "url": "https://github.com/anthropics/claude-code/releases/tag/v2.1.325",
+      "versions": [
+        "2.1.325"
       ]
     },
     "codex:2026-10-15": {
