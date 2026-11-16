@@ -2,6 +2,19 @@
   "schemaVersion": 1,
   "updates": [
     {
+      "date": "2026-11-16",
+      "highlights": [
+        "Code Mode를 에이전트 팀과 함께 켤 수 있으며, 이미 켜 둔 경우 팀 세션은 Code Mode로 시작합니다.",
+        "`--allowedTools`, `--disallowedTools`, `--tools` 값이 완전한 규칙이 아닐 때 시작 시 경고를 표시합니다.",
+        "`/rewind`에서 셸 명령이 복구할 수 없는 파일을 바꾼 경우 \"No code changes\" 대신 \"Code changes unknown\"으로 표시합니다."
+      ],
+      "tool": "claude-code",
+      "url": "https://github.com/anthropics/claude-code/releases/tag/v2.1.326",
+      "versions": [
+        "2.1.326"
+      ]
+    },
+    {
       "date": "2026-11-13",
       "highlights": [
         "Claude Code 2.1.325에서 `/rewind` 또는 `/clear`로 정책 차단 요청을 이어가는 방법을 오류 아래에 안내하도록 개선했습니다.",
