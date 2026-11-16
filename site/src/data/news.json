@@ -2,62 +2,62 @@
   "risingRepositories": [
     {
       "fullName": "morluto/rea",
-      "stars": 462503,
-      "starsGained": 15761,
+      "stars": 463783,
+      "starsGained": 17041,
       "windowDays": 7
     },
     {
       "fullName": "janestreet/agent_skills",
-      "stars": 9160,
-      "starsGained": 7217,
-      "windowDays": 7
-    },
-    {
-      "fullName": "mattpocock/skills",
-      "stars": 325382,
-      "starsGained": 5719,
+      "stars": 9507,
+      "starsGained": 7564,
       "windowDays": 7
     },
     {
       "fullName": "stablyai/orca",
-      "stars": 126030,
-      "starsGained": 5679,
+      "stars": 126652,
+      "starsGained": 6301,
+      "windowDays": 7
+    },
+    {
+      "fullName": "mattpocock/skills",
+      "stars": 325853,
+      "starsGained": 6190,
       "windowDays": 7
     },
     {
       "fullName": "cloudflare/security-audit-skill",
-      "stars": 73379,
-      "starsGained": 5386,
+      "stars": 73775,
+      "starsGained": 5782,
       "windowDays": 7
     },
     {
       "fullName": "anthropics/skills",
-      "stars": 195505,
-      "starsGained": 4648,
-      "windowDays": 7
-    },
-    {
-      "fullName": "heydamir/unslop",
-      "stars": 16888,
-      "starsGained": 4174,
-      "windowDays": 7
-    },
-    {
-      "fullName": "pbakaus/impeccable",
-      "stars": 110909,
-      "starsGained": 4072,
+      "stars": 195925,
+      "starsGained": 5068,
       "windowDays": 7
     },
     {
       "fullName": "milind-soni/OpenMausBot",
-      "stars": 23652,
-      "starsGained": 4056,
+      "stars": 24130,
+      "starsGained": 4534,
+      "windowDays": 7
+    },
+    {
+      "fullName": "heydamir/unslop",
+      "stars": 17200,
+      "starsGained": 4486,
+      "windowDays": 7
+    },
+    {
+      "fullName": "pbakaus/impeccable",
+      "stars": 111287,
+      "starsGained": 4450,
       "windowDays": 7
     },
     {
       "fullName": "DietrichGebert/ponytail",
-      "stars": 191604,
-      "starsGained": 3963,
+      "stars": 192052,
+      "starsGained": 4411,
       "windowDays": 7
     }
   ],
