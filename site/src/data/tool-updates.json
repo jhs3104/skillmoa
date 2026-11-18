@@ -2,6 +2,32 @@
   "schemaVersion": 1,
   "updates": [
     {
+      "date": "2026-11-18",
+      "highlights": [
+        "TUI에서 실시간 음성 통화를 위한 WebRTC 연결 협상을 지원합니다.",
+        "MCP 서버를 환경별로 같은 이름으로 나눠 쓸 수 있는 실험 기능을 더했습니다.",
+        "MCP OAuth 인증 정보가 취소·로그인·로그아웃 중에 엉키던 문제를 고쳤습니다."
+      ],
+      "tool": "codex",
+      "url": "https://github.com/openai/codex/releases/tag/rust-v0.170.0",
+      "versions": [
+        "0.170.0"
+      ]
+    },
+    {
+      "date": "2026-11-17",
+      "highlights": [
+        "`claude mcp add-json <name> -`로 stdin에서 서버 JSON을 읽을 수 있게 되어 토큰을 명령줄에 남기지 않고 MCP 서버를 추가할 수 있습니다.",
+        "`/status`에 깨진 에이전트·스킬·명령·출력 스타일 파일, 키바인딩 오류, 사용할 수 없는 샌드박스, 무시된 권한 설정이 목록으로 표시됩니다.",
+        "`claude mcp add`와 `remove`를 프로젝트 범위로 쓸 때 `.mcp.json`의 `$schema` 같은 다른 최상위 키가 지워지던 문제를 고쳤습니다."
+      ],
+      "tool": "claude-code",
+      "url": "https://github.com/anthropics/claude-code/releases/tag/v2.1.327",
+      "versions": [
+        "2.1.327"
+      ]
+    },
+    {
       "date": "2026-11-16",
       "highlights": [
         "Code Mode를 에이전트 팀과 함께 켤 수 있으며, 이미 켜 둔 경우 팀 세션은 Code Mode로 시작합니다.",
