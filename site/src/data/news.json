@@ -2,62 +2,62 @@
   "risingRepositories": [
     {
       "fullName": "morluto/rea",
-      "stars": 467348,
-      "starsGained": 15258,
+      "stars": 468072,
+      "starsGained": 15982,
       "windowDays": 7
     },
     {
       "fullName": "stablyai/orca",
-      "stars": 128395,
-      "starsGained": 6225,
+      "stars": 128780,
+      "starsGained": 6610,
       "windowDays": 7
     },
     {
       "fullName": "mattpocock/skills",
-      "stars": 327131,
-      "starsGained": 5388,
-      "windowDays": 7
-    },
-    {
-      "fullName": "cloudflare/security-audit-skill",
-      "stars": 75088,
-      "starsGained": 5027,
-      "windowDays": 7
-    },
-    {
-      "fullName": "affaan-m/ECC",
-      "stars": 306022,
-      "starsGained": 4837,
+      "stars": 327385,
+      "starsGained": 5642,
       "windowDays": 7
     },
     {
       "fullName": "elementalsouls/Claude-BugHunter",
-      "stars": 10342,
-      "starsGained": 4816,
+      "stars": 11151,
+      "starsGained": 5625,
+      "windowDays": 7
+    },
+    {
+      "fullName": "cloudflare/security-audit-skill",
+      "stars": 75306,
+      "starsGained": 5245,
+      "windowDays": 7
+    },
+    {
+      "fullName": "affaan-m/ECC",
+      "stars": 306390,
+      "starsGained": 5205,
       "windowDays": 7
     },
     {
       "fullName": "DietrichGebert/ponytail",
-      "stars": 193654,
-      "starsGained": 4715,
+      "stars": 193952,
+      "starsGained": 5013,
       "windowDays": 7
     },
     {
       "fullName": "Leonxlnx/taste-skill",
-      "stars": 118097,
-      "starsGained": 4700,
+      "stars": 118354,
+      "starsGained": 4957,
       "windowDays": 7
     },
     {
       "fullName": "janestreet/agent_skills",
-      "stars": 9998,
-      "starsGained": 4683,
+      "stars": 10096,
+      "starsGained": 4781,
       "windowDays": 7
     },
     {
       "fullName": "pbakaus/impeccable",
-      "stars": 112580,
-      "starsGained": 4460,
+      "stars": 112836,
+      "starsGained": 4716,
       "windowDays": 7
     }
   ],

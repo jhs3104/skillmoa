@@ -4,8 +4,8 @@
   "last_full_scan_on": null,
   "schema_version": 1,
   "usage": {
-    "classify_calls": 346,
+    "classify_calls": 547,
     "day": "2026-11-18",
-    "summary_calls": 344
+    "summary_calls": 547
   }
 }
