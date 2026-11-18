@@ -2,62 +2,62 @@
   "risingRepositories": [
     {
       "fullName": "morluto/rea",
-      "stars": 465666,
-      "starsGained": 15796,
+      "stars": 466341,
+      "starsGained": 14251,
       "windowDays": 7
     },
     {
       "fullName": "stablyai/orca",
-      "stars": 127547,
-      "starsGained": 6145,
-      "windowDays": 7
-    },
-    {
-      "fullName": "janestreet/agent_skills",
-      "stars": 9806,
-      "starsGained": 6037,
+      "stars": 127847,
+      "starsGained": 5677,
       "windowDays": 7
     },
     {
       "fullName": "mattpocock/skills",
-      "stars": 326527,
-      "starsGained": 5659,
+      "stars": 326756,
+      "starsGained": 5013,
       "windowDays": 7
     },
     {
       "fullName": "cloudflare/security-audit-skill",
-      "stars": 74541,
-      "starsGained": 5278,
+      "stars": 74799,
+      "starsGained": 4738,
+      "windowDays": 7
+    },
+    {
+      "fullName": "janestreet/agent_skills",
+      "stars": 9884,
+      "starsGained": 4569,
       "windowDays": 7
     },
     {
       "fullName": "Leonxlnx/taste-skill",
-      "stars": 117507,
-      "starsGained": 4519,
-      "windowDays": 7
-    },
-    {
-      "fullName": "DietrichGebert/ponytail",
-      "stars": 192752,
-      "starsGained": 4378,
+      "stars": 117746,
+      "starsGained": 4349,
       "windowDays": 7
     },
     {
       "fullName": "affaan-m/ECC",
-      "stars": 305162,
-      "starsGained": 4375,
+      "stars": 305507,
+      "starsGained": 4322,
+      "windowDays": 7
+    },
+    {
+      "fullName": "DietrichGebert/ponytail",
+      "stars": 193050,
+      "starsGained": 4111,
       "windowDays": 7
     },
     {
       "fullName": "pbakaus/impeccable",
-      "stars": 111938,
-      "starsGained": 4364,
+      "stars": 112204,
+      "starsGained": 4084,
       "windowDays": 7
     },
     {
-      "fullName": "anthropics/skills",
-      "stars": 196532,
-      "starsGained": 4262,
+      "fullName": "alibaba/open-code-review",
+      "stars": 53726,
+      "starsGained": 3896,
       "windowDays": 7
     }
   ],
