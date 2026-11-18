@@ -291,7 +291,7 @@
     "0xdarkmatter/claude-mods:skills/a11y-ops/SKILL.md": {
       "excluded": null,
       "model": "claude-haiku-5-5",
-      "skill_md_hash": "a714037d02f5d695d6f6ff8392bbc44eb4fa64dd",
+      "skill_md_hash": "9b5f8112f0e708d0802f47e24a6e4ff85e66da8b",
       "subcategory": "accessibility",
       "summary_prompt_version": "v6",
       "taxonomy_version": "t2"
@@ -299,15 +299,15 @@
     "0xdarkmatter/claude-mods:skills/adr-ops/SKILL.md": {
       "excluded": null,
       "model": "claude-haiku-5-5",
-      "skill_md_hash": "bb46d412af2fe1782b703ad88985707bf058d2d8",
-      "subcategory": "project-management",
+      "skill_md_hash": "04fcefa24cae472f025405e339815379c4d75565",
+      "subcategory": "drafting",
       "summary_prompt_version": "v6",
       "taxonomy_version": "t2"
     },
     "0xdarkmatter/claude-mods:skills/api-design-ops/SKILL.md": {
       "excluded": null,
       "model": "claude-haiku-5-5",
-      "skill_md_hash": "3755af4f98e2275707374c6aa0c87953637c125b",
+      "skill_md_hash": "49628dc56403ccd5d8576c529830bb56bff9948a",
       "subcategory": "backend",
       "summary_prompt_version": "v6",
       "taxonomy_version": "t2"
@@ -3659,7 +3659,7 @@
     "adspower/adspower-browser:skills/adspower-browser/SKILL.md": {
       "excluded": null,
       "model": "claude-haiku-5-5",
-      "skill_md_hash": "7e2f52adca8771932ed9417a97ee1dcd2d2d1993",
+      "skill_md_hash": "a760ec43daf038d634cbfa9e3c0b6a5a8abb6b99",
       "subcategory": "automation",
       "summary_prompt_version": "v6",
       "taxonomy_version": "t2"
@@ -5995,8 +5995,8 @@
     "ahang1598/doubao-workbuddy-qwenwork-skills:chatgpt/skills/openai-docs/SKILL.md": {
       "excluded": null,
       "model": "claude-haiku-5-5",
-      "skill_md_hash": "63c5112bdc03db4878864dfc20f58ae7f4859366",
-      "subcategory": "web-research",
+      "skill_md_hash": "7d4068d45b9bf4b798fb48fabef37a81ce66cffe",
+      "subcategory": "misc",
       "summary_prompt_version": "v6",
       "taxonomy_version": "t2"
     },
@@ -6880,6 +6880,14 @@
       "summary_prompt_version": "v6",
       "taxonomy_version": "t2"
     },
+    "aicodedecode/awesome-muse-skills:skills-imported/a11y-audit-uxui/SKILL.md": {
+      "excluded": null,
+      "model": "claude-haiku-5-5",
+      "skill_md_hash": "2dd097d002a1ec1d1bd623062f128293e81ac1d3",
+      "subcategory": "accessibility",
+      "summary_prompt_version": "v6",
+      "taxonomy_version": "t2"
+    },
     "aicodeking/deepseek-stack:skills/ds-adopt/SKILL.md": {
       "excluded": null,
       "model": "claude-haiku-5-5",
@@ -7547,7 +7555,7 @@
     "aipoch/open-science:resources/skills/docx-generation/SKILL.md": {
       "excluded": null,
       "model": "claude-haiku-5-5",
-      "skill_md_hash": "d5e3fbe4da05181c7d014406de66361c570f3598",
+      "skill_md_hash": "d2a2b02964be45cd98ee8b302bc2de1662974f1c",
       "subcategory": "office",
       "summary_prompt_version": "v6",
       "taxonomy_version": "t2"
@@ -10627,7 +10635,7 @@
     "alva-ai/skills:skills/alva/SKILL.md": {
       "excluded": null,
       "model": "claude-haiku-5-5",
-      "skill_md_hash": "46f795de630b2fbd504bd41ddf8c067bf04d1973",
+      "skill_md_hash": "0a17415e5547ab51c8aac46471d5cb02b20c8bd5",
       "subcategory": "investing",
       "summary_prompt_version": "v6",
       "taxonomy_version": "t2"
@@ -13763,7 +13771,7 @@
     "apache/magpie:plugins/magpie-contributor-growth/skills/activity-sweep/SKILL.md": {
       "excluded": null,
       "model": "claude-haiku-5-5",
-      "skill_md_hash": "d8190ef99cc711309609e48bc95c0906dc68c012",
+      "skill_md_hash": "48d260b4cacacb5cc259966f431ddb14de297093",
       "subcategory": "web-research",
       "summary_prompt_version": "v6",
       "taxonomy_version": "t2"
@@ -13771,32 +13779,32 @@
     "apache/magpie:plugins/magpie-contributor-growth/skills/calibrate/SKILL.md": {
       "excluded": null,
       "model": "claude-haiku-5-5",
-      "skill_md_hash": "33ec9ce8cfcc74faaa672a4a922f4160a27dc14d",
-      "subcategory": "misc",
+      "skill_md_hash": "f5494642c9f319615ae3ad687ce874ea59cf235c",
+      "subcategory": "project-management",
       "summary_prompt_version": "v6",
       "taxonomy_version": "t2"
     },
     "apache/magpie:plugins/magpie-contributor-growth/skills/candidate-screen/SKILL.md": {
       "excluded": null,
       "model": "claude-haiku-5-5",
-      "skill_md_hash": "b285e646cbd1a9d1a555a83e034ec78f7b792e5f",
-      "subcategory": "data-analysis",
+      "skill_md_hash": "d14867a2b1594613d048f6414af91497f235086d",
+      "subcategory": "business-ops",
       "summary_prompt_version": "v6",
       "taxonomy_version": "t2"
     },
     "apache/magpie:plugins/magpie-contributor-growth/skills/committer-onboarding/SKILL.md": {
       "excluded": null,
       "model": "claude-haiku-5-5",
-      "skill_md_hash": "04db10266e38ff96af741ff04a86910ecb6592cc",
-      "subcategory": "misc",
+      "skill_md_hash": "e98e8725c6d4d9a281e5462471ac83c43b4fa2e5",
+      "subcategory": "project-management",
       "summary_prompt_version": "v6",
       "taxonomy_version": "t2"
     },
     "apache/magpie:plugins/magpie-contributor-growth/skills/contributor-to-committer/SKILL.md": {
       "excluded": null,
       "model": "claude-haiku-5-5",
-      "skill_md_hash": "d4074c42e8b6510603e546e1f6fa5b7aed13989b",
-      "subcategory": "project-management",
+      "skill_md_hash": "db17f48a348489cbdfd9b5eba230fa2a3a4d45ac",
+      "subcategory": "data-analysis",
       "summary_prompt_version": "v6",
       "taxonomy_version": "t2"
     },
@@ -15676,6 +15684,14 @@
       "excluded": null,
       "model": "claude-haiku-5-5",
       "skill_md_hash": "afba58a75c13ad2b8352dccd211d9d404c5c6bb6",
+      "subcategory": "visual-design",
+      "summary_prompt_version": "v6",
+      "taxonomy_version": "t2"
+    },
+    "arla6ka/design.how:skills/make-logo/SKILL.md": {
+      "excluded": null,
+      "model": "claude-haiku-5-5",
+      "skill_md_hash": "77f6415579b69246833a958f0e4c32757cd035fd",
       "subcategory": "visual-design",
       "summary_prompt_version": "v6",
       "taxonomy_version": "t2"
@@ -20555,7 +20571,7 @@
     "baney75/smoothstone:skill/SKILL.md": {
       "excluded": null,
       "model": "claude-haiku-5-5",
-      "skill_md_hash": "36e4bc88400490c0558fe83ca7d4e10d183e3a39",
+      "skill_md_hash": "a1c43be3c2a0aa6a66fdd4a7e86e99070abf89b1",
       "subcategory": "dev-tools",
       "summary_prompt_version": "v6",
       "taxonomy_version": "t2"
@@ -24208,6 +24224,14 @@
       "summary_prompt_version": "v6",
       "taxonomy_version": "t2"
     },
+    "boringmarketer/boring-marketing-skills:skills/email-sequences/SKILL.md": {
+      "excluded": null,
+      "model": "claude-haiku-5-5",
+      "skill_md_hash": "88f75e5b0d36a1d28f9ecc0dbc6de65c3dab0ff4",
+      "subcategory": "advertising",
+      "summary_prompt_version": "v6",
+      "taxonomy_version": "t2"
+    },
     "boringmarketer/kimi-first:skills/boringoperator-wo/SKILL.md": {
       "excluded": null,
       "model": "claude-haiku-5-5",
@@ -24829,6 +24853,14 @@
       "model": "claude-haiku-5-5",
       "skill_md_hash": "846532d05ceb5d63a8c215b899cc85659be0015e",
       "subcategory": "misc",
+      "summary_prompt_version": "v6",
+      "taxonomy_version": "t2"
+    },
+    "bradfrost/skills:skills/design-systems/ds-adoption-plan/SKILL.md": {
+      "excluded": null,
+      "model": "claude-haiku-5-5",
+      "skill_md_hash": "e7204f4a96b9c5ad8cf475f04aca3247bd31e0cb",
+      "subcategory": "ui-ux",
       "summary_prompt_version": "v6",
       "taxonomy_version": "t2"
     },
@@ -26128,6 +26160,30 @@
       "summary_prompt_version": "v6",
       "taxonomy_version": "t2"
     },
+    "brycewang-stanford/free-research-crew:crew/skills/gate/SKILL.md": {
+      "excluded": null,
+      "model": "claude-haiku-5-5",
+      "skill_md_hash": "c0c3e0e72a2b46d2359ad69fd27416149f6a8b05",
+      "subcategory": "academic",
+      "summary_prompt_version": "v6",
+      "taxonomy_version": "t2"
+    },
+    "brycewang-stanford/free-research-crew:crew/skills/start/SKILL.md": {
+      "excluded": null,
+      "model": "claude-haiku-5-5",
+      "skill_md_hash": "452f42616f21590893bbe2b0307738f486fe99dd",
+      "subcategory": "academic",
+      "summary_prompt_version": "v6",
+      "taxonomy_version": "t2"
+    },
+    "brycewang-stanford/free-research-crew:crew/skills/status/SKILL.md": {
+      "excluded": null,
+      "model": "claude-haiku-5-5",
+      "skill_md_hash": "fab75e344b7f695d6529c28accec96d5a2ab2347",
+      "subcategory": "project-management",
+      "summary_prompt_version": "v6",
+      "taxonomy_version": "t2"
+    },
     "brycewang-stanford/many-ppt-skills:SKILL.md": {
       "excluded": null,
       "model": "claude-haiku-5-5",
@@ -27091,7 +27147,7 @@
     "caldoai/skills:skills/prune-tests/SKILL.md": {
       "excluded": null,
       "model": "claude-haiku-5-5",
-      "skill_md_hash": "7821d52f2c31e22907131bb96b2747fc8b0c83b9",
+      "skill_md_hash": "d9140ca5d6ddec066dcaa389af7c78af52408941",
       "subcategory": "test-writing",
       "summary_prompt_version": "v6",
       "taxonomy_version": "t2"
@@ -27224,6 +27280,14 @@
       "summary_prompt_version": "v6",
       "taxonomy_version": "t2"
     },
+    "calibre-labs/reforge-ai-evals:skills/eval-coach/SKILL.md": {
+      "excluded": null,
+      "model": "claude-haiku-5-5",
+      "skill_md_hash": "87f0a99045d7960e5b74214d3aa0328e3ed2a11d",
+      "subcategory": "learning",
+      "summary_prompt_version": "v6",
+      "taxonomy_version": "t2"
+    },
     "calibre-labs/reforge-ai-evals:skills/eval-code/SKILL.md": {
       "excluded": null,
       "model": "claude-haiku-5-5",
@@ -27235,7 +27299,7 @@
     "calibre-labs/reforge-ai-evals:skills/eval-guide/SKILL.md": {
       "excluded": null,
       "model": "claude-haiku-5-5",
-      "skill_md_hash": "e4294a85e27a62067d77bb4852f2d66b628178ea",
+      "skill_md_hash": "cc01cd105acc71f56f20c2adab6740ff6f2964d2",
       "subcategory": "ai-engineering",
       "summary_prompt_version": "v6",
       "taxonomy_version": "t2"
@@ -27536,6 +27600,14 @@
       "summary_prompt_version": "v6",
       "taxonomy_version": "t2"
     },
+    "canva-sdks/canva-skills:plugins/canva/skills/canva-agent-guide/SKILL.md": {
+      "excluded": null,
+      "model": "claude-haiku-5-5",
+      "skill_md_hash": "a590b45a107e8b4e33d0ca1745a9e494c67057fc",
+      "subcategory": "ui-ux",
+      "summary_prompt_version": "v6",
+      "taxonomy_version": "t2"
+    },
     "caodoudou99/literature-review-econ-skill:literature-review-econ-skill/SKILL.md": {
       "excluded": null,
       "model": "claude-haiku-5-5",
@@ -27771,8 +27843,8 @@
     "career-ops-hq/career-ops:.agents/skills/career-ops/SKILL.md": {
       "excluded": null,
       "model": "claude-haiku-5-5",
-      "skill_md_hash": "c5bd806fd2cdf5d60647acead2d798558456171c",
-      "subcategory": "web-research",
+      "skill_md_hash": "4fd5118d43907cbcab458d8bdb11c0cb058b12ee",
+      "subcategory": "business-ops",
       "summary_prompt_version": "v6",
       "taxonomy_version": "t2"
     },
@@ -30827,7 +30899,7 @@
     "chrisryugj/kordoc:plugins/chatgpt/kordoc/skills/kordoc/SKILL.md": {
       "excluded": null,
       "model": "claude-haiku-5-5",
-      "skill_md_hash": "31c7ffd8bb6b1e7664309d6c13df74c7299f85f7",
+      "skill_md_hash": "d26ef3bc412d02d522444dff657b21fc7d42ccdf",
       "subcategory": "office",
       "summary_prompt_version": "v6",
       "taxonomy_version": "t2"
@@ -33507,7 +33579,7 @@
     "codealive-ai/pragmatic-orchestration:skills/pragmatic-orchestration/SKILL.md": {
       "excluded": null,
       "model": "claude-haiku-5-5",
-      "skill_md_hash": "29f47eb49c4757c988d00313773d7e430a289df3",
+      "skill_md_hash": "1b790bd886f44884a8e112c0e3d527106b139164",
       "subcategory": "agent-operations",
       "summary_prompt_version": "v6",
       "taxonomy_version": "t2"
@@ -33960,6 +34032,14 @@
       "summary_prompt_version": "v6",
       "taxonomy_version": "t2"
     },
+    "coderabbitai/skills:.antigravity-plugin/skills/coderabbit-setup/SKILL.md": {
+      "excluded": null,
+      "model": "claude-haiku-5-5",
+      "skill_md_hash": "2b57d25fc17671317f104815c1c4926afffbee0a",
+      "subcategory": "dev-tools",
+      "summary_prompt_version": "v6",
+      "taxonomy_version": "t2"
+    },
     "coderabbitai/skills:packaging/mcp/skills/setup/SKILL.md": {
       "excluded": null,
       "model": "claude-haiku-5-5",
@@ -33979,7 +34059,7 @@
     "coderabbitai/skills:skills/code-review/SKILL.md": {
       "excluded": null,
       "model": "claude-haiku-5-5",
-      "skill_md_hash": "fdeb73642d19a7fd982964b6a594c71b214801dd",
+      "skill_md_hash": "cd96298d18df320f3e62fc263a5aeb5df10d961b",
       "subcategory": "code-quality",
       "summary_prompt_version": "v6",
       "taxonomy_version": "t2"
@@ -33987,7 +34067,7 @@
     "coderabbitai/skills:skills/coderabbit-config/SKILL.md": {
       "excluded": null,
       "model": "claude-haiku-5-5",
-      "skill_md_hash": "d999822b7e05ac54b15d3a1ce4bc2548efd2b668",
+      "skill_md_hash": "366b399b77c171a831f237253cff7b9bba758076",
       "subcategory": "code-quality",
       "summary_prompt_version": "v6",
       "taxonomy_version": "t2"
@@ -36043,7 +36123,7 @@
     "coreyhaines31/marketingskills:skills/ad-creative/SKILL.md": {
       "excluded": null,
       "model": "claude-haiku-5-5",
-      "skill_md_hash": "458b748c607414c063de530fe48b288c34918825",
+      "skill_md_hash": "908f8e1ce5979ef8a30722659c79a5773b72d753",
       "subcategory": "advertising",
       "summary_prompt_version": "v6",
       "taxonomy_version": "t2"
@@ -38859,8 +38939,8 @@
     "danoszz/penthera:plugin/skills/penthera/SKILL.md": {
       "excluded": null,
       "model": "claude-haiku-5-5",
-      "skill_md_hash": "508ef7f381f798367ce4b7eb72ea8bde659abc88",
-      "subcategory": "vulnerability",
+      "skill_md_hash": "0cc30dc5c201f5341caa5a1de002390cc1a30101",
+      "subcategory": "security-review",
       "summary_prompt_version": "v6",
       "taxonomy_version": "t2"
     },
@@ -42636,6 +42716,14 @@
       "excluded": null,
       "model": "claude-haiku-5-5",
       "skill_md_hash": "a9647285846b8b732dc0f98387dfb24e28d54afc",
+      "subcategory": "code-quality",
+      "summary_prompt_version": "v6",
+      "taxonomy_version": "t2"
+    },
+    "di-sukharev/loop-code-review-skill:loop-code-review/SKILL.md": {
+      "excluded": null,
+      "model": "claude-haiku-5-5",
+      "skill_md_hash": "0fc244019a941e3a6b31164ca0f6b49d4b7c0e70",
       "subcategory": "code-quality",
       "summary_prompt_version": "v6",
       "taxonomy_version": "t2"
@@ -46907,7 +46995,7 @@
     "easyeda/easyeda-api-skill:SKILL.md": {
       "excluded": null,
       "model": "claude-haiku-5-5",
-      "skill_md_hash": "762d2a853693662808f9a1b091d4ec1ff95ccf35",
+      "skill_md_hash": "14f8d6dd1d655a7702f384a0a0f87a18f87e5d1c",
       "subcategory": "dev-tools",
       "summary_prompt_version": "v6",
       "taxonomy_version": "t2"
@@ -47037,6 +47125,14 @@
       "model": "claude-haiku-5-5",
       "skill_md_hash": "3dabb78354e0b76fcd3f1c3528eeed8c6ac7c6de",
       "subcategory": "ai-engineering",
+      "summary_prompt_version": "v6",
+      "taxonomy_version": "t2"
+    },
+    "eclipse-theia/theia:.agents/skills/update-default-models/SKILL.md": {
+      "excluded": null,
+      "model": "claude-haiku-5-5",
+      "skill_md_hash": "fea51859bf41d96111c7b9ee23d73adff344dcd8",
+      "subcategory": "dev-tools",
       "summary_prompt_version": "v6",
       "taxonomy_version": "t2"
     },
@@ -47171,7 +47267,7 @@
     "editatlas/skills:skills/editable-export/SKILL.md": {
       "excluded": null,
       "model": "claude-haiku-5-5",
-      "skill_md_hash": "59e0e1726d5dbdf321f29026867bacc81018c2df",
+      "skill_md_hash": "e183d96a11a79c10abf37e496d8285f737dc7808",
       "subcategory": "video",
       "summary_prompt_version": "v6",
       "taxonomy_version": "t2"
@@ -47179,7 +47275,7 @@
     "editatlas/skills:skills/media-picker/SKILL.md": {
       "excluded": null,
       "model": "claude-haiku-5-5",
-      "skill_md_hash": "dae7c218d9102fe55d7a62b9a19c68be1db4cdec",
+      "skill_md_hash": "184e11ce57f7a567445013b88bf3d84cabc2b02a",
       "subcategory": "video",
       "summary_prompt_version": "v6",
       "taxonomy_version": "t2"
@@ -47595,7 +47691,7 @@
     "egonex-ai/understand-anything:understand-anything-plugin/skills/understand/SKILL.md": {
       "excluded": null,
       "model": "claude-haiku-5-5",
-      "skill_md_hash": "a1e79d5c5332ac06da4de55a3997c272b825e17c",
+      "skill_md_hash": "ed1a411db07fb864f4bb0cf69452b6f4a9362e4a",
       "subcategory": "diagram",
       "summary_prompt_version": "v6",
       "taxonomy_version": "t2"
@@ -50684,6 +50780,14 @@
       "excluded": null,
       "model": "claude-haiku-5-5",
       "skill_md_hash": "f717735582fb00df98a257fed9b5a6e6123008ef",
+      "subcategory": "seo",
+      "summary_prompt_version": "v6",
+      "taxonomy_version": "t2"
+    },
+    "every-app/seo-party-skills:skills/customer-keywords/SKILL.md": {
+      "excluded": null,
+      "model": "claude-haiku-5-5",
+      "skill_md_hash": "8b914fa1eadf4e396dad26cc8315905189651450",
       "subcategory": "seo",
       "summary_prompt_version": "v6",
       "taxonomy_version": "t2"
@@ -56256,6 +56360,14 @@
       "summary_prompt_version": "v6",
       "taxonomy_version": "t2"
     },
+    "gabriel-operator/domain-specific-agent-harness-spec:public/examples/meeting-desk/SKILL.md": {
+      "excluded": null,
+      "model": "claude-haiku-5-5",
+      "skill_md_hash": "a0cfbb184f394d784f42b1b744e9fa8eb38374e3",
+      "subcategory": "notes-calendar",
+      "summary_prompt_version": "v6",
+      "taxonomy_version": "t2"
+    },
     "gabrielgreco1/skills:agentbox/SKILL.md": {
       "excluded": null,
       "model": "claude-haiku-5-5",
@@ -57195,7 +57307,7 @@
     "garrytan/gstack:autoplan/SKILL.md": {
       "excluded": null,
       "model": "claude-haiku-5-5",
-      "skill_md_hash": "fea3f5ca2c590de767248a8ee05fd8666ad6839d",
+      "skill_md_hash": "5773e89b63750801d7437b0ea921f15758ed1203",
       "subcategory": "project-management",
       "summary_prompt_version": "v6",
       "taxonomy_version": "t2"
@@ -57867,8 +57979,8 @@
     "genesisagentinfra/genesis:packages/genesis_ci/src/genesis_ci/assets/skills/genesis/SKILL.md": {
       "excluded": null,
       "model": "claude-haiku-5-5",
-      "skill_md_hash": "91f955c760595c9c1fc585db0d1b397fc5568242",
-      "subcategory": "qa",
+      "skill_md_hash": "95c8b95cd4dc7e05f3b5fa25258167b79a59816e",
+      "subcategory": "code-quality",
       "summary_prompt_version": "v6",
       "taxonomy_version": "t2"
     },
@@ -58907,7 +59019,7 @@
     "getpaseo/paseo:skills/paseo-plugin/SKILL.md": {
       "excluded": null,
       "model": "claude-haiku-5-5",
-      "skill_md_hash": "53a301eeb668f2ab5e5aeef3144249f57eed8dad",
+      "skill_md_hash": "85030768d965a65c79cf08b638a612cb7cdbb993",
       "subcategory": "skill-authoring",
       "summary_prompt_version": "v6",
       "taxonomy_version": "t2"
@@ -59219,7 +59331,7 @@
     "ghaida/intent:skills/articulate/SKILL.md": {
       "excluded": null,
       "model": "claude-haiku-5-5",
-      "skill_md_hash": "99567944d8599c247fe19a920ecab2f7af36af51",
+      "skill_md_hash": "dafd555aed20e6a0b3b569cea63e6e8f4245d33e",
       "subcategory": "ui-ux",
       "summary_prompt_version": "v6",
       "taxonomy_version": "t2"
@@ -59227,7 +59339,7 @@
     "ghaida/intent:skills/blueprint/SKILL.md": {
       "excluded": null,
       "model": "claude-haiku-5-5",
-      "skill_md_hash": "fb3e49ff1052ea36757d5f253cf7decb43c27cbe",
+      "skill_md_hash": "f5638eabd3f17e578c07ce0d7c2422c576729e4f",
       "subcategory": "diagram",
       "summary_prompt_version": "v6",
       "taxonomy_version": "t2"
@@ -59235,7 +59347,7 @@
     "ghaida/intent:skills/evaluate/SKILL.md": {
       "excluded": null,
       "model": "claude-haiku-5-5",
-      "skill_md_hash": "c4da46533e526a80fca1244ebaa2180939284000",
+      "skill_md_hash": "34e18b8fee5a07ca3b61877ad6dc97dff48e5aa9",
       "subcategory": "ui-ux",
       "summary_prompt_version": "v6",
       "taxonomy_version": "t2"
@@ -59243,7 +59355,7 @@
     "ghaida/intent:skills/fortify/SKILL.md": {
       "excluded": null,
       "model": "claude-haiku-5-5",
-      "skill_md_hash": "3e7de34cf4967143ac698c8cb63eb27409fe7081",
+      "skill_md_hash": "88a0daa81670a2e63d6322367619b9c1f2d482a2",
       "subcategory": "ui-ux",
       "summary_prompt_version": "v6",
       "taxonomy_version": "t2"
@@ -59251,7 +59363,7 @@
     "ghaida/intent:skills/include/SKILL.md": {
       "excluded": null,
       "model": "claude-haiku-5-5",
-      "skill_md_hash": "06dcbd128ff3f1eb8805e8ab22e294dd0fc289be",
+      "skill_md_hash": "32191976198bd8655f98631825510fc1b92c045e",
       "subcategory": "accessibility",
       "summary_prompt_version": "v6",
       "taxonomy_version": "t2"
@@ -59259,7 +59371,7 @@
     "ghaida/intent:skills/intent/SKILL.md": {
       "excluded": null,
       "model": "claude-haiku-5-5",
-      "skill_md_hash": "9d83b4e5f76d61c6b1c5a420cb52cff07727e035",
+      "skill_md_hash": "9ea5e9c9ea188cbc94c53155972469ef1256e4f3",
       "subcategory": "ui-ux",
       "summary_prompt_version": "v6",
       "taxonomy_version": "t2"
@@ -59267,7 +59379,7 @@
     "ghaida/intent:skills/investigate/SKILL.md": {
       "excluded": null,
       "model": "claude-haiku-5-5",
-      "skill_md_hash": "55f9ad57fce1c56f222656735895dc979fe68266",
+      "skill_md_hash": "25ffdf6ff961f15d06c6baa6e65776fc93ad2392",
       "subcategory": "market-research",
       "summary_prompt_version": "v6",
       "taxonomy_version": "t2"
@@ -59744,10 +59856,18 @@
       "summary_prompt_version": "v6",
       "taxonomy_version": "t2"
     },
+    "github/gh-aw:.github/skills/cracktro-speaker-notes/SKILL.md": {
+      "excluded": null,
+      "model": "claude-haiku-5-5",
+      "skill_md_hash": "a14f9c57fbc154e9d5ed7ae0bc2302262d22012a",
+      "subcategory": "presentation",
+      "summary_prompt_version": "v6",
+      "taxonomy_version": "t2"
+    },
     "github/gh-aw:.github/skills/cracktro/SKILL.md": {
       "excluded": null,
       "model": "claude-haiku-5-5",
-      "skill_md_hash": "bd74518e5ea1ffbcf2bc070e7a43dea2d91e913b",
+      "skill_md_hash": "eac3da9d1afa3525d61f08116d4a609d2b084f5a",
       "subcategory": "presentation",
       "summary_prompt_version": "v6",
       "taxonomy_version": "t2"
@@ -59843,7 +59963,7 @@
     "gitroomhq/postiz-agent:SKILL.md": {
       "excluded": null,
       "model": "claude-haiku-5-5",
-      "skill_md_hash": "e5c0bdddc772a35c5cdfff0b24a153be166a232b",
+      "skill_md_hash": "fe2a710f2a7b923957c6ec664b145ca12c21acde",
       "subcategory": "social-media",
       "summary_prompt_version": "v6",
       "taxonomy_version": "t2"
@@ -59997,6 +60117,14 @@
       "model": "claude-haiku-5-5",
       "skill_md_hash": "1819dbe74bf908c49bbbeb58f063550347c2ffd4",
       "subcategory": "market-research",
+      "summary_prompt_version": "v6",
+      "taxonomy_version": "t2"
+    },
+    "glebis/claude-cognitive-toolkit:SKILL.md": {
+      "excluded": null,
+      "model": "claude-haiku-5-5",
+      "skill_md_hash": "4fcb395f4f0278d25a9c3242e4970cfb3b342a81",
+      "subcategory": "health",
       "summary_prompt_version": "v6",
       "taxonomy_version": "t2"
     },
@@ -60811,8 +60939,8 @@
     "gokayfem/shader-skills:skills/shader-art-coding/SKILL.md": {
       "excluded": null,
       "model": "claude-haiku-5-5",
-      "skill_md_hash": "24914feb912c99350e78c9814756a2f52cd2a0b3",
-      "subcategory": "game-dev",
+      "skill_md_hash": "d108f72537d18f61175f6fb80a715de28559f6ce",
+      "subcategory": "visual-design",
       "summary_prompt_version": "v6",
       "taxonomy_version": "t2"
     },
@@ -61061,6 +61189,14 @@
       "model": "claude-haiku-5-5",
       "skill_md_hash": "f178b01e5cd4d50511f662b35432ed65062b0a97",
       "subcategory": "qa",
+      "summary_prompt_version": "v6",
+      "taxonomy_version": "t2"
+    },
+    "google-deepmind/robotics-antigravity-plugin:plugins/robotics/skills/blender-creation/SKILL.md": {
+      "excluded": null,
+      "model": "claude-haiku-5-5",
+      "skill_md_hash": "ff13d5d637af28f0f4bc055b659a2a7dc2f1ed52",
+      "subcategory": "dev-tools",
       "summary_prompt_version": "v6",
       "taxonomy_version": "t2"
     },
@@ -61452,6 +61588,14 @@
       "excluded": null,
       "model": "claude-haiku-5-5",
       "skill_md_hash": "1947221778bea357a98409c0d580c741a7b72be9",
+      "subcategory": "code-quality",
+      "summary_prompt_version": "v6",
+      "taxonomy_version": "t2"
+    },
+    "google/elephant-goldfish-model:skills/egm-lite/SKILL.md": {
+      "excluded": null,
+      "model": "claude-haiku-5-5",
+      "skill_md_hash": "768532347e433069060088ef0d98d11d0c77fe40",
       "subcategory": "code-quality",
       "summary_prompt_version": "v6",
       "taxonomy_version": "t2"
@@ -62301,6 +62445,14 @@
       "model": "claude-haiku-5-5",
       "skill_md_hash": "870869f1b85a0434b0fffca7e8d1b3c77de034fd",
       "subcategory": "sales",
+      "summary_prompt_version": "v6",
+      "taxonomy_version": "t2"
+    },
+    "graphed-inc/marketing-skills:skills/feedback/SKILL.md": {
+      "excluded": null,
+      "model": "claude-haiku-5-5",
+      "skill_md_hash": "d41cb1887a49c279e678721cd1dc0db6393beb8e",
+      "subcategory": "project-management",
       "summary_prompt_version": "v6",
       "taxonomy_version": "t2"
     },
@@ -66931,7 +67083,7 @@
     "hoangnguyen0403/agent-skills-standard:.codex/skills/code-review/SKILL.md": {
       "excluded": null,
       "model": "claude-haiku-5-5",
-      "skill_md_hash": "49dc2a7718b559f72e49e88a50c574480069cab4",
+      "skill_md_hash": "b43a0863bbb50d3f675a5db2160ece7b6d261fa1",
       "subcategory": "code-quality",
       "summary_prompt_version": "v6",
       "taxonomy_version": "t2"
@@ -67893,6 +68045,14 @@
       "model": "claude-haiku-5-5",
       "skill_md_hash": "db5981bdbd8852ed36f92e5ce7b61e8dd273f9b3",
       "subcategory": "qa",
+      "summary_prompt_version": "v6",
+      "taxonomy_version": "t2"
+    },
+    "huangdingcheng/skillwiki:skillwiki/skillwiki/_vendor/arex_skill/SKILL.md": {
+      "excluded": null,
+      "model": "claude-haiku-5-5",
+      "skill_md_hash": "77b13cd0def7173b176b81e25feb836a480fcca9",
+      "subcategory": "skill-authoring",
       "summary_prompt_version": "v6",
       "taxonomy_version": "t2"
     },
@@ -69621,6 +69781,46 @@
       "model": "claude-haiku-5-5",
       "skill_md_hash": "c40d8458a67aa859d4ce50589d22f36f14123fb9",
       "subcategory": "frontend",
+      "summary_prompt_version": "v6",
+      "taxonomy_version": "t2"
+    },
+    "iblai/base:.claude/skills/iblai-vibe-pr-review/SKILL.md": {
+      "excluded": null,
+      "model": "claude-haiku-5-5",
+      "skill_md_hash": "49d1966a774d955c9286ed7b45b5c586cb0029ef",
+      "subcategory": "code-quality",
+      "summary_prompt_version": "v6",
+      "taxonomy_version": "t2"
+    },
+    "iblai/base:skills/agents/iblai-api-agent-access/SKILL.md": {
+      "excluded": null,
+      "model": "claude-haiku-5-5",
+      "skill_md_hash": "4b1a71cc431b4d7fd7388c8b88bcac5e356f7393",
+      "subcategory": "agent-operations",
+      "summary_prompt_version": "v6",
+      "taxonomy_version": "t2"
+    },
+    "iblai/base:skills/agents/iblai-api-agent-chat/SKILL.md": {
+      "excluded": null,
+      "model": "claude-haiku-5-5",
+      "skill_md_hash": "d1138c2317b2a09685c0910e3c8beebf3e6d363a",
+      "subcategory": "agent-operations",
+      "summary_prompt_version": "v6",
+      "taxonomy_version": "t2"
+    },
+    "iblai/base:skills/agents/iblai-api-agent-create/SKILL.md": {
+      "excluded": null,
+      "model": "claude-haiku-5-5",
+      "skill_md_hash": "cbfe2aabd1e5a6fdcdbf7dfbc7fe9460185658c2",
+      "subcategory": "agent-operations",
+      "summary_prompt_version": "v6",
+      "taxonomy_version": "t2"
+    },
+    "iblai/base:skills/agents/iblai-api-agent-dataset/SKILL.md": {
+      "excluded": null,
+      "model": "claude-haiku-5-5",
+      "skill_md_hash": "88269cef1c09a8d0bcc111d6af9bfb7b69b2f3df",
+      "subcategory": "ai-engineering",
       "summary_prompt_version": "v6",
       "taxonomy_version": "t2"
     },
@@ -72187,7 +72387,7 @@
     "institut-du-numerique-responsable/green-claude:skills/green-claude/SKILL.md": {
       "excluded": null,
       "model": "claude-haiku-5-5",
-      "skill_md_hash": "ff598dc53a696a146b065c12646763004dd83061",
+      "skill_md_hash": "1215b38c3344bc9334a4325db2756861866f1f86",
       "subcategory": "code-quality",
       "summary_prompt_version": "v6",
       "taxonomy_version": "t2"
@@ -75587,8 +75787,8 @@
     "jasoncolapietro/suede-creator-skills:directory/suede-directory/SKILL.md": {
       "excluded": null,
       "model": "claude-haiku-5-5",
-      "skill_md_hash": "2c11df05349649a3425520bb43f42f5ce76241d1",
-      "subcategory": "misc",
+      "skill_md_hash": "014c74cc925abe684fa8a6baf34f75e50cdba103",
+      "subcategory": "automation",
       "summary_prompt_version": "v6",
       "taxonomy_version": "t2"
     },
@@ -77027,7 +77227,7 @@
     "jha0313/second-brain-eval-kit:skills/codebase-brain/SKILL.md": {
       "excluded": null,
       "model": "claude-haiku-5-5",
-      "skill_md_hash": "077ee498e4fe598d166d1a09e62b9739d937517d",
+      "skill_md_hash": "220570a8c92734925d70e6b9ccee89d112aafa4b",
       "subcategory": "code-quality",
       "summary_prompt_version": "v6",
       "taxonomy_version": "t2"
@@ -78765,6 +78965,14 @@
       "model": "claude-haiku-5-5",
       "skill_md_hash": "e6b19d3e152ef81817b64dc7288681c5bdd4b738",
       "subcategory": "web-research",
+      "summary_prompt_version": "v6",
+      "taxonomy_version": "t2"
+    },
+    "johnpolacek/animaxxing-skills:skills/animaxxing-webgl/SKILL.md": {
+      "excluded": null,
+      "model": "claude-haiku-5-5",
+      "skill_md_hash": "3238c40341899a5b7780a41e82d57db6ade93b2e",
+      "subcategory": "frontend",
       "summary_prompt_version": "v6",
       "taxonomy_version": "t2"
     },
@@ -81187,7 +81395,7 @@
     "kajisho5/ffmpeg-skill:SKILL.md": {
       "excluded": null,
       "model": "claude-haiku-5-5",
-      "skill_md_hash": "c852c93da85d0e42a984d860134f6a884625eba1",
+      "skill_md_hash": "ceaf171bb4b27047f17b8ba10d082ffe79e0ad2d",
       "subcategory": "video",
       "summary_prompt_version": "v6",
       "taxonomy_version": "t2"
@@ -82027,7 +82235,7 @@
     "kdy1/kdy1-scripts:skills/add-issue/SKILL.md": {
       "excluded": null,
       "model": "claude-haiku-5-5",
-      "skill_md_hash": "b467ed9e4e89c25c79264f8827fedc7d96c2ced2",
+      "skill_md_hash": "72ba934c1cd000047f2e187bf39f365f6b9279f8",
       "subcategory": "project-management",
       "summary_prompt_version": "v6",
       "taxonomy_version": "t2"
@@ -86507,7 +86715,7 @@
     "laulauraluo/looks-good-to-ai:skills/looks-good-to-ai/SKILL.md": {
       "excluded": null,
       "model": "claude-haiku-5-5",
-      "skill_md_hash": "e8d09be82d9fa774ca81419b67ee01d51bbedc6a",
+      "skill_md_hash": "89eee8a5020ce9813c465cde7cff77d096aee3a3",
       "subcategory": "code-quality",
       "summary_prompt_version": "v6",
       "taxonomy_version": "t2"
@@ -86669,6 +86877,14 @@
       "model": "claude-haiku-5-5",
       "skill_md_hash": "0774acb312ae455814bfd7dfdd2a960bbde45586",
       "subcategory": "debugging",
+      "summary_prompt_version": "v6",
+      "taxonomy_version": "t2"
+    },
+    "lazyagi/lazymind:algorithm/lazymind/chat/engine/tools/file_resources/pptx-template-quality/SKILL.md": {
+      "excluded": null,
+      "model": "claude-haiku-5-5",
+      "skill_md_hash": "b3f70fe2e43d7ef0547aa8b77ebd5d495622629c",
+      "subcategory": "presentation",
       "summary_prompt_version": "v6",
       "taxonomy_version": "t2"
     },
@@ -87984,6 +88200,54 @@
       "summary_prompt_version": "v6",
       "taxonomy_version": "t2"
     },
+    "lemonface0309/charles-skills:skills/design/charles-color-analysis/SKILL.md": {
+      "excluded": null,
+      "model": "claude-haiku-5-5",
+      "skill_md_hash": "f18ab4b365e4279d56745f144786812a08fb0043",
+      "subcategory": "visual-design",
+      "summary_prompt_version": "v6",
+      "taxonomy_version": "t2"
+    },
+    "lemonface0309/charles-skills:skills/design/charles-polish/SKILL.md": {
+      "excluded": null,
+      "model": "claude-haiku-5-5",
+      "skill_md_hash": "65d8290005dabfeee875b5d331baab1c19e8aa1a",
+      "subcategory": "ui-ux",
+      "summary_prompt_version": "v6",
+      "taxonomy_version": "t2"
+    },
+    "lemonface0309/charles-skills:skills/design/charles-store-screenshots/SKILL.md": {
+      "excluded": null,
+      "model": "claude-haiku-5-5",
+      "skill_md_hash": "7157592245921bb20e9344b95c294a734cc58fad",
+      "subcategory": "visual-design",
+      "summary_prompt_version": "v6",
+      "taxonomy_version": "t2"
+    },
+    "lemonface0309/charles-skills:skills/design/charles-unreasonable-craft/SKILL.md": {
+      "excluded": null,
+      "model": "claude-haiku-5-5",
+      "skill_md_hash": "04e6790b3326bf2df1d8653680595f459df08a8d",
+      "subcategory": "ui-ux",
+      "summary_prompt_version": "v6",
+      "taxonomy_version": "t2"
+    },
+    "lemonface0309/charles-skills:skills/design/charles-unslop/SKILL.md": {
+      "excluded": null,
+      "model": "claude-haiku-5-5",
+      "skill_md_hash": "1967adc2ece9eb03ae45cc2ec74e5a93d46bc06b",
+      "subcategory": "ui-ux",
+      "summary_prompt_version": "v6",
+      "taxonomy_version": "t2"
+    },
+    "lemonface0309/charles-skills:skills/drops/charles-hero-mockups/SKILL.md": {
+      "excluded": null,
+      "model": "claude-haiku-5-5",
+      "skill_md_hash": "ef0f95177e88701eb9fff5ffee3ef634012a6437",
+      "subcategory": "visual-design",
+      "summary_prompt_version": "v6",
+      "taxonomy_version": "t2"
+    },
     "len5ky/seatback-cinema:plugins/seatback-cinema/skills/inflight-movie-picker-web/SKILL.md": {
       "excluded": null,
       "model": "claude-haiku-5-5",
@@ -88467,7 +88731,7 @@
     "leoyeai/agent-master-skills:SKILL.md": {
       "excluded": null,
       "model": "claude-haiku-5-5",
-      "skill_md_hash": "455f1e5e3dd836a2de9a02e223a0192126fe2328",
+      "skill_md_hash": "6453b9d36a54e4e93f130696d6048c41ff371ae3",
       "subcategory": "misc",
       "summary_prompt_version": "v6",
       "taxonomy_version": "t2"
@@ -89931,7 +90195,7 @@
     "limczhh/miuix-skill:miuix-components/SKILL.md": {
       "excluded": null,
       "model": "claude-haiku-5-5",
-      "skill_md_hash": "aa9b0c055e57112e4535a592572565c80b3cfc3e",
+      "skill_md_hash": "6be9a28dfedca56176d75ea2ffa9429a5b428c33",
       "subcategory": "frontend",
       "summary_prompt_version": "v6",
       "taxonomy_version": "t2"
@@ -89939,7 +90203,7 @@
     "limczhh/miuix-skill:miuix-guidelines/SKILL.md": {
       "excluded": null,
       "model": "claude-haiku-5-5",
-      "skill_md_hash": "45b4d1c924527d77bcc40250a322ae353955c389",
+      "skill_md_hash": "f9da8d2ead5ffa76c8032f081a49b8c928865393",
       "subcategory": "ui-ux",
       "summary_prompt_version": "v6",
       "taxonomy_version": "t2"
@@ -91619,7 +91883,7 @@
     "loopx-project/loopx:skills/loopx-self-repair/SKILL.md": {
       "excluded": null,
       "model": "claude-haiku-5-5",
-      "skill_md_hash": "3e3d0b632a68f59aeb7f9844c382ce18122cc91d",
+      "skill_md_hash": "5898242056c5cf28803d44be0521c50ab66d9079",
       "subcategory": "agent-operations",
       "summary_prompt_version": "v6",
       "taxonomy_version": "t2"
@@ -91675,7 +91939,7 @@
     "lovartai/lovart-skill:skills/lovart-skill/SKILL.md": {
       "excluded": null,
       "model": "claude-haiku-5-5",
-      "skill_md_hash": "8f69511dd23d47c15fbd315f4f20c86bcacbda2f",
+      "skill_md_hash": "c4239a9a64d3e049a1f884d526c88fa26ac88463",
       "subcategory": "image",
       "summary_prompt_version": "v6",
       "taxonomy_version": "t2"
@@ -94043,7 +94307,7 @@
     "makecindy/cindy:apps/desktop/resources/system-skills/cindy-plugin-creator/SKILL.md": {
       "excluded": null,
       "model": "claude-haiku-5-5",
-      "skill_md_hash": "d1e7a31472b163c498043074b7c70c33716c439b",
+      "skill_md_hash": "5c68458c75b9e7e8eed9a1eda0b04ba3d703f740",
       "subcategory": "skill-authoring",
       "summary_prompt_version": "v6",
       "taxonomy_version": "t2"
@@ -95691,7 +95955,7 @@
     "marvae/douban-cli:skills/douban-cli/SKILL.md": {
       "excluded": null,
       "model": "claude-haiku-5-5",
-      "skill_md_hash": "16176624e3b62b9a76c2f851b3562ec59bf36a2a",
+      "skill_md_hash": "5cf15aa8499469d181b184ba5894d61edfa3aa0f",
       "subcategory": "web-research",
       "summary_prompt_version": "v6",
       "taxonomy_version": "t2"
@@ -97979,8 +98243,8 @@
     "melodic-software/claude-code-plugins:.claude/skills/control-claude-code-plugins/SKILL.md": {
       "excluded": null,
       "model": "claude-haiku-5-5",
-      "skill_md_hash": "ffac04ef52038d0a4bc14de80c4cb00c32a2052a",
-      "subcategory": "qa",
+      "skill_md_hash": "e89fe7f54b213f6a033b2ae196da3ea6397a4775",
+      "subcategory": "agent-operations",
       "summary_prompt_version": "v6",
       "taxonomy_version": "t2"
     },
@@ -99219,7 +99483,7 @@
     "mgratzer/forge:skills/forge-create-issue/SKILL.md": {
       "excluded": null,
       "model": "claude-haiku-5-5",
-      "skill_md_hash": "7a1855e7cc443e672e5c17452104f1303680c959",
+      "skill_md_hash": "97b55d333a4659bcccbb7a4f6fde61cef7442c68",
       "subcategory": "project-management",
       "summary_prompt_version": "v6",
       "taxonomy_version": "t2"
@@ -99227,7 +99491,7 @@
     "mgratzer/forge:skills/forge-guard/SKILL.md": {
       "excluded": null,
       "model": "claude-haiku-5-5",
-      "skill_md_hash": "2f64a926067e765f0460b969a95fd66d700190aa",
+      "skill_md_hash": "6ec697a46f5984d94b1cec3d231212da03da2a31",
       "subcategory": "code-quality",
       "summary_prompt_version": "v6",
       "taxonomy_version": "t2"
@@ -99915,7 +100179,7 @@
     "microsoft/apm:.agents/skills/auth/SKILL.md": {
       "excluded": null,
       "model": "claude-haiku-5-5",
-      "skill_md_hash": "2a21a5a50d1753288f84be67786fcaf03ce7a00b",
+      "skill_md_hash": "ff2ccbdad0173ec2d6eee35cd1a8a2adbff1486d",
       "subcategory": "auth",
       "summary_prompt_version": "v6",
       "taxonomy_version": "t2"
@@ -101419,7 +101683,7 @@
     "milind-soni/openmausbot:skills/openmausbot-docs/SKILL.md": {
       "excluded": null,
       "model": "claude-haiku-5-5",
-      "skill_md_hash": "7ebe99f32a29282a77ea01314b7b5e9270bee4c6",
+      "skill_md_hash": "0d4d51c76e57431652f77966249beae5239b1144",
       "subcategory": "agent-operations",
       "summary_prompt_version": "v6",
       "taxonomy_version": "t2"
@@ -102707,7 +102971,7 @@
     "mizchi/skills:apm-usage/SKILL.md": {
       "excluded": null,
       "model": "claude-haiku-5-5",
-      "skill_md_hash": "8cc5fe6ab9d1b2d82efbb73fe23d3821e07dde84",
+      "skill_md_hash": "79d32d38b68d0c7b1b388732db2eb2a18ae8d94e",
       "subcategory": "dev-tools",
       "summary_prompt_version": "v6",
       "taxonomy_version": "t2"
@@ -104360,6 +104624,14 @@
       "summary_prompt_version": "v6",
       "taxonomy_version": "t2"
     },
+    "momo2young/humanize-academic-writing:SKILL.md": {
+      "excluded": null,
+      "model": "claude-haiku-5-5",
+      "skill_md_hash": "0107f1d12763e3de5d9d0f0f39d0e0b48d032c2f",
+      "subcategory": "editing",
+      "summary_prompt_version": "v6",
+      "taxonomy_version": "t2"
+    },
     "monarchjuno/vibe-investing:skills/data-access/openbb-data-fetcher/SKILL.md": {
       "excluded": null,
       "model": "claude-haiku-5-5",
@@ -104539,7 +104811,7 @@
     "moonbitlang/moonbit-agent-guide:moonbit-agent-guide/SKILL.md": {
       "excluded": null,
       "model": "claude-haiku-5-5",
-      "skill_md_hash": "7b18d26bae966932ff815db5b3fbe6a951f67886",
+      "skill_md_hash": "620ce91ff6e639e7659309e153c4fb6e172068c8",
       "subcategory": "dev-tools",
       "summary_prompt_version": "v6",
       "taxonomy_version": "t2"
@@ -104645,6 +104917,14 @@
       "model": "claude-haiku-5-5",
       "skill_md_hash": "f34f5663eb727db593adaf473c378677d1ff2774",
       "subcategory": "debugging",
+      "summary_prompt_version": "v6",
+      "taxonomy_version": "t2"
+    },
+    "moonlight-lupin/agent-skills:agent-ops/operator-brain/SKILL.md": {
+      "excluded": null,
+      "model": "claude-haiku-5-5",
+      "skill_md_hash": "3d957325c4372feb31a9040856095ffb8dc7fc2b",
+      "subcategory": "agent-operations",
       "summary_prompt_version": "v6",
       "taxonomy_version": "t2"
     },
@@ -106803,7 +107083,7 @@
     "nahumlitvin/prismantis:.claude/skills/release/SKILL.md": {
       "excluded": null,
       "model": "claude-haiku-5-5",
-      "skill_md_hash": "6aa17982c5baad51d7390b30a47d50f75a6bdbf5",
+      "skill_md_hash": "943ea6831da34d6096b8361ff7a256b7e084ee8f",
       "subcategory": "release",
       "summary_prompt_version": "v6",
       "taxonomy_version": "t2"
@@ -106813,6 +107093,14 @@
       "model": "claude-haiku-5-5",
       "skill_md_hash": "30d7018026ad19aef630cbe9a97eb99a597a6913",
       "subcategory": "browser-testing",
+      "summary_prompt_version": "v6",
+      "taxonomy_version": "t2"
+    },
+    "nahumlitvin/prismantis:antigravity/skills/prismantis/SKILL.md": {
+      "excluded": "demo",
+      "model": "claude-haiku-5-5",
+      "skill_md_hash": "ddd5a3b0bf913df2430aeaf9be9b3394b2d15c95",
+      "subcategory": "dev-tools",
       "summary_prompt_version": "v6",
       "taxonomy_version": "t2"
     },
@@ -108323,7 +108611,7 @@
     "netresearch/php-modernization-skill:skills/php-modernization/SKILL.md": {
       "excluded": null,
       "model": "claude-haiku-5-5",
-      "skill_md_hash": "762c87ecfffc674992591c434ee4fb91267ad3a0",
+      "skill_md_hash": "af2c1de3a494e19d1e34373c7c61c7b2f32ce82d",
       "subcategory": "code-quality",
       "summary_prompt_version": "v6",
       "taxonomy_version": "t2"
@@ -109168,6 +109456,30 @@
       "summary_prompt_version": "v6",
       "taxonomy_version": "t2"
     },
+    "nexu-io/openmotion:library/skills/openmotion-ad-script/SKILL.md": {
+      "excluded": null,
+      "model": "claude-haiku-5-5",
+      "skill_md_hash": "4870bd38631b698d4ae93350b53237a3f86c5290",
+      "subcategory": "advertising",
+      "summary_prompt_version": "v6",
+      "taxonomy_version": "t2"
+    },
+    "nexu-io/openmotion:library/skills/openmotion-adaptive-layout/SKILL.md": {
+      "excluded": null,
+      "model": "claude-haiku-5-5",
+      "skill_md_hash": "b92a2e576c2af3b463c34bc6fe07894ec808aaa5",
+      "subcategory": "video",
+      "summary_prompt_version": "v6",
+      "taxonomy_version": "t2"
+    },
+    "nexu-io/openmotion:library/skills/openmotion-ai-assistant-tour/SKILL.md": {
+      "excluded": null,
+      "model": "claude-haiku-5-5",
+      "skill_md_hash": "85f3ad7a866e3239fc2eb8a040f8fe7b20ee0818",
+      "subcategory": "video",
+      "summary_prompt_version": "v6",
+      "taxonomy_version": "t2"
+    },
     "nexu-io/openmotion:library/skills/openmotion-brandkit/SKILL.md": {
       "excluded": null,
       "model": "claude-haiku-5-5",
@@ -109267,7 +109579,7 @@
     "nexu-io/openmotion:skills/openmotion-recreate/SKILL.md": {
       "excluded": null,
       "model": "claude-haiku-5-5",
-      "skill_md_hash": "f7e3bb8b02b59c612446d57ecc6a9db9f24cffb7",
+      "skill_md_hash": "2bc75c154a023da6f534c0bd31e9de5a5d4d20fc",
       "subcategory": "video",
       "summary_prompt_version": "v6",
       "taxonomy_version": "t2"
@@ -109275,7 +109587,7 @@
     "nexu-io/openmotion:skills/openmotion-template-to-video/SKILL.md": {
       "excluded": null,
       "model": "claude-haiku-5-5",
-      "skill_md_hash": "bc16dd22839b8cf6dc4da043084ebc7e8690ecb5",
+      "skill_md_hash": "390c99b515015e0d29835c3eb52efd6cd7ed35ba",
       "subcategory": "video",
       "summary_prompt_version": "v6",
       "taxonomy_version": "t2"
@@ -109284,6 +109596,14 @@
       "excluded": null,
       "model": "claude-haiku-5-5",
       "skill_md_hash": "61d43308db30f112dacb6a6bce92dd9d018887d0",
+      "subcategory": "video",
+      "summary_prompt_version": "v6",
+      "taxonomy_version": "t2"
+    },
+    "nexu-io/openmotion:skills/openmotion/SKILL.md": {
+      "excluded": null,
+      "model": "claude-haiku-5-5",
+      "skill_md_hash": "718c1e4d5871f5e5e601713d0509d89dc041918f",
       "subcategory": "video",
       "summary_prompt_version": "v6",
       "taxonomy_version": "t2"
@@ -109645,6 +109965,14 @@
       "model": "claude-haiku-5-5",
       "skill_md_hash": "871269fd3da99dd28a28ec780bd270ba67b82994",
       "subcategory": "misc",
+      "summary_prompt_version": "v6",
+      "taxonomy_version": "t2"
+    },
+    "nightconch/skillping:distribution/skillping/skills/skillping/SKILL.md": {
+      "excluded": null,
+      "model": "claude-haiku-5-5",
+      "skill_md_hash": "01b93d41334a2d7ddd497a054d6545c57aaa2c66",
+      "subcategory": "agent-operations",
       "summary_prompt_version": "v6",
       "taxonomy_version": "t2"
     },
@@ -112720,6 +113048,14 @@
       "summary_prompt_version": "v6",
       "taxonomy_version": "t2"
     },
+    "nyanshiba/muse-tan:workspace/custom-skills/instagram_collection_media/SKILL.md": {
+      "excluded": null,
+      "model": "claude-haiku-5-5",
+      "skill_md_hash": "213eb047e415818796e72a49082a59bc51647b61",
+      "subcategory": "notes-calendar",
+      "summary_prompt_version": "v6",
+      "taxonomy_version": "t2"
+    },
     "nyanshiba/muse-tan:workspace/custom-skills/x_post_fetch/SKILL.md": {
       "excluded": null,
       "model": "claude-haiku-5-5",
@@ -114272,6 +114608,14 @@
       "summary_prompt_version": "v6",
       "taxonomy_version": "t2"
     },
+    "omdsh-dev/dsh-genui:SKILL.md": {
+      "excluded": null,
+      "model": "claude-haiku-5-5",
+      "skill_md_hash": "c3775d21a26d7c0ca37eeba30557b5b4b54efcdf",
+      "subcategory": "ui-ux",
+      "summary_prompt_version": "v6",
+      "taxonomy_version": "t2"
+    },
     "omer-metin/skills-for-antigravity:skills/3d-modeling/SKILL.md": {
       "excluded": null,
       "model": "claude-haiku-5-5",
@@ -114584,10 +114928,26 @@
       "summary_prompt_version": "v6",
       "taxonomy_version": "t2"
     },
+    "onehumanbeing/esp32-iphone-agent:integrations/dsh/skills/manina/SKILL.md": {
+      "excluded": null,
+      "model": "claude-haiku-5-5",
+      "skill_md_hash": "c00a43adfe4836c1c8e6ec6f0305ff20aa8f15f8",
+      "subcategory": "automation",
+      "summary_prompt_version": "v6",
+      "taxonomy_version": "t2"
+    },
     "onehumanbeing/esp32-iphone-agent:ios/IPhoneAgent/Skills.skillsbundle/Skills/handsy-run-tasks/SKILL.md": {
       "excluded": null,
       "model": "claude-haiku-5-5",
       "skill_md_hash": "89e31857d1028c020db46985f752a4aebbd835fb",
+      "subcategory": "automation",
+      "summary_prompt_version": "v6",
+      "taxonomy_version": "t2"
+    },
+    "onehumanbeing/esp32-iphone-agent:ios/IPhoneAgent/Skills.skillsbundle/Skills/manina-run-tasks/SKILL.md": {
+      "excluded": null,
+      "model": "claude-haiku-5-5",
+      "skill_md_hash": "86deb7a4e2e06e0a3c3c194cdf5958dd2954700b",
       "subcategory": "automation",
       "summary_prompt_version": "v6",
       "taxonomy_version": "t2"
@@ -116216,10 +116576,34 @@
       "summary_prompt_version": "v6",
       "taxonomy_version": "t2"
     },
+    "openfilm/openfilm:packages/openfilm/manual/film/SKILL.md": {
+      "excluded": null,
+      "model": "claude-haiku-5-5",
+      "skill_md_hash": "4b833f0b4cb3c0e9bb46d26b8eb42f8a348f2dd6",
+      "subcategory": "video",
+      "summary_prompt_version": "v6",
+      "taxonomy_version": "t2"
+    },
     "openfilm/openfilm:packages/openfilm/manual/media/SKILL.md": {
       "excluded": null,
       "model": "claude-haiku-5-5",
-      "skill_md_hash": "2b73a75eb7bdb9fd44f63271e29eb7d3d27a6020",
+      "skill_md_hash": "6452e4b45c734b316bb11643853d5b9972681d97",
+      "subcategory": "video",
+      "summary_prompt_version": "v6",
+      "taxonomy_version": "t2"
+    },
+    "openfilm/openfilm:packages/openfilm/plugins/canvas/skills/canvas/SKILL.md": {
+      "excluded": null,
+      "model": "claude-haiku-5-5",
+      "skill_md_hash": "392b743f08bcdccddc1618f6f60249499238bb17",
+      "subcategory": "video",
+      "summary_prompt_version": "v6",
+      "taxonomy_version": "t2"
+    },
+    "openfilm/openfilm:packages/openfilm/plugins/color/skills/color/SKILL.md": {
+      "excluded": null,
+      "model": "claude-haiku-5-5",
+      "skill_md_hash": "e5d9822f557dadd57173a34d3bea1aed4d491101",
       "subcategory": "video",
       "summary_prompt_version": "v6",
       "taxonomy_version": "t2"
@@ -116307,7 +116691,7 @@
     "openfilm/openfilm:skills/openfilm/SKILL.md": {
       "excluded": null,
       "model": "claude-haiku-5-5",
-      "skill_md_hash": "02fa6dae42d9fa855f679579e4417838259d56ff",
+      "skill_md_hash": "762a1c4181935bfad32dd11f13a6e41912d694e9",
       "subcategory": "video",
       "summary_prompt_version": "v6",
       "taxonomy_version": "t2"
@@ -116603,7 +116987,7 @@
     "openqa-cn/codexqa:skills/codexqa-code-wiki/SKILL.md": {
       "excluded": null,
       "model": "claude-haiku-5-5",
-      "skill_md_hash": "d7bfbf066708971a7da385eebcc76a7a6ce153bd",
+      "skill_md_hash": "166f958ee5813df2bdbdf10db68d7b329f4f5c2b",
       "subcategory": "dev-tools",
       "summary_prompt_version": "v6",
       "taxonomy_version": "t2"
@@ -118867,7 +119251,7 @@
     "oxylabs/agent-skills:skills/agent-browser/SKILL.md": {
       "excluded": null,
       "model": "claude-haiku-5-5",
-      "skill_md_hash": "d8a12971d37b4c46ffb0bdef59b8219e42e88a5f",
+      "skill_md_hash": "47a8ae08c81f41c50da2658373f8961789e9402a",
       "subcategory": "browser-testing",
       "summary_prompt_version": "v6",
       "taxonomy_version": "t2"
@@ -119595,8 +119979,8 @@
     "paperclipai/paperclip:skills/paperclip/SKILL.md": {
       "excluded": null,
       "model": "claude-haiku-5-5",
-      "skill_md_hash": "181a8df2ca3ccd58e1095b88b076428ac56e093c",
-      "subcategory": "project-management",
+      "skill_md_hash": "443c44652c2ff2578fdca7ec0ebded4bd956e304",
+      "subcategory": "agent-operations",
       "summary_prompt_version": "v6",
       "taxonomy_version": "t2"
     },
@@ -120419,7 +120803,7 @@
     "paulrberg/agent-skills:skills/agents-brain/SKILL.md": {
       "excluded": null,
       "model": "claude-haiku-5-5",
-      "skill_md_hash": "afad65452f8a0e0f783acc3da241912309bda0b9",
+      "skill_md_hash": "df81c17f31c65e2ab83d57aee8e27c11542de2ff",
       "subcategory": "skill-authoring",
       "summary_prompt_version": "v6",
       "taxonomy_version": "t2"
@@ -121795,8 +122179,8 @@
     "phuryn/product-engineering:agent-harness/skills/agent-instructions/SKILL.md": {
       "excluded": null,
       "model": "claude-haiku-5-5",
-      "skill_md_hash": "e59f828b4a469a36f4e72f13d7334f59f5ea1baf",
-      "subcategory": "agent-operations",
+      "skill_md_hash": "90338847b8714ddfcd2d25a7be907a414f51b1da",
+      "subcategory": "skill-authoring",
       "summary_prompt_version": "v6",
       "taxonomy_version": "t2"
     },
@@ -121811,7 +122195,7 @@
     "phuryn/product-engineering:agent-harness/skills/guardrail-hooks/SKILL.md": {
       "excluded": null,
       "model": "claude-haiku-5-5",
-      "skill_md_hash": "2da079e5863ba920546186edea91b6fa6e57ad2b",
+      "skill_md_hash": "7108a58550398047f6493f32fda38d3f275e7039",
       "subcategory": "agent-operations",
       "summary_prompt_version": "v6",
       "taxonomy_version": "t2"
@@ -121851,7 +122235,7 @@
     "phuryn/product-engineering:agent-teams/skills/codex-agents/SKILL.md": {
       "excluded": null,
       "model": "claude-haiku-5-5",
-      "skill_md_hash": "626a96292e1640fb43da4c3a23d3a59b95ce0108",
+      "skill_md_hash": "9730bf7b365fdd74bba4aaddb3c4f7029d1bfb50",
       "subcategory": "agent-operations",
       "summary_prompt_version": "v6",
       "taxonomy_version": "t2"
@@ -122059,7 +122443,7 @@
     "pingdotgg/t3code:.agents/skills/contribution-triage/SKILL.md": {
       "excluded": null,
       "model": "claude-haiku-5-5",
-      "skill_md_hash": "e5325c398bc4892ed512e9ba5f9aaf9f2d195904",
+      "skill_md_hash": "39d8e91394ac2fea4ea99d134f163da72406ed8b",
       "subcategory": "code-quality",
       "summary_prompt_version": "v6",
       "taxonomy_version": "t2"
@@ -122699,7 +123083,7 @@
     "plugin87/ux-ui-agent-skills:.claude/skills/a11y-audit/SKILL.md": {
       "excluded": null,
       "model": "claude-haiku-5-5",
-      "skill_md_hash": "cb1898dfc0e76a7f6a663043d8f23fe61a3c4fe9",
+      "skill_md_hash": "81937a712ffd0917231552320f577bf828893988",
       "subcategory": "accessibility",
       "summary_prompt_version": "v6",
       "taxonomy_version": "t2"
@@ -122707,7 +123091,7 @@
     "plugin87/ux-ui-agent-skills:.claude/skills/apply-aesthetic/SKILL.md": {
       "excluded": null,
       "model": "claude-haiku-5-5",
-      "skill_md_hash": "6c5c4b566e9253e157458fdffdd34efabf43319e",
+      "skill_md_hash": "a282ab899b1e1e08a48295b8a05af3f227f97f83",
       "subcategory": "visual-design",
       "summary_prompt_version": "v6",
       "taxonomy_version": "t2"
@@ -122715,7 +123099,7 @@
     "plugin87/ux-ui-agent-skills:.claude/skills/brandkit/SKILL.md": {
       "excluded": null,
       "model": "claude-haiku-5-5",
-      "skill_md_hash": "762955931881181a84d5565df8caca9284ea80bd",
+      "skill_md_hash": "a8b2ed7faac7f093112f2e8aa1d37349737054b8",
       "subcategory": "visual-design",
       "summary_prompt_version": "v6",
       "taxonomy_version": "t2"
@@ -122723,7 +123107,7 @@
     "plugin87/ux-ui-agent-skills:.claude/skills/critique/SKILL.md": {
       "excluded": null,
       "model": "claude-haiku-5-5",
-      "skill_md_hash": "a5f0a8309b9d5a7311be9d114b471fc3e93aa6b0",
+      "skill_md_hash": "83634b193a510238a5a5a69365e27a29235869eb",
       "subcategory": "ui-ux",
       "summary_prompt_version": "v6",
       "taxonomy_version": "t2"
@@ -122731,15 +123115,15 @@
     "plugin87/ux-ui-agent-skills:.claude/skills/data-dashboard/SKILL.md": {
       "excluded": null,
       "model": "claude-haiku-5-5",
-      "skill_md_hash": "4f230e3f63e818babdafae2e39d34d06bbd850c8",
-      "subcategory": "visualization",
+      "skill_md_hash": "5574a5664fbce22a1f66452a33b86e2f9207e8e3",
+      "subcategory": "ui-ux",
       "summary_prompt_version": "v6",
       "taxonomy_version": "t2"
     },
     "plugin87/ux-ui-agent-skills:.claude/skills/design-code/SKILL.md": {
       "excluded": null,
       "model": "claude-haiku-5-5",
-      "skill_md_hash": "ab22628abb8b25480bafea915f00e8d34e6bc30f",
+      "skill_md_hash": "24d61a43e4c52621452c14ee52250af84a09cc57",
       "subcategory": "frontend",
       "summary_prompt_version": "v6",
       "taxonomy_version": "t2"
@@ -122747,7 +123131,7 @@
     "plugin87/ux-ui-agent-skills:.claude/skills/design-component/SKILL.md": {
       "excluded": null,
       "model": "claude-haiku-5-5",
-      "skill_md_hash": "34ecf4789edd47baadaf0a851d60b51e7179928f",
+      "skill_md_hash": "773e3fb399b26ef514717f226b0a8e6b9ed5cf40",
       "subcategory": "ui-ux",
       "summary_prompt_version": "v6",
       "taxonomy_version": "t2"
@@ -122755,7 +123139,7 @@
     "plugin87/ux-ui-agent-skills:.claude/skills/design-doctrine/SKILL.md": {
       "excluded": null,
       "model": "claude-haiku-5-5",
-      "skill_md_hash": "4bc4ef2a0ede36f7db1e79ebf529cc1669763ea8",
+      "skill_md_hash": "c9e2bb8a0705ae5f41931d93bf111fce1ded7296",
       "subcategory": "ui-ux",
       "summary_prompt_version": "v6",
       "taxonomy_version": "t2"
@@ -122763,7 +123147,7 @@
     "plugin87/ux-ui-agent-skills:.claude/skills/design-qa/SKILL.md": {
       "excluded": null,
       "model": "claude-haiku-5-5",
-      "skill_md_hash": "7b2f5d79a89863f87f579d6f8cb53c82b7ef7657",
+      "skill_md_hash": "557057ee8ae9247b5e7f26f03a123ccdb4680909",
       "subcategory": "qa",
       "summary_prompt_version": "v6",
       "taxonomy_version": "t2"
@@ -122771,7 +123155,7 @@
     "plugin87/ux-ui-agent-skills:.claude/skills/design-review/SKILL.md": {
       "excluded": null,
       "model": "claude-haiku-5-5",
-      "skill_md_hash": "fb4e7d18c53af88d9538e027b523c72efd1f6219",
+      "skill_md_hash": "5943295cc7f30b1fbc7006ea01f2bad150d71446",
       "subcategory": "ui-ux",
       "summary_prompt_version": "v6",
       "taxonomy_version": "t2"
@@ -124299,7 +124683,7 @@
     "proffesor-for-testing/agentic-qe:.agents/skills/aqe-ruflo/SKILL.md": {
       "excluded": null,
       "model": "claude-haiku-5-5",
-      "skill_md_hash": "0d10ea3970a9a2072edfabc0cbd1b6fa8a6e1cbd",
+      "skill_md_hash": "d34c48562705963587453c423486eb8cf53121fa",
       "subcategory": "agent-operations",
       "summary_prompt_version": "v6",
       "taxonomy_version": "t2"
@@ -125819,7 +126203,7 @@
     "qixing-jk/all-api-hub:.agents/skills/live-extension-ui-automation/SKILL.md": {
       "excluded": null,
       "model": "claude-haiku-5-5",
-      "skill_md_hash": "50aaf0fcf52eaf6bb7c684e2768e26784db2a166",
+      "skill_md_hash": "fdede3ff2209b2d9912a462df3858c83371f75ff",
       "subcategory": "browser-testing",
       "summary_prompt_version": "v6",
       "taxonomy_version": "t2"
@@ -126563,8 +126947,8 @@
     "qybaihe/bla:.agents/skills/blind-llm-agents/SKILL.md": {
       "excluded": null,
       "model": "claude-haiku-5-5",
-      "skill_md_hash": "9002b46b36bcb9370a44149a09e202cb700785fa",
-      "subcategory": "security-review",
+      "skill_md_hash": "86eca0f6b97101544d9d0bba2c2771f9ad96b20d",
+      "subcategory": "auth",
       "summary_prompt_version": "v6",
       "taxonomy_version": "t2"
     },
@@ -126899,8 +127283,8 @@
     "railwayapp/railway-skills:plugins/railway/skills/use-railway/SKILL.md": {
       "excluded": null,
       "model": "claude-haiku-5-5",
-      "skill_md_hash": "d40f76a12a976abe7ba61434ef42888c15e40a83",
-      "subcategory": "infrastructure",
+      "skill_md_hash": "2530effa6c7e2d1ab6f5bd4b87d68ea58af3451f",
+      "subcategory": "deployment",
       "summary_prompt_version": "v6",
       "taxonomy_version": "t2"
     },
@@ -128843,7 +129227,7 @@
     "remotion-dev/skills:skills/remotion-best-practices/SKILL.md": {
       "excluded": null,
       "model": "claude-haiku-5-5",
-      "skill_md_hash": "630d15fd0702450d12ae54f77ce655e7b205085b",
+      "skill_md_hash": "d98da88d7eeb06070da695ebb9d29921384df8ac",
       "subcategory": "video",
       "summary_prompt_version": "v6",
       "taxonomy_version": "t2"
@@ -128851,7 +129235,7 @@
     "remotion-dev/skills:skills/remotion-captions/SKILL.md": {
       "excluded": null,
       "model": "claude-haiku-5-5",
-      "skill_md_hash": "1eeb9bffa8f88998b33c0788bb17e92eddd8e0b8",
+      "skill_md_hash": "19bc3a7225f8235a9330c7dd6eff6d40bcd8c64a",
       "subcategory": "video",
       "summary_prompt_version": "v6",
       "taxonomy_version": "t2"
@@ -128859,7 +129243,7 @@
     "remotion-dev/skills:skills/remotion-create/SKILL.md": {
       "excluded": null,
       "model": "claude-haiku-5-5",
-      "skill_md_hash": "7a4af628cee5c9687dd98fb48baf275f059a1c24",
+      "skill_md_hash": "6a10234e8a9e3274d353555d385362728bfc6575",
       "subcategory": "video",
       "summary_prompt_version": "v6",
       "taxonomy_version": "t2"
@@ -128867,15 +129251,15 @@
     "remotion-dev/skills:skills/remotion-docs/SKILL.md": {
       "excluded": null,
       "model": "claude-haiku-5-5",
-      "skill_md_hash": "e22cea3bc4c70ef80acdaa2a1d2f026eb4281daa",
-      "subcategory": "dev-tools",
+      "skill_md_hash": "b270f4df4f01d32ab5850d56bc8b8c3908340853",
+      "subcategory": "video",
       "summary_prompt_version": "v6",
       "taxonomy_version": "t2"
     },
     "remotion-dev/skills:skills/remotion-interactivity/SKILL.md": {
       "excluded": null,
       "model": "claude-haiku-5-5",
-      "skill_md_hash": "e684e5769a413644f0d1553a7412b237b9547f22",
+      "skill_md_hash": "96ec9a92f58b40d302173293fb553817beaef7af",
       "subcategory": "video",
       "summary_prompt_version": "v6",
       "taxonomy_version": "t2"
@@ -128883,15 +129267,15 @@
     "remotion-dev/skills:skills/remotion-license/SKILL.md": {
       "excluded": null,
       "model": "claude-haiku-5-5",
-      "skill_md_hash": "73356c0d48771c6260f55ebc961b6e6fc89f1c4f",
-      "subcategory": "contracts",
+      "skill_md_hash": "9b173cbbc939f9427310e52ed812ca7651eb601c",
+      "subcategory": "legal-work",
       "summary_prompt_version": "v6",
       "taxonomy_version": "t2"
     },
     "remotion-dev/skills:skills/remotion-maps/SKILL.md": {
       "excluded": null,
       "model": "claude-haiku-5-5",
-      "skill_md_hash": "95be386fa5696f4cd78299f6e2e7353bdbfeb444",
+      "skill_md_hash": "c5df676547e740d5a980931799d969272f8ae5f3",
       "subcategory": "video",
       "summary_prompt_version": "v6",
       "taxonomy_version": "t2"
@@ -128899,7 +129283,7 @@
     "remotion-dev/skills:skills/remotion-markup/SKILL.md": {
       "excluded": null,
       "model": "claude-haiku-5-5",
-      "skill_md_hash": "ab493959add7d6e4f732a84fa08f7477d2b736ed",
+      "skill_md_hash": "3542a6fabae4da1d9299932be9a88b5bd8f10b0e",
       "subcategory": "video",
       "summary_prompt_version": "v6",
       "taxonomy_version": "t2"
@@ -128907,7 +129291,7 @@
     "remotion-dev/skills:skills/remotion-multimedia/SKILL.md": {
       "excluded": null,
       "model": "claude-haiku-5-5",
-      "skill_md_hash": "a5bf838396cf668f6a4263455ceb0ba79034bd30",
+      "skill_md_hash": "d6f8d31c63974c1c26c1a435d03c6a723b60e154",
       "subcategory": "dev-tools",
       "summary_prompt_version": "v6",
       "taxonomy_version": "t2"
@@ -128915,7 +129299,7 @@
     "remotion-dev/skills:skills/remotion-render/SKILL.md": {
       "excluded": null,
       "model": "claude-haiku-5-5",
-      "skill_md_hash": "b8f93c935fc43ae4cc91bdc69b5e22ed5e499ed2",
+      "skill_md_hash": "68cd89e9c1c7604dc6039f2dd2ce842fb66e3a4c",
       "subcategory": "video",
       "summary_prompt_version": "v6",
       "taxonomy_version": "t2"
@@ -130835,7 +131219,7 @@
     "robthepcguy/claude-patent-creator:skills/epo-patent-search/SKILL.md": {
       "excluded": null,
       "model": "claude-haiku-5-5",
-      "skill_md_hash": "51a2b1c11b853469734641927b0e2841b8295b4d",
+      "skill_md_hash": "c78588b9efac7ca0a5d3d20e5944a51ec257c1a8",
       "subcategory": "web-research",
       "summary_prompt_version": "v6",
       "taxonomy_version": "t2"
@@ -135683,7 +136067,7 @@
     "seaworld008/commonly-used-high-value-skills:openclaw-skills/agent-browser/SKILL.md": {
       "excluded": null,
       "model": "claude-haiku-5-5",
-      "skill_md_hash": "af25d7e8656731ba09a66d605ad0d146fc79fe4b",
+      "skill_md_hash": "0b589013803058c2488d98eb1729e2abea5432f8",
       "subcategory": "browser-testing",
       "summary_prompt_version": "v6",
       "taxonomy_version": "t2"
@@ -137164,6 +137548,14 @@
       "excluded": null,
       "model": "claude-haiku-5-5",
       "skill_md_hash": "48839bff55f2a9629991dd20aaf6150f58315266",
+      "subcategory": "social-media",
+      "summary_prompt_version": "v6",
+      "taxonomy_version": "t2"
+    },
+    "sergebulaev/x-skills:.codex-marketplace/x-skills/skills/x-profile-optimizer/SKILL.md": {
+      "excluded": null,
+      "model": "claude-haiku-5-5",
+      "skill_md_hash": "11a10d2d9570a1d37b79fc8b181fed7ee126f2c9",
       "subcategory": "social-media",
       "summary_prompt_version": "v6",
       "taxonomy_version": "t2"
@@ -138835,7 +139227,7 @@
     "shoyann/rzk-the-hunter:SKILL.md": {
       "excluded": null,
       "model": "claude-haiku-5-5",
-      "skill_md_hash": "85fc1bedeae2dcb3483f735a6cbb9fa51057006a",
+      "skill_md_hash": "625517760a7b080c1f183404557d754c95ea823b",
       "subcategory": "web-research",
       "summary_prompt_version": "v6",
       "taxonomy_version": "t2"
@@ -139707,8 +140099,8 @@
     "singtaa/onejs:AI/Skills/onejs-setup-and-overview/SKILL.md": {
       "excluded": null,
       "model": "claude-haiku-5-5",
-      "skill_md_hash": "5e5bc38169f1bc1d939423d6519b98a6623bd23e",
-      "subcategory": "game-dev",
+      "skill_md_hash": "f20374f0031c6aa09e57ffb894a96df5588ed225",
+      "subcategory": "dev-tools",
       "summary_prompt_version": "v6",
       "taxonomy_version": "t2"
     },
@@ -140195,8 +140587,8 @@
     "skilld-dev/skilld:skills/skilld/SKILL.md": {
       "excluded": null,
       "model": "claude-haiku-5-5",
-      "skill_md_hash": "618318adac49bede342c194ce4b31a2b67f3e2c7",
-      "subcategory": "skill-authoring",
+      "skill_md_hash": "d7d2f47bc739152c9f69813b2256e455f67205b3",
+      "subcategory": "agent-operations",
       "summary_prompt_version": "v6",
       "taxonomy_version": "t2"
     },
@@ -146851,8 +147243,8 @@
     "swotatmk/infinite-creation:skills/h3-prompt-writing/SKILL.md": {
       "excluded": null,
       "model": "claude-haiku-5-5",
-      "skill_md_hash": "71f67602ccccf320f36a809114053d801bd145d7",
-      "subcategory": "ai-engineering",
+      "skill_md_hash": "0b10ae12078168562e1e799f4327e9703e6f0bd0",
+      "subcategory": "video",
       "summary_prompt_version": "v6",
       "taxonomy_version": "t2"
     },
@@ -149435,7 +149827,7 @@
     "tencentcloudbase/skills:skills/auth-tool-cloudbase/SKILL.md": {
       "excluded": null,
       "model": "claude-haiku-5-5",
-      "skill_md_hash": "c317ebdee4fa9dc4a674647c543337d560dd6c4f",
+      "skill_md_hash": "c068129880f7f0f16ebf8f5ff2aa97e57acb4a76",
       "subcategory": "auth",
       "summary_prompt_version": "v6",
       "taxonomy_version": "t2"
@@ -149443,7 +149835,7 @@
     "tencentcloudbase/skills:skills/auth-web-cloudbase/SKILL.md": {
       "excluded": null,
       "model": "claude-haiku-5-5",
-      "skill_md_hash": "c476604ecaa1404815ea7074cb874aff9d2f4fa0",
+      "skill_md_hash": "4e336f2344ff5f0e0080fdaea3463576ae4d0cba",
       "subcategory": "auth",
       "summary_prompt_version": "v6",
       "taxonomy_version": "t2"
@@ -149451,7 +149843,7 @@
     "tencentcloudbase/skills:skills/auth-wechat-miniprogram/SKILL.md": {
       "excluded": null,
       "model": "claude-haiku-5-5",
-      "skill_md_hash": "95d8d50c60643d4f0d76866248b99685525d4e11",
+      "skill_md_hash": "fe3f06c6c5097c548cda9ca0f40655fd353c585c",
       "subcategory": "auth",
       "summary_prompt_version": "v6",
       "taxonomy_version": "t2"
@@ -151072,6 +151464,14 @@
       "summary_prompt_version": "v6",
       "taxonomy_version": "t2"
     },
+    "therandomsecurityguy/signet:.cursor/skills/signet-registry/SKILL.md": {
+      "excluded": null,
+      "model": "claude-haiku-5-5",
+      "skill_md_hash": "c5bc87a2d357d0d24aa1d73ad2a0fc592e9b7efb",
+      "subcategory": "agent-operations",
+      "summary_prompt_version": "v6",
+      "taxonomy_version": "t2"
+    },
     "therayz1/antigravity-skills-rules-workflows:.agent/skills/frontend-glassmorphism/SKILL.md": {
       "excluded": null,
       "model": "claude-haiku-5-5",
@@ -151800,6 +152200,14 @@
       "summary_prompt_version": "v6",
       "taxonomy_version": "t2"
     },
+    "thu-sage/syll:syll/skills/morning-podcast/SKILL.md": {
+      "excluded": null,
+      "model": "claude-haiku-5-5",
+      "skill_md_hash": "1e1750bb70598fbd50935a59edda9ab6816865e2",
+      "subcategory": "speech",
+      "summary_prompt_version": "v6",
+      "taxonomy_version": "t2"
+    },
     "thumperl/claude-worktrace:skills/self-improve/SKILL.md": {
       "excluded": null,
       "model": "claude-haiku-5-5",
@@ -152389,6 +152797,14 @@
       "model": "claude-haiku-5-5",
       "skill_md_hash": "9841a0c63b2fa60635ef4353ce8c752cfd94e4a9",
       "subcategory": "dev-tools",
+      "summary_prompt_version": "v6",
+      "taxonomy_version": "t2"
+    },
+    "tipsai/product-seo:skills/product-seo/SKILL.md": {
+      "excluded": null,
+      "model": "claude-haiku-5-5",
+      "skill_md_hash": "5f2f1e657d098eed914183c5a6457f3a37dce4f8",
+      "subcategory": "seo",
       "summary_prompt_version": "v6",
       "taxonomy_version": "t2"
     },
@@ -153787,16 +154203,16 @@
     "tourmind-com/tourmind-booking-skills:skills/flight-booking-ai/SKILL.md": {
       "excluded": null,
       "model": "claude-haiku-5-5",
-      "skill_md_hash": "72425ad6591182ac68f3649abbbba65c61ed55cc",
-      "subcategory": "ecommerce",
+      "skill_md_hash": "9b1b705ba30c885a2cb5ca778d8b1db763bc15dd",
+      "subcategory": "lifestyle",
       "summary_prompt_version": "v6",
       "taxonomy_version": "t2"
     },
     "tourmind-com/tourmind-booking-skills:skills/tourmind-booking/SKILL.md": {
       "excluded": null,
       "model": "claude-haiku-5-5",
-      "skill_md_hash": "d5cccc7e0b398f6425cbdc33d28580157e2b9805",
-      "subcategory": "misc",
+      "skill_md_hash": "69f847f195094c2e89775b4a4e2c1afdf557b872",
+      "subcategory": "web-research",
       "summary_prompt_version": "v6",
       "taxonomy_version": "t2"
     },
@@ -154371,7 +154787,7 @@
     "treylom/prompt-engineering-skills:instructions/Gems-Prompt-Generator/SKILL.md": {
       "excluded": null,
       "model": "claude-haiku-5-5",
-      "skill_md_hash": "191f795a5376623bce6523d53db4db289abbd4c8",
+      "skill_md_hash": "ebb51996ccb3680b805ac82a86ec485ea022a9ff",
       "subcategory": "ai-engineering",
       "summary_prompt_version": "v6",
       "taxonomy_version": "t2"
@@ -154403,7 +154819,7 @@
     "treylom/prompt-engineering-skills:skills/gpt-5.6-prompt-enhancement/SKILL.md": {
       "excluded": null,
       "model": "claude-haiku-5-5",
-      "skill_md_hash": "136a6351b8e17e84cb9fcfb18e581fc5a59f830e",
+      "skill_md_hash": "e3ebb93cbf43254887204d6f36333d458f06baaa",
       "subcategory": "ai-engineering",
       "summary_prompt_version": "v6",
       "taxonomy_version": "t2"
@@ -156112,6 +156528,14 @@
       "summary_prompt_version": "v6",
       "taxonomy_version": "t2"
     },
+    "uipath/skills:skills/uipath-agents/SKILL.md": {
+      "excluded": null,
+      "model": "claude-haiku-5-5",
+      "skill_md_hash": "a6b745238d1eca3d0bebe22849383aaf71362503",
+      "subcategory": "ai-engineering",
+      "summary_prompt_version": "v6",
+      "taxonomy_version": "t2"
+    },
     "uipath/skills:skills/uipath-aops/SKILL.md": {
       "excluded": null,
       "model": "claude-haiku-5-5",
@@ -157755,7 +158179,7 @@
     "vanillagreencom/kendex:skills/code-quality/SKILL.md": {
       "excluded": null,
       "model": "claude-haiku-5-5",
-      "skill_md_hash": "09f761c1847313e21ea3118886291ac5cc2a9be6",
+      "skill_md_hash": "724f826efb908a27028c50c5bd126a40096ca6d7",
       "subcategory": "code-quality",
       "summary_prompt_version": "v6",
       "taxonomy_version": "t2"
@@ -158429,6 +158853,14 @@
       "model": "claude-haiku-5-5",
       "skill_md_hash": "9a310da7d5f08fab1ddc9c597c22680ef1855c05",
       "subcategory": "dev-tools",
+      "summary_prompt_version": "v6",
+      "taxonomy_version": "t2"
+    },
+    "vercel/vercel-plugin:skills/botid/SKILL.md": {
+      "excluded": null,
+      "model": "claude-haiku-5-5",
+      "skill_md_hash": "f1b9c4db52c9a997d73eb16b0bc921246a0e536a",
+      "subcategory": "security-review",
       "summary_prompt_version": "v6",
       "taxonomy_version": "t2"
     },
@@ -159651,7 +160083,7 @@
     "vladimir-human/humanizer-ru:skills/humanizer-ru/SKILL.md": {
       "excluded": null,
       "model": "claude-haiku-5-5",
-      "skill_md_hash": "dfb0e66040d8fc9dbf93369e8fd890b67b4fb3a9",
+      "skill_md_hash": "7234e849234b9050f667d1a8ba5d666ae54f1ccb",
       "subcategory": "editing",
       "summary_prompt_version": "v6",
       "taxonomy_version": "t2"
@@ -159683,7 +160115,7 @@
     "vladimir-human/ru-marketplace-mcp:skills/marketplace/SKILL.md": {
       "excluded": null,
       "model": "claude-haiku-5-5",
-      "skill_md_hash": "7e302285be8f87ea072e95ae957b6e7f014cb930",
+      "skill_md_hash": "2e1e42e1ac164daa8e3ba10a6f827549f94bbd9d",
       "subcategory": "mcp",
       "summary_prompt_version": "v6",
       "taxonomy_version": "t2"
@@ -159707,8 +160139,8 @@
     "vladimir-human/ru-marketplace-mcp:skills/ozon-connector/SKILL.md": {
       "excluded": null,
       "model": "claude-haiku-5-5",
-      "skill_md_hash": "4d6bb885bf959852df0a6d719ab638a9d6e92451",
-      "subcategory": "web-research",
+      "skill_md_hash": "8566222e4c1b406ef56cd7354f021c1881ef2617",
+      "subcategory": "market-research",
       "summary_prompt_version": "v6",
       "taxonomy_version": "t2"
     },
@@ -163139,7 +163571,7 @@
     "wiltodelta/remove-ai-watermarks:skills/remove-ai-watermarks/SKILL.md": {
       "excluded": null,
       "model": "claude-haiku-5-5",
-      "skill_md_hash": "8d0ab33d7e103ba694bf9a8bbf29dbbfdb5fc2d7",
+      "skill_md_hash": "8bad95daf93f41c7646d671975a28d9dfef71f62",
       "subcategory": "image",
       "summary_prompt_version": "v6",
       "taxonomy_version": "t2"
@@ -165984,6 +166416,14 @@
       "summary_prompt_version": "v6",
       "taxonomy_version": "t2"
     },
+    "xueshiqiao/hypercapslock:skills/hypercapslock/SKILL.md": {
+      "excluded": null,
+      "model": "claude-haiku-5-5",
+      "skill_md_hash": "2507b10bc8f3907d386e2c0ba51ad1e869de0dc5",
+      "subcategory": "automation",
+      "summary_prompt_version": "v6",
+      "taxonomy_version": "t2"
+    },
     "xuezheng627/daily-literature-digest-skill:daily-literature-digest/SKILL.md": {
       "excluded": null,
       "model": "claude-haiku-5-5",
@@ -168067,7 +168507,7 @@
     "yonatangross/orchestkit:src/skills/analytics/SKILL.md": {
       "excluded": null,
       "model": "claude-haiku-5-5",
-      "skill_md_hash": "cb044ea90fc9e18746e230e1e105547e9bef68bb",
+      "skill_md_hash": "f56b898bb1808e7f243b17b45777a321aadd0103",
       "subcategory": "agent-operations",
       "summary_prompt_version": "v6",
       "taxonomy_version": "t2"
@@ -172091,7 +172531,7 @@
     "zstvns/design-skills:skills/brand-strategy/SKILL.md": {
       "excluded": null,
       "model": "claude-haiku-5-5",
-      "skill_md_hash": "dabd024318669fcfcce9c811c677984f1adc0c08",
+      "skill_md_hash": "a7c817a5777581a036cb09535c2964fce8ab3ce8",
       "subcategory": "visual-design",
       "summary_prompt_version": "v6",
       "taxonomy_version": "t2"
