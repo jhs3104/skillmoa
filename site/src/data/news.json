@@ -2,62 +2,62 @@
   "risingRepositories": [
     {
       "fullName": "morluto/rea",
-      "stars": 468072,
-      "starsGained": 15982,
+      "stars": 468418,
+      "starsGained": 13479,
       "windowDays": 7
     },
     {
-      "fullName": "stablyai/orca",
-      "stars": 128780,
-      "starsGained": 6610,
-      "windowDays": 7
-    },
-    {
-      "fullName": "mattpocock/skills",
-      "stars": 327385,
-      "starsGained": 5642,
+      "fullName": "pingdotgg/t3code",
+      "stars": 65325,
+      "starsGained": 7153,
       "windowDays": 7
     },
     {
       "fullName": "elementalsouls/Claude-BugHunter",
-      "stars": 11151,
-      "starsGained": 5625,
+      "stars": 11438,
+      "starsGained": 5822,
       "windowDays": 7
     },
     {
-      "fullName": "cloudflare/security-audit-skill",
-      "stars": 75306,
-      "starsGained": 5245,
+      "fullName": "stablyai/orca",
+      "stars": 128983,
+      "starsGained": 5647,
+      "windowDays": 7
+    },
+    {
+      "fullName": "obra/superpowers",
+      "stars": 321374,
+      "starsGained": 4670,
       "windowDays": 7
     },
     {
       "fullName": "affaan-m/ECC",
-      "stars": 306390,
-      "starsGained": 5205,
+      "stars": 306581,
+      "starsGained": 4667,
+      "windowDays": 7
+    },
+    {
+      "fullName": "mattpocock/skills",
+      "stars": 327520,
+      "starsGained": 4625,
       "windowDays": 7
     },
     {
       "fullName": "DietrichGebert/ponytail",
-      "stars": 193952,
-      "starsGained": 5013,
+      "stars": 194098,
+      "starsGained": 4394,
+      "windowDays": 7
+    },
+    {
+      "fullName": "cloudflare/security-audit-skill",
+      "stars": 75407,
+      "starsGained": 4347,
       "windowDays": 7
     },
     {
       "fullName": "Leonxlnx/taste-skill",
-      "stars": 118354,
-      "starsGained": 4957,
-      "windowDays": 7
-    },
-    {
-      "fullName": "janestreet/agent_skills",
-      "stars": 10096,
-      "starsGained": 4781,
-      "windowDays": 7
-    },
-    {
-      "fullName": "pbakaus/impeccable",
-      "stars": 112836,
-      "starsGained": 4716,
+      "stars": 118478,
+      "starsGained": 4307,
       "windowDays": 7
     }
   ],
