@@ -2,6 +2,33 @@
   "schemaVersion": 1,
   "updates": [
     {
+      "date": "2026-11-20",
+      "highlights": [
+        "GPT-6.2 Sol과 Astra 모델을 카탈로그에 추가했고, 기본 선택은 Sol로 바꿨습니다.",
+        "TUI 워크스페이스를 기본으로 켰고, 문서·이미지 미리보기와 서브에이전트 기록을 대화와 함께 볼 수 있게 했습니다.",
+        "`codex exec --remote <ADDR>`를 추가해 기존 앱 서버에서 비대화형 세션을 시작하거나 이어서 실행할 수 있게 했습니다."
+      ],
+      "tool": "codex",
+      "url": "https://github.com/openai/codex/releases/tag/rust-v0.171.0",
+      "versions": [
+        "0.171.0"
+      ]
+    },
+    {
+      "date": "2026-11-19",
+      "highlights": [
+        "Claude Opus 4.6와 Sonnet 4.6에서 Amazon Bedrock, Google Cloud Agent Platform, Microsoft Foundry, Claude apps gateway를 쓸 때 자동 모드를 쓸 수 있게 했습니다.",
+        "MCP 도구 훅에 `\"onFailure\": \"block\"` 설정을 추가해, 호출이 실패하면 해당 작업을 막도록 했습니다.",
+        "`claude -p --resume`과 `--continue`가 훅으로 보류된 도구 호출을 실행하지 않도록 막는 `CLAUDE_CODE_DISABLE_DEFERRED_TOOL_RESUME` 환경 변수를 추가했습니다."
+      ],
+      "tool": "claude-code",
+      "url": "https://github.com/anthropics/claude-code/releases/tag/v2.1.329",
+      "versions": [
+        "2.1.328",
+        "2.1.329"
+      ]
+    },
+    {
       "date": "2026-11-18",
       "highlights": [
         "TUI에서 실시간 음성 통화를 위한 WebRTC 연결 협상을 지원합니다.",
