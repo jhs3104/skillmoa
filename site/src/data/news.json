@@ -2,62 +2,62 @@
   "risingRepositories": [
     {
       "fullName": "morluto/rea",
-      "stars": 469820,
-      "starsGained": 14881,
+      "stars": 470113,
+      "starsGained": 12800,
       "windowDays": 7
     },
     {
       "fullName": "pingdotgg/t3code",
-      "stars": 66280,
-      "starsGained": 8108,
+      "stars": 66511,
+      "starsGained": 7090,
       "windowDays": 7
     },
     {
       "fullName": "elementalsouls/Claude-BugHunter",
-      "stars": 12316,
-      "starsGained": 6700,
+      "stars": 12628,
+      "starsGained": 6912,
       "windowDays": 7
     },
     {
       "fullName": "stablyai/orca",
-      "stars": 129771,
-      "starsGained": 6435,
-      "windowDays": 7
-    },
-    {
-      "fullName": "affaan-m/ECC",
-      "stars": 307193,
-      "starsGained": 5279,
+      "stars": 129971,
+      "starsGained": 5663,
       "windowDays": 7
     },
     {
       "fullName": "obra/superpowers",
-      "stars": 321975,
-      "starsGained": 5271,
+      "stars": 322140,
+      "starsGained": 4961,
       "windowDays": 7
     },
     {
-      "fullName": "mattpocock/skills",
-      "stars": 328078,
-      "starsGained": 5183,
+      "fullName": "affaan-m/ECC",
+      "stars": 307323,
+      "starsGained": 4938,
       "windowDays": 7
     },
     {
       "fullName": "DietrichGebert/ponytail",
-      "stars": 194768,
-      "starsGained": 5064,
+      "stars": 194892,
+      "starsGained": 4606,
+      "windowDays": 7
+    },
+    {
+      "fullName": "mattpocock/skills",
+      "stars": 328193,
+      "starsGained": 4473,
       "windowDays": 7
     },
     {
       "fullName": "cloudflare/security-audit-skill",
-      "stars": 75782,
-      "starsGained": 4722,
+      "stars": 75872,
+      "starsGained": 4085,
       "windowDays": 7
     },
     {
-      "fullName": "Leonxlnx/taste-skill",
-      "stars": 118859,
-      "starsGained": 4688,
+      "fullName": "pbakaus/impeccable",
+      "stars": 113516,
+      "starsGained": 4035,
       "windowDays": 7
     }
   ],
