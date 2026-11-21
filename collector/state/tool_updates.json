@@ -1,7 +1,7 @@
 {
   "tool_news_usage": {
-    "calls": 2,
-    "day": "2026-11-20"
+    "calls": 1,
+    "day": "2026-11-21"
   },
   "tool_updates": {
     "claude-code:2026-10-05": {
@@ -450,6 +450,22 @@
       "versions": [
         "2.1.328",
         "2.1.329"
+      ]
+    },
+    "claude-code:2026-11-20": {
+      "day": "2026-11-20",
+      "highlights": [
+        "Enterprise Admin Console 조직에 로그인하면 조직 설정과 클라우드 제공자 또는 게이트웨이가 자동으로 적용되도록 추가했습니다.",
+        "Pro·Max 등에서 차트를 그려주는 내장 mod easel을 추가했으며, `/config`에서 자동 차트를 끌 수 있습니다.",
+        "여러 MCP 도구의 입력 스키마를 API가 거부할 때 턴이 실패하고 세션 파일이 커지던 문제를 고쳤습니다."
+      ],
+      "model": "claude-haiku-5-5",
+      "prompt_version": "n1",
+      "source_hash": "e01e8faa940c2234c955353725f6b4df2a7680b9b1e5f4a2c9e48d296ea0c6d5",
+      "tool": "claude-code",
+      "url": "https://github.com/anthropics/claude-code/releases/tag/v2.1.330",
+      "versions": [
+        "2.1.330"
       ]
     },
     "codex:2026-10-15": {
