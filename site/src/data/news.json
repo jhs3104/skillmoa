@@ -2,62 +2,62 @@
   "risingRepositories": [
     {
       "fullName": "morluto/rea",
-      "stars": 472586,
-      "starsGained": 12856,
+      "stars": 472818,
+      "starsGained": 10964,
       "windowDays": 7
     },
     {
       "fullName": "elementalsouls/Claude-BugHunter",
-      "stars": 15705,
-      "starsGained": 9870,
+      "stars": 16094,
+      "starsGained": 9738,
       "windowDays": 7
     },
     {
       "fullName": "pingdotgg/t3code",
-      "stars": 69271,
-      "starsGained": 8737,
+      "stars": 69581,
+      "starsGained": 8108,
       "windowDays": 7
     },
     {
       "fullName": "stablyai/orca",
-      "stars": 131829,
-      "starsGained": 6822,
+      "stars": 132015,
+      "starsGained": 6294,
       "windowDays": 7
     },
     {
       "fullName": "obra/superpowers",
-      "stars": 323589,
-      "starsGained": 5966,
+      "stars": 323738,
+      "starsGained": 5685,
       "windowDays": 7
     },
     {
       "fullName": "DietrichGebert/ponytail",
-      "stars": 196233,
-      "starsGained": 5354,
-      "windowDays": 7
-    },
-    {
-      "fullName": "affaan-m/ECC",
-      "stars": 308263,
-      "starsGained": 5256,
-      "windowDays": 7
-    },
-    {
-      "fullName": "mattpocock/skills",
-      "stars": 329650,
-      "starsGained": 5196,
+      "stars": 196389,
+      "starsGained": 4968,
       "windowDays": 7
     },
     {
       "fullName": "nexu-io/openmotion",
-      "stars": 14608,
-      "starsGained": 4661,
+      "stars": 14726,
+      "starsGained": 4728,
       "windowDays": 7
     },
     {
-      "fullName": "pbakaus/impeccable",
-      "stars": 114454,
-      "starsGained": 4275,
+      "fullName": "mattpocock/skills",
+      "stars": 329790,
+      "starsGained": 4664,
+      "windowDays": 7
+    },
+    {
+      "fullName": "affaan-m/ECC",
+      "stars": 308388,
+      "starsGained": 4579,
+      "windowDays": 7
+    },
+    {
+      "fullName": "mvanhorn/last30days-skill",
+      "stars": 72015,
+      "starsGained": 4241,
       "windowDays": 7
     }
   ],
