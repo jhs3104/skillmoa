@@ -1,63 +1,63 @@
 {
   "risingRepositories": [
     {
-      "fullName": "morluto/rea",
-      "stars": 473882,
-      "starsGained": 12028,
+      "fullName": "elementalsouls/Claude-BugHunter",
+      "stars": 17890,
+      "starsGained": 10633,
       "windowDays": 7
     },
     {
-      "fullName": "elementalsouls/Claude-BugHunter",
-      "stars": 17455,
-      "starsGained": 11099,
+      "fullName": "morluto/rea",
+      "stars": 474155,
+      "starsGained": 10372,
       "windowDays": 7
     },
     {
       "fullName": "pingdotgg/t3code",
-      "stars": 71336,
-      "starsGained": 9863,
+      "stars": 71764,
+      "starsGained": 9165,
       "windowDays": 7
     },
     {
       "fullName": "stablyai/orca",
-      "stars": 132836,
-      "starsGained": 7115,
+      "stars": 133073,
+      "starsGained": 6421,
       "windowDays": 7
     },
     {
       "fullName": "obra/superpowers",
-      "stars": 324041,
-      "starsGained": 5988,
-      "windowDays": 7
-    },
-    {
-      "fullName": "DietrichGebert/ponytail",
-      "stars": 196798,
-      "starsGained": 5377,
-      "windowDays": 7
-    },
-    {
-      "fullName": "mattpocock/skills",
-      "stars": 330354,
-      "starsGained": 5228,
+      "stars": 324194,
+      "starsGained": 5573,
       "windowDays": 7
     },
     {
       "fullName": "nexu-io/openmotion",
-      "stars": 15222,
-      "starsGained": 5224,
+      "stars": 15354,
+      "starsGained": 5298,
       "windowDays": 7
     },
     {
-      "fullName": "affaan-m/ECC",
-      "stars": 308889,
-      "starsGained": 5080,
+      "fullName": "DietrichGebert/ponytail",
+      "stars": 196912,
+      "starsGained": 4860,
       "windowDays": 7
     },
     {
       "fullName": "mvanhorn/last30days-skill",
-      "stars": 72600,
-      "starsGained": 4826,
+      "stars": 72758,
+      "starsGained": 4740,
+      "windowDays": 7
+    },
+    {
+      "fullName": "mattpocock/skills",
+      "stars": 330531,
+      "starsGained": 4678,
+      "windowDays": 7
+    },
+    {
+      "fullName": "affaan-m/ECC",
+      "stars": 309047,
+      "starsGained": 4574,
       "windowDays": 7
     }
   ],
