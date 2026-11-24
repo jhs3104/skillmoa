@@ -1,63 +1,63 @@
 {
   "risingRepositories": [
     {
-      "fullName": "elementalsouls/Claude-BugHunter",
-      "stars": 19868,
-      "starsGained": 11316,
+      "fullName": "pingdotgg/t3code",
+      "stars": 76621,
+      "starsGained": 12855,
       "windowDays": 7
     },
     {
-      "fullName": "pingdotgg/t3code",
-      "stars": 74954,
-      "starsGained": 11188,
+      "fullName": "elementalsouls/Claude-BugHunter",
+      "stars": 20781,
+      "starsGained": 12229,
       "windowDays": 7
     },
     {
       "fullName": "morluto/rea",
-      "stars": 475682,
-      "starsGained": 10016,
+      "stars": 476510,
+      "starsGained": 10844,
       "windowDays": 7
     },
     {
       "fullName": "stablyai/orca",
-      "stars": 134605,
-      "starsGained": 7058,
+      "stars": 135454,
+      "starsGained": 7907,
       "windowDays": 7
     },
     {
       "fullName": "obra/superpowers",
-      "stars": 325129,
-      "starsGained": 6043,
-      "windowDays": 7
-    },
-    {
-      "fullName": "nexu-io/openmotion",
-      "stars": 15739,
-      "starsGained": 5102,
+      "stars": 325609,
+      "starsGained": 6523,
       "windowDays": 7
     },
     {
       "fullName": "mattpocock/skills",
-      "stars": 331444,
-      "starsGained": 4917,
+      "stars": 331885,
+      "starsGained": 5358,
       "windowDays": 7
     },
     {
-      "fullName": "DietrichGebert/ponytail",
-      "stars": 197547,
-      "starsGained": 4795,
+      "fullName": "nexu-io/openmotion",
+      "stars": 15920,
+      "starsGained": 5283,
       "windowDays": 7
     },
     {
       "fullName": "mvanhorn/last30days-skill",
-      "stars": 73476,
-      "starsGained": 4740,
+      "stars": 73859,
+      "starsGained": 5123,
       "windowDays": 7
     },
     {
-      "fullName": "affaan-m/ECC",
-      "stars": 309604,
-      "starsGained": 4442,
+      "fullName": "DietrichGebert/ponytail",
+      "stars": 197834,
+      "starsGained": 5082,
+      "windowDays": 7
+    },
+    {
+      "fullName": "mjmirza/app-store-compliance",
+      "stars": 5476,
+      "starsGained": 4808,
       "windowDays": 7
     }
   ],
