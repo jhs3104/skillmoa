@@ -1,7 +1,7 @@
 {
   "tool_news_usage": {
-    "calls": 0,
-    "day": "2026-11-23"
+    "calls": 2,
+    "day": "2026-11-24"
   },
   "tool_updates": {
     "claude-code:2026-10-05": {
@@ -468,6 +468,22 @@
         "2.1.330"
       ]
     },
+    "claude-code:2026-11-23": {
+      "day": "2026-11-23",
+      "highlights": [
+        "Amazon Bedrock, Google Cloud, Microsoft Foundry, Claude Platform on AWS 터미널 세션에서 Code Mode를 쓸 수 있게 했습니다.",
+        "플러그인 매니페스트에 optionalDependencies를 추가해, 의존하는 플러그인을 따로 끄거나 제거할 수 있게 했습니다.",
+        "MCP 도구 호출이 일부 잘못된 응답에서 최대 30분 멈추던 문제를 고쳤습니다."
+      ],
+      "model": "claude-haiku-5-5",
+      "prompt_version": "n1",
+      "source_hash": "d3178802df64f7aac0f695dae504615ca31f9a5fff9c0159d5f3ce4536242bee",
+      "tool": "claude-code",
+      "url": "https://github.com/anthropics/claude-code/releases/tag/v2.1.331",
+      "versions": [
+        "2.1.331"
+      ]
+    },
     "codex:2026-10-15": {
       "day": "2026-10-15",
       "highlights": [
@@ -634,6 +650,22 @@
       "url": "https://github.com/openai/codex/releases/tag/rust-v0.171.0",
       "versions": [
         "0.171.0"
+      ]
+    },
+    "codex:2026-11-24": {
+      "day": "2026-11-24",
+      "highlights": [
+        "Tab 키로 `/mcp lo`처럼 슬래시 명령어의 인자를 자동 완성할 수 있게 되었습니다.",
+        "`config.toml`에서 연결된 앱 도구별로 승인 검토자를 지정할 수 있게 되었습니다.",
+        "캐시된 도구 목록이 있는 stdio MCP 서버는 이제 기본적으로 첫 도구 호출 시점에 시작됩니다."
+      ],
+      "model": "claude-haiku-5-5",
+      "prompt_version": "n1",
+      "source_hash": "55ebe001d893a35b358a2f903909555b5f4c44cd5161886d5ce7a141c0eda153",
+      "tool": "codex",
+      "url": "https://github.com/openai/codex/releases/tag/rust-v0.172.0",
+      "versions": [
+        "0.172.0"
       ]
     },
     "cursor:2026-10-06": {
