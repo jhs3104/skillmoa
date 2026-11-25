@@ -2,6 +2,19 @@
   "schemaVersion": 1,
   "updates": [
     {
+      "date": "2026-11-25",
+      "highlights": [
+        "MCP 서버가 제공하는 스킬을 베타로 추가했습니다. `/` 메뉴에서 `server:skill` 형태로 보입니다.",
+        "스킬이나 명령이 로드될 때 인라인 셸 명령을 거부할 수 있는 `PreSkillShellCommand` 훅 이벤트를 추가했습니다.",
+        "`claude auth login`이 claude.ai 로그인을 저장하지 못했는데도 성공 메시지를 띄우던 문제를 고쳤습니다. 이제 종료 코드 1과 함께 확인할 항목을 알려줍니다."
+      ],
+      "tool": "claude-code",
+      "url": "https://github.com/anthropics/claude-code/releases/tag/v2.1.332",
+      "versions": [
+        "2.1.332"
+      ]
+    },
+    {
       "date": "2026-11-24",
       "highlights": [
         "Tab 키로 `/mcp lo`처럼 슬래시 명령어의 인자를 자동 완성할 수 있게 되었습니다.",
