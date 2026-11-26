@@ -2,62 +2,62 @@
   "risingRepositories": [
     {
       "fullName": "pingdotgg/t3code",
-      "stars": 79681,
-      "starsGained": 13401,
+      "stars": 80615,
+      "starsGained": 14335,
       "windowDays": 7
     },
     {
       "fullName": "elementalsouls/Claude-BugHunter",
-      "stars": 23189,
-      "starsGained": 10873,
-      "windowDays": 7
-    },
-    {
-      "fullName": "morluto/rea",
-      "stars": 478626,
-      "starsGained": 8806,
+      "stars": 24146,
+      "starsGained": 11830,
       "windowDays": 7
     },
     {
       "fullName": "stablyai/orca",
-      "stars": 138424,
-      "starsGained": 8653,
+      "stars": 140013,
+      "starsGained": 10242,
+      "windowDays": 7
+    },
+    {
+      "fullName": "morluto/rea",
+      "stars": 479466,
+      "starsGained": 9646,
       "windowDays": 7
     },
     {
       "fullName": "mattpocock/skills",
-      "stars": 332992,
-      "starsGained": 4914,
-      "windowDays": 7
-    },
-    {
-      "fullName": "mjmirza/app-store-compliance",
-      "stars": 6556,
-      "starsGained": 4819,
+      "stars": 333442,
+      "starsGained": 5364,
       "windowDays": 7
     },
     {
       "fullName": "obra/superpowers",
-      "stars": 326718,
-      "starsGained": 4743,
+      "stars": 327231,
+      "starsGained": 5256,
       "windowDays": 7
     },
     {
-      "fullName": "erkamyaman/rust-anything",
-      "stars": 9663,
-      "starsGained": 4663,
+      "fullName": "mjmirza/app-store-compliance",
+      "stars": 6888,
+      "starsGained": 5151,
       "windowDays": 7
     },
     {
       "fullName": "cathrynlavery/diagram-design",
-      "stars": 73164,
-      "starsGained": 4615,
+      "stars": 73668,
+      "starsGained": 5119,
+      "windowDays": 7
+    },
+    {
+      "fullName": "erkamyaman/rust-anything",
+      "stars": 10009,
+      "starsGained": 5009,
       "windowDays": 7
     },
     {
       "fullName": "mvanhorn/last30days-skill",
-      "stars": 75205,
-      "starsGained": 4493,
+      "stars": 75585,
+      "starsGained": 4873,
       "windowDays": 7
     }
   ],
