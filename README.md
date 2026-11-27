@@ -65,7 +65,12 @@ docs/adr/    설계 결정 기록
 | 상태와 결과를 JSON으로 커밋 | 러너가 초기화되어도 증분 수집이 이어지고, 데이터 변경이 커밋으로 추적된다 | [ADR-0002](docs/adr/0002-json-commit-and-state-files.md) |
 | 저장소 스타를 감쇠와 상한으로 순위화 | 스타는 저장소 단위라, 큰 모음 저장소가 상위를 독점하는 것을 막아야 한다 | [ADR-0003](docs/adr/0003-ranking-with-repository-stars.md) |
 | 자연어 추천을 인터페이스로 분리하고 KV로 비용 제한 | 300개 규모에는 단순한 방식이 맞고, 커지면 임베딩으로 교체할 수 있다 | [ADR-0004](docs/adr/0004-natural-language-recommendation.md) |
-| AI 찾기를 홈 맨 위에서 별도 페이지로 분리 | 비용이 드는 호출이 첫 동작이 되면 하루 상한이 단순 탐색에 소진된다 | [ADR-0005](docs/adr/0005-separate-ai-search-page.md) |
+| AI 표시마다 원문 근거 구절을 요구 | 요약 10개를 원문과 대조하니 2개만 통과했다. 근거가 원문에 없으면 다시 요청한다 | [ADR-0010](docs/adr/0010-evidence-backed-flags.md) |
+| 분류를 요약과 다른 호출로 분리 | 요약 978개 검수에서 분류의 9%가 틀렸다. 기준을 고쳐도 요약을 다시 만들지 않는다 | [ADR-0018](docs/adr/0018-classify-separately-from-summary.md) |
+| 실행 전체에 마감을 두고 코드 검색 전수 조회를 중단 | SKILL.md 722만 개는 분당 10회 한도로 읽을 수 없어 수집이 6회 연속 실패했다 | [ADR-0013](docs/adr/0013-frequent-collection.md) |
+| 새 저장소를 스타순 저장소 검색으로 발견 | 상위 19,000개만 싣으므로 전부 훑을 필요가 없다. 실측 15.5분에 22,661개를 찾았다 | [ADR-0023](docs/adr/0023-discover-by-repository-search.md) |
+
+전체 23개와 쓰는 규칙은 [docs/adr/README.md](docs/adr/README.md)에 있습니다.
 
 구현에서 특히 신경 쓴 부분은 다음과 같습니다.
 

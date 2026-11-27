@@ -36,7 +36,14 @@ Claude Code / Codex / Cursor 등에서 쓰는 SKILL.md 기반 스킬을 한국�
 - `.github/workflows/`: collector 3시간마다 실행 → JSON 커밋 → Cloudflare 자동 재배포
   - `tool-news.yml`: 소식 페이지의 도구 업데이트만 6시간마다 따로 수집한다 (ADR-0022). 스킬 수집과 서로 다른 파일만 커밋한다.
 - `docs/data-flow.md`: 파이프라인 흐름과 파일별 소유자
-- `docs/adr/`: 설계 결정 기록
+- `docs/adr/`: 설계 결정 기록. 색인과 쓰는 규칙은 `docs/adr/README.md`
+
+## ADR
+
+- 새 기록은 `docs/adr/template.md`에서 시작한다 (Nygard 형식에 `검토한 대안` 표를 더한 것).
+- 채택된 기록의 본문은 고치지 않는다. 결정이 바뀌면 새 번호로 쓰고, 옛 기록은 상태 줄만 `ADR-NNNN으로 대체`로 바꾼다.
+- 맥락과 결과에는 잰 숫자를 쓴다. 재지 않은 값은 예상이라고 밝힌다.
+- 기록을 더하거나 상태를 바꾸면 `docs/adr/README.md`의 목록도 고친다.
 
 ## 인프라
 
