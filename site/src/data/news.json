@@ -2,62 +2,62 @@
   "risingRepositories": [
     {
       "fullName": "pingdotgg/t3code",
-      "stars": 80615,
-      "starsGained": 14335,
+      "stars": 81010,
+      "starsGained": 13364,
       "windowDays": 7
     },
     {
       "fullName": "elementalsouls/Claude-BugHunter",
-      "stars": 24146,
-      "starsGained": 11830,
+      "stars": 24654,
+      "starsGained": 10687,
       "windowDays": 7
     },
     {
       "fullName": "stablyai/orca",
-      "stars": 140013,
-      "starsGained": 10242,
+      "stars": 140522,
+      "starsGained": 9624,
       "windowDays": 7
     },
     {
       "fullName": "morluto/rea",
-      "stars": 479466,
-      "starsGained": 9646,
+      "stars": 479827,
+      "starsGained": 8496,
       "windowDays": 7
     },
     {
       "fullName": "mattpocock/skills",
-      "stars": 333442,
-      "starsGained": 5364,
+      "stars": 333625,
+      "starsGained": 4841,
       "windowDays": 7
     },
     {
       "fullName": "obra/superpowers",
-      "stars": 327231,
-      "starsGained": 5256,
-      "windowDays": 7
-    },
-    {
-      "fullName": "mjmirza/app-store-compliance",
-      "stars": 6888,
-      "starsGained": 5151,
+      "stars": 327524,
+      "starsGained": 4773,
       "windowDays": 7
     },
     {
       "fullName": "cathrynlavery/diagram-design",
-      "stars": 73668,
-      "starsGained": 5119,
+      "stars": 73871,
+      "starsGained": 4661,
       "windowDays": 7
     },
     {
-      "fullName": "erkamyaman/rust-anything",
-      "stars": 10009,
-      "starsGained": 5009,
+      "fullName": "mjmirza/app-store-compliance",
+      "stars": 7050,
+      "starsGained": 4419,
       "windowDays": 7
     },
     {
       "fullName": "mvanhorn/last30days-skill",
-      "stars": 75585,
-      "starsGained": 4873,
+      "stars": 75779,
+      "starsGained": 4410,
+      "windowDays": 7
+    },
+    {
+      "fullName": "DietrichGebert/ponytail",
+      "stars": 199385,
+      "starsGained": 3875,
       "windowDays": 7
     }
   ],
